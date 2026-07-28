@@ -1,9 +1,9 @@
 # MadMike
 
-Dokumentace provozované infrastruktury MadMike.
+Kapitola dokumentace provozované infrastruktury MadMike.
 
-## Oblasti
+## Projekty
 
 - [Monitoring](Monitoring/README.md) – dohled nad Proxmoxem, PBS, MikroTiky a dostupností služeb; návrh společných Telegram notifikací.
 
-Další oblasti se přidají až při zahájení konkrétní práce. Tento soubor slouží jen jako rozcestník.
+Další projekt se přidá až při zahájení konkrétní práce. Tento soubor slouží jako rozcestník kapitoly.
