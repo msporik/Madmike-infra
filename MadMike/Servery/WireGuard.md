@@ -11,7 +11,7 @@ Tento dokument neeviduje privátní klíče, preshared keys ani jiné tajné hod
 | Propojení | Stav | Známý účel a směrování |
 |---|---|---|
 | HOME ↔ PBS / Richard | funguje | Přístup mezi HOME a serverovou sítí `192.168.100.0/24` |
-| HOME ↔ Honza | funguje | Přístup mezi lokalitami; přesné živé WG adresy a vzdálený LAN rozsah ověřit |
+| HOME ↔ Honza | funguje | HOME `10.200.0.1`, Honza `10.200.0.3`; vzdálená LAN `192.168.10.0/24` |
 | HOME ↔ RD Švecovi | funguje | Dříve označováno také jako `SEF`; přesné živé WG adresy a vzdálený LAN rozsah ověřit |
 | notebook ↔ HOME | funguje | Přístup k `192.168.89.0/24` a `192.168.100.0/24` |
 
@@ -34,9 +34,19 @@ Přes tunel HOME ↔ PBS / Richard jsou z HOME dostupné zejména:
 
 NPM na `192.168.89.35` používá tuto trasu pro upstreamy `pvedell.mikehub.cz` a `pbs.mikehub.cz`.
 
+## Lokalita Honza
+
+- místní LAN: `192.168.10.0/24`;
+- místní router a brána: `192.168.10.1`;
+- WG adresa HOME: `10.200.0.1`;
+- WG adresa Honza: `10.200.0.3`;
+- propojení i vzdálený WinBox byly prakticky ověřené.
+
+Podrobnosti místní sítě jsou v [Honza / Síť](../../Honza/Sit/README.md).
+
 ## Návrh adresace tunelů
 
-Předběžný návrh společné site-to-site WG sítě `10.200.0.0/24` je vedený v [adresním plánu](../Sit/Adresni-plan.md). Jde o návrh, nikoli o potvrzení současných živých WG adres všech peerů.
+Předběžný návrh společné site-to-site WG sítě `10.200.0.0/24` je vedený v [adresním plánu](../Sit/Adresni-plan.md). Adresy HOME a Honza jsou potvrzené; ostatní adresy zůstávají návrhem, dokud je nepotvrdí živá konfigurace.
 
 ## Starý IPsec
 
@@ -46,7 +56,7 @@ IPsec byl v minulosti zkoušený k Honzovi a k RD Švecovi. Měl by být odstran
 
 1. Vypsat na RB5009 všechny aktivní WG peery, jejich WG adresy, `allowed-address` a routy.
 2. Ověřit, zda kromě čtyř známých propojení neexistuje další aktivní WireGuard tunel.
-3. Ověřit přesné vzdálené LAN rozsahy Honzy a RD Švecových.
+3. Ověřit přesný vzdálený LAN rozsah a živé WG adresy RD Švecových.
 4. Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových.
 5. Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.
 6. Ověřit DNS `192.168.89.1` v notebookovém WireGuard profilu.
