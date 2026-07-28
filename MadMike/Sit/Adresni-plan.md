@@ -16,6 +16,14 @@ Dokument odděluje současné potvrzené rozsahy od předběžného cílového n
 
 Rozsahy dalších lokalit se doplní až po kontrole živých routerů.
 
+## Známé historické nebo neověřené rozsahy
+
+| Lokalita | Rozsah | Stav |
+|---|---|---|
+| Rybníky – Amerika | `192.168.22.0/24` | doložený ve starší konfiguraci hEX S; současný živý stav není potvrzený |
+
+Podrobnosti k historické adresaci Rybníků jsou v [Rybníky – Amerika / Síť / Topologie](../../Rybniky-Amerika/Sit/Topologie.md). Tento rozsah se nesmí považovat za současně aktivní ani za schválený cílový rozsah bez kontroly živé konfigurace.
+
 ## Cílový princip
 
 Navržený formát adresy:
