@@ -23,6 +23,18 @@ Nginx Proxy Manager zajišťuje jednotný HTTPS přístup k webovým rozhraním.
 
 Přístupy jsou určené pro interní síť nebo VPN.
 
+## Aktuální rozhodnutí o nástrojích
+
+Používaný monitoring tvoří Pulse, Mikr Manager a Uptime Kuma. Telegram bude jejich společným cílem pro vybrané notifikace.
+
+Dříve zkoušené nástroje už nejsou součástí provozního stacku:
+
+- Checkmk byl odstraněn;
+- Zabbix byl odstraněn včetně agentů;
+- Beszel a CoreBit byly odstraněny při konsolidaci monitoringu.
+
+Tyto nástroje se zachovávají pouze jako historie rozhodování, ne jako otevření kandidáti k nasazení.
+
 ## Principy
 
 - Jeden problém má mít jedno hlavní místo detekce.
