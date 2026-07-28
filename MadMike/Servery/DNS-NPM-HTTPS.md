@@ -17,7 +17,7 @@ Tyto administrační a monitorovací služby nejsou veřejně publikované. Z do
 
 - DNS pro domácí síť poskytuje RB5009 na `192.168.89.1`.
 - Statický wildcard `*.mikehub.cz` směřuje na NPM `192.168.89.35`.
-- `valtom.mikehub.cz` je výjimka a zůstává směrovaný veřejným DNS mimo interní NPM.
+- `valtom.mikehub.cz` je výjimka a zůstává směrovaný veřejným DNS mimo interní NPM. Podrobnosti jsou v [HA ValTom / Home Assistant / Nasazení a přístup](../../HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md).
 - Funkce wildcardu byla prakticky ověřena mimo jiné na `pveryzen.mikehub.cz`.
 
 AdGuard není autoritativním místem pro tyto interní překlady. Slouží odděleně k filtrování reklam.
