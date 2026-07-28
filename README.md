@@ -25,6 +25,7 @@ Příklad: `MadMike/Monitoring/Mikr.md`.
 - [MadMike](MadMike/README.md) – provozovaná infrastruktura a jednotlivé projekty.
 - [Vernířovice](Vernirovice/README.md) – místní Home Assistant, BESS, FVE a řízení energie.
 - [Honza](Honza/README.md) – místní Home Assistant, chytrá domácnost a síť.
+- [HA ValTom](HA-ValTom/README.md) – připravený HA Green pro Tomáše Valentu, vzdálený přístup a budoucí GoodWe energetika.
 - [Rybníky – Amerika](Rybniky-Amerika/README.md) – místní síť a její postupná konsolidace.
 
 ## Zásady
