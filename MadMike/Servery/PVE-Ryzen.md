@@ -37,6 +37,8 @@ Není zatím ověřené, zda je `tank-nas-zfs` starší storage ID odkazující 
 
 RDP je aktuálně publikované do internetu přes MikroTik. Přesné současné pravidlo je potřeba ověřit. Cílové řešení má odstranit přímé veřejné RDP, ale zachovat co nejjednodušší přístup pro externí účetní.
 
+Podrobná provozní dokumentace služby je v projektu [PREMIER](../Premier/README.md).
+
 ### Ryzen / VM510 – Monitoring
 
 Monitorovací VM provozuje zejména:
