@@ -23,7 +23,7 @@ Obecný adresní plán a MikroTik infrastruktura patří do projektu [Síť](../
 - VMID se vždy uvádí společně s hostitelem. Stejné VMID může existovat na Ryzenu i Dellu a nemusí mít stejnou roli.
 - Produkční VM, migrační testy a testovací obnovy se důsledně rozlišují.
 - Vypnutá VM se neoznačuje jako nepotřebná bez ověření jejího původu a účelu.
-- Zálohy a DR jsou zde popsané jen v rozsahu nutném k vysvětlení role serveru; detailní politika záloh bude samostatný projekt až při její konsolidaci.
+- Zálohy a DR jsou zde popsané jen v rozsahu nutném k vysvětlení role serveru; autoritativní dokumentace je v projektu [Zálohy](../Zalohy/README.md).
 - Interní IP adresy a směrování mohou být evidované, ale hesla, tokeny a klíče se do dokumentace neukládají.
 
 ## Otevřené kontroly
