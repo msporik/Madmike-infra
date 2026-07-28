@@ -20,6 +20,8 @@ Podrobnosti fyzických hostů jsou v projektu [Servery](../Servery/README.md). S
 - Obnova z PBS byla úspěšná.
 - Po spuštění fungovaly Apache, MariaDB, Nextcloud i přístup k datům.
 
+Podrobný provozní přehled služby je v projektu [Nextcloud](../Nextcloud/README.md).
+
 ### Windows a PREMIER
 
 - Produkční zdroj: Ryzen / VM501.
