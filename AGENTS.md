@@ -34,7 +34,11 @@ Příklad: `MadMike/Monitoring/Mikr.md`.
 
 ## Bezpečnost a rozsah práce
 
-- Do repozitáře neukládej hesla, tokeny, privátní klíče ani neupravené výpisy obsahující tajné hodnoty.
+- Repozitář je soukromý a je určený jako interní zdroj pravdy.
+- Je povoleno evidovat interní IP adresy, hostname, DNS a NPM směrování, routy, názvy tunelů a další provozně potřebnou topologii.
+- Do repozitáře nikdy neukládej hesla, tokeny, privátní klíče, preshared keys, recovery kódy ani neupravené výpisy obsahující tajné hodnoty.
+- Při vkládání konfigurace nejdřív odstraň všechny tajné hodnoty; nestačí spoléhat na to, že repozitář je soukromý.
+- Pokud by se viditelnost repozitáře změnila na veřejnou, před dalším zápisem znovu posuď celý bezpečnostní rozsah dokumentace.
 - Úprava dokumentace sama o sobě neopravňuje ke změnám v infrastruktuře.
 - Nemaž ani nepřepisuj nesouvisející uživatelské změny.
 - Neoznačuj VM, zálohu nebo jiný objekt jako nepotřebný bez ověření jeho role.
