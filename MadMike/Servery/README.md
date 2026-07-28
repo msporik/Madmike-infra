@@ -2,7 +2,7 @@
 
 ## Účel
 
-Aktuální přehled fyzických Proxmox serverů, jejich rolí a důležitých virtuálních strojů v infrastruktuře MadMike.
+Aktuální přehled fyzických Proxmox serverů, jejich rolí, důležitých virtuálních strojů a infrastruktury potřebné pro přístup k serverovým službám v prostředí MadMike.
 
 ## Servery
 
@@ -11,12 +11,20 @@ Aktuální přehled fyzických Proxmox serverů, jejich rolí a důležitých vi
 | PVE Ryzen | HOME | Produkční virtualizace | [PVE-Ryzen.md](PVE-Ryzen.md) |
 | PVE Dell | u Richarda | Offsite DR host a provoz PBS ve VM | [PVE-Dell.md](PVE-Dell.md) |
 
+## Přístup k serverovým službám
+
+- [Interní DNS, NPM a HTTPS](DNS-NPM-HTTPS.md) – jmenné přístupy, wildcard DNS, Nginx Proxy Manager, upstreamy a certifikát.
+- [WireGuard](WireGuard.md) – aktivní tunely, serverové routy a známé ověřovací úkoly.
+
+Obecný adresní plán a MikroTik infrastruktura patří do projektu [Síť](../Sit/README.md).
+
 ## Zásady evidence
 
 - VMID se vždy uvádí společně s hostitelem. Stejné VMID může existovat na Ryzenu i Dellu a nemusí mít stejnou roli.
 - Produkční VM, migrační testy a testovací obnovy se důsledně rozlišují.
 - Vypnutá VM se neoznačuje jako nepotřebná bez ověření jejího původu a účelu.
 - Zálohy a DR jsou zde popsané jen v rozsahu nutném k vysvětlení role serveru; detailní politika záloh bude samostatný projekt až při její konsolidaci.
+- Interní IP adresy a směrování mohou být evidované, ale hesla, tokeny a klíče se do dokumentace neukládají.
 
 ## Otevřené kontroly
 
@@ -24,3 +32,4 @@ Aktuální přehled fyzických Proxmox serverů, jejich rolí a důležitých vi
 2. Zjistit původ a účel vypnuté Dell / VM400.
 3. Ověřit živou konfiguraci veřejného RDP k produkční Ryzen / VM501 a navrhnout bezpečnější přístup, který zůstane pro účetní co nejjednodušší.
 4. Zjistit, zda účetní používá vždy jeden stejný počítač s Windows.
+5. Dokončit živou inventuru WireGuard peerů a současných LAN rozsahů všech vzdálených lokalit.
