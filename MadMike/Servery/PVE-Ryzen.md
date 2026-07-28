@@ -23,6 +23,8 @@ Hlavní produkční Proxmox VE server v domácí lokalitě. Provozuje zejména p
 - datový adresář: `/var/nc-data`;
 - veřejný přístup: `https://cloud.madmike.cz`.
 
+Podrobná provozní dokumentace služby je v projektu [Nextcloud](../Nextcloud/README.md).
+
 Není zatím ověřené, zda je `tank-nas-zfs` starší storage ID odkazující na fyzický pool `tank-ssd`, nebo jiné úložiště. Tento údaj se nesmí doplnit odhadem.
 
 ### Ryzen / VM501 – produkční Windows a PREMIER
