@@ -2,17 +2,19 @@
 
 ## Stav dokumentu
 
-Předběžný návrh. Nejde o schválený migrační příkaz ani o potvrzení, že navržené rozsahy už jsou nasazené.
+Dokument odděluje současné potvrzené rozsahy od předběžného cílového návrhu. Návrhová část není migrační příkaz ani potvrzení, že navržené rozsahy už jsou nasazené.
 
 ## Současné potvrzené rozsahy
 
 | Účel / lokalita | Rozsah | Stav |
 |---|---|---|
 | HOME | `192.168.89.0/24` | aktivní |
+| Honza | `192.168.10.0/24` | aktivní; brána `192.168.10.1` |
 | PBS / Richard | `192.168.100.0/24` | aktivní |
 | notebookový WireGuard | `10.89.1.0/24` | aktivní; RB5009 má `10.89.1.1/24` |
+| site-to-site WireGuard HOME ↔ Honza | `10.200.0.0/24` | aktivní; HOME `10.200.0.1`, Honza `10.200.0.3` |
 
-Rozsahy ostatních lokalit se doplní až po kontrole živých routerů.
+Rozsahy dalších lokalit se doplní až po kontrole živých routerů.
 
 ## Cílový princip
 
@@ -32,19 +34,19 @@ Význam:
 
 Konkrétní číslování segmentů a migrace zatím nejsou schválené.
 
-## Předběžná site-to-site WireGuard síť
+## Site-to-site WireGuard síť
 
-Pro společnou WG tranzitní síť existuje tento návrh:
+Pro společnou WG tranzitní síť se používá nebo navrhuje tento rozsah:
 
-| Lokalita / peer | Navržená WG adresa |
-|---|---|
-| HOME | `10.200.0.1` |
-| PBS / Richard | `10.200.0.2` |
-| BRÁCHA | `10.200.0.3` |
-| Vernířovice | `10.200.0.4` |
-| RD Švecovi | `10.200.0.10` |
+| Lokalita / peer | WG adresa | Stav |
+|---|---|---|
+| HOME | `10.200.0.1` | aktivní pro propojení s Honzou |
+| PBS / Richard | `10.200.0.2` | předběžný návrh; ověřit živou konfiguraci |
+| Honza | `10.200.0.3` | aktivní |
+| Vernířovice | `10.200.0.4` | předběžný návrh |
+| RD Švecovi | `10.200.0.10` | předběžný návrh |
 
-Tabulka je návrh adresace. Nesmí se vydávat za výpis současné konfigurace. Označení `BRÁCHA` je potřeba při realizaci přiřadit ke konkrétní lokalitě.
+Pouze adresy HOME a Honza jsou v této tabulce potvrzené živým fungujícím propojením. Ostatní řádky jsou návrh, dokud je nepotvrdí konfigurace routerů.
 
 ## Známá kolizní rizika
 
