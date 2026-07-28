@@ -19,7 +19,7 @@ Domácí instance Home Assistantu a její hlavní integrace.
 
 Tento projekt popisuje pouze domácí instalaci MadMike. Home Assistant ve Vernířovicích a dalších lokalitách patří do jejich vlastních kapitol.
 
-Zálohování Home Assistantu nebude popsané duplicitně zde. Bude součástí samostatného projektu `MadMike/Zalohy`.
+Zálohování Home Assistantu není popsané duplicitně zde. Je součástí projektu [Zálohy](../Zalohy/Home-Assistant.md).
 
 ## Otevřené body
 
