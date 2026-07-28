@@ -17,6 +17,16 @@ Obecná evidence MikroTik infrastruktury, fyzických rolí zařízení a rezerv.
 
 ## Známé další lokality
 
+### Honza
+
+Potvrzená zařízení:
+
+- RB4011 jako hlavní router a CAPsMAN;
+- cAP ac jako AP v patře;
+- hAP ac3 jako AP v přízemí.
+
+Místní LAN je `192.168.10.0/24` a brána `192.168.10.1`. Podrobná evidence je v [Honza / Síť / MikroTik a Wi-Fi](../../Honza/Sit/MikroTik-a-WiFi.md).
+
 ### Vernířovice
 
 Známá zařízení:
@@ -48,10 +58,11 @@ Rezervní zařízení nejsou součástí aktivní topologie, dokud nejsou skute�
 - [Serverový WireGuard](../Servery/WireGuard.md)
 - [Interní DNS, NPM a HTTPS](../Servery/DNS-NPM-HTTPS.md)
 - [Mikr Manager](../Monitoring/Mikr.md)
+- [Síť lokality Honza](../../Honza/Sit/README.md)
 
 ## Otevřené kontroly
 
 1. Porovnat inventuru se všemi 22 zařízeními vedenými v Mikr Manageru.
 2. Doplnit přesné role a lokality zařízení, která nejsou v tomto dokumentu uvedena.
 3. Ověřit aktivní uplinky, CAPsMAN role a rezervní kusy proti živému stavu.
-4. Zapsat síťové IP adresy až po ověření přímo v konfiguraci.
+4. Zapsat další síťové IP adresy až po ověření přímo v konfiguraci.
