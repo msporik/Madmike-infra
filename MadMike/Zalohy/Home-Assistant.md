@@ -21,4 +21,7 @@ Není zatím potvrzené, že je celý tento řetězec pro všechny HA instance s
 5. Provést praktický test obnovy alespoň domácího HA.
 6. Dokumentovat rozdíly mezi domácí instancí a ostatními lokalitami až podle skutečného stavu.
 
-Podrobnosti domácí instance jsou v projektu [Home Assistant](../Home-Assistant/README.md).
+## Související dokumentace
+
+- Podrobnosti domácí instance jsou v projektu [MadMike / Home Assistant](../Home-Assistant/README.md).
+- Podrobnosti instance ve Vernířovicích jsou v projektu [Vernířovice / Home Assistant](../../Vernirovice/Home-Assistant/README.md).
