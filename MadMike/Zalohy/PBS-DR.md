@@ -28,6 +28,8 @@ Podrobný provozní přehled služby je v projektu [Nextcloud](../Nextcloud/READ
 - Testovací obnova: Dell / VM501.
 - Obnova Windows VM s účetním systémem PREMIER byla úspěšná.
 
+Podrobný provozní přehled služby je v projektu [PREMIER](../Premier/README.md).
+
 Dell / VM401 je starší migrační test Nextcloudu, nikoli PBS DR obnova. Dell / VM400 má zatím neověřený účel.
 
 ## Co zatím není ověřené
