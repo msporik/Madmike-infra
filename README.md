@@ -23,6 +23,7 @@ Příklad: `MadMike/Monitoring/Mikr.md`.
 ## Obsah
 
 - [MadMike](MadMike/README.md) – provozovaná infrastruktura a jednotlivé projekty.
+- [Vernířovice](Vernirovice/README.md) – místní Home Assistant, BESS, FVE a řízení energie.
 
 ## Zásady
 
