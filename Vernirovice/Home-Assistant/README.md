@@ -26,7 +26,7 @@ Lokální řídicí a integrační vrstva pro FVE, baterie, energetické automat
 
 ## Otevřené úkoly
 
-1. Ověřit současný způsob, umístění a retenci záloh této instance.
-2. Připravit konkrétní migrační a návratový postup pro Qotom.
-3. Ověřit, kde fyzicky běží InfluxDB a Grafana a jak jsou zálohovaná jejich data.
-4. Po migraci ověřit všechny klíčové integrace, automatizace a historická data.
+- [ ] Ověřit současný způsob, umístění a retenci záloh této instance.
+- [ ] Připravit konkrétní migrační a návratový postup pro Qotom.
+- [ ] Ověřit, kde fyzicky běží InfluxDB a Grafana a jak jsou zálohovaná jejich data.
+- [ ] Po migraci ověřit všechny klíčové integrace, automatizace a historická data.
