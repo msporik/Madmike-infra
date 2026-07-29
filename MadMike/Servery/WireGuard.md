@@ -12,10 +12,10 @@ Tento dokument neeviduje veřejné adresy endpointů, privátní klíče, presha
 |---|---|---|
 | HOME ↔ PBS / Richard | funguje | Přístup mezi HOME a serverovou sítí `192.168.100.0/24` |
 | HOME ↔ Honza | funguje | HOME `10.200.0.1`, Honza `10.200.0.3`; vzdálená LAN `192.168.10.0/24` |
-| HOME ↔ RD Švecovi | funguje | Ve starších podkladech také `SEF` nebo `ŠÉF`; živé WG adresy a LAN rozsah ověřit |
+| HOME ↔ RD Švecovi | funguje | Ve starších podkladech také `SEF` nebo `ŠÉF`; LAN `192.168.22.0/24`, živou WG adresu ověřit |
 | notebook ↔ HOME | funguje | Přístup k `192.168.89.0/24` a `192.168.100.0/24` |
 
-Starší checkpoint pro lokalitu označenou `ŠÉF` uvádí LAN `192.168.22.0/24` a WG adresu `10.200.0.10`. Dokud nebude potvrzeno, že jde o dnešní RD Švecovi, zůstávají tyto údaje historickou stopou, nikoli aktuální inventurou.
+Příslušnost LAN `192.168.22.0/24` k lokalitě ŠÉF / RD Švecovi je potvrzená. Starší checkpoint zároveň uvádí WG adresu `10.200.0.10`; ta zůstává historickou stopou do ověření v živé konfiguraci.
 
 ## Notebookový WireGuard
 
@@ -90,7 +90,7 @@ Poslední doložený stav pro HOME ↔ Honza je **IPsec deaktivovaný, ale ješt
 
 `allowed-address` jednotlivých peerů se nesmí překrývat. Zejména se nepoužívá `0.0.0.0/0` na více site-to-site peerech.
 
-Předběžný společný plán WG adres je v [adresním plánu](../Sit/Adresni-plan.md). Přidělení se považuje za skutečné až po potvrzení v živé konfiguraci.
+Obecný dlouhodobý princip adresace je v [adresním plánu](../Sit/Adresni-plan.md). Provozní přidělení WG adres, peerů, `allowed-address` a rout zůstává pouze v tomto dokumentu a za skutečné se považuje až po potvrzení v živé konfiguraci.
 
 ## Testovací a diagnostický postup
 
@@ -114,6 +114,6 @@ Pokud sniffer při klientském pingu nic nevidí, paket je zachycený před vstu
 
 - [ ] Vypsat na RB5009 všechny aktivní WG peery, jejich WG adresy, `allowed-address` a routy.
 - [ ] Ověřit, zda kromě čtyř známých propojení neexistuje další aktivní WireGuard tunel.
-- [ ] Ověřit, zda historické údaje `192.168.22.0/24` a `10.200.0.10` skutečně patří dnešní lokalitě RD Švecovi.
+- [ ] Ověřit, zda historická WG adresa `10.200.0.10` stále patří aktivnímu peeru RD Švecovi.
 - [ ] Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových.
 - [ ] Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.
