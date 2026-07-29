@@ -31,8 +31,8 @@ Aktuální rozvrh, retence a pravidelnost budoucích testů obnovy se doplní a�
 
 ## Provozní kontroly
 
-1. Ověřit aktuální PVE konfiguraci VM401 proti živému stavu.
-2. Ověřit obsazení systémového a datového disku.
-3. Ověřit fyzický pool za storage ID `tank-nas-zfs`.
-4. Zapsat postup aktualizace a kontroly po aktualizaci.
-5. Ověřit, zda monitoring hlídá dostupnost webu a základní stav služby.
+- [ ] Ověřit aktuální PVE konfiguraci VM401 proti živému stavu.
+- [ ] Ověřit obsazení systémového a datového disku.
+- [ ] Ověřit fyzický pool za storage ID `tank-nas-zfs`.
+- [ ] Zapsat postup aktualizace a kontroly po aktualizaci.
+- [ ] Ověřit, zda monitoring hlídá dostupnost webu a základní stav služby.
