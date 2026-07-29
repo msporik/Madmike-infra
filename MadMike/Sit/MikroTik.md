@@ -2,61 +2,35 @@
 
 ## Účel
 
-Obecná evidence MikroTik infrastruktury, fyzických rolí zařízení a rezerv. Monitoring, grafy a alerty Mikr Manageru jsou popsány samostatně v [Monitoring / Mikr](../Monitoring/Mikr.md).
+Dokument popisuje:
 
-## HOME – aktivní infrastruktura
+- domácí síťovou infrastrukturu HOME postavenou na MikroTiku;
+- obecnější zásady a rozhodnutí použitelné napříč spravovanými MikroTiky.
 
-| Role | Zařízení | Poznámka |
+Není centrální evidencí všech zařízení ani skladovou kartou. Aktivní infrastruktura ostatních lokalit patří do jejich vlastních kapitol a detailní kusová HW evidence zůstává v Airtable.
+
+## HOME – naposledy evidovaná aktivní infrastruktura
+
+| Role | Zařízení | Vazba |
 |---|---|---|
-| hlavní router | RB5009UPr | Nahradil RB4011 |
+| hlavní router | RB5009UPr | Nahradil RB4011; centrální směrování a správa domácí sítě |
 | hlavní switch | CRS326-24G-2S+RM | Propojení s RB5009 přes 10G DAC |
-| PoE switch | CRS112-8P-4S | Propojení s CRS326 přes 1G DAC; napájí mimo jiné kamery |
+| PoE switch | CRS112-8P-4S | Propojení s CRS326 přes 1G DAC; napájí mimo jiné kamerovou větev |
 | AP patro | cAP XL | Správa přes CAPsMAN |
 | AP obývák | hAP ac3 | Správa přes CAPsMAN |
 | AP domek | hAP ac | Správa přes CAPsMAN |
 
-## Známé další lokality
+Tabulka zachycuje poslední konsolidovaný stav. Přesná portová mapa, aktivní VLAN a napájení jednotlivých klientů se doplní pouze podle živé konfigurace a fyzického ověření.
 
-### Honza
+## Obecné zásady
 
-Potvrzená zařízení:
-
-- RB4011 jako hlavní router a CAPsMAN;
-- cAP ac jako AP v patře;
-- hAP ac3 jako AP v přízemí.
-
-Místní LAN je `192.168.10.0/24` a brána `192.168.10.1`. Podrobná evidence je v [Honza / Síť / MikroTik a Wi-Fi](../../Honza/Sit/MikroTik-a-WiFi.md).
-
-### Rybníky – Amerika
-
-Doložené podklady potvrzují 5GHz PtP spoj z HOME dlouhý přibližně 500–600 m. Na jednom z konců pracuje starší Sextant G / RB711G-5HnD s RouterOS `6.49.19` a 32 MB RAM; přesné modely obou konců i současný core je nutné ověřit.
-
-Místní síť obsahuje větve Obývák, Včelín, Hospoda a Dílna. Úplná aktivní inventura zatím chybí. Podrobná evidence a plán rekonstrukce jsou v [Rybníky – Amerika / Síť](../../Rybniky-Amerika/Sit/README.md).
-
-### Vernířovice
-
-Známá zařízení:
-
-- CRS224;
-- RB2011;
-- wAP;
-- mANTBOX;
-- cAP ac;
-- 3× cAP mini.
-
-### Panelák
-
-- RB1100AHx4; dlouhodobě stabilní provoz.
-
-Podrobný a aktuální seznam zařízení v ostatních lokalitách je potřeba ověřit proti živému Mikr Manageru a konfiguracím routerů.
-
-## Rezervní zařízení
-
-- RB4011 po výměně hlavního domácího routeru;
-- 2× RB5009UG+S+IN;
-- 2× CRS326-24G-2S+RM.
-
-Rezervní zařízení nejsou součástí aktivní topologie, dokud nejsou skutečně nasazená.
+- MikroTik zůstává preferovanou platformou pro routery, switche a spravovanou Wi-Fi tam, kde řeší konkrétní provozní potřebu.
+- Kritická změna se připraví se zálohou konfigurace, testem a možností návratu.
+- Stabilní zařízení se neupgraduje nebo nemění jen kvůli sjednocení verze či modelu.
+- CAPsMAN se používá tam, kde zjednodušuje správu více AP; není povinným cílem každé malé lokality.
+- VLAN, další router, nový tunel ani další monitorovací vrstva se nepřidávají bez konkrétního přínosu.
+- Mikr Manager sleduje dostupnost a stav zařízení, ale neurčuje topologii ani sklad.
+- IP adresace se vede v [adresním plánu](Adresni-plan.md), provozní WireGuard v [Servery / WireGuard](../Servery/WireGuard.md) a zálohy RouterOS v [Zálohy / MikroTik](../Zalohy/MikroTik.md).
 
 ## Související dokumentace
 
@@ -64,13 +38,10 @@ Rezervní zařízení nejsou součástí aktivní topologie, dokud nejsou skute�
 - [Serverový WireGuard](../Servery/WireGuard.md)
 - [Interní DNS, NPM a HTTPS](../Servery/DNS-NPM-HTTPS.md)
 - [Mikr Manager](../Monitoring/Mikr.md)
-- [Síť lokality Honza](../../Honza/Sit/README.md)
-- [Síť lokality Rybníky – Amerika](../../Rybniky-Amerika/Sit/README.md)
+- [Zálohy MikroTiků](../Zalohy/MikroTik.md)
 
-## Otevřené kontroly
+## Otevřené kontroly HOME
 
-- [ ] Porovnat inventuru se všemi 22 zařízeními vedenými v Mikr Manageru.
-- [ ] Doplnit přesné role a lokality zařízení, která nejsou v tomto dokumentu uvedena.
-- [ ] Ověřit aktivní uplinky, CAPsMAN role a rezervní kusy proti živému stavu.
-- [ ] Zapsat další síťové IP adresy až po ověření přímo v konfiguraci.
-- [ ] Provést fyzickou a konfigurační inventuru Rybníků „Amerika“.
+- [ ] Ověřit aktivní uplinky a portovou mapu RB5009, CRS326 a CRS112 proti živé konfiguraci.
+- [ ] Ověřit aktuální seznam domácích AP a jejich role přímo v CAPsMAN.
+- [ ] Doplnit VLAN a další domácí síťové role pouze tehdy, pokud jsou skutečně nasazené.
