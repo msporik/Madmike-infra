@@ -21,8 +21,8 @@ Výběr konkrétních alarmů zatím není uzavřený a bude proveden podle prak
 
 ## Navazující práce
 
-1. Vybrat kritická zařízení a lokality.
-2. Určit významné alarmy a jejich rozumné zpoždění.
-3. Prověřit, které události už lépe pokrývá Uptime Kuma.
-4. Připojit pouze neduplicitní alarmy do Telegramu.
-5. Prakticky ověřit ukládání a obnovitelnost exportů konfigurací.
+- [ ] Vybrat kritická zařízení a lokality.
+- [ ] Určit významné alarmy a jejich rozumné zpoždění.
+- [ ] Prověřit, které události už lépe pokrývá Uptime Kuma.
+- [ ] Připojit pouze neduplicitní alarmy do Telegramu.
+- [ ] Prakticky ověřit ukládání a obnovitelnost exportů konfigurací.

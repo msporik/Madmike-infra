@@ -62,6 +62,6 @@ Použití názvů kontejnerů jako upstreamu vyžaduje, aby NPM a cílový konte
 
 ## Otevřené kontroly
 
-1. Ověřit, že připojení Uptime Kuma k `npm_default` přežije případné odstranění a znovuvytvoření kontejneru.
-2. Ověřit, že notebookový WireGuard používá DNS `192.168.89.1`, aby interní názvy fungovaly i mimo domov.
-3. Při každém přidání služby zapsat současně DNS chování, NPM upstream a způsob přístupu.
+- [ ] Ověřit, že připojení Uptime Kuma k `npm_default` přežije případné odstranění a znovuvytvoření kontejneru.
+- [ ] Ověřit, že notebookový WireGuard používá DNS `192.168.89.1`, aby interní názvy fungovaly i mimo domov.
+- [ ] Při každém přidání služby zapsat současně DNS chování, NPM upstream a způsob přístupu.

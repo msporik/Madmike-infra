@@ -23,4 +23,4 @@ Zálohování Home Assistantu není popsané duplicitně zde. Je součástí pro
 
 ## Otevřené body
 
-- Ověřit přesný model, roli a stav nasazení samostatného zařízení SMLIGHT určeného pro Matter/Thread a plánovaný zámek Aqara.
+- [ ] Ověřit přesný model, roli a stav nasazení samostatného zařízení SMLIGHT určeného pro Matter/Thread a plánovaný zámek Aqara.

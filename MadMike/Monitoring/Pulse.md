@@ -34,7 +34,7 @@ Historické nebo DR kopie a položky označené jako orphaned backups se nemažo
 
 ## Navazující práce
 
-1. Otestovat nativní notifikační systém PVE a PBS.
-2. Rozdělit události mezi Pulse a nativní notifikace bez duplicit.
-3. Nastavit pouze alarmy, které vyžadují pozornost.
-4. Vybrané problémy a jejich vyřešení směrovat do Telegramu.
+- [ ] Otestovat nativní notifikační systém PVE a PBS.
+- [ ] Rozdělit události mezi Pulse a nativní notifikace bez duplicit.
+- [ ] Nastavit pouze alarmy, které vyžadují pozornost.
+- [ ] Vybrané problémy a jejich vyřešení směrovat do Telegramu.

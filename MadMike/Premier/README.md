@@ -28,9 +28,9 @@ Podrobnosti přístupu a běžného provozu jsou v [Přístupu a provozu](Pristu
 
 ## Otevřené kontroly
 
-1. Porovnat konfiguraci VM501 s aktuálním živým stavem.
-2. Ověřit verzi a edici Windows, aktivaci, aktualizace a stav podpory.
-3. Ověřit verzi PREMIERu, licenční stav bez ukládání klíče a umístění aplikačních dat.
-4. Zjistit, zda PREMIER vytváří vlastní aplikační zálohy a kam.
-5. Dokončit bezpečnější vzdálený přístup.
-6. Doplnit krátký provozní a DR runbook.
+- [ ] Porovnat konfiguraci VM501 s aktuálním živým stavem.
+- [ ] Ověřit verzi a edici Windows, aktivaci, aktualizace a stav podpory.
+- [ ] Ověřit verzi PREMIERu, licenční stav bez ukládání klíče a umístění aplikačních dat.
+- [ ] Zjistit, zda PREMIER vytváří vlastní aplikační zálohy a kam.
+- [ ] Dokončit bezpečnější vzdálený přístup.
+- [ ] Doplnit krátký provozní a DR runbook.

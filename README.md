@@ -22,6 +22,7 @@ Příklad: `MadMike/Monitoring/Mikr.md`.
 
 ## Obsah
 
+- [Otevřené úkoly](TODO.md) – automaticky generovaný přehled s odkazy na původní dokumenty.
 - [MadMike](MadMike/README.md) – provozovaná infrastruktura a jednotlivé projekty.
 - [Vernířovice](Vernirovice/README.md) – místní Home Assistant, BESS, FVE a řízení energie.
 - [Honza](Honza/README.md) – místní Home Assistant, chytrá domácnost a síť.

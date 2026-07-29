@@ -28,8 +28,8 @@ Záloha má hodnotu až tehdy, když je známý její rozsah, pravidelně se kon
 
 ## Hlavní otevřené úkoly
 
-1. Ověřit živé PBS joby, jejich rozsah, rozvrhy a retenci.
-2. Ověřit nastavení Verify, Prune a Garbage Collection.
-3. Prakticky otestovat nativní notifikace PVE a PBS.
-4. Stanovit rozumnou četnost opakovaných testů obnovy.
-5. Rozlišit užitečné DR kopie od objektů, o jejichž původu zatím není jasno.
+- [ ] Ověřit živé PBS joby, jejich rozsah, rozvrhy a retenci.
+- [ ] Ověřit nastavení Verify, Prune a Garbage Collection.
+- [ ] Prakticky otestovat nativní notifikace PVE a PBS.
+- [ ] Stanovit rozumnou četnost opakovaných testů obnovy.
+- [ ] Rozlišit užitečné DR kopie od objektů, o jejichž původu zatím není jasno.

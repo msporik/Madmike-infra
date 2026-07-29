@@ -19,7 +19,7 @@ U Deye zařízení jsou historicky evidované přibližně dvě stovky entit na 
 
 ## Otevřené úkoly
 
-1. Zapsat skutečné umístění a způsob provozu InfluxDB a Grafany.
-2. Ověřit jejich retenci, velikost databází a zálohování.
-3. Po přechodu na RS485 porovnat stabilitu a možnosti řízení se současnou integrací.
-4. Zdokumentovat pouze ty entity, které jsou skutečně důležité pro automatizace a diagnostiku.
+- [ ] Zapsat skutečné umístění a způsob provozu InfluxDB a Grafany.
+- [ ] Ověřit jejich retenci, velikost databází a zálohování.
+- [ ] Po přechodu na RS485 porovnat stabilitu a možnosti řízení se současnou integrací.
+- [ ] Zdokumentovat pouze ty entity, které jsou skutečně důležité pro automatizace a diagnostiku.

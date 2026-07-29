@@ -16,7 +16,7 @@
 
 ## Otevřené kontroly
 
-1. Ověřit aktuální RouterOS, konfiguraci bridge a CAPsMAN.
-2. Porovnat evidenci zařízení s živým Mikr Managerem.
-3. Ověřit, zda byly z routeru úplně odstraněné zbytky starého IPsec.
-4. Doplnit případné další subnety nebo VLAN až podle živé konfigurace.
+- [ ] Ověřit aktuální RouterOS, konfiguraci bridge a CAPsMAN.
+- [ ] Porovnat evidenci zařízení s živým Mikr Managerem.
+- [ ] Ověřit, zda byly z routeru úplně odstraněné zbytky starého IPsec.
+- [ ] Doplnit případné další subnety nebo VLAN až podle živé konfigurace.

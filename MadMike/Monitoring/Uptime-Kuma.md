@@ -22,8 +22,8 @@ Konkrétní monitory a časové podmínky se zapíší až po praktickém nastav
 
 ## Navazující práce
 
-1. Aktualizovat Uptime Kuma na aktuální stabilní verzi.
-2. Projít existující monitory.
-3. Stanovit seznam kritických a doplňkových služeb.
-4. Nastavit rozumné zpoždění, aby krátký výpadek nevytvářel zbytečný alarm.
-5. Připojit vybrané alarmy a návraty do normálu do Telegramu.
+- [ ] Aktualizovat Uptime Kuma na aktuální stabilní verzi.
+- [ ] Projít existující monitory.
+- [ ] Stanovit seznam kritických a doplňkových služeb.
+- [ ] Nastavit rozumné zpoždění, aby krátký výpadek nevytvářel zbytečný alarm.
+- [ ] Připojit vybrané alarmy a návraty do normálu do Telegramu.

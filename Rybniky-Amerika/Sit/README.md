@@ -36,4 +36,4 @@ Není potvrzený jeden aktuální seznam routerů, switchů, AP, adres, portů a
 
 ## Bezprostřední další krok
 
-Nejdřív provést fyzickou a konfigurační inventuru na místě. Teprve podle ní rozhodnout, zda bude pragmatickým core hEX S, nebo cílovým core RB5009.
+- [ ] Nejdřív provést fyzickou a konfigurační inventuru na místě. Teprve podle ní rozhodnout, zda bude pragmatickým core hEX S, nebo cílovým core RB5009.

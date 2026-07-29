@@ -24,6 +24,6 @@ VM400, VM401, VM402 a VM501 jsou záměrně ponechané, dokud nebude jejich dal�
 
 ## Otevřené kontroly
 
-1. Zjistit původ a účel Dell / VM400.
-2. Ověřit aktuální stav PVE, PBS a datastore proti živému systému.
-3. Před případným odstraněním kterékoliv vypnuté VM znovu ověřit její obsah a potřebnost.
+- [ ] Zjistit původ a účel Dell / VM400.
+- [ ] Ověřit aktuální stav PVE, PBS a datastore proti živému systému.
+- [ ] Před případným odstraněním kterékoliv vypnuté VM znovu ověřit její obsah a potřebnost.

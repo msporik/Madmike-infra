@@ -22,8 +22,8 @@ Projekt spojuje technologie FVE a bateriových systémů s nadřazeným řízen�
 
 ## Otevřené úkoly
 
-1. Ověřit přesný model, výkon a zapojení nového měniče.
-2. Ověřit výrobce, model a technické parametry baterie 215 kWh.
-3. Zapsat skutečnou topologii měření, měničů, baterií a hlavního předávacího místa.
-4. Ověřit, které limity jsou pevně nastavené v jednotlivých měničích a které mění Home Assistant.
-5. Doplnit bezpečný postup pro ruční provoz při výpadku Home Assistantu.
+- [ ] Ověřit přesný model, výkon a zapojení nového měniče.
+- [ ] Ověřit výrobce, model a technické parametry baterie 215 kWh.
+- [ ] Zapsat skutečnou topologii měření, měničů, baterií a hlavního předávacího místa.
+- [ ] Ověřit, které limity jsou pevně nastavené v jednotlivých měničích a které mění Home Assistant.
+- [ ] Doplnit bezpečný postup pro ruční provoz při výpadku Home Assistantu.

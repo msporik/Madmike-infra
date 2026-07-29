@@ -22,13 +22,13 @@ Instance je připravovaná pro Tomáše Valentu. Prvním praktickým cílem je z
 
 ## Bezprostřední další kroky
 
-1. Ověřit spolehlivý start HA Green a aktuálnost připravené instalace.
-2. Nainstalovat HA Green u Tomáše a připojit ho do místní sítě.
-3. Po přesunu ověřit lokální i vzdálený přístup.
-4. Zjistit přesný model a způsob komunikace GoodWe střídače.
-5. Připojit GoodWe, potvrdit skutečné entity a vytvořit základní FVE dashboard.
-6. Teprve potom navrhnout řízení bojleru podle konkrétního hardwaru a požadované logiky.
-7. Nastavit pravidelné zálohy a prakticky ověřit obnovu.
+- [ ] Ověřit spolehlivý start HA Green a aktuálnost připravené instalace.
+- [ ] Nainstalovat HA Green u Tomáše a připojit ho do místní sítě.
+- [ ] Po přesunu ověřit lokální i vzdálený přístup.
+- [ ] Zjistit přesný model a způsob komunikace GoodWe střídače.
+- [ ] Připojit GoodWe, potvrdit skutečné entity a vytvořit základní FVE dashboard.
+- [ ] Teprve potom navrhnout řízení bojleru podle konkrétního hardwaru a požadované logiky.
+- [ ] Nastavit pravidelné zálohy a prakticky ověřit obnovu.
 
 ## Související dokumentace
 

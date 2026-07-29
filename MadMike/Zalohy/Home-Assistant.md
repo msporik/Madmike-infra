@@ -16,12 +16,12 @@ Není zatím potvrzené, že je celý tento řetězec pro všechny HA instance s
 
 ## Úkoly k ověření a realizaci
 
-1. Zjistit současný způsob a umístění záloh každé HA instance.
-2. Ověřit automatické vytváření záloh a jejich retenci.
-3. Zajistit druhou kopii mimo zařízení s Home Assistantem.
-4. Ověřit přenos do offsite PBS nebo jiného rovnocenného DR cíle.
-5. Provést praktický test obnovy alespoň domácího HA.
-6. Dokumentovat rozdíly mezi domácí instancí a ostatními lokalitami až podle skutečného stavu.
+- [ ] Zjistit současný způsob a umístění záloh každé HA instance.
+- [ ] Ověřit automatické vytváření záloh a jejich retenci.
+- [ ] Zajistit druhou kopii mimo zařízení s Home Assistantem.
+- [ ] Ověřit přenos do offsite PBS nebo jiného rovnocenného DR cíle.
+- [ ] Provést praktický test obnovy alespoň domácího HA.
+- [ ] Dokumentovat rozdíly mezi domácí instancí a ostatními lokalitami až podle skutečného stavu.
 
 ## Související dokumentace
 

@@ -40,8 +40,8 @@ Při přidání další interní služby je nutné zkontrolovat URI a způsob po
 
 ## Otevřené úkoly
 
-1. Pokračovat v pilotu na omezeném počtu účtů a ověřit běžné používání na PC i telefonu.
-2. Nastavit MFA a bezpečně uložit recovery údaje.
-3. Teprve po úspěšném pilotu rozhodnout o širším přesunu účtů a vypnutí starého ukládání hesel.
-4. Ověřit praktický postup pro GitHub, Microsoft, Seznam, Home Assistant, RouterOS/WebFig a iDRAC.
-5. Postupně odstranit duplicitní nebo příliš obecné URI, které nabízejí přihlášení na nesprávných hostitelích.
+- [ ] Pokračovat v pilotu na omezeném počtu účtů a ověřit běžné používání na PC i telefonu.
+- [ ] Nastavit MFA a bezpečně uložit recovery údaje.
+- [ ] Teprve po úspěšném pilotu rozhodnout o širším přesunu účtů a vypnutí starého ukládání hesel.
+- [ ] Ověřit praktický postup pro GitHub, Microsoft, Seznam, Home Assistant, RouterOS/WebFig a iDRAC.
+- [ ] Postupně odstranit duplicitní nebo příliš obecné URI, které nabízejí přihlášení na nesprávných hostitelích.

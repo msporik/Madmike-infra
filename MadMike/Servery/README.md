@@ -32,8 +32,8 @@ Obecný adresní plán a MikroTik infrastruktura patří do projektu [Síť](../
 
 ## Otevřené kontroly
 
-1. Ověřit, na jaký fyzický ZFS pool na PVE Ryzen odkazuje storage ID `tank-nas-zfs`.
-2. Zjistit původ a účel vypnuté Dell / VM400.
-3. Ověřit živou konfiguraci veřejného RDP k produkční Ryzen / VM501 a navrhnout bezpečnější přístup, který zůstane pro účetní co nejjednodušší.
-4. Zjistit, zda účetní používá vždy jeden stejný počítač s Windows.
-5. Dokončit živou inventuru WireGuard peerů a současných LAN rozsahů všech vzdálených lokalit.
+- [ ] Ověřit, na jaký fyzický ZFS pool na PVE Ryzen odkazuje storage ID `tank-nas-zfs`.
+- [ ] Zjistit původ a účel vypnuté Dell / VM400.
+- [ ] Ověřit živou konfiguraci veřejného RDP k produkční Ryzen / VM501 a navrhnout bezpečnější přístup, který zůstane pro účetní co nejjednodušší.
+- [ ] Zjistit, zda účetní používá vždy jeden stejný počítač s Windows.
+- [ ] Dokončit živou inventuru WireGuard peerů a současných LAN rozsahů všech vzdálených lokalit.

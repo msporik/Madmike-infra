@@ -54,6 +54,6 @@ Podrobnosti jsou v projektu [Monitoring](../Monitoring/README.md).
 
 ## Otevřené kontroly
 
-1. Ověřit vazbu storage ID `tank-nas-zfs` na fyzický ZFS pool.
-2. Ověřit aktuální PVE konfiguraci VM401, VM501 a VM510 proti živému stavu.
-3. Ověřit pravidla dst-nat a firewallu pro RDP k VM501.
+- [ ] Ověřit vazbu storage ID `tank-nas-zfs` na fyzický ZFS pool.
+- [ ] Ověřit aktuální PVE konfiguraci VM401, VM501 a VM510 proti živému stavu.
+- [ ] Ověřit pravidla dst-nat a firewallu pro RDP k VM501.

@@ -21,8 +21,8 @@ Starší poznámky uvádějí pro nový měnič rozdílné hodnoty a označení.
 
 ## Otevřené ověření
 
-1. Opsat typové štítky obou měničů a bateriových systémů.
-2. Získat jednopólové schéma nebo vytvořit ověřený provozní nákres.
-3. Ověřit místo a zdroj hlavního měření výkonu.
-4. Zapsat komunikační rozhraní a adresy zařízení bez hesel a klíčů.
-5. Ověřit chování obou systémů při ztrátě komunikace s Home Assistantem.
+- [ ] Opsat typové štítky obou měničů a bateriových systémů.
+- [ ] Získat jednopólové schéma nebo vytvořit ověřený provozní nákres.
+- [ ] Ověřit místo a zdroj hlavního měření výkonu.
+- [ ] Zapsat komunikační rozhraní a adresy zařízení bez hesel a klíčů.
+- [ ] Ověřit chování obou systémů při ztrátě komunikace s Home Assistantem.

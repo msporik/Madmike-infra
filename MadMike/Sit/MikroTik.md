@@ -69,8 +69,8 @@ Rezervní zařízení nejsou součástí aktivní topologie, dokud nejsou skute�
 
 ## Otevřené kontroly
 
-1. Porovnat inventuru se všemi 22 zařízeními vedenými v Mikr Manageru.
-2. Doplnit přesné role a lokality zařízení, která nejsou v tomto dokumentu uvedena.
-3. Ověřit aktivní uplinky, CAPsMAN role a rezervní kusy proti živému stavu.
-4. Zapsat další síťové IP adresy až po ověření přímo v konfiguraci.
-5. Provést fyzickou a konfigurační inventuru Rybníků „Amerika“.
+- [ ] Porovnat inventuru se všemi 22 zařízeními vedenými v Mikr Manageru.
+- [ ] Doplnit přesné role a lokality zařízení, která nejsou v tomto dokumentu uvedena.
+- [ ] Ověřit aktivní uplinky, CAPsMAN role a rezervní kusy proti živému stavu.
+- [ ] Zapsat další síťové IP adresy až po ověření přímo v konfiguraci.
+- [ ] Provést fyzickou a konfigurační inventuru Rybníků „Amerika“.

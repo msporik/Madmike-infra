@@ -20,7 +20,7 @@ MikroTik L009UiGS-2HaxD-IN byl dříve pouze zvažovaný jako AP nebo switch. Ne
 
 ## Otevřené kontroly
 
-1. Ověřit aktuální seznam AP a jejich role přímo v CAPsMAN.
-2. Zjistit, zda je L009 skutečně nasazený.
-3. Ověřit uplinky, napájení AP a aktuální Wi-Fi konfiguraci.
-4. Ověřit automatické exporty konfigurace a praktickou obnovitelnost.
+- [ ] Ověřit aktuální seznam AP a jejich role přímo v CAPsMAN.
+- [ ] Zjistit, zda je L009 skutečně nasazený.
+- [ ] Ověřit uplinky, napájení AP a aktuální Wi-Fi konfiguraci.
+- [ ] Ověřit automatické exporty konfigurace a praktickou obnovitelnost.
