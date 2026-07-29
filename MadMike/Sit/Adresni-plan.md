@@ -70,8 +70,8 @@ Riziko kolize nelze úplně odstranit. Cílem je zvolit konzistentní a provozn�
 
 ## Další postup
 
-1. Vypsat současné LAN, VLAN a WG rozsahy všech spravovaných lokalit.
-2. Jednoznačně přiřadit číselný identifikátor každé lokalitě.
-3. Navrhnout společné číslování segmentů.
-4. Provést kontrolu kolizí s používanými VPN, kontejnery a běžnými vzdálenými sítěmi.
-5. Teprve potom připravit migrační pořadí; žádnou fungující lokalitu nepřečíslovávat jen kvůli estetice.
+- [ ] Vypsat současné LAN, VLAN a WG rozsahy všech spravovaných lokalit.
+- [ ] Jednoznačně přiřadit číselný identifikátor každé lokalitě.
+- [ ] Navrhnout společné číslování segmentů.
+- [ ] Provést kontrolu kolizí s používanými VPN, kontejnery a běžnými vzdálenými sítěmi.
+- [ ] Teprve potom připravit migrační pořadí; žádnou fungující lokalitu nepřečíslovávat jen kvůli estetice.
