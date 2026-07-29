@@ -5,50 +5,55 @@
 ```mermaid
 flowchart TD
     HOME["HOME"] --> PTP["5GHz PtP"]
-    PTP --> CORE["Rybníky: přijímač a core"]
+    PTP --> RX["Přijímací rádio"]
+    RX --> CORE["Místní core"]
     CORE --> OBYVAK["Obývák"]
-    CORE --> VCELIN["Včelín: L2 distribuce"]
+    CORE --> VCELIN["Včelín"]
     VCELIN --> HOSPODA["Hospoda"]
     VCELIN --> DILNA["Dílna"]
     HOSPODA --> SLOUP["Sloup"]
     SLOUP --> MOBILHOME["Mobilhome"]
 ```
 
-## Doložené a plánované části
+## Naposledy doložené části
 
-| Část | Stav podle podkladů | Poznámka |
+| Část | Stav podle podkladů | Co zbývá ověřit |
 |---|---|---|
-| HOME ↔ Rybníky | doložený provoz | 5GHz PtP, přibližně 500–600 m |
-| přijímací rádio | aktivní role, přesný model neověřený | v podkladech se střídá Sextant a LHG |
-| místní core | skutečný současný stav neověřený | historicky RB450G nebo hEX S; cílové rozhodnutí otevřené |
-| Obývák | existující větev | aktivní zařízení a případný další NAT ověřit |
-| Včelín | existující distribuční bod | ethernet do Hospody a Dílny; cílově pouze L2 |
-| Hospoda | existující větev | PC/klienti, AP a pokračování směrem ke sloupu |
-| Dílna | existující větev | místní AP a klienti |
-| optika ke sloupu | rozpor v podkladech | ověřit, zda je položená, zakončená a aktivní |
-| sloup | další etapa | venkovní distribuce, Wi-Fi a uplink k mobilhome |
-| mobilhome | plán | ověřit trasu, viditelnost, napájení a požadovanou kapacitu |
+| HOME ↔ Rybníky | doložený provoz | přesné modely, režimy a adresy obou PtP rádií |
+| přijímací rádio | aktivní role | přesný model a zda dnes ještě routuje nebo NATuje |
+| místní core | současný stav neověřený | které zařízení dnes poskytuje DHCP, firewall a NAT |
+| Obývák | existující větev | aktivní zařízení a případný další NAT |
+| Včelín | existující distribuční bod | switch, porty, napájení a další DHCP/NAT |
+| Hospoda | existující větev | AP, klienti a pokračování směrem ke sloupu |
+| Dílna | existující větev | AP a klienti |
+| optika ke sloupu | rozpor v podkladech | zda je položená, zakončená a aktivní |
+| sloup | další etapa | distribuce, Wi-Fi, napájení a ochrany |
+| mobilhome | plán | trasa, viditelnost, napájení a požadovaná kapacita |
 
-## Historická adresace
+## Schválená cílová logika
 
-V jednom starším mezistavu byla použita místní LAN `192.168.22.0/24` s DHCP a NATem na hEX S. Známé historické lease:
+```mermaid
+flowchart TD
+    HOME["HOME a internet"] --> LINK["Stávající PtP"]
+    LINK --> BRIDGE["Přijímací rádio jako bridge"]
+    BRIDGE --> HEX["hEX S (2025)"]
+    HEX --> PRIVATE["Soukromá síť"]
+    HEX --> GUEST["Hostovská Wi-Fi"]
+    PRIVATE --> L2["L2 distribuce"]
+    L2 --> BRANCHES["Obývák, Včelín, Hospoda a Dílna"]
+```
 
-| Adresa | Označení |
-|---|---|
-| `192.168.22.10` | Stavba |
-| `192.168.22.11` | NVR |
-| `192.168.22.16` | neidentifikované zařízení |
-| `192.168.22.17` | notebook |
+hEX S (2025) bude jediným místním routerem, DHCP serverem a firewallem. Mezi HOME a privátní sítí Rybníků se použije přímé směrování přes PtP; pro toto propojení se nebude vytvářet WireGuard tunel. Hostovská Wi-Fi bude oddělená od privátní sítě, HOME a managementu.
 
-Tento rozsah ani uvedené lease nejsou potvrzené jako současný živý stav. V jedné starší konfiguraci se navíc objevila chybná nebo duplicitní síť `192.168.1.0/24`.
+Konkrétní LAN prefix Rybníků zatím není přidělený. Rozsah `192.168.22.0/24` patří lokalitě ŠÉF / RD Švecovi a jeho starší přiřazení Rybníkům bylo chybné.
 
 ## Co ověřit na místě
 
-- [ ] Přesné modely a role obou PtP rádií.
-- [ ] Které zařízení dnes routuje a poskytuje DHCP.
+- [ ] Přesné modely, RouterOS a režimy obou PtP rádií.
+- [ ] Které zařízení dnes routuje a poskytuje DHCP, NAT a firewall.
 - [ ] Všechny další DHCP servery a NATy.
 - [ ] Aktivní adresní rozsahy, statické IP a port-forwardy.
-- [ ] Zařízení a kabely v Obýváku, Včelíně, Hospodě a Dílně.
+- [ ] Zařízení, porty a kabely v Obýváku, Včelíně, Hospodě a Dílně.
 - [ ] Stav, typ a zakončení optiky ke sloupu.
 - [ ] NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace.
 - [ ] Napájení, PoE a přepěťovou ochranu venkovních částí.
