@@ -220,7 +220,7 @@
 
 - [ ] [Vypsat na RB5009 všechny aktivní WG peery, jejich WG adresy, `allowed-address` a routy.](MadMike/Servery/WireGuard.md?plain=1#L115)
 - [ ] [Ověřit, zda kromě čtyř známých propojení neexistuje další aktivní WireGuard tunel.](MadMike/Servery/WireGuard.md?plain=1#L116)
-- [ ] [Ověřit, zda historické údaje `192.168.22.0/24` a `10.200.0.10` skutečně patří dnešní lokalitě RD Švecovi.](MadMike/Servery/WireGuard.md?plain=1#L117)
+- [ ] [Ověřit, zda historická WG adresa `10.200.0.10` stále patří aktivnímu peeru RD Švecovi.](MadMike/Servery/WireGuard.md?plain=1#L117)
 - [ ] [Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových.](MadMike/Servery/WireGuard.md?plain=1#L118)
 - [ ] [Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.](MadMike/Servery/WireGuard.md?plain=1#L119)
 
@@ -228,21 +228,19 @@
 
 ### Adresní plán
 
-- [ ] [Vypsat současné LAN, VLAN, WG, routované a transitní rozsahy všech spravovaných lokalit.](MadMike/Sit/Adresni-plan.md?plain=1#L179)
-- [ ] [Jednoznačně přiřadit číselný identifikátor každé lokalitě s respektováním blokací `0`, `8` a `89`.](MadMike/Sit/Adresni-plan.md?plain=1#L180)
-- [ ] [Navrhnout jednotný slovník funkčních segmentů; číslo segmentu automaticky neztotožňovat s VLAN ID.](MadMike/Sit/Adresni-plan.md?plain=1#L181)
-- [ ] [Navrhnout vnitřní členění `10.255.0.0/16` pro VPN, transit a virtuální adresy.](MadMike/Sit/Adresni-plan.md?plain=1#L182)
-- [ ] [Provést kontrolu kolizí s používanými VPN, kontejnery a běžnými vzdálenými sítěmi.](MadMike/Sit/Adresni-plan.md?plain=1#L183)
-- [ ] [Zařadit dnešní `10.89.1.0/24` a `10.200.0.0/24` do budoucího migračního plánu VPN vrstvy.](MadMike/Sit/Adresni-plan.md?plain=1#L184)
-- [ ] [Teprve potom připravit migrační pořadí; žádnou fungující lokalitu nepřečíslovávat jen kvůli estetice.](MadMike/Sit/Adresni-plan.md?plain=1#L185)
+- [ ] [Vypsat současné LAN, VLAN, routované a transitní rozsahy všech spravovaných lokalit; provozní WG inventuru převzít z dokumentu WireGuard.](MadMike/Sit/Adresni-plan.md?plain=1#L159)
+- [ ] [Jednoznačně přiřadit číselný identifikátor každé lokalitě s respektováním blokací `0`, `8` a `89`.](MadMike/Sit/Adresni-plan.md?plain=1#L160)
+- [ ] [Navrhnout jednotný slovník funkčních segmentů; číslo segmentu automaticky neztotožňovat s VLAN ID.](MadMike/Sit/Adresni-plan.md?plain=1#L161)
+- [ ] [Navrhnout vnitřní členění `10.255.0.0/16` pro VPN, transit a virtuální adresy.](MadMike/Sit/Adresni-plan.md?plain=1#L162)
+- [ ] [Provést kontrolu kolizí s používanými VPN, kontejnery a běžnými vzdálenými sítěmi.](MadMike/Sit/Adresni-plan.md?plain=1#L163)
+- [ ] [Zařadit dnešní `10.89.1.0/24` a `10.200.0.0/24` do budoucího migračního plánu VPN vrstvy.](MadMike/Sit/Adresni-plan.md?plain=1#L164)
+- [ ] [Teprve potom připravit migrační pořadí; žádnou fungující lokalitu nepřečíslovávat jen kvůli estetice.](MadMike/Sit/Adresni-plan.md?plain=1#L165)
 
 ### MikroTik
 
-- [ ] [Porovnat inventuru se všemi 22 zařízeními vedenými v Mikr Manageru.](MadMike/Sit/MikroTik.md?plain=1#L72)
-- [ ] [Doplnit přesné role a lokality zařízení, která nejsou v tomto dokumentu uvedena.](MadMike/Sit/MikroTik.md?plain=1#L73)
-- [ ] [Ověřit aktivní uplinky, CAPsMAN role a rezervní kusy proti živému stavu.](MadMike/Sit/MikroTik.md?plain=1#L74)
-- [ ] [Zapsat další síťové IP adresy až po ověření přímo v konfiguraci.](MadMike/Sit/MikroTik.md?plain=1#L75)
-- [ ] [Provést fyzickou a konfigurační inventuru Rybníků „Amerika“.](MadMike/Sit/MikroTik.md?plain=1#L76)
+- [ ] [Ověřit aktivní uplinky a portovou mapu RB5009, CRS326 a CRS112 proti živé konfiguraci.](MadMike/Sit/MikroTik.md?plain=1#L45)
+- [ ] [Ověřit aktuální seznam domácích AP a jejich role přímo v CAPsMAN.](MadMike/Sit/MikroTik.md?plain=1#L46)
+- [ ] [Doplnit VLAN a další domácí síťové role pouze tehdy, pokud jsou skutečně nasazené.](MadMike/Sit/MikroTik.md?plain=1#L47)
 
 ## MadMike / Zalohy
 
@@ -289,38 +287,35 @@
 
 ### Hardware
 
-- [ ] [Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.](Rybniky-Amerika/Sit/Hardware.md?plain=1#L36)
-- [ ] [Porovnat zařízení s živou evidencí v Mikr Manageru a skladovou evidencí.](Rybniky-Amerika/Sit/Hardware.md?plain=1#L37)
-- [ ] [Ověřit dostupné SFP moduly, typ optiky, PoE zdroje a přepěťové ochrany.](Rybniky-Amerika/Sit/Hardware.md?plain=1#L38)
-- [ ] [Nealokovat RB5009, CRS ani AP pouze podle starého seznamu zásob.](Rybniky-Amerika/Sit/Hardware.md?plain=1#L39)
-- [ ] [Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.](Rybniky-Amerika/Sit/Hardware.md?plain=1#L40)
+- [ ] [Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.](Rybniky-Amerika/Sit/Hardware.md?plain=1#L29)
+- [ ] [Ověřit dostupnost hEX S (2025) a vhodných AP v kusové HW evidenci před přípravou zásahu.](Rybniky-Amerika/Sit/Hardware.md?plain=1#L30)
+- [ ] [Ověřit dostupné SFP moduly, typ optiky, PoE zdroje a přepěťové ochrany.](Rybniky-Amerika/Sit/Hardware.md?plain=1#L31)
+- [ ] [Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.](Rybniky-Amerika/Sit/Hardware.md?plain=1#L32)
 
 ### Plán rekonstrukce
 
-- [ ] [hEX S, nebo RB5009 jako core.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L68)
-- [ ] [Zda je CRS326 přiměřený skutečné topologii.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L69)
-- [ ] [Který CRS112 a kde má zajišťovat PoE.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L70)
-- [ ] [Kolik AP je reálně potřeba.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L71)
-- [ ] [Zda zavést CAPsMAN.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L72)
-- [ ] [Zda existuje konkrétní důvod pro VLAN.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L73)
-- [ ] [Stav optiky a řešení sloupu.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L74)
-- [ ] [5GHz, nebo 60GHz uplink k mobilhome.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L75)
-- [ ] [Zda HOME potřebuje přímý přístup do celé LAN Rybníků bez dalšího NAT.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L76)
+- [ ] [Skutečná výchozí topologie, DHCP, NAT, firewall a port-forwardy.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L76)
+- [ ] [Přesný model a režim obou PtP rádií.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L77)
+- [ ] [Cílový LAN prefix Rybníků v rámci společného adresního plánu.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L78)
+- [ ] [Počet a umístění AP potřebných pro soukromou a hostovskou Wi-Fi.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L79)
+- [ ] [Stav optiky a technické řešení sloupu.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L80)
+- [ ] [5GHz, nebo 60GHz uplink k mobilhome podle zaměření.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L81)
+- [ ] [Přesná směrovací a firewallová pravidla mezi HOME, privátní sítí Rybníků a hosty.](Rybniky-Amerika/Sit/Plan-rekonstrukce.md?plain=1#L82)
 
 ### Síť – Rybníky „Amerika“
 
-- [ ] [Nejdřív provést fyzickou a konfigurační inventuru na místě. Teprve podle ní rozhodnout, zda bude pragmatickým core hEX S, nebo cílovým core RB5009.](Rybniky-Amerika/Sit/README.md?plain=1#L39)
+- [ ] [Na místě provést fyzickou a konfigurační inventuru a podle ní připravit konkrétní portovou mapu, adresaci a návratový postup pro nasazení hEX S (2025).](Rybniky-Amerika/Sit/README.md?plain=1#L46)
 
 ### Topologie
 
-- [ ] [Přesné modely a role obou PtP rádií.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L47)
-- [ ] [Které zařízení dnes routuje a poskytuje DHCP.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L48)
-- [ ] [Všechny další DHCP servery a NATy.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L49)
-- [ ] [Aktivní adresní rozsahy, statické IP a port-forwardy.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L50)
-- [ ] [Zařízení a kabely v Obýváku, Včelíně, Hospodě a Dílně.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L51)
-- [ ] [Stav, typ a zakončení optiky ke sloupu.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L52)
-- [ ] [NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L53)
-- [ ] [Napájení, PoE a přepěťovou ochranu venkovních částí.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L54)
+- [ ] [Přesné modely, RouterOS a režimy obou PtP rádií.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L52)
+- [ ] [Které zařízení dnes routuje a poskytuje DHCP, NAT a firewall.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L53)
+- [ ] [Všechny další DHCP servery a NATy.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L54)
+- [ ] [Aktivní adresní rozsahy, statické IP a port-forwardy.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L55)
+- [ ] [Zařízení, porty a kabely v Obýváku, Včelíně, Hospodě a Dílně.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L56)
+- [ ] [Stav, typ a zakončení optiky ke sloupu.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L57)
+- [ ] [NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L58)
+- [ ] [Napájení, PoE a přepěťovou ochranu venkovních částí.](Rybniky-Amerika/Sit/Topologie.md?plain=1#L59)
 
 ## Vernirovice / BESS-a-FVE
 
