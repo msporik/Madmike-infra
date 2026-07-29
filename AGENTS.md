@@ -5,13 +5,14 @@ Tento soubor platí pro celý repozitář.
 ## Struktura dokumentace
 
 - První úroveň je **kapitola** – hlavní spravovaný celek nebo lokalita.
-- Druhá úroveň je **projekt** – dlouhodobá oblast uvnitř kapitoly.
-- `README.md` projektu je autoritativní přehled projektu.
-- Podrobnější témata projektu jsou samostatné Markdown soubory přímo v adresáři projektu.
-- Vlastní podadresář vznikne až tehdy, když se z tématu skutečně stane samostatný projekt.
+- Pokud kapitola obsahuje jediný ucelený projekt, `README.md` a tematické Markdown soubory mohou být přímo v kořeni kapitoly.
+- Samostatná druhá úroveň **projekt** vznikne, když kapitola obsahuje více dlouhodobě oddělených oblastí.
+- `README.md` je autoritativní přehled příslušné kapitoly nebo projektu.
+- Podrobnější témata jsou samostatné Markdown soubory přímo vedle příslušného `README.md`.
+- Vlastní podadresář vznikne až tehdy, když představuje skutečně samostatný a dlouhodobě udržovaný projekt.
 - Prázdné adresáře pro možné budoucí oblasti se předem nezakládají.
 
-Příklad: `MadMike/Monitoring/Mikr.md`.
+Příklady: `Rybniky-Amerika/Topologie.md` a `MadMike/Monitoring/Mikr.md`.
 
 ## Přesnost a stav informací
 
