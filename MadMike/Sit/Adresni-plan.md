@@ -2,38 +2,45 @@
 
 ## Stav dokumentu
 
-Dokument spojuje dvě vrstvy:
+Dokument odděluje tři vrstvy:
 
-- současné potvrzené nebo historicky doložené rozsahy;
+- současné doložené rozsahy;
+- historické nebo dosud živě neověřené údaje;
 - předběžný cílový plán interních IPv4 adres.
 
 Cílový plán je pracovní architektonický rámec. Není migračním příkazem ani potvrzením, že navržené rozsahy už jsou nasazené.
 
-Rozlišení stavů:
+Provozní konfigurace WireGuard peerů, `allowed-address` a rout patří výhradně do [Servery / WireGuard](../Servery/WireGuard.md). Tento dokument vede jen adresní principy a používané nebo rezervované prefixy.
 
-- **aktivní / potvrzené** – doložený současný provoz;
-- **pracovní rezervace** – prostor vyhrazený pro budoucí použití, nikoli aktivní síť;
-- **otevřené** – detail, který ještě nebyl rozhodnut nebo musí být ověřen.
-
-## Současné potvrzené rozsahy
+## Současné doložené rozsahy
 
 | Účel / lokalita | Rozsah | Stav |
 |---|---|---|
-| HOME | `192.168.89.0/24` | aktivní |
+| HOME | `192.168.89.0/24` | aktivní podle poslední dokumentace |
 | Honza | `192.168.10.0/24` | aktivní; brána `192.168.10.1` |
 | PBS / Richard | `192.168.100.0/24` | aktivní |
-| notebookový WireGuard | `10.89.1.0/24` | aktivní; RB5009 má `10.89.1.1/24` |
-| site-to-site WireGuard HOME ↔ Honza | `10.200.0.0/24` | aktivní; HOME `10.200.0.1`, Honza `10.200.0.3` |
+| ŠÉF / RD Švecovi | `192.168.22.0/24` | příslušnost lokality potvrzena; živou konfiguraci ještě ověřit |
 
-Rozsahy dalších lokalit se doplní až po kontrole živých routerů.
+Rozsah `192.168.22.0/24` nepatří Rybníkům. Historické přiřazení Rybníkům bylo chybné.
 
-## Známé historické nebo neověřené rozsahy
+## Současné legacy VPN prefixy
 
-| Lokalita | Rozsah | Stav |
+| Účel | Rozsah | Stav |
 |---|---|---|
-| Rybníky – Amerika | `192.168.22.0/24` | doložený ve starší konfiguraci hEX S; současný živý stav není potvrzený |
+| notebookový WireGuard | `10.89.1.0/24` | aktivní; RB5009 má `10.89.1.1/24` |
+| site-to-site WireGuard | `10.200.0.0/24` | používaná legacy VPN vrstva |
 
-Podrobnosti k historické adresaci Rybníků jsou v [Rybníky – Amerika / Síť / Topologie](../../Rybniky-Amerika/Sit/Topologie.md). Tento rozsah se nesmí považovat za současně aktivní ani za schválený cílový rozsah bez kontroly živé konfigurace.
+Tyto prefixy nejsou součástí cílového schématu `10.LOKALITA.SEGMENT.HOST` a nesmí se vykládat jako fyzické lokality 89 a 200. Konkrétní peer adresy se zde záměrně neevidují.
+
+## Historické nebo neověřené údaje
+
+| Lokalita / původ | Rozsah | Stav |
+|---|---|---|
+| neznámý historický původ | `192.168.30.0/24` | určit při kontrole starého IPsec a živých konfigurací |
+| Vernířovice / `IOTVL` | zatím neurčený | doložená samostatná IoT síť; rozsah a současný provoz ověřit v kapitole Vernířovice |
+| Rybníky – Amerika | zatím neurčený | skutečný současný i cílový LAN prefix dosud není v tomto plánu přidělený |
+
+Podrobnosti jednotlivých lokalit se ověřují a zapisují v jejich vlastních kapitolách. Do tohoto přehledu se přenesou až potvrzené rozsahy.
 
 ## Cílový princip
 
@@ -96,7 +103,7 @@ Volba `10.10.x.x` je přehledná a snadno zapamatovatelná. Není považovaná z
 
 Konkrétní sítě uvnitř `10.10.0.0/16` – například hlavní LAN, servery, management, IoT, kamery nebo hosté – zatím nejsou schválené. Určí je až společný slovník segmentů.
 
-## WireGuard, transit a virtuální adresy
+## VPN, transit a virtuální adresy
 
 Pro budoucí společnou VPN a transitní vrstvu je rezervovaný prostor:
 
@@ -111,38 +118,10 @@ Pravidla:
 - přes WireGuard se inzerují jen potřebné prefixy, nikoli automaticky celé `10.0.0.0/8`;
 - přidělení `/16` lokalitě samo o sobě nevytváří firewallové oprávnění;
 - firewall nemá automaticky povolit celý rezervovaný `/16` jen proto, že je směrovaný;
-- VPN adresy, transitní sítě a případné virtuální adresy se mají dlouhodobě soustředit do `10.255.0.0/16`.
+- VPN adresy, transitní sítě a případné virtuální adresy se mají dlouhodobě soustředit do `10.255.0.0/16`;
+- provozní mapování peerů zůstává pouze v dokumentaci WireGuardu.
 
-### Současná site-to-site síť
-
-Dnešní `10.200.0.0/24` je existující VPN vrstva. V cílovém schématu se nesmí vykládat jako fyzická lokalita 200.
-
-| Lokalita / peer | WG adresa | Stav |
-|---|---|---|
-| HOME | `10.200.0.1` | aktivní pro propojení s Honzou |
-| PBS / Richard | `10.200.0.2` | předběžný návrh; ověřit živou konfiguraci |
-| Honza | `10.200.0.3` | aktivní |
-| Vernířovice | `10.200.0.4` | předběžný návrh |
-| RD Švecovi | `10.200.0.10` | předběžný návrh |
-
-Pouze adresy HOME a Honza jsou v této tabulce potvrzené živým fungujícím propojením. Ostatní řádky zůstávají návrhem do ověření konfigurace routerů.
-
-### Dočasná výjimka notebookového WireGuardu
-
-Notebookový WireGuard dnes používá:
-
-```text
-10.89.1.0/24
-```
-
-V novém schématu by tento rozsah vypadal jako lokalita 89, segment 1. Do migrace VPN vrstvy proto platí:
-
-```text
-lokalita 89 je blokovaná a nesmí být přidělena
-10.89.1.0/24 je dočasná legacy výjimka
-```
-
-Při zavádění nové VPN vrstvy se tento rozsah pravděpodobně přesune do `10.255.0.0/16`.
+Notebookový `10.89.1.0/24` i site-to-site `10.200.0.0/24` zůstávají do migrace legacy výjimkami. Lokalita 89 je proto blokovaná a nesmí být přidělena.
 
 ## Známá kolizní a technologická rizika
 
@@ -171,12 +150,13 @@ Cílem není odstranit každé možné riziko kolize, ale zvolit konzistentní a
 - umístění serverových služeb, hypervizorů, managementu, monitoringu a IPMI/iDRAC;
 - vztah segmentů k VLANám;
 - přesné vnitřní členění `10.255.0.0/16`;
+- identifikátory lokalit kromě pracovní volby HOME;
 - pořadí migrace stávajících lokalit;
 - případný budoucí doplněk IPv6 ULA.
 
 ## Další postup
 
-- [ ] Vypsat současné LAN, VLAN, WG, routované a transitní rozsahy všech spravovaných lokalit.
+- [ ] Vypsat současné LAN, VLAN, routované a transitní rozsahy všech spravovaných lokalit; provozní WG inventuru převzít z dokumentu WireGuard.
 - [ ] Jednoznačně přiřadit číselný identifikátor každé lokalitě s respektováním blokací `0`, `8` a `89`.
 - [ ] Navrhnout jednotný slovník funkčních segmentů; číslo segmentu automaticky neztotožňovat s VLAN ID.
 - [ ] Navrhnout vnitřní členění `10.255.0.0/16` pro VPN, transit a virtuální adresy.
