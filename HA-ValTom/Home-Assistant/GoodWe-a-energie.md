@@ -18,7 +18,7 @@ Integrace GoodWe je plánovaná, ale není doložené její dokončené propojen
 
 ## Údaje k ověření na místě
 
-- [ ] přesný model GoodWe střídače;
+- [ ] Ověřit přesný model GoodWe střídače;
 - [ ] jeho lokální IP adresa a dostupný způsob komunikace;
 - [ ] seznam a význam dostupných entit;
 - [ ] způsob měření spotřeby a přetoků;
