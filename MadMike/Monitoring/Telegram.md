@@ -31,9 +31,9 @@ Telegram má být jedna přehledná schránka skutečných problémů infrastruk
 
 ## Navazující práce
 
-1. Vytvořit soukromý chat nebo skupinu.
-2. Vytvořit bota a bezpečně uložit jeho token mimo repozitář.
-3. Připojit jako první Uptime Kuma a otestovat alarm i návrat do normálu.
-4. Otestovat nativní notifikace PVE a PBS.
-5. Postupně připojit Mikr Manager a případně Pulse.
-6. Po pilotním provozu upravit obsah zpráv a potlačit duplicity.
+- [ ] Vytvořit soukromý chat nebo skupinu.
+- [ ] Vytvořit bota a bezpečně uložit jeho token mimo repozitář.
+- [ ] Připojit jako první Uptime Kuma a otestovat alarm i návrat do normálu.
+- [ ] Otestovat nativní notifikace PVE a PBS.
+- [ ] Postupně připojit Mikr Manager a případně Pulse.
+- [ ] Po pilotním provozu upravit obsah zpráv a potlačit duplicity.
