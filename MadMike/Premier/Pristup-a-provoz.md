@@ -7,7 +7,7 @@
 - Přesné aktuální pravidlo dst-nat, cílová IP, zdrojová omezení a stav firewallu je nutné ověřit na živém RB5009.
 - Přístup musí zůstat jednoduchý pro externí účetní; změna nesmí bez náhrady zablokovat běžnou práci.
 
-Přihlašovací údaje, hesla a RDP konfigurace obsahující tajné hodnoty se do repozitáře nezapisují.
+Přihlašovací údaje, hesla a RDP konfigurace obsahující tajné hodnoty se do repozitáře nezapisují. Společné zásady jsou v projektu [Přístupy](../Pristupy/README.md).
 
 ## Schválený směr zabezpečení
 
