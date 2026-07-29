@@ -187,6 +187,12 @@
 
 ## MadMike / Servery
 
+### Interní DNS, NPM a HTTPS
+
+- [ ] [Ověřit, že připojení Uptime Kuma k `npm_default` přežije případné odstranění a znovuvytvoření kontejneru.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L65)
+- [ ] [Ověřit, že notebookový WireGuard používá DNS `192.168.89.1`, aby interní názvy fungovaly i mimo domov.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L66)
+- [ ] [Při každém přidání služby zapsat současně DNS chování, NPM upstream a způsob přístupu.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L67)
+
 ### PVE Dell
 
 - [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L27)
