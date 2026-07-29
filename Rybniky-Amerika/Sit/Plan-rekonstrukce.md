@@ -2,78 +2,84 @@
 
 ## Cíl
 
-Přestavět existující funkční, ale nesourodou síť po etapách tak, aby měla jasný core, lokální DHCP, jeden NAT, spravované L2 body a samostatná AP. Rekonstrukce nesmí sama o sobě ohrozit nezdokumentované služby.
+Přestavět existující funkční, ale nesourodou síť po etapách na schválenou jednoduchou architekturu:
 
-## Rozhodovací pravidlo pro core
+- přijímací rádio jako bridge/CPE;
+- hEX S (2025) jako jediný router, DHCP server a firewall;
+- přímé směrování k HOME přes stávající PtP bez WireGuardu;
+- soukromá a oddělená hostovská Wi-Fi;
+- spravovaná L2 distribuce bez dalších DHCP a NAT ostrovů.
 
-```text
-rychlá konsolidace současného stavu = hEX S
-cílová rekonstrukce celé lokality = RB5009
-```
-
-CRS326 má smysl jen při skutečném využití většího počtu portů, centrálního rozvodu nebo optiky.
+Rekonstrukce nesmí sama o sobě ohrozit nezdokumentované služby. Starší varianty hEX S versus RB5009 a úvahy o povinném CRS326 jsou uzavřené; nejsou nadále rozhodovacími body.
 
 ## Etapy
 
-### 0. Inventura a zálohy
+### 0. Inventura a návratový plán
 
 - získat exporty aktivních MikroTiků;
-- zaznamenat modely, identity, IP, MAC, RouterOS a napájení;
-- zmapovat porty, kabely, optiku, AP, DHCP, NAT a statické klienty;
+- zaznamenat modely, identity, IP, RouterOS, role a napájení;
+- zmapovat porty, kabely, optiku, AP, DHCP, NAT, firewall a statické klienty;
+- ověřit NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace;
 - vytvořit aktuální topologii a portový plán;
-- ověřit NVR a zařízení „Stavba“.
+- připravit zálohy, testovací checklist a konkrétní rollback.
 
-### 1. Oddělení PtP rádia od routingu
+### 1. Příprava hEX S (2025)
 
-- připravit nový core mimo produkci;
-- převést DHCP, NAT a firewall na core;
-- ověřit WAN parametry, internet, DNS a přístup z HOME;
-- přijímací rádio ponechat pouze jako bridge/CPE.
+- ověřit dostupnost konkrétního kusu v HW evidenci;
+- připravit konfiguraci mimo produkci;
+- navrhnout místní LAN prefix podle společného adresního plánu;
+- připravit lokální DHCP, DNS forwarding, firewall a management;
+- připravit směrování mezi HOME a Rybníky bez WireGuardu;
+- oddělit soukromou a hostovskou síť a zablokovat hostům přístup do privátní sítě, HOME a managementu.
 
-### 2. Odstranění NAT ostrovů
+### 2. Oddělení PtP rádia od routingu
 
-Postupovat samostatně po větvích: Obývák, Včelín, Hospoda a Dílna. SOHO routery převést do AP/bridge režimu, nahradit nebo odstranit. U každé větve zachovat možnost rychlého návratu.
+- převést přijímací rádio do režimu bridge/CPE;
+- zapojit připravený hEX S jako jediný core;
+- ověřit WAN/upstream, internet, DNS a směrování mezi povolenými sítěmi HOME a Rybníků;
+- ověřit, že nezůstal skrytý DHCP, NAT nebo firewall na rádiu;
+- při problému použít připravený návratový postup.
 
-### 3. Spravovaná L2 distribuce
+### 3. Odstranění NAT ostrovů
 
-- Včelín provozovat pouze jako L2 bod;
-- doplnit spravované switche podle skutečného počtu portů a PoE;
-- nastavit identity, management IP, popisy portů, RSTP a zálohy konfigurací.
+Postupovat samostatně po větvích Obývák, Včelín, Hospoda a Dílna. SOHO routery převést do AP/bridge režimu, nahradit nebo odstranit. Každou větev měnit a otestovat zvlášť.
 
-### 4. Wi-Fi
+### 4. L2 distribuce a Wi-Fi
 
-- zaměřit reálné pokrytí;
-- určit počet AP;
-- nasadit cAP ax/ax XL tam, kde dávají dlouhodobý smysl;
-- sjednotit SSID;
-- CAPsMAN zvolit až po ověření kompatibility RouterOS 6/7 a starého/nového Wi-Fi balíku.
+- Včelín provozovat pouze jako L2 distribuční bod;
+- doplnit spravované switche podle skutečného počtu portů, optiky a PoE;
+- nastavit identity, management IP, popisy portů, RSTP a zálohy konfigurací;
+- zaměřit pokrytí a určit skutečný počet AP;
+- nasadit soukromé a hostovské SSID;
+- CAPsMAN nebo VLAN použít jen tehdy, pokud prokazatelně zjednoduší správu nebo bezpečné oddělení.
 
-### 5. Sloup
+### 5. Sloup a mobilhome
 
-Až po stabilizaci základní sítě ověřit optiku, napájení, uzemnění, přepěťovou ochranu a PoE rozpočet. Potom rozhodnout mezi PowerBox Pro se samostatnými rádii a jiným venkovním řešením.
+Až po stabilizaci základní sítě ověřit:
 
-### 6. Mobilhome
+- stav a zakončení optiky;
+- napájení, uzemnění, přepěťovou ochranu a PoE rozpočet;
+- trasu, přímou viditelnost, Fresnelovu zónu a vegetaci;
+- požadovanou kapacitu.
 
-Zaměřit trasu, přímou viditelnost, Fresnelovu zónu, vegetaci a požadovanou kapacitu. Teprve potom rozhodnout mezi 5 a 60 GHz.
+Teprve potom vybrat venkovní distribuční prvek a 5GHz nebo 60GHz uplink k mobilhome.
 
-### 7. Správa a monitoring
+### 6. Správa, monitoring a zálohy
 
 - přidat potvrzená zařízení do Mikr;
 - nastavit exporty a pravidelné zálohy konfigurací;
 - ověřit obnovitelnost záloh;
-- další topologický monitoring řešit jen tehdy, pokud Mikr nepokryje skutečnou potřebu.
+- zapsat finální topologii, adresaci, portovou mapu a provozní testy do GitHubu.
 
-## Otevřená rozhodnutí
+## Otevřené kontroly
 
-- [ ] hEX S, nebo RB5009 jako core.
-- [ ] Zda je CRS326 přiměřený skutečné topologii.
-- [ ] Který CRS112 a kde má zajišťovat PoE.
-- [ ] Kolik AP je reálně potřeba.
-- [ ] Zda zavést CAPsMAN.
-- [ ] Zda existuje konkrétní důvod pro VLAN.
-- [ ] Stav optiky a řešení sloupu.
-- [ ] 5GHz, nebo 60GHz uplink k mobilhome.
-- [ ] Zda HOME potřebuje přímý přístup do celé LAN Rybníků bez dalšího NAT.
+- [ ] Skutečná výchozí topologie, DHCP, NAT, firewall a port-forwardy.
+- [ ] Přesný model a režim obou PtP rádií.
+- [ ] Cílový LAN prefix Rybníků v rámci společného adresního plánu.
+- [ ] Počet a umístění AP potřebných pro soukromou a hostovskou Wi-Fi.
+- [ ] Stav optiky a technické řešení sloupu.
+- [ ] 5GHz, nebo 60GHz uplink k mobilhome podle zaměření.
+- [ ] Přesná směrovací a firewallová pravidla mezi HOME, privátní sítí Rybníků a hosty.
 
 ## Hlavní rizika
 
