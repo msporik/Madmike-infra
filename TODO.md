@@ -87,44 +87,44 @@
 
 ### Mikr Manager
 
-- [ ] [Vybrat kritická zařízení a lokality.](MadMike/Monitoring/Mikr.md?plain=1#L24)
-- [ ] [Určit významné alarmy a jejich rozumné zpoždění.](MadMike/Monitoring/Mikr.md?plain=1#L25)
-- [ ] [Prověřit, které události už lépe pokrývá Uptime Kuma.](MadMike/Monitoring/Mikr.md?plain=1#L26)
-- [ ] [Připojit pouze neduplicitní alarmy do Telegramu.](MadMike/Monitoring/Mikr.md?plain=1#L27)
-- [ ] [Prakticky ověřit ukládání a obnovitelnost exportů konfigurací.](MadMike/Monitoring/Mikr.md?plain=1#L28)
+- [ ] [Vybrat kritická zařízení a lokality.](MadMike/Monitoring/Mikr.md?plain=1#L31)
+- [ ] [Určit významné alarmy a jejich rozumné zpoždění.](MadMike/Monitoring/Mikr.md?plain=1#L32)
+- [ ] [Prověřit, které události už lépe pokrývá Uptime Kuma.](MadMike/Monitoring/Mikr.md?plain=1#L33)
+- [ ] [Připojit pouze neduplicitní alarmy do Telegramu.](MadMike/Monitoring/Mikr.md?plain=1#L34)
+- [ ] [Prakticky ověřit ukládání a obnovitelnost exportů konfigurací v projektu Zálohy.](MadMike/Monitoring/Mikr.md?plain=1#L35)
 
 ### Monitoring
 
-- [ ] [Aktualizovat Uptime Kuma a poté určit konečný seznam monitorů.](MadMike/Monitoring/README.md?plain=1#L49)
-- [ ] [Otestovat a nastavit nativní notifikace Proxmox VE a PBS pro události, které Pulse nepokrývá.](MadMike/Monitoring/README.md?plain=1#L50)
-- [ ] [Vybrat jen významné alarmy z Mikr Manageru.](MadMike/Monitoring/README.md?plain=1#L51)
-- [ ] [Zprovoznit společné Telegram notifikace podle schválených zásad.](MadMike/Monitoring/README.md?plain=1#L52)
+- [ ] [Aktualizovat Uptime Kuma a poté určit konečný seznam monitorů.](MadMike/Monitoring/README.md?plain=1#L55)
+- [ ] [Otestovat a nastavit nativní notifikace Proxmox VE a PBS pro události, které Pulse nepokrývá.](MadMike/Monitoring/README.md?plain=1#L56)
+- [ ] [Vybrat jen významné alarmy z Mikr Manageru.](MadMike/Monitoring/README.md?plain=1#L57)
+- [ ] [Zprovoznit společné Telegram notifikace podle schválených zásad.](MadMike/Monitoring/README.md?plain=1#L58)
 
 ### Pulse
 
-- [ ] [Zjistit současnou konfiguraci nativních notifikačních cílů a pravidel zvlášť na PVE Ryzen, PVE Dell a PBS.](MadMike/Monitoring/Pulse.md?plain=1#L109)
-- [ ] [Poslat vestavěnou testovací notifikaci ze všech tří systémů.](MadMike/Monitoring/Pulse.md?plain=1#L110)
-- [ ] [Bez narušení produkčních záloh ověřit hlášení neúspěšného Backup, Verify, Prune a Garbage Collection jobu.](MadMike/Monitoring/Pulse.md?plain=1#L111)
-- [ ] [Ověřit plánování ZFS scrubů na `tank-pbs`, `tank-nas`, `tank-ssd` a `tank-hdd` a způsob hlášení chyby nebo příliš starého běhu.](MadMike/Monitoring/Pulse.md?plain=1#L112)
-- [ ] [Rozdělit události mezi Pulse a nativní notifikace bez duplicit a úspěšné běhy neposílat jako šum.](MadMike/Monitoring/Pulse.md?plain=1#L113)
-- [ ] [Vybrané problémy a následné obnovení směrovat do Telegramu.](MadMike/Monitoring/Pulse.md?plain=1#L114)
+- [ ] [Zjistit současnou konfiguraci nativních notifikačních cílů a pravidel zvlášť na PVE Ryzen, PVE Dell a PBS.](MadMike/Monitoring/Pulse.md?plain=1#L106)
+- [ ] [Poslat vestavěnou testovací notifikaci ze všech tří systémů.](MadMike/Monitoring/Pulse.md?plain=1#L107)
+- [ ] [Bez narušení produkčních záloh ověřit hlášení neúspěšného Backup, Verify, Prune a Garbage Collection jobu.](MadMike/Monitoring/Pulse.md?plain=1#L108)
+- [ ] [Ověřit plánování ZFS scrubů na `tank-pbs`, `tank-nas`, `tank-ssd` a `tank-hdd` a způsob hlášení chyby nebo příliš starého běhu.](MadMike/Monitoring/Pulse.md?plain=1#L109)
+- [ ] [Rozdělit události mezi Pulse a nativní notifikace bez duplicit a úspěšné běhy neposílat jako šum.](MadMike/Monitoring/Pulse.md?plain=1#L110)
+- [ ] [Vybrané problémy a následné obnovení směrovat do Telegramu.](MadMike/Monitoring/Pulse.md?plain=1#L111)
 
 ### Telegram notifikace
 
-- [ ] [Vytvořit soukromý chat nebo skupinu.](MadMike/Monitoring/Telegram.md?plain=1#L34)
-- [ ] [Vytvořit bota a bezpečně uložit jeho token mimo repozitář.](MadMike/Monitoring/Telegram.md?plain=1#L35)
-- [ ] [Připojit jako první Uptime Kuma a otestovat alarm i návrat do normálu.](MadMike/Monitoring/Telegram.md?plain=1#L36)
-- [ ] [Otestovat nativní notifikace PVE a PBS.](MadMike/Monitoring/Telegram.md?plain=1#L37)
-- [ ] [Postupně připojit Mikr Manager a případně Pulse.](MadMike/Monitoring/Telegram.md?plain=1#L38)
-- [ ] [Po pilotním provozu upravit obsah zpráv a potlačit duplicity.](MadMike/Monitoring/Telegram.md?plain=1#L39)
+- [ ] [Vytvořit soukromou skupinu `MadMike – infrastruktura`.](MadMike/Monitoring/Telegram.md?plain=1#L45)
+- [ ] [Vytvořit jednoho společného bota a bezpečně uložit jeho token mimo repozitář.](MadMike/Monitoring/Telegram.md?plain=1#L46)
+- [ ] [Připojit jako první Uptime Kuma a otestovat alarm i návrat do normálu.](MadMike/Monitoring/Telegram.md?plain=1#L47)
+- [ ] [Otestovat nativní notifikace PVE a PBS.](MadMike/Monitoring/Telegram.md?plain=1#L48)
+- [ ] [Postupně připojit Mikr Manager a případně Pulse.](MadMike/Monitoring/Telegram.md?plain=1#L49)
+- [ ] [Po pilotním provozu upravit obsah zpráv a potlačit duplicity.](MadMike/Monitoring/Telegram.md?plain=1#L50)
 
 ### Uptime Kuma
 
-- [ ] [Aktualizovat Uptime Kuma na aktuální stabilní verzi.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L25)
-- [ ] [Projít existující monitory.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L26)
-- [ ] [Stanovit seznam kritických a doplňkových služeb.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L27)
-- [ ] [Nastavit rozumné zpoždění, aby krátký výpadek nevytvářel zbytečný alarm.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L28)
-- [ ] [Připojit vybrané alarmy a návraty do normálu do Telegramu.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L29)
+- [ ] [Aktualizovat Uptime Kuma na aktuální stabilní verzi.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L37)
+- [ ] [Projít existující monitory proti živé konfiguraci.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L38)
+- [ ] [Stanovit seznam kritických a doplňkových služeb.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L39)
+- [ ] [Nastavit přibližně pětiminutové výchozí zpoždění a individuální výjimky.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L40)
+- [ ] [Připojit vybrané alarmy a návraty do normálu do Telegramu.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L41)
 
 ## MadMike / Nextcloud
 
