@@ -38,7 +38,7 @@ Názvy entit jsou provozní vazba automatizace. Po změně integrace nebo migrac
 
 ## Otevřené úkoly
 
-1. Ověřit skutečné chování automatizace při hraničním SOC a při ztrátě dat.
-2. Doplnit koordinaci nového 215kWh systému až po ověření jeho rozhraní.
-3. Stanovit bezpečné výchozí režimy obou měničů.
-4. Přidat měřitelné vyhodnocení ekonomického přínosu jednotlivých strategií.
+- [ ] Ověřit skutečné chování automatizace při hraničním SOC a při ztrátě dat.
+- [ ] Doplnit koordinaci nového 215kWh systému až po ověření jeho rozhraní.
+- [ ] Stanovit bezpečné výchozí režimy obou měničů.
+- [ ] Přidat měřitelné vyhodnocení ekonomického přínosu jednotlivých strategií.
