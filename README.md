@@ -4,21 +4,24 @@
 
 ## Struktura
 
-Dokumentace používá jednoduchou hierarchii:
+Dokumentace používá co nejjednodušší potřebnou hierarchii:
 
 ```text
 kapitola/
+├── README.md
+├── jednotlivá témata kapitoly.md
 └── projekt/
     ├── README.md
     └── jednotlivá témata projektu.md
 ```
 
 - **Kapitola** je hlavní spravovaný celek nebo lokalita.
-- **Projekt** je dlouhodobá oblast uvnitř kapitoly.
-- `README.md` projektu je společný a autoritativní přehled.
-- Jednotlivá témata projektu jsou soubory přímo v jeho adresáři.
+- Pokud kapitola obsahuje jediný ucelený projekt, jeho přehled a témata mohou být přímo v kořeni kapitoly.
+- Samostatný adresář **projektu** vznikne, když kapitola obsahuje více dlouhodobě oddělených oblastí.
+- `README.md` je společný a autoritativní přehled příslušné kapitoly nebo projektu.
+- Jednotlivá témata jsou Markdown soubory přímo vedle příslušného `README.md`.
 
-Příklad: `MadMike/Monitoring/Mikr.md`.
+Příklady: `Rybniky-Amerika/Topologie.md` a `MadMike/Monitoring/Mikr.md`.
 
 ## Obsah
 
