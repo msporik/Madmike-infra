@@ -1,39 +1,46 @@
 # Síť – Rybníky „Amerika“
 
-## Doložený stav z podkladů k 2026-07-14
+## Naposledy doložený fyzický stav
 
-Síť je funkční, ale vznikala postupně a není dosud kompletně zinventarizovaná.
+Síť je funkční, ale vznikala postupně a není dosud kompletně fyzicky ani konfiguračně zinventarizovaná.
 
 - konektivita přichází od HOME přes 5GHz PtP spoj dlouhý přibližně 500–600 m;
-- na jednom konci spoje je starší MikroTik Sextant, druhý konec byl v podkladech označován jako LHG; přesné modely a role obou konců je nutné potvrdit;
+- přesné modely a role obou konců spoje je nutné potvrdit;
 - starší Sextant běžel stabilně na RouterOS `6.49.19` a má 32 MB RAM;
 - za přijímacím bodem pokračuje místní síť do Obýváku a Včelína;
 - Včelín fyzicky rozděluje ethernet do Hospody a Dílny;
 - Hospoda a Dílna mají místní Wi-Fi;
 - z Hospody pokračuje nebo je plánována trasa ke sloupu a následně k mobilhome;
-- v síti historicky vzniklo několik samostatně NATovaných větví se SOHO/TP-Link routery.
+- historicky mohlo vzniknout několik samostatně NATovaných větví se SOHO/TP-Link routery.
 
 Není potvrzený jeden aktuální seznam routerů, switchů, AP, adres, portů ani kabelových tras.
 
-## Platná architektonická rozhodnutí
+## Schválený cílový stav
 
-- PtP rádio má být transportní bridge/CPE, ne hlavní router lokality.
-- Za rádiem má být samostatný core router.
-- Rybníky mají mít lokální DHCP.
-- NAT má být pouze na místním core směrem k HOME.
-- Včelín má být L2 distribuční bod bez dalšího DHCP a NAT.
-- Wi-Fi mají zajišťovat samostatná AP.
-- VLAN a CAPsMAN se nasadí jen s konkrétním provozním přínosem.
-- Stabilní Sextant se nemá bez důvodu převádět na RouterOS 7.
+Rozhodnutí z brainstormingu z 2026-07-22 nahrazuje starší otevřené varianty:
+
+- přijímací PtP rádio bude pouze transportní bridge/CPE;
+- jediným místním routerem bude **hEX S (2025)**;
+- hEX S zajistí lokální DHCP a firewall;
+- propojení s HOME bude řešené přímým směrováním přes existující PtP, bez WireGuardu;
+- místní Wi-Fi se rozdělí na soukromou a hostovskou;
+- hostovská síť bude oddělená od soukromé sítě i správy;
+- Včelín a další mezilehlé body budou pouze L2 distribuce bez dalšího DHCP a NAT;
+- Wi-Fi budou zajišťovat samostatná AP;
+- VLAN a CAPsMAN se doplní jen tehdy, pokud přinesou konkrétní provozní užitek;
+- stabilní starší rádio se nebude bez důvodu měnit ani převádět na RouterOS 7.
+
+Toto je schválená cílová architektura, nikoli tvrzení, že už byla nasazená. Skutečný výchozí stav a migrační detaily se ověří na místě.
 
 ## Témata projektu
 
-- [Topologie](Topologie.md) – známá fyzická kostra, historická adresace a nejasná místa.
-- [Hardware](Hardware.md) – doložené zařízení a kandidáti pro cílovou síť.
-- [Plán rekonstrukce](Plan-rekonstrukce.md) – etapizace, rozhodovací body a rizika.
+- [Topologie](Topologie.md) – známá fyzická kostra, cílová logická topologie a nejasná místa.
+- [Hardware](Hardware.md) – doložené zařízení a schválené role cílové sítě.
+- [Plán rekonstrukce](Plan-rekonstrukce.md) – bezpečná etapizace přechodu na schválený stav.
 - Společný adresní plán je v [MadMike / Síť / Adresní plán](../../MadMike/Sit/Adresni-plan.md).
-- Centrální správa MikroTiků je v [MadMike / Monitoring / Mikr](../../MadMike/Monitoring/Mikr.md).
+- Centrální monitoring MikroTiků je v [MadMike / Monitoring / Mikr](../../MadMike/Monitoring/Mikr.md).
+- Detailní kusová a skladová evidence hardwaru zůstává v Airtable.
 
 ## Bezprostřední další krok
 
-- [ ] Nejdřív provést fyzickou a konfigurační inventuru na místě. Teprve podle ní rozhodnout, zda bude pragmatickým core hEX S, nebo cílovým core RB5009.
+- [ ] Na místě provést fyzickou a konfigurační inventuru a podle ní připravit konkrétní portovou mapu, adresaci a návratový postup pro nasazení hEX S (2025).
