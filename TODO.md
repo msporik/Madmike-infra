@@ -166,19 +166,15 @@
 
 ### Bitwarden
 
-- [ ] [Pokračovat v pilotu na omezeném počtu účtů a ověřit běžné používání na PC i telefonu.](MadMike/Pristupy/Bitwarden.md?plain=1#L43)
-- [ ] [Nastavit MFA a bezpečně uložit recovery údaje.](MadMike/Pristupy/Bitwarden.md?plain=1#L44)
-- [ ] [Teprve po úspěšném pilotu rozhodnout o širším přesunu účtů a vypnutí starého ukládání hesel.](MadMike/Pristupy/Bitwarden.md?plain=1#L45)
-- [ ] [Ověřit praktický postup pro GitHub, Microsoft, Seznam, Home Assistant, RouterOS/WebFig a iDRAC.](MadMike/Pristupy/Bitwarden.md?plain=1#L46)
-- [ ] [Postupně odstranit duplicitní nebo příliš obecné URI, které nabízejí přihlášení na nesprávných hostitelích.](MadMike/Pristupy/Bitwarden.md?plain=1#L47)
+- [ ] [Nainstalovat Bitwarden na telefon a ověřit přihlášení, synchronizaci, odemykání a automatické vyplňování.](MadMike/Pristupy/Bitwarden.md?plain=1#L72)
+- [ ] [Zapnout MFA a připravit nezávislý recovery podklad mimo telefon, počítač a samotný trezor.](MadMike/Pristupy/Bitwarden.md?plain=1#L73)
+- [ ] [Přenést vybrané důležité účty a zkontrolovat jejich přesná URI a porovnávání podle hostitele; zejména GitHub, Microsoft, Home Assistant, RouterOS/WebFig a iDRAC.](MadMike/Pristupy/Bitwarden.md?plain=1#L74)
+- [ ] [Po splnění podmínek pilotu rozhodnout o vypnutí starého ukládání hesel v Chromu.](MadMike/Pristupy/Bitwarden.md?plain=1#L75)
 
 ### Přístupy
 
-- [ ] [Dokončit pilot Bitwardenu na několika běžných a administračních účtech.](MadMike/Pristupy/README.md?plain=1#L35)
-- [ ] [Nastavit MFA pro Bitwarden a bezpečný recovery postup.](MadMike/Pristupy/README.md?plain=1#L36)
-- [ ] [Ověřit a popsat aktuální veřejné RDP pravidlo pro PREMIER.](MadMike/Pristupy/README.md?plain=1#L37)
-- [ ] [Vybrat jednoduchou náhradu přímého veřejného RDP podle skutečného způsobu práce účetní.](MadMike/Pristupy/README.md?plain=1#L38)
-- [ ] [Postupně ověřit MFA a recovery u veřejně dostupných služeb.](MadMike/Pristupy/README.md?plain=1#L39)
+- [ ] [Vybrat jednoduchou cílovou náhradu přímého veřejného RDP k PREMIERu podle skutečného způsobu práce účetní.](MadMike/Pristupy/README.md?plain=1#L44)
+- [ ] [Definovat a prakticky ověřit minimální nouzový postup pro obnovu administrátorského přístupu po současné ztrátě notebooku a telefonu.](MadMike/Pristupy/README.md?plain=1#L45)
 
 ## MadMike / Servery
 
