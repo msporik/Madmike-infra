@@ -2,9 +2,13 @@
 
 ## Role
 
-Hlavní produkční Proxmox VE server v domácí lokalitě. Provozuje zejména produkční Nextcloud, účetní Windows VM s PREMIERem a monitorovací VM.
+Hlavní produkční Proxmox VE server v domácí lokalitě. Provozuje zejména produkční Nextcloud, účetní Windows VM s PREMIERem a infrastrukturní Docker VM.
 
-Současná platforma zatím pro tyto role dostačuje. Podmínky případného budoucího upgradu jsou v dokumentu [Budoucí produkční serverová platforma](Budouci-platforma.md).
+- hostname: `pve`;
+- interní IP: `192.168.89.32`;
+- současná platforma: AMD AM4.
+
+Současný hardware provozované role zvládá. Zároveň je schválený nenásilný upgrade v rámci AM4 podle vhodné nabídky; cílové parametry jsou v dokumentu [Budoucí produkční serverová platforma](Budouci-platforma.md).
 
 ## Ověřený hardware
 
@@ -21,6 +25,12 @@ pve-root   přibližně 96 GB
 pve-swap   8 GB
 pve-data   přibližně 349 GB
 ```
+
+## Napájení
+
+Současný typ zdroje a chování celého serveru po úplném výpadku napájení nebyly při konsolidaci živě ověřené.
+
+Schválený nejbližší krok je po návratu z dovolené objednat M4-ATX. Jde zatím o plánovaný prvek napájení, nikoliv o instalovaný současný stav. Po montáži musí následovat praktický test výpadku, návratu napájení a automatického spuštění serveru.
 
 ## Storage
 
@@ -56,7 +66,7 @@ Původní WD RAID byl před zrušením sestaven pouze pro čtení, zkontrolován
 
 Po obnově z PBS byla ověřena produkční data, přihlášení uživatelů i HTTPS. Podrobná provozní dokumentace je v projektu [Nextcloud](../Nextcloud/README.md).
 
-Není zatím ověřené, zda `tank-nas-zfs` je starší storage ID odkazující na fyzický pool `tank-ssd`, nebo jiné úložiště. Tento údaj se nesmí doplnit odhadem.
+Není zatím ověřené, na jaký současný fyzický pool storage ID `tank-nas-zfs` odkazuje. Starší použití stejného názvu na Dellu nelze automaticky přenášet na Ryzen; vazba se musí potvrdit živými výpisy `pvesm` a `qm config 401`.
 
 ### Ryzen / VM501 – produkční Windows a PREMIER
 
@@ -68,37 +78,26 @@ Není zatím ověřené, zda `tank-nas-zfs` je starší storage ID odkazující 
 - QEMU Guest Agent: zapnutý a ověřený;
 - PREMIER je nainstalovaný a používaný.
 
-RDP je aktuálně publikované do internetu přes MikroTik. Přesné současné pravidlo je potřeba ověřit. Cílové řešení má odstranit přímé veřejné RDP, ale zachovat co nejjednodušší přístup pro externí účetní.
+Poslední dokumentovaný stav uvádí veřejně publikované RDP přes MikroTik, jehož živé pravidlo je nutné ověřit. Autoritativní popis práce účetní je v projektu [PREMIER](../Premier/README.md) a výběr bezpečnějšího, ale jednoduchého vzdáleného přístupu v projektu [Přístupy](../Pristupy/README.md). Úkol se zde neduplikuje.
 
-Podrobná provozní dokumentace je v projektu [PREMIER](../Premier/README.md).
-
-### Ryzen / VM510 – Monitoring
+### Ryzen / VM510 – Docker infrastruktura
 
 - operační systém: Debian 13.5;
-- prostředky: 2 vCPU, 4 GB RAM, 20GB disk;
+- prostředky: 2 vCPU, 4 GB RAM, 20 GB disk;
 - interní IP: `192.168.89.35`;
-- Docker: funkční;
-- QEMU Guest Agent: nainstalovaný a ověřený.
+- Docker a QEMU Guest Agent byly při poslední kontrole funkční.
 
-VM provozuje zejména:
-
-- Nginx Proxy Manager;
-- Pulse;
-- Mikr Manager;
-- Uptime Kuma.
-
-Podrobnosti jsou v projektu [Monitoring](../Monitoring/README.md).
+VM provozuje Nginx Proxy Manager, Pulse, Mikr Manager a Uptime Kuma. Compose cesty, Docker sítě, provozní hranice a otevřené body obnovy jsou v [VM510-Docker.md](VM510-Docker.md). Nastavení samotných monitorovacích aplikací patří do projektu [Monitoring](../Monitoring/README.md).
 
 ## Připojení PBS
 
 Offsite PBS je k PVE Ryzen připojené jako storage `pbs-backup` přes WireGuard. Připojení, fingerprint, datastore i reálné zálohování a obnovy byly prakticky použité.
 
-Autoritativní konfigurace jobů a testů obnovy je v [PBS a disaster recovery](../Zalohy/PBS-DR.md).
+Autoritativní konfigurace jobů, údržby a testů obnovy je v [PBS a disaster recovery](../Zalohy/PBS-DR.md). Stav disků, ZFS a související alarmy jsou provozně sledované v projektu [Monitoring](../Monitoring/README.md); jejich kontrolní úkoly se zde neduplikují.
 
-## Otevřené kontroly
+## Otevřené kroky
 
-- [ ] Ověřit vazbu storage ID `tank-nas-zfs` na fyzický ZFS pool.
-- [ ] Ověřit aktuální PVE konfiguraci VM401, VM501 a VM510 proti živému stavu.
+- [ ] Ověřit živými výpisy `pvesm` a `qm config 401`, na jaký fyzický ZFS pool odkazuje storage ID `tank-nas-zfs`.
 - [ ] Ověřit současné rozdělení a obsazení systémového NVMe.
-- [ ] Ověřit aktuální stav, poslední scrub a SMART poolů `tank-ssd` a `tank-hdd`.
-- [ ] Ověřit pravidla dst-nat a firewallu pro RDP k VM501.
+- [ ] Po návratu z dovolené objednat M4-ATX.
+- [ ] Po instalaci M4-ATX zdokumentovat zapojení a prakticky otestovat výpadek i návrat napájení a automatický start serveru.
