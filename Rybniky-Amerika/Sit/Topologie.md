@@ -44,11 +44,11 @@ Tento rozsah ani uvedené lease nejsou potvrzené jako současný živý stav. V
 
 ## Co ověřit na místě
 
-1. Přesné modely a role obou PtP rádií.
-2. Které zařízení dnes routuje a poskytuje DHCP.
-3. Všechny další DHCP servery a NATy.
-4. Aktivní adresní rozsahy, statické IP a port-forwardy.
-5. Zařízení a kabely v Obýváku, Včelíně, Hospodě a Dílně.
-6. Stav, typ a zakončení optiky ke sloupu.
-7. NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace.
-8. Napájení, PoE a přepěťovou ochranu venkovních částí.
+- [ ] Přesné modely a role obou PtP rádií.
+- [ ] Které zařízení dnes routuje a poskytuje DHCP.
+- [ ] Všechny další DHCP servery a NATy.
+- [ ] Aktivní adresní rozsahy, statické IP a port-forwardy.
+- [ ] Zařízení a kabely v Obýváku, Včelíně, Hospodě a Dílně.
+- [ ] Stav, typ a zakončení optiky ke sloupu.
+- [ ] NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace.
+- [ ] Napájení, PoE a přepěťovou ochranu venkovních částí.
