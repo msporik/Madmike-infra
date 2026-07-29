@@ -46,7 +46,7 @@ Tyto nástroje se zachovávají pouze jako historie rozhodování, ne jako otev�
 
 ## Otevřené kroky
 
-1. Aktualizovat Uptime Kuma a poté určit konečný seznam monitorů.
-2. Otestovat a nastavit nativní notifikace Proxmox VE a PBS pro události, které Pulse nepokrývá.
-3. Vybrat jen významné alarmy z Mikr Manageru.
-4. Zprovoznit společné Telegram notifikace podle schválených zásad.
+- [ ] Aktualizovat Uptime Kuma a poté určit konečný seznam monitorů.
+- [ ] Otestovat a nastavit nativní notifikace Proxmox VE a PBS pro události, které Pulse nepokrývá.
+- [ ] Vybrat jen významné alarmy z Mikr Manageru.
+- [ ] Zprovoznit společné Telegram notifikace podle schválených zásad.
