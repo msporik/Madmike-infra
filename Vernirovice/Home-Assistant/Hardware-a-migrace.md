@@ -25,7 +25,7 @@ Qotom má převzít roli hlavního lokálního uzlu pro Home Assistant a energet
 
 ## Otevřené úkoly
 
-1. Zvolit konkrétní způsob instalace Home Assistantu na Qotom.
-2. Zjistit, zda všechny potřebné RS485 porty a převodníky jsou fyzicky připravené.
-3. Připravit kontrolní seznam migrace a návratu.
-4. Určit způsob zálohování Qotomu a obnovy na náhradní hardware.
+- [ ] Zvolit konkrétní způsob instalace Home Assistantu na Qotom.
+- [ ] Zjistit, zda všechny potřebné RS485 porty a převodníky jsou fyzicky připravené.
+- [ ] Připravit kontrolní seznam migrace a návratu.
+- [ ] Určit způsob zálohování Qotomu a obnovy na náhradní hardware.
