@@ -78,7 +78,10 @@
 
 ### Home Assistant
 
-- [ ] [Ověřit přesný model, roli a stav nasazení samostatného zařízení SMLIGHT určeného pro Matter/Thread a plánovaný zámek Aqara.](MadMike/Home-Assistant/README.md?plain=1#L26)
+- [ ] [Ověřit, zda má CWWK X86-P6 procesor Intel N100 nebo N150, a odstranit rozpor ze zdrojů.](MadMike/Home-Assistant/README.md?plain=1#L132)
+- [ ] [Ověřit živý seznam aktivních integrací a vyřadit z evidence již nepoužívané položky.](MadMike/Home-Assistant/README.md?plain=1#L133)
+- [ ] [Ověřit současný stav plánovaného Hikvision kamerového upgradu.](MadMike/Home-Assistant/README.md?plain=1#L134)
+- [ ] [Ověřit přesný model, roli a stav nasazení samostatného zařízení SMLIGHT určeného pro Matter/Thread a plánovaný zámek Aqara.](MadMike/Home-Assistant/README.md?plain=1#L135)
 
 ## MadMike / Monitoring
 
@@ -99,10 +102,12 @@
 
 ### Pulse
 
-- [ ] [Otestovat nativní notifikační systém PVE a PBS.](MadMike/Monitoring/Pulse.md?plain=1#L37)
-- [ ] [Rozdělit události mezi Pulse a nativní notifikace bez duplicit.](MadMike/Monitoring/Pulse.md?plain=1#L38)
-- [ ] [Nastavit pouze alarmy, které vyžadují pozornost.](MadMike/Monitoring/Pulse.md?plain=1#L39)
-- [ ] [Vybrané problémy a jejich vyřešení směrovat do Telegramu.](MadMike/Monitoring/Pulse.md?plain=1#L40)
+- [ ] [Zjistit současnou konfiguraci nativních notifikačních cílů a pravidel zvlášť na PVE Ryzen, PVE Dell a PBS.](MadMike/Monitoring/Pulse.md?plain=1#L109)
+- [ ] [Poslat vestavěnou testovací notifikaci ze všech tří systémů.](MadMike/Monitoring/Pulse.md?plain=1#L110)
+- [ ] [Bez narušení produkčních záloh ověřit hlášení neúspěšného Backup, Verify, Prune a Garbage Collection jobu.](MadMike/Monitoring/Pulse.md?plain=1#L111)
+- [ ] [Ověřit plánování ZFS scrubů na `tank-pbs`, `tank-nas`, `tank-ssd` a `tank-hdd` a způsob hlášení chyby nebo příliš starého běhu.](MadMike/Monitoring/Pulse.md?plain=1#L112)
+- [ ] [Rozdělit události mezi Pulse a nativní notifikace bez duplicit a úspěšné běhy neposílat jako šum.](MadMike/Monitoring/Pulse.md?plain=1#L113)
+- [ ] [Vybrané problémy a následné obnovení směrovat do Telegramu.](MadMike/Monitoring/Pulse.md?plain=1#L114)
 
 ### Telegram notifikace
 
@@ -189,21 +194,26 @@
 
 ### Interní DNS, NPM a HTTPS
 
-- [ ] [Ověřit, že připojení Uptime Kuma k `npm_default` přežije případné odstranění a znovuvytvoření kontejneru.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L65)
-- [ ] [Ověřit, že notebookový WireGuard používá DNS `192.168.89.1`, aby interní názvy fungovaly i mimo domov.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L66)
-- [ ] [Při každém přidání služby zapsat současně DNS chování, NPM upstream a způsob přístupu.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L67)
+- [ ] [Ověřit, že Cloudflare API token je uložený v Bitwardenu a případný nezašifrovaný TXT soubor byl odstraněn.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L149)
+- [ ] [Po budoucím `recreate` Pulse nebo Mikr ověřit pouze při potížích, že se načetla deklarovaná síť `npm_default`.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L150)
+- [ ] [HSTS případně zapnout až po delším stabilním provozu a samostatném rozhodnutí.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L151)
 
 ### PVE Dell
 
-- [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L27)
-- [ ] [Ověřit aktuální stav PVE, PBS a datastore proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L28)
-- [ ] [Před případným odstraněním kterékoliv vypnuté VM znovu ověřit její obsah a potřebnost.](MadMike/Servery/PVE-Dell.md?plain=1#L29)
+- [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L88)
+- [ ] [Ověřit aktuální verzi a konfiguraci PVE Dell proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L89)
+- [ ] [Ověřit aktuální stav, obsazení a poslední scrub poolů `tank-pbs` a `tank-nas`.](MadMike/Servery/PVE-Dell.md?plain=1#L90)
+- [ ] [Ověřit SMART a teploty čtyř SAS disků a systémového SSD.](MadMike/Servery/PVE-Dell.md?plain=1#L91)
+- [ ] [Prakticky ověřit start celého Dellu, VM200 a datastore po úplném výpadku napájení.](MadMike/Servery/PVE-Dell.md?plain=1#L92)
+- [ ] [Před případným odstraněním kterékoliv vypnuté VM znovu ověřit její obsah a potřebnost.](MadMike/Servery/PVE-Dell.md?plain=1#L93)
 
 ### PVE Ryzen
 
-- [ ] [Ověřit vazbu storage ID `tank-nas-zfs` na fyzický ZFS pool.](MadMike/Servery/PVE-Ryzen.md?plain=1#L57)
-- [ ] [Ověřit aktuální PVE konfiguraci VM401, VM501 a VM510 proti živému stavu.](MadMike/Servery/PVE-Ryzen.md?plain=1#L58)
-- [ ] [Ověřit pravidla dst-nat a firewallu pro RDP k VM501.](MadMike/Servery/PVE-Ryzen.md?plain=1#L59)
+- [ ] [Ověřit vazbu storage ID `tank-nas-zfs` na fyzický ZFS pool.](MadMike/Servery/PVE-Ryzen.md?plain=1#L100)
+- [ ] [Ověřit aktuální PVE konfiguraci VM401, VM501 a VM510 proti živému stavu.](MadMike/Servery/PVE-Ryzen.md?plain=1#L101)
+- [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L102)
+- [ ] [Ověřit aktuální stav, poslední scrub a SMART poolů `tank-ssd` a `tank-hdd`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L103)
+- [ ] [Ověřit pravidla dst-nat a firewallu pro RDP k VM501.](MadMike/Servery/PVE-Ryzen.md?plain=1#L104)
 
 ### Servery
 
@@ -215,12 +225,11 @@
 
 ### WireGuard
 
-- [ ] [Vypsat na RB5009 všechny aktivní WG peery, jejich WG adresy, `allowed-address` a routy.](MadMike/Servery/WireGuard.md?plain=1#L57)
-- [ ] [Ověřit, zda kromě čtyř známých propojení neexistuje další aktivní WireGuard tunel.](MadMike/Servery/WireGuard.md?plain=1#L58)
-- [ ] [Ověřit přesný vzdálený LAN rozsah a živé WG adresy RD Švecových.](MadMike/Servery/WireGuard.md?plain=1#L59)
-- [ ] [Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových.](MadMike/Servery/WireGuard.md?plain=1#L60)
-- [ ] [Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.](MadMike/Servery/WireGuard.md?plain=1#L61)
-- [ ] [Ověřit DNS `192.168.89.1` v notebookovém WireGuard profilu.](MadMike/Servery/WireGuard.md?plain=1#L62)
+- [ ] [Vypsat na RB5009 všechny aktivní WG peery, jejich WG adresy, `allowed-address` a routy.](MadMike/Servery/WireGuard.md?plain=1#L115)
+- [ ] [Ověřit, zda kromě čtyř známých propojení neexistuje další aktivní WireGuard tunel.](MadMike/Servery/WireGuard.md?plain=1#L116)
+- [ ] [Ověřit, zda historické údaje `192.168.22.0/24` a `10.200.0.10` skutečně patří dnešní lokalitě RD Švecovi.](MadMike/Servery/WireGuard.md?plain=1#L117)
+- [ ] [Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových.](MadMike/Servery/WireGuard.md?plain=1#L118)
+- [ ] [Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.](MadMike/Servery/WireGuard.md?plain=1#L119)
 
 ## MadMike / Sit
 
@@ -246,12 +255,17 @@
 
 ### PBS a disaster recovery
 
-- [ ] [aktuální seznam zálohovaných hostů a VM;](MadMike/Zalohy/PBS-DR.md?plain=1#L37)
-- [ ] [rozvrhy a retence jednotlivých backup jobů;](MadMike/Zalohy/PBS-DR.md?plain=1#L38)
-- [ ] [stav a rozvrh Verify;](MadMike/Zalohy/PBS-DR.md?plain=1#L39)
-- [ ] [pravidla Prune a Garbage Collection;](MadMike/Zalohy/PBS-DR.md?plain=1#L40)
-- [ ] [pravidelnost budoucích testů obnovy;](MadMike/Zalohy/PBS-DR.md?plain=1#L41)
-- [ ] [úplnost nativních notifikací PVE a PBS.](MadMike/Zalohy/PBS-DR.md?plain=1#L42)
+- [ ] [Ověřit živý výběr objektů backup jobu a odstranit případnou neexistující položku CT100.](MadMike/Zalohy/PBS-DR.md?plain=1#L120)
+- [ ] [Ověřit poslední úspěšné běhy Backup, Verify, Prune a Garbage Collection.](MadMike/Zalohy/PBS-DR.md?plain=1#L121)
+- [ ] [Ověřit aktuální obsazení datastore `backup`.](MadMike/Zalohy/PBS-DR.md?plain=1#L122)
+- [ ] [Ověřit plánování a poslední běh scrubů na `tank-pbs` a `tank-nas`.](MadMike/Zalohy/PBS-DR.md?plain=1#L123)
+- [ ] [Ověřit SMART a teploty čtyř SAS disků a systémového SSD proti živému stavu.](MadMike/Zalohy/PBS-DR.md?plain=1#L124)
+- [ ] [Prakticky ověřit start PVE Dell, VM200 a datastore po úplném výpadku napájení.](MadMike/Zalohy/PBS-DR.md?plain=1#L125)
+- [ ] [Otestovat nativní notifikace neúspěšného Backup, Verify, Prune a Garbage Collection jobu.](MadMike/Zalohy/PBS-DR.md?plain=1#L126)
+- [ ] [Stanovit rozumnou četnost opakovaných testů obnovy.](MadMike/Zalohy/PBS-DR.md?plain=1#L127)
+- [ ] [Rozhodnout a zdokumentovat roli `tank-nas`.](MadMike/Zalohy/PBS-DR.md?plain=1#L128)
+- [ ] [Doplnit stručný DR runbook pro ztrátu PVE Ryzen.](MadMike/Zalohy/PBS-DR.md?plain=1#L129)
+- [ ] [Rozhodnout o klientském šifrování PBS záloh a bezpečném uložení klíče.](MadMike/Zalohy/PBS-DR.md?plain=1#L130)
 
 ### Zálohy
 
@@ -325,13 +339,17 @@
 - [ ] [Ověřit, které limity jsou pevně nastavené v jednotlivých měničích a které mění Home Assistant.](Vernirovice/BESS-a-FVE/README.md?plain=1#L28)
 - [ ] [Doplnit bezpečný postup pro ruční provoz při výpadku Home Assistantu.](Vernirovice/BESS-a-FVE/README.md?plain=1#L29)
 
-### Technologie FVE a BESS
+### Technologie FVE, BESS a tepelné infrastruktury
 
-- [ ] [Opsat typové štítky obou měničů a bateriových systémů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L24)
-- [ ] [Získat jednopólové schéma nebo vytvořit ověřený provozní nákres.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L25)
-- [ ] [Ověřit místo a zdroj hlavního měření výkonu.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L26)
-- [ ] [Zapsat komunikační rozhraní a adresy zařízení bez hesel a klíčů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L27)
-- [ ] [Ověřit chování obou systémů při ztrátě komunikace s Home Assistantem.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L28)
+- [ ] [Opsat typové štítky obou měničů a bateriových systémů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L78)
+- [ ] [Ověřit současný instalovaný výkon FVE panelů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L79)
+- [ ] [Získat jednopólové schéma nebo vytvořit ověřený provozní nákres.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L80)
+- [ ] [Ověřit místo a zdroj hlavního měření výkonu.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L81)
+- [ ] [Zapsat skutečnou topologii měřených větví, měřidel, měničů, baterií a hlavního předávacího místa.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L82)
+- [ ] [Ověřit aktuální stav akumulační nádoby, kotle Atmos, tepelného čerpadla Hitachi, topných tyčí a bojleru.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L83)
+- [ ] [Ověřit aktuální technické zapojení a řízení sauny, koupacího sudu a bazénu.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L84)
+- [ ] [Zapsat komunikační rozhraní a adresy zařízení bez hesel a klíčů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L85)
+- [ ] [Ověřit chování obou systémů a výkonových spotřebičů při ztrátě komunikace s Home Assistantem.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L86)
 
 ### Řízení energie
 
@@ -358,7 +376,9 @@
 
 ### Služby a integrace
 
-- [ ] [Zapsat skutečné umístění a způsob provozu InfluxDB a Grafany.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L22)
-- [ ] [Ověřit jejich retenci, velikost databází a zálohování.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L23)
-- [ ] [Po přechodu na RS485 porovnat stabilitu a možnosti řízení se současnou integrací.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L24)
-- [ ] [Zdokumentovat pouze ty entity, které jsou skutečně důležité pro automatizace a diagnostiku.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L25)
+- [ ] [Zapsat skutečné umístění a způsob provozu InfluxDB a Grafany.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L42)
+- [ ] [Ověřit jejich retenci, velikost databází a zálohování.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L43)
+- [ ] [Ověřit živý seznam doplňkových integrací a vyřadit již nepoužívané položky.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L44)
+- [ ] [Ověřit, zda je `IOTVL` stále samostatná aktivní síť a jaký používá rozsah.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L45)
+- [ ] [Po přechodu na RS485 porovnat stabilitu a možnosti řízení se současnou integrací.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L46)
+- [ ] [Zdokumentovat pouze entity skutečně důležité pro automatizace a diagnostiku.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L47)
