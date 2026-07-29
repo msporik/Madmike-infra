@@ -7,7 +7,7 @@
 
 ### GoodWe a energetika
 
-- [ ] [přesný model GoodWe střídače;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L21)
+- [ ] [Ověřit přesný model GoodWe střídače;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L21)
 - [ ] [jeho lokální IP adresa a dostupný způsob komunikace;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L22)
 - [ ] [seznam a význam dostupných entit;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L23)
 - [ ] [způsob měření spotřeby a přetoků;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L24)
