@@ -25,6 +25,8 @@ Tento seznam potvrzuje existenci účtů, ne jejich současnou aktivitu, oprávn
 - Veřejné odkazy a externí sdílení zatím nejsou inventarizované.
 - Administrátorské účty a jejich role zatím nejsou ověřené.
 
+Společné zásady správy přístupů a přihlašovacích údajů jsou v projektu [Přístupy](../Pristupy/README.md).
+
 ## Otevřené kontroly
 
 1. Ověřit, které účty jsou aktivní a kdo má administrátorskou roli.
