@@ -128,28 +128,25 @@
 
 ## MadMike / Nextcloud
 
-### Nextcloud
-
-- [ ] [Ověřit živou verzi Nextcloudu, operačního systému a databáze.](MadMike/Nextcloud/README.md?plain=1#L30)
-- [ ] [Ověřit vazbu storage ID `tank-nas-zfs` na fyzický ZFS pool.](MadMike/Nextcloud/README.md?plain=1#L31)
-- [ ] [Zapsat používaný postup aktualizace Nextcloudu a jeho aplikací.](MadMike/Nextcloud/README.md?plain=1#L32)
-- [ ] [Ověřit současné nastavení administrátorských rolí, MFA a veřejného sdílení.](MadMike/Nextcloud/README.md?plain=1#L33)
-
 ### Provoz a úložiště
 
-- [ ] [Ověřit aktuální PVE konfiguraci VM401 proti živému stavu.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L34)
-- [ ] [Ověřit obsazení systémového a datového disku.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L35)
-- [ ] [Ověřit fyzický pool za storage ID `tank-nas-zfs`.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L36)
-- [ ] [Zapsat postup aktualizace a kontroly po aktualizaci.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L37)
-- [ ] [Ověřit, zda monitoring hlídá dostupnost webu a základní stav služby.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L38)
+- [ ] [Ověřit aktuální PVE konfiguraci VM401 proti živému stavu.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L50)
+- [ ] [Ověřit živé verze operačního systému, Nextcloudu, PHP, Apache a MariaDB.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L51)
+- [ ] [Ověřit obsazení a volnou kapacitu systémového i datového disku.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L52)
+- [ ] [Ověřit fyzický pool za storage ID `tank-nas-zfs` a zapsat jej do dokumentace PVE Ryzen.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L53)
+- [ ] [Ověřit nastavení background jobs a cronu; chybějící doporučený způsob následně doplnit.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L54)
+- [ ] [Připravit, bezpečně otestovat a zapsat aktualizační postup včetně kontrol před aktualizací a po ní.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L55)
+- [ ] [Ověřit, zda Uptime Kuma hlídá webový endpoint a základní aplikační stav Nextcloudu.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L56)
 
 ### Přístup a uživatelé
 
-- [ ] [Ověřit, které účty jsou aktivní a kdo má administrátorskou roli.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L32)
-- [ ] [Ověřit stav MFA a recovery postupu.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L33)
-- [ ] [Ověřit používaná aplikační hesla a připojené klienty bez zápisu jejich tajných hodnot.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L34)
-- [ ] [Ověřit současné veřejné odkazy a pravidla externího sdílení.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L35)
-- [ ] [Popsat skutečnou cestu DNS a HTTPS k `cloud.madmike.cz`.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L36)
+- [ ] [Opravit přihlášení Katky a ověřit následnou synchronizaci.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L36)
+- [ ] [Ověřit aktivní účty, administrátorskou roli a potvrdit, že `djlobo` nemá aktivní přístup.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L37)
+- [ ] [Ověřit stav MFA a bezpečný recovery postup.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L38)
+- [ ] [Ověřit používaná aplikační hesla a připojené klienty bez zápisu jejich tajných hodnot.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L39)
+- [ ] [Ověřit současné veřejné odkazy a pravidla externího sdílení.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L40)
+- [ ] [Popsat a ověřit úplnou přímou publikační cestu `cloud.madmike.cz`, včetně DNS, NAT/firewallu, HTTPS certifikátu a jeho obnovy.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L41)
+- [ ] [Později založit účty pro dvě děti podle schváleného rozšíření služby.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L42)
 
 ## MadMike / Premier
 
