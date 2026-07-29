@@ -32,8 +32,8 @@ Tento projekt popisuje společné zásady a stav zavádění. Technická konfigu
 
 ## Nejbližší kroky
 
-1. Dokončit pilot Bitwardenu na několika běžných a administračních účtech.
-2. Nastavit MFA pro Bitwarden a bezpečný recovery postup.
-3. Ověřit a popsat aktuální veřejné RDP pravidlo pro PREMIER.
-4. Vybrat jednoduchou náhradu přímého veřejného RDP podle skutečného způsobu práce účetní.
-5. Postupně ověřit MFA a recovery u veřejně dostupných služeb.
+- [ ] Dokončit pilot Bitwardenu na několika běžných a administračních účtech.
+- [ ] Nastavit MFA pro Bitwarden a bezpečný recovery postup.
+- [ ] Ověřit a popsat aktuální veřejné RDP pravidlo pro PREMIER.
+- [ ] Vybrat jednoduchou náhradu přímého veřejného RDP podle skutečného způsobu práce účetní.
+- [ ] Postupně ověřit MFA a recovery u veřejně dostupných služeb.
