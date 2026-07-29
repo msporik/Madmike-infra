@@ -150,15 +150,6 @@
 
 ## MadMike / Premier
 
-### PREMIER
-
-- [ ] [Porovnat konfiguraci VM501 s aktuálním živým stavem.](MadMike/Premier/README.md?plain=1#L31)
-- [ ] [Ověřit verzi a edici Windows, aktivaci, aktualizace a stav podpory.](MadMike/Premier/README.md?plain=1#L32)
-- [ ] [Ověřit verzi PREMIERu, licenční stav bez ukládání klíče a umístění aplikačních dat.](MadMike/Premier/README.md?plain=1#L33)
-- [ ] [Zjistit, zda PREMIER vytváří vlastní aplikační zálohy a kam.](MadMike/Premier/README.md?plain=1#L34)
-- [ ] [Dokončit bezpečnější vzdálený přístup.](MadMike/Premier/README.md?plain=1#L35)
-- [ ] [Doplnit krátký provozní a DR runbook.](MadMike/Premier/README.md?plain=1#L36)
-
 ### Přístup a provoz
 
 - [ ] [zjistit, kdo VM vzdáleně používá a jakým postupem;](MadMike/Premier/Pristup-a-provoz.md?plain=1#L45)
