@@ -35,7 +35,7 @@ Nastavení bylo prakticky ověřené přes WireGuard z Itálie: bez ručně zada
 
 ## Nginx Proxy Manager
 
-NPM běží na Ryzen / VM510 Monitoring, IP `192.168.89.35`.
+NPM běží na [Ryzen / VM510](VM510-Docker.md), IP `192.168.89.35`.
 
 | Název | Upstream z NPM | Role |
 |---|---|---|
@@ -57,46 +57,18 @@ Na proxy hostech se používá:
 - vypnuté Cache Assets;
 - zatím vypnuté HSTS a HSTS Subdomains.
 
+HSTS zůstává vědomě odložené rozhodnutí. Nejde o nedokončený jednorázový úkol, dokud pro jeho zapnutí nevznikne konkrétní důvod a samostatné rozhodnutí.
+
 Schéma upstreamu odpovídá skutečné službě: Proxmox VE a PBS používají interní HTTPS, lokální Docker aplikace HTTP.
 
-## Propojení NPM s Docker službami
+## Vazba na Docker
 
-Existují dva ověřené modely:
+NPM používá dva ověřené modely:
 
-1. **Publikovaný port hostitele.** NPM míří na IP VM a publikovaný port. Takto je zapojená Uptime Kuma přes `192.168.89.35:3001`.
-2. **Jméno kontejneru.** NPM a aplikace sdílejí externí Docker síť `npm_default`. Tuto síť musí mít aplikace trvale deklarovanou v Compose.
+1. **IP VM a publikovaný port** – takto je zapojená Uptime Kuma přes `192.168.89.35:3001`.
+2. **Jméno kontejneru ve sdílené síti `npm_default`** – takto jsou zapojené Pulse a Mikr Manager.
 
-### Pulse
-
-Compose soubor:
-
-```text
-/opt/pulse/docker-compose.yml
-```
-
-Pulse má deklarované vlastní `pulse_default` i externí `npm_default`. Ověřený výsledný stav:
-
-```text
-/pulse → npm_default pulse_default
-```
-
-### Mikr Manager
-
-Compose soubor:
-
-```text
-/opt/mikr/docker-compose.yml
-```
-
-Mikr má deklarované vlastní `mikr_default` i externí `npm_default`. Ověřený výsledný stav:
-
-```text
-/mikr-manager → mikr_default npm_default
-```
-
-### Uptime Kuma
-
-Kuma nebyla nasazena přes Compose. Kvůli NPM proto nebyla převáděna do nového způsobu nasazení; NPM používá její publikovaný port na VM. Případné ruční připojení Kumy k `npm_default` není pro funkci proxy potřebné a při `recreate` může bez následků zmizet.
+Compose cesty, kontejnery, porty a trvalé deklarace sítí jsou autoritativně popsané v [VM510-Docker.md](VM510-Docker.md). Po budoucím `recreate` se jejich síť kontroluje jen při problému; jde o provozní diagnostiku, nikoliv samostatný otevřený úkol.
 
 ## HTTPS certifikát
 
@@ -126,9 +98,7 @@ Cloudflare slouží pro DNS challenge certifikátu a veřejnou výjimku `valtom.
 
 1. Zvolit plochý název `sluzba.mikehub.cz`.
 2. Ověřit skutečnou interní adresu, port a schéma HTTP/HTTPS.
-3. U Docker služby na VM510 zvolit jeden z ověřených modelů:
-   - IP VM a publikovaný port;
-   - jméno kontejneru a trvale deklarovaná síť `npm_default`.
+3. U Docker služby na VM510 použít jeden z modelů popsaných v [VM510-Docker.md](VM510-Docker.md).
 4. V NPM přidat Proxy Host.
 5. Vybrat existující wildcard certifikát.
 6. Zapnout Force SSL a podle aplikace WebSocket Support.
@@ -140,12 +110,9 @@ Díky internímu wildcard DNS se standardně nic dalšího nepřidává na RB500
 
 - Proxmox přes obyčejné HTTP po přihlášení končil chybou `401: No ticket`; plnohodnotný přístup vyžaduje HTTPS.
 - `nslookup jmeno 192.168.89.1` ověří odpověď RB5009, ale ne to, že klient tento DNS server skutečně používá. Rozhodující je test bez explicitně uvedeného serveru.
-- Ruční `docker network connect npm_default KONTEJNER` je vhodný jen pro test. Při novém vytvoření kontejneru se ztratí; přesně tak vznikl výpadek Pulse a `502 Bad Gateway`.
-- První pokus o Kumu přes hostitelský port skončil `502`, pozdější konečné nastavení `192.168.89.35:3001` bylo z NPM znovu ověřené jako funkční. Z prvního selhání nelze odvozovat obecné pravidlo.
+- Ruční `docker network connect` je vhodný jen pro test. Trvalé síťové vazby patří do Compose.
 - `docker compose config` může načíst `.env` a vypsat skutečné tajné hodnoty. Neupravený výstup se nekopíruje do chatu ani dokumentace.
 
-## Otevřené kontroly
+## Otevřený krok
 
 - [ ] Ověřit, že Cloudflare API token je uložený v Bitwardenu a případný nezašifrovaný TXT soubor byl odstraněn.
-- [ ] Po budoucím `recreate` Pulse nebo Mikr ověřit pouze při potížích, že se načetla deklarovaná síť `npm_default`.
-- [ ] HSTS případně zapnout až po delším stabilním provozu a samostatném rozhodnutí.
