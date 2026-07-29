@@ -29,8 +29,8 @@ Společné zásady správy přístupů a přihlašovacích údajů jsou v projek
 
 ## Otevřené kontroly
 
-1. Ověřit, které účty jsou aktivní a kdo má administrátorskou roli.
-2. Ověřit stav MFA a recovery postupu.
-3. Ověřit používaná aplikační hesla a připojené klienty bez zápisu jejich tajných hodnot.
-4. Ověřit současné veřejné odkazy a pravidla externího sdílení.
-5. Popsat skutečnou cestu DNS a HTTPS k `cloud.madmike.cz`.
+- [ ] Ověřit, které účty jsou aktivní a kdo má administrátorskou roli.
+- [ ] Ověřit stav MFA a recovery postupu.
+- [ ] Ověřit používaná aplikační hesla a připojené klienty bez zápisu jejich tajných hodnot.
+- [ ] Ověřit současné veřejné odkazy a pravidla externího sdílení.
+- [ ] Popsat skutečnou cestu DNS a HTTPS k `cloud.madmike.cz`.
