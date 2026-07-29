@@ -194,34 +194,27 @@
 
 ### Interní DNS, NPM a HTTPS
 
-- [ ] [Ověřit, že Cloudflare API token je uložený v Bitwardenu a případný nezašifrovaný TXT soubor byl odstraněn.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L149)
-- [ ] [Po budoucím `recreate` Pulse nebo Mikr ověřit pouze při potížích, že se načetla deklarovaná síť `npm_default`.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L150)
-- [ ] [HSTS případně zapnout až po delším stabilním provozu a samostatném rozhodnutí.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L151)
+- [ ] [Ověřit, že Cloudflare API token je uložený v Bitwardenu a případný nezašifrovaný TXT soubor byl odstraněn.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L118)
 
 ### PVE Dell
 
-- [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L88)
-- [ ] [Ověřit aktuální verzi a konfiguraci PVE Dell proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L89)
-- [ ] [Ověřit aktuální stav, obsazení a poslední scrub poolů `tank-pbs` a `tank-nas`.](MadMike/Servery/PVE-Dell.md?plain=1#L90)
-- [ ] [Ověřit SMART a teploty čtyř SAS disků a systémového SSD.](MadMike/Servery/PVE-Dell.md?plain=1#L91)
-- [ ] [Prakticky ověřit start celého Dellu, VM200 a datastore po úplném výpadku napájení.](MadMike/Servery/PVE-Dell.md?plain=1#L92)
-- [ ] [Před případným odstraněním kterékoliv vypnuté VM znovu ověřit její obsah a potřebnost.](MadMike/Servery/PVE-Dell.md?plain=1#L93)
+- [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L110)
+- [ ] [Ověřit aktuální verzi a konfiguraci PVE Dell proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L111)
+- [ ] [Připravit a schválit bezpečný migrační plán z dnešních dvou mirrorů na jeden pool ze čtyř 8TB disků, včetně zálohy, obnovy a návratového postupu.](MadMike/Servery/PVE-Dell.md?plain=1#L112)
 
 ### PVE Ryzen
 
-- [ ] [Ověřit vazbu storage ID `tank-nas-zfs` na fyzický ZFS pool.](MadMike/Servery/PVE-Ryzen.md?plain=1#L100)
-- [ ] [Ověřit aktuální PVE konfiguraci VM401, VM501 a VM510 proti živému stavu.](MadMike/Servery/PVE-Ryzen.md?plain=1#L101)
-- [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L102)
-- [ ] [Ověřit aktuální stav, poslední scrub a SMART poolů `tank-ssd` a `tank-hdd`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L103)
-- [ ] [Ověřit pravidla dst-nat a firewallu pro RDP k VM501.](MadMike/Servery/PVE-Ryzen.md?plain=1#L104)
+- [ ] [Ověřit živými výpisy `pvesm` a `qm config 401`, na jaký fyzický ZFS pool odkazuje storage ID `tank-nas-zfs`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L100)
+- [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L101)
+- [ ] [Po návratu z dovolené objednat M4-ATX.](MadMike/Servery/PVE-Ryzen.md?plain=1#L102)
+- [ ] [Po instalaci M4-ATX zdokumentovat zapojení a prakticky otestovat výpadek i návrat napájení a automatický start serveru.](MadMike/Servery/PVE-Ryzen.md?plain=1#L103)
 
-### Servery
+### VM510 – Docker infrastruktura
 
-- [ ] [Ověřit, na jaký fyzický ZFS pool na PVE Ryzen odkazuje storage ID `tank-nas-zfs`.](MadMike/Servery/README.md?plain=1#L35)
-- [ ] [Zjistit původ a účel vypnuté Dell / VM400.](MadMike/Servery/README.md?plain=1#L36)
-- [ ] [Ověřit živou konfiguraci veřejného RDP k produkční Ryzen / VM501 a navrhnout bezpečnější přístup, který zůstane pro účetní co nejjednodušší.](MadMike/Servery/README.md?plain=1#L37)
-- [ ] [Zjistit, zda účetní používá vždy jeden stejný počítač s Windows.](MadMike/Servery/README.md?plain=1#L38)
-- [ ] [Dokončit živou inventuru WireGuard peerů a současných LAN rozsahů všech vzdálených lokalit.](MadMike/Servery/README.md?plain=1#L39)
+- [ ] [Pořídit sanitizovanou živou inventuru VM510: kontejnery, image tagy, Compose projekty, restart policy, sítě, porty, volumes a hostitelské cesty bez tajných hodnot.](MadMike/Servery/VM510-Docker.md?plain=1#L73)
+- [ ] [Zdokumentovat současný způsob vytvoření, startu a obnovy Uptime Kumy včetně umístění jejích persistentních dat.](MadMike/Servery/VM510-Docker.md?plain=1#L74)
+- [ ] [Ověřit v projektu Zálohy, zda je VM510 zahrnutá do PBS backup jobu, a doplnit ověřený postup obnovy celé VM.](MadMike/Servery/VM510-Docker.md?plain=1#L75)
+- [ ] [Po ověření persistentních dat doplnit stručný pořadník obnovy NPM, Pulse, Mikru a Kumy.](MadMike/Servery/VM510-Docker.md?plain=1#L76)
 
 ### WireGuard
 
