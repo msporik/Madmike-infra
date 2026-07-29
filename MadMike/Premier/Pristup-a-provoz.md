@@ -42,10 +42,10 @@ Obnova z PBS je doložena v [PBS a disaster recovery](../Zalohy/PBS-DR.md). Pře
 
 ## Otevřené úkoly
 
-- zjistit, kdo VM vzdáleně používá a jakým postupem;
-- ověřit současné NAT a firewall pravidlo;
-- ověřit, zda už existuje omezení zdrojových IP;
-- rozhodnout mezi RD Gateway a VPN;
-- zjistit umístění účetních dat a aplikačních záloh bez ukládání samotných dat do repozitáře;
-- doplnit odpovědnost za aktualizace Windows a PREMIERu;
-- sepsat stručný postup pro start, kontrolu a dočasný DR provoz.
+- [ ] zjistit, kdo VM vzdáleně používá a jakým postupem;
+- [ ] ověřit současné NAT a firewall pravidlo;
+- [ ] ověřit, zda už existuje omezení zdrojových IP;
+- [ ] rozhodnout mezi RD Gateway a VPN;
+- [ ] zjistit umístění účetních dat a aplikačních záloh bez ukládání samotných dat do repozitáře;
+- [ ] doplnit odpovědnost za aktualizace Windows a PREMIERu;
+- [ ] sepsat stručný postup pro start, kontrolu a dočasný DR provoz.
