@@ -6,43 +6,49 @@ Jednotný a přiměřeně jednoduchý dohled nad infrastrukturou MadMike. Cílem
 
 ## Rozdělení odpovědností
 
-| Nástroj | Odpovědnost | Detail |
+| Zdroj | Hlavní odpovědnost | Detail |
 |---|---|---|
-| Pulse | Proxmox VE a Proxmox Backup Server | [Pulse.md](Pulse.md) |
-| Mikr Manager | MikroTik zařízení a lokality | [Mikr.md](Mikr.md) |
-| Uptime Kuma | Dostupnost služeb a návraty do provozu | [Uptime-Kuma.md](Uptime-Kuma.md) |
-| Telegram | Jedna schránka problémů vyžadujících pozornost | [Telegram.md](Telegram.md) |
+| Pulse | Přehled Proxmox VE a Proxmox Backup Serveru, kapacit, disků, ZFS a záloh | [Pulse.md](Pulse.md) |
+| Nativní notifikace PVE/PBS | Autoritativní hlášení selhání Backup, Verify, Prune a Garbage Collection; podle možností také problémů ZFS scrubů | [hranice Pulse](Pulse.md#hranice-pulse) |
+| Mikr Manager | Stav a historie MikroTik zařízení a lokalit | [Mikr.md](Mikr.md) |
+| Uptime Kuma | Dostupnost služeb a následné obnovení | [Uptime-Kuma.md](Uptime-Kuma.md) |
+| Telegram | Jedna společná schránka problémů vyžadujících pozornost | [Telegram.md](Telegram.md) |
 
-Nginx Proxy Manager zajišťuje jednotný HTTPS přístup k webovým rozhraním. Není samostatným monitorovacím nástrojem.
+Jeden problém má mít jedno hlavní místo detekce. Překryvy se řeší tak, aby do Telegramu nepřicházely duplicitní zprávy.
 
-## Aktuální přístupy
+## Poslední doložený stav k 2026-07-28
 
-- Pulse: `https://pulse.mikehub.cz`
-- Mikr Manager: `https://mikr.mikehub.cz`
-- Uptime Kuma: `https://kuma.mikehub.cz`
+- Na monitorovací VM510 běžely Pulse, Mikr Manager a Uptime Kuma; Nginx Proxy Manager zajišťoval HTTPS přístup.
+- Webová rozhraní:
+  - Pulse: `https://pulse.mikehub.cz`
+  - Mikr Manager: `https://mikr.mikehub.cz`
+  - Uptime Kuma: `https://kuma.mikehub.cz`
+- Přístupy jsou určené pro interní síť nebo VPN.
+- Checkmk, Zabbix, Beszel a CoreBit byly odstraněny a nejsou součástí provozního monitorovacího stacku.
+- InfluxDB, Grafana, Telegraf a Prometheus nejsou součástí tohoto schváleného řešení monitoringu.
+- Telegram notifikace ještě nebyly realizovány.
+- Nativní notifikace PVE/PBS nebyly prakticky otestovány.
 
-Přístupy jsou určené pro interní síť nebo VPN.
+Přesná současná konfigurace VM510 nebyla při konsolidaci ověřena proti živému systému. Dokumentace serveru je v [PVE Ryzen](../Servery/PVE-Ryzen.md).
 
-## Aktuální rozhodnutí o nástrojích
+## Schválená koncepce
 
-Používaný monitoring tvoří Pulse, Mikr Manager a Uptime Kuma. Telegram bude jejich společným cílem pro vybrané notifikace.
+- Provozní stack tvoří Pulse, Mikr Manager a Uptime Kuma.
+- Selhání nativních úloh PVE/PBS mají primárně hlásit samotné Proxmox VE a PBS.
+- Telegram bude soukromá skupina `MadMike – infrastruktura`.
+- Pro všechny zdroje notifikací se použije jeden společný bot.
+- Uptime Kuma má používat přibližně pětiminutové výchozí zpoždění; podle významu služby se může upravit individuálně.
+- Oznamují se skutečné problémy a následné návraty do normálu, nikoliv každý úspěšný běh nebo běžný technický log.
+- Pulse se do Telegramu zapojí jen pro upozornění, která nejsou spolehlivěji pokryta jiným zdrojem.
 
-Dříve zkoušené nástroje už nejsou součástí provozního stacku:
+Zabbix byl odmítnut kvůli složitosti a nadbytečnému množství dat. Beszel a CoreBit neměly v cílovém rozdělení dostatečně jedinečnou roli. Odstraněné nástroje zůstávají pouze historií rozhodování, ne otevřenými kandidáty k nasazení.
 
-- Checkmk byl odstraněn;
-- Zabbix byl odstraněn včetně agentů;
-- Beszel a CoreBit byly odstraněny při konsolidaci monitoringu.
+## Hranice projektu
 
-Tyto nástroje se zachovávají pouze jako historie rozhodování, ne jako otevření kandidáti k nasazení.
-
-## Principy
-
-- Jeden problém má mít jedno hlavní místo detekce.
-- Telegram nemá být technický log ani přehled každé úspěšné operace.
-- Obnovení služby se oznamuje tam, kde bylo oznámeno její selhání.
-- Detail konkrétního nástroje patří do jeho souboru; společná pravidla zůstávají zde.
-- Neověřené údaje se nedoplňují odhadem.
-- Hesla, tokeny a neupravené výpisy s tajnými hodnotami se neukládají.
+- DNS, Nginx Proxy Manager, HTTPS a WireGuard patří do projektu [Servery](../Servery/DNS-NPM-HTTPS.md).
+- Adresní plán, topologie a inventura MikroTiků patří do projektu [Síť](../Sit/MikroTik.md).
+- Rozvrhy, retence, restore a disaster recovery patří do projektu [Zálohy](../Zalohy/PBS-DR.md).
+- V Monitoringu jsou zachyceny jen vazby potřebné k pochopení detekce a směrování problémů.
 
 ## Otevřené kroky
 
