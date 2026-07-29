@@ -4,6 +4,8 @@
 
 Hlavní produkční Proxmox VE server v domácí lokalitě. Provozuje zejména produkční Nextcloud, účetní Windows VM s PREMIERem a monitorovací VM.
 
+Současná platforma zatím pro tyto role dostačuje. Podmínky případného budoucího upgradu jsou v dokumentu [Budoucí produkční serverová platforma](Budouci-platforma.md).
+
 ## Ověřený hardware
 
 - procesor: AMD Ryzen 3 4300G;
