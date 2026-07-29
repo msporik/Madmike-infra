@@ -17,12 +17,12 @@ Pro důvěru k reverzní proxy byla použita konfigurace Home Assistantu s `use_
 
 Po instalaci u Tomáše je nutné znovu ověřit:
 
-1. lokální IP adresu HA Green a její rezervaci;
-2. přístup k místním zařízením a GoodWe střídači;
-3. funkčnost Cloudflare Tunnelu z nové sítě;
-4. správné nastavení interní a externí URL;
-5. spolehlivý start po výpadku napájení;
-6. aktuálnost a obnovitelnost připravené zálohy.
+- [ ] lokální IP adresu HA Green a její rezervaci;
+- [ ] přístup k místním zařízením a GoodWe střídači;
+- [ ] funkčnost Cloudflare Tunnelu z nové sítě;
+- [ ] správné nastavení interní a externí URL;
+- [ ] spolehlivý start po výpadku napájení;
+- [ ] aktuálnost a obnovitelnost připravené zálohy.
 
 ## WireGuard a místní MikroTik
 
