@@ -16,7 +16,7 @@
 
 ## Otevřené kontroly
 
-1. Ověřit počet, typ a umístění všech NSPanelů.
-2. Zjistit, které panely a konfigurace jsou skutečně nasazené.
-3. Ověřit fyzickou instalaci topných pohonů a způsob jejich ovládání.
-4. Teprve podle živého stavu navrhnout finální logiku topení a záložní ruční režim.
+- [ ] Ověřit počet, typ a umístění všech NSPanelů.
+- [ ] Zjistit, které panely a konfigurace jsou skutečně nasazené.
+- [ ] Ověřit fyzickou instalaci topných pohonů a způsob jejich ovládání.
+- [ ] Teprve podle živého stavu navrhnout finální logiku topení a záložní ruční režim.
