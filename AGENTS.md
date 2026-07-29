@@ -32,6 +32,14 @@ Příklad: `MadMike/Monitoring/Mikr.md`.
 - Stejnou informaci bez důvodu neduplikuj do více souborů. Umísti ji do přirozeného hlavního dokumentu a z ostatních míst na ni odkaž.
 - Dokumentace má být stručná a provozně užitečná, ne podrobný technický deník.
 
+## Otevřené úkoly
+
+- Otevřený úkol zapisuj v jeho autoritativním dokumentu jako Markdown checkbox `- [ ]`.
+- Splněný úkol označ v původním dokumentu jako `- [x]`; z centrálního přehledu pak zmizí.
+- Kořenový `TODO.md` je automaticky generovaný rozcestník a ručně se neupravuje.
+- Každá položka v `TODO.md` odkazuje na původní řádek, který je jediným zdrojem pravdy.
+- Běžné opakované provozní checklisty neoznačuj jako otevřené úkoly, pokud nejde o konkrétní nedokončenou práci.
+
 ## Bezpečnost a rozsah práce
 
 - Repozitář je soukromý a je určený jako interní zdroj pravdy.
