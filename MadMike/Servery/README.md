@@ -11,6 +11,10 @@ Aktuální přehled fyzických Proxmox serverů, jejich rolí, důležitých vir
 | PVE Ryzen | HOME | Produkční virtualizace | [PVE-Ryzen.md](PVE-Ryzen.md) |
 | PVE Dell | u Richarda | Offsite DR host a provoz PBS ve VM | [PVE-Dell.md](PVE-Dell.md) |
 
+## Roadmapa
+
+- [Budoucí produkční serverová platforma](Budouci-platforma.md) – podmínky případného upgradu PVE Ryzen, požadovaný charakter nástupce a dosud otevřené volby.
+
 ## Přístup k serverovým službám
 
 - [Interní DNS, NPM a HTTPS](DNS-NPM-HTTPS.md) – jmenné přístupy, wildcard DNS, Nginx Proxy Manager, upstreamy a certifikát.
