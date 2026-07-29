@@ -65,15 +65,15 @@ Zaměřit trasu, přímou viditelnost, Fresnelovu zónu, vegetaci a požadovanou
 
 ## Otevřená rozhodnutí
 
-1. hEX S, nebo RB5009 jako core.
-2. Zda je CRS326 přiměřený skutečné topologii.
-3. Který CRS112 a kde má zajišťovat PoE.
-4. Kolik AP je reálně potřeba.
-5. Zda zavést CAPsMAN.
-6. Zda existuje konkrétní důvod pro VLAN.
-7. Stav optiky a řešení sloupu.
-8. 5GHz, nebo 60GHz uplink k mobilhome.
-9. Zda HOME potřebuje přímý přístup do celé LAN Rybníků bez dalšího NAT.
+- [ ] hEX S, nebo RB5009 jako core.
+- [ ] Zda je CRS326 přiměřený skutečné topologii.
+- [ ] Který CRS112 a kde má zajišťovat PoE.
+- [ ] Kolik AP je reálně potřeba.
+- [ ] Zda zavést CAPsMAN.
+- [ ] Zda existuje konkrétní důvod pro VLAN.
+- [ ] Stav optiky a řešení sloupu.
+- [ ] 5GHz, nebo 60GHz uplink k mobilhome.
+- [ ] Zda HOME potřebuje přímý přístup do celé LAN Rybníků bez dalšího NAT.
 
 ## Hlavní rizika
 
