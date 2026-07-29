@@ -226,11 +226,13 @@
 
 ### Adresní plán
 
-- [ ] [Vypsat současné LAN, VLAN a WG rozsahy všech spravovaných lokalit.](MadMike/Sit/Adresni-plan.md?plain=1#L73)
-- [ ] [Jednoznačně přiřadit číselný identifikátor každé lokalitě.](MadMike/Sit/Adresni-plan.md?plain=1#L74)
-- [ ] [Navrhnout společné číslování segmentů.](MadMike/Sit/Adresni-plan.md?plain=1#L75)
-- [ ] [Provést kontrolu kolizí s používanými VPN, kontejnery a běžnými vzdálenými sítěmi.](MadMike/Sit/Adresni-plan.md?plain=1#L76)
-- [ ] [Teprve potom připravit migrační pořadí; žádnou fungující lokalitu nepřečíslovávat jen kvůli estetice.](MadMike/Sit/Adresni-plan.md?plain=1#L77)
+- [ ] [Vypsat současné LAN, VLAN, WG, routované a transitní rozsahy všech spravovaných lokalit.](MadMike/Sit/Adresni-plan.md?plain=1#L179)
+- [ ] [Jednoznačně přiřadit číselný identifikátor každé lokalitě s respektováním blokací `0`, `8` a `89`.](MadMike/Sit/Adresni-plan.md?plain=1#L180)
+- [ ] [Navrhnout jednotný slovník funkčních segmentů; číslo segmentu automaticky neztotožňovat s VLAN ID.](MadMike/Sit/Adresni-plan.md?plain=1#L181)
+- [ ] [Navrhnout vnitřní členění `10.255.0.0/16` pro VPN, transit a virtuální adresy.](MadMike/Sit/Adresni-plan.md?plain=1#L182)
+- [ ] [Provést kontrolu kolizí s používanými VPN, kontejnery a běžnými vzdálenými sítěmi.](MadMike/Sit/Adresni-plan.md?plain=1#L183)
+- [ ] [Zařadit dnešní `10.89.1.0/24` a `10.200.0.0/24` do budoucího migračního plánu VPN vrstvy.](MadMike/Sit/Adresni-plan.md?plain=1#L184)
+- [ ] [Teprve potom připravit migrační pořadí; žádnou fungující lokalitu nepřečíslovávat jen kvůli estetice.](MadMike/Sit/Adresni-plan.md?plain=1#L185)
 
 ### MikroTik
 
