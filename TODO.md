@@ -152,13 +152,15 @@
 
 ### Přístup a provoz
 
-- [ ] [zjistit, kdo VM vzdáleně používá a jakým postupem;](MadMike/Premier/Pristup-a-provoz.md?plain=1#L45)
-- [ ] [ověřit současné NAT a firewall pravidlo;](MadMike/Premier/Pristup-a-provoz.md?plain=1#L46)
-- [ ] [ověřit, zda už existuje omezení zdrojových IP;](MadMike/Premier/Pristup-a-provoz.md?plain=1#L47)
-- [ ] [rozhodnout mezi RD Gateway a VPN;](MadMike/Premier/Pristup-a-provoz.md?plain=1#L48)
-- [ ] [zjistit umístění účetních dat a aplikačních záloh bez ukládání samotných dat do repozitáře;](MadMike/Premier/Pristup-a-provoz.md?plain=1#L49)
-- [ ] [doplnit odpovědnost za aktualizace Windows a PREMIERu;](MadMike/Premier/Pristup-a-provoz.md?plain=1#L50)
-- [ ] [sepsat stručný postup pro start, kontrolu a dočasný DR provoz.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L51)
+- [ ] [Zjistit zařízení a místa přístupu účetní a její požadavky na tisk, schránku a přenos souborů.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L95)
+- [ ] [Porovnat živý stav a konfiguraci VM501 s dokumentací a případné změny zapsat do autoritativního dokumentu PVE Ryzen.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L96)
+- [ ] [Ověřit verzi a edici Windows, aktivaci, stav aktualizací a podpory.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L97)
+- [ ] [Ověřit verzi PREMIERu, licenční stav bez klíče, obecné umístění dat a bezpečné umístění instalačních médií.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L98)
+- [ ] [Po ověření pracovního prostředí účetní nasadit a prakticky otestovat schválené krátkodobé omezení RDP na české IP rozsahy.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L99)
+- [ ] [Navrhnout a zavést podporovanou aplikační zálohu PREMIERu mimo VM501 včetně retence a testu obnovy jedné účetní jednotky.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L100)
+- [ ] [Stanovit pravidelný aktualizační postup a termín pro Windows a PREMIER.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L101)
+- [ ] [Po výběru cílového přístupového řešení v projektu Přístupy ověřit s účetní celý běžný pracovní postup.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L102)
+- [ ] [Prakticky ověřit stručný DR postup se zajištěním, že nikdy neběží dvě produkční kopie VM501.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L103)
 
 ## MadMike / Pristupy
 
