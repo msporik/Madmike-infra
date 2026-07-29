@@ -14,8 +14,8 @@ Pro důležitá zařízení má být k dispozici aktuální čitelný export kon
 
 ## Úkoly k ověření
 
-1. Ověřit, která zařízení se skutečně exportují a jak často.
-2. Zkontrolovat retenci a umístění exportů.
-3. Ověřit, zda exporty neobsahují tajné hodnoty, které nemají být ukládány mimo chráněné úložiště.
-4. Prakticky projít postup obnovy na náhradním nebo testovacím MikroTiku.
-5. Rozhodnout, zda mají být exporty dále kopírované do PBS nebo jiného offsite úložiště.
+- [ ] Ověřit, která zařízení se skutečně exportují a jak často.
+- [ ] Zkontrolovat retenci a umístění exportů.
+- [ ] Ověřit, zda exporty neobsahují tajné hodnoty, které nemají být ukládány mimo chráněné úložiště.
+- [ ] Prakticky projít postup obnovy na náhradním nebo testovacím MikroTiku.
+- [ ] Rozhodnout, zda mají být exporty dále kopírované do PBS nebo jiného offsite úložiště.
