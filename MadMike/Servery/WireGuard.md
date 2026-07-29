@@ -54,9 +54,9 @@ IPsec byl v minulosti zkoušený k Honzovi a k RD Švecovi. Měl by být odstran
 
 ## Otevřené kontroly
 
-1. Vypsat na RB5009 všechny aktivní WG peery, jejich WG adresy, `allowed-address` a routy.
-2. Ověřit, zda kromě čtyř známých propojení neexistuje další aktivní WireGuard tunel.
-3. Ověřit přesný vzdálený LAN rozsah a živé WG adresy RD Švecových.
-4. Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových.
-5. Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.
-6. Ověřit DNS `192.168.89.1` v notebookovém WireGuard profilu.
+- [ ] Vypsat na RB5009 všechny aktivní WG peery, jejich WG adresy, `allowed-address` a routy.
+- [ ] Ověřit, zda kromě čtyř známých propojení neexistuje další aktivní WireGuard tunel.
+- [ ] Ověřit přesný vzdálený LAN rozsah a živé WG adresy RD Švecových.
+- [ ] Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových.
+- [ ] Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.
+- [ ] Ověřit DNS `192.168.89.1` v notebookovém WireGuard profilu.
