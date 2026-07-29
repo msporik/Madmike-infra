@@ -287,35 +287,31 @@
 
 ### Hardware
 
-- [ ] [Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.](Rybniky-Amerika/Hardware.md?plain=1#L29)
-- [ ] [Ověřit dostupnost hEX S (2025) a vhodných AP v kusové HW evidenci před přípravou zásahu.](Rybniky-Amerika/Hardware.md?plain=1#L30)
-- [ ] [Ověřit dostupné SFP moduly, typ optiky, PoE zdroje a přepěťové ochrany.](Rybniky-Amerika/Hardware.md?plain=1#L31)
-- [ ] [Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.](Rybniky-Amerika/Hardware.md?plain=1#L32)
+- [ ] [Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.](Rybniky-Amerika/Hardware.md?plain=1#L53)
+- [ ] [V Airtable určit a rezervovat konkrétní hEX S (2025) a vhodná AP až podle inventury.](Rybniky-Amerika/Hardware.md?plain=1#L54)
+- [ ] [Ověřit přesné modely a stav skladových AP uvažovaných pro nasazení.](Rybniky-Amerika/Hardware.md?plain=1#L55)
+- [ ] [Ověřit dostupné SFP moduly, typ optiky, PoE zdroje, přepěťové ochrany a uzemnění.](Rybniky-Amerika/Hardware.md?plain=1#L56)
+- [ ] [Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.](Rybniky-Amerika/Hardware.md?plain=1#L57)
 
 ### Plán rekonstrukce
 
-- [ ] [Skutečná výchozí topologie, DHCP, NAT, firewall a port-forwardy.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L76)
-- [ ] [Přesný model a režim obou PtP rádií.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L77)
-- [ ] [Cílový LAN prefix Rybníků v rámci společného adresního plánu.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L78)
-- [ ] [Počet a umístění AP potřebných pro soukromou a hostovskou Wi-Fi.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L79)
-- [ ] [Stav optiky a technické řešení sloupu.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L80)
-- [ ] [5GHz, nebo 60GHz uplink k mobilhome podle zaměření.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L81)
-- [ ] [Přesná směrovací a firewallová pravidla mezi HOME, privátní sítí Rybníků a hosty.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L82)
-
-### Rybníky – Amerika
-
-- [ ] [Na místě provést fyzickou a konfigurační inventuru a podle ní připravit konkrétní portovou mapu, adresaci a návratový postup pro nasazení hEX S (2025).](Rybniky-Amerika/README.md?plain=1#L57)
+- [ ] [Přidělit cílový LAN prefix Rybníků v rámci společného adresního plánu.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L127)
+- [ ] [Po inventuře sepsat jednotlivé nutné výjimky z privátní sítě Rybníků do HOME; bez doložené potřeby zůstane výchozí `deny`.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L128)
+- [ ] [Podle inventury doplnit konkrétní testovací checklist, časový limit a kabelový postup rollbacku pro etapu 2.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L129)
+- [ ] [Vybrat pilotní větev pro odstranění prvního NAT ostrova.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L130)
+- [ ] [V dokumentu Mikr navrhnout závislosti a souhrnný alarm lokality.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L131)
+- [ ] [V dokumentaci záloh MikroTiků doplnit a prakticky ověřit obnovu konfigurace Rybníků.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L132)
 
 ### Topologie
 
-- [ ] [Přesné modely, RouterOS a režimy obou PtP rádií.](Rybniky-Amerika/Topologie.md?plain=1#L52)
-- [ ] [Které zařízení dnes routuje a poskytuje DHCP, NAT a firewall.](Rybniky-Amerika/Topologie.md?plain=1#L53)
-- [ ] [Všechny další DHCP servery a NATy.](Rybniky-Amerika/Topologie.md?plain=1#L54)
-- [ ] [Aktivní adresní rozsahy, statické IP a port-forwardy.](Rybniky-Amerika/Topologie.md?plain=1#L55)
-- [ ] [Zařízení, porty a kabely v Obýváku, Včelíně, Hospodě a Dílně.](Rybniky-Amerika/Topologie.md?plain=1#L56)
-- [ ] [Stav, typ a zakončení optiky ke sloupu.](Rybniky-Amerika/Topologie.md?plain=1#L57)
-- [ ] [NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace.](Rybniky-Amerika/Topologie.md?plain=1#L58)
-- [ ] [Napájení, PoE a přepěťovou ochranu venkovních částí.](Rybniky-Amerika/Topologie.md?plain=1#L59)
+- [ ] [Ověřit přesný model, RouterOS a konfiguraci sektoru `AP HOME`.](Rybniky-Amerika/Topologie.md?plain=1#L68)
+- [ ] [Ověřit přesný model, RouterOS a režim přijímací jednotky.](Rybniky-Amerika/Topologie.md?plain=1#L69)
+- [ ] [Změřit aktuální rádiové parametry, stabilitu a reálnou propustnost přívodu.](Rybniky-Amerika/Topologie.md?plain=1#L70)
+- [ ] [Určit zařízení, které dnes routuje a poskytuje DHCP, NAT a firewall.](Rybniky-Amerika/Topologie.md?plain=1#L71)
+- [ ] [Zmapovat všechny další DHCP servery, NATy, aktivní rozsahy, statické IP a port-forwardy.](Rybniky-Amerika/Topologie.md?plain=1#L72)
+- [ ] [Zmapovat zařízení, porty a kabely v Obýváku, Včelíně, Hospodě a Dílně.](Rybniky-Amerika/Topologie.md?plain=1#L73)
+- [ ] [Ověřit stav, typ a zakončení optiky ke sloupu.](Rybniky-Amerika/Topologie.md?plain=1#L74)
+- [ ] [Ověřit NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace.](Rybniky-Amerika/Topologie.md?plain=1#L75)
 
 ## Vernirovice / BESS-a-FVE
 
