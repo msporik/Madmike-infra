@@ -27,7 +27,7 @@ Produkční VM401 byla úspěšně obnovena z PBS jako testovací Dell / VM402. 
 
 ## Otevřené kontroly
 
-1. Ověřit živou verzi Nextcloudu, operačního systému a databáze.
-2. Ověřit vazbu storage ID `tank-nas-zfs` na fyzický ZFS pool.
-3. Zapsat používaný postup aktualizace Nextcloudu a jeho aplikací.
-4. Ověřit současné nastavení administrátorských rolí, MFA a veřejného sdílení.
+- [ ] Ověřit živou verzi Nextcloudu, operačního systému a databáze.
+- [ ] Ověřit vazbu storage ID `tank-nas-zfs` na fyzický ZFS pool.
+- [ ] Zapsat používaný postup aktualizace Nextcloudu a jeho aplikací.
+- [ ] Ověřit současné nastavení administrátorských rolí, MFA a veřejného sdílení.
