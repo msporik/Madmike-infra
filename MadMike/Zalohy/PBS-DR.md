@@ -34,11 +34,11 @@ Dell / VM401 je starší migrační test Nextcloudu, nikoli PBS DR obnova. Dell 
 
 ## Co zatím není ověřené
 
-- aktuální seznam zálohovaných hostů a VM;
-- rozvrhy a retence jednotlivých backup jobů;
-- stav a rozvrh Verify;
-- pravidla Prune a Garbage Collection;
-- pravidelnost budoucích testů obnovy;
-- úplnost nativních notifikací PVE a PBS.
+- [ ] aktuální seznam zálohovaných hostů a VM;
+- [ ] rozvrhy a retence jednotlivých backup jobů;
+- [ ] stav a rozvrh Verify;
+- [ ] pravidla Prune a Garbage Collection;
+- [ ] pravidelnost budoucích testů obnovy;
+- [ ] úplnost nativních notifikací PVE a PBS.
 
 Tyto údaje se doplní až po kontrole živé konfigurace.
