@@ -33,8 +33,8 @@ SXT Lite5 nebyl vyhodnocen jako smysluplný upgrade stávajícího Sextantu.
 
 ## Otevřené kontroly
 
-1. Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.
-2. Porovnat zařízení s živou evidencí v Mikr Manageru a skladovou evidencí.
-3. Ověřit dostupné SFP moduly, typ optiky, PoE zdroje a přepěťové ochrany.
-4. Nealokovat RB5009, CRS ani AP pouze podle starého seznamu zásob.
-5. Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.
+- [ ] Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.
+- [ ] Porovnat zařízení s živou evidencí v Mikr Manageru a skladovou evidencí.
+- [ ] Ověřit dostupné SFP moduly, typ optiky, PoE zdroje a přepěťové ochrany.
+- [ ] Nealokovat RB5009, CRS ani AP pouze podle starého seznamu zásob.
+- [ ] Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.
