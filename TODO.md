@@ -246,42 +246,38 @@
 
 ### PBS a disaster recovery
 
-- [ ] [Ověřit živý výběr objektů backup jobu a odstranit případnou neexistující položku CT100.](MadMike/Zalohy/PBS-DR.md?plain=1#L120)
-- [ ] [Ověřit poslední úspěšné běhy Backup, Verify, Prune a Garbage Collection.](MadMike/Zalohy/PBS-DR.md?plain=1#L121)
-- [ ] [Ověřit aktuální obsazení datastore `backup`.](MadMike/Zalohy/PBS-DR.md?plain=1#L122)
-- [ ] [Ověřit plánování a poslední běh scrubů na `tank-pbs` a `tank-nas`.](MadMike/Zalohy/PBS-DR.md?plain=1#L123)
-- [ ] [Ověřit SMART a teploty čtyř SAS disků a systémového SSD proti živému stavu.](MadMike/Zalohy/PBS-DR.md?plain=1#L124)
-- [ ] [Prakticky ověřit start PVE Dell, VM200 a datastore po úplném výpadku napájení.](MadMike/Zalohy/PBS-DR.md?plain=1#L125)
-- [ ] [Otestovat nativní notifikace neúspěšného Backup, Verify, Prune a Garbage Collection jobu.](MadMike/Zalohy/PBS-DR.md?plain=1#L126)
-- [ ] [Stanovit rozumnou četnost opakovaných testů obnovy.](MadMike/Zalohy/PBS-DR.md?plain=1#L127)
-- [ ] [Rozhodnout a zdokumentovat roli `tank-nas`.](MadMike/Zalohy/PBS-DR.md?plain=1#L128)
-- [ ] [Doplnit stručný DR runbook pro ztrátu PVE Ryzen.](MadMike/Zalohy/PBS-DR.md?plain=1#L129)
-- [ ] [Rozhodnout o klientském šifrování PBS záloh a bezpečném uložení klíče.](MadMike/Zalohy/PBS-DR.md?plain=1#L130)
-
-### Zálohy
-
-- [ ] [Ověřit živé PBS joby, jejich rozsah, rozvrhy a retenci.](MadMike/Zalohy/README.md?plain=1#L31)
-- [ ] [Ověřit nastavení Verify, Prune a Garbage Collection.](MadMike/Zalohy/README.md?plain=1#L32)
-- [ ] [Prakticky otestovat nativní notifikace PVE a PBS.](MadMike/Zalohy/README.md?plain=1#L33)
-- [ ] [Stanovit rozumnou četnost opakovaných testů obnovy.](MadMike/Zalohy/README.md?plain=1#L34)
-- [ ] [Rozlišit užitečné DR kopie od objektů, o jejichž původu zatím není jasno.](MadMike/Zalohy/README.md?plain=1#L35)
+- [ ] [Ověřit živý výběr objektů backup jobu a odstranit případnou neexistující položku CT100.](MadMike/Zalohy/PBS-DR.md?plain=1#L172)
+- [ ] [Ověřit poslední úspěšné běhy Backup, Verify, Prune a Garbage Collection.](MadMike/Zalohy/PBS-DR.md?plain=1#L173)
+- [ ] [Ověřit aktuální obsazení datastore `backup`.](MadMike/Zalohy/PBS-DR.md?plain=1#L174)
+- [ ] [Ověřit plánování a poslední běh scrubů na `tank-pbs` a `tank-nas`.](MadMike/Zalohy/PBS-DR.md?plain=1#L175)
+- [ ] [Ověřit SMART a teploty čtyř SAS disků a systémového SSD proti živému stavu.](MadMike/Zalohy/PBS-DR.md?plain=1#L176)
+- [ ] [Ověřit persistentní Docker data a mounty VM510 a provést testovací restore.](MadMike/Zalohy/PBS-DR.md?plain=1#L177)
+- [ ] [Prakticky ověřit start PVE Dell, VM200 a datastore po úplném výpadku napájení.](MadMike/Zalohy/PBS-DR.md?plain=1#L178)
+- [ ] [Otestovat nativní notifikace neúspěšného Backup, Verify, Prune a Garbage Collection jobu.](MadMike/Zalohy/PBS-DR.md?plain=1#L179)
+- [ ] [Stanovit rozumnou četnost opakovaných testů obnovy.](MadMike/Zalohy/PBS-DR.md?plain=1#L180)
+- [ ] [Určit původ nejasných/orphaned backup groups a účel Dell / VM400.](MadMike/Zalohy/PBS-DR.md?plain=1#L181)
+- [ ] [Zdokumentovat bezpečné umístění recovery materiálů hostitelů bez zveřejnění tajných údajů.](MadMike/Zalohy/PBS-DR.md?plain=1#L182)
+- [ ] [Rozhodnout o klientském šifrování PBS a při jeho použití bezpečně uložit recovery klíč.](MadMike/Zalohy/PBS-DR.md?plain=1#L183)
 
 ### Zálohy Home Assistantu
 
-- [ ] [Zjistit současný způsob a umístění záloh každé HA instance.](MadMike/Zalohy/Home-Assistant.md?plain=1#L19)
-- [ ] [Ověřit automatické vytváření záloh a jejich retenci.](MadMike/Zalohy/Home-Assistant.md?plain=1#L20)
-- [ ] [Zajistit druhou kopii mimo zařízení s Home Assistantem.](MadMike/Zalohy/Home-Assistant.md?plain=1#L21)
-- [ ] [Ověřit přenos do offsite PBS nebo jiného rovnocenného DR cíle.](MadMike/Zalohy/Home-Assistant.md?plain=1#L22)
-- [ ] [Provést praktický test obnovy alespoň domácího HA.](MadMike/Zalohy/Home-Assistant.md?plain=1#L23)
-- [ ] [Dokumentovat rozdíly mezi domácí instancí a ostatními lokalitami až podle skutečného stavu.](MadMike/Zalohy/Home-Assistant.md?plain=1#L24)
+- [ ] [Ověřit živé nastavení backupu, poslední úspěch a retenci u všech tří produkčních instancí.](MadMike/Zalohy/Home-Assistant.md?plain=1#L49)
+- [ ] [Zprovoznit a ověřit prostor `ha-backup`, oddělená app hesla a složky jednotlivých lokalit.](MadMike/Zalohy/Home-Assistant.md?plain=1#L50)
+- [ ] [Ověřit, že Nextcloud kopie jsou skutečně součástí PBS zálohy VM401.](MadMike/Zalohy/Home-Assistant.md?plain=1#L51)
+- [ ] [Provést a zdokumentovat praktický restore HA Vernířovice.](MadMike/Zalohy/Home-Assistant.md?plain=1#L52)
+- [ ] [Provést a zdokumentovat praktický restore HA Honza.](MadMike/Zalohy/Home-Assistant.md?plain=1#L53)
+- [ ] [Po instalaci HA ValTom nastavit pravidelné produkční zálohování a provést restore test.](MadMike/Zalohy/Home-Assistant.md?plain=1#L54)
+- [ ] [Při příštím opakování domácí obnovy doplnit datum, použitý backup a ověřené funkce.](MadMike/Zalohy/Home-Assistant.md?plain=1#L55)
 
 ### Zálohy MikroTiků
 
-- [ ] [Ověřit, která zařízení se skutečně exportují a jak často.](MadMike/Zalohy/MikroTik.md?plain=1#L17)
-- [ ] [Zkontrolovat retenci a umístění exportů.](MadMike/Zalohy/MikroTik.md?plain=1#L18)
-- [ ] [Ověřit, zda exporty neobsahují tajné hodnoty, které nemají být ukládány mimo chráněné úložiště.](MadMike/Zalohy/MikroTik.md?plain=1#L19)
-- [ ] [Prakticky projít postup obnovy na náhradním nebo testovacím MikroTiku.](MadMike/Zalohy/MikroTik.md?plain=1#L20)
-- [ ] [Rozhodnout, zda mají být exporty dále kopírované do PBS nebo jiného offsite úložiště.](MadMike/Zalohy/MikroTik.md?plain=1#L21)
+- [ ] [Ověřit scope 22 zařízení, skutečný rozvrh a poslední úspěšné exporty.](MadMike/Zalohy/MikroTik.md?plain=1#L57)
+- [ ] [Ověřit retenci a přesné persistentní umístění exportů v Mikr Manageru.](MadMike/Zalohy/MikroTik.md?plain=1#L58)
+- [ ] [Ověřit, zda jsou exporty součástí PBS zálohy VM510.](MadMike/Zalohy/MikroTik.md?plain=1#L59)
+- [ ] [Zavést binární `.backup` pro důležitá zařízení a checkpoint po zásadní změně.](MadMike/Zalohy/MikroTik.md?plain=1#L60)
+- [ ] [Zprovoznit chráněnou druhou kopii přes Nextcloud a PBS.](MadMike/Zalohy/MikroTik.md?plain=1#L61)
+- [ ] [Prověřit zacházení s citlivými údaji v používané verzi RouterOS.](MadMike/Zalohy/MikroTik.md?plain=1#L62)
+- [ ] [Prakticky otestovat obnovu na náhradním nebo testovacím MikroTiku.](MadMike/Zalohy/MikroTik.md?plain=1#L63)
 
 ## Rybniky-Amerika
 
