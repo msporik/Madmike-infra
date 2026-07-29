@@ -21,10 +21,10 @@ Místní Home Assistant zajišťuje automatizaci domácnosti u Honzy. Hlavními 
 
 ## Otevřené kontroly
 
-1. Ověřit aktuální verzi Home Assistantu a seznam aktivních integrací.
-2. Zjistit skutečný stav automatických záloh a jejich druhé kopie mimo HA Green.
-3. Provést a zdokumentovat praktický test obnovy.
-4. Doplnit přesnou inventuru zařízení až podle živého stavu.
+- [ ] Ověřit aktuální verzi Home Assistantu a seznam aktivních integrací.
+- [ ] Zjistit skutečný stav automatických záloh a jejich druhé kopie mimo HA Green.
+- [ ] Provést a zdokumentovat praktický test obnovy.
+- [ ] Doplnit přesnou inventuru zařízení až podle živého stavu.
 
 ## Související dokumentace
 
