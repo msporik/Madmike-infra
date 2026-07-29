@@ -1,38 +1,40 @@
 # Budoucí produkční serverová platforma
 
-## Stav rozhodnutí
+## Schválený směr
 
-Tento dokument zachycuje požadavky na případného nástupce domácího produkčního serveru [PVE Ryzen](PVE-Ryzen.md).
+Upgrade domácího [PVE Ryzen](PVE-Ryzen.md) je plánovaný nenásilně, bez pevného termínu a podle vhodné aktuální nabídky.
 
-- Současný Ryzen zatím pro provozované služby dostačuje.
-- Okamžitá výměna serveru není naplánovaná.
-- Konkrétní základní deska, procesor ani termín nákupu nejsou vybrané.
-- Offsite PBS a disaster recovery zůstávají samostatnou rolí serveru [PVE Dell](PVE-Dell.md).
+- zůstává se na platformě AMD AM4;
+- preferovaný procesor a současný sweet spot je Ryzen 7 5700G;
+- cílem je základní deska s čipsetem B550;
+- ideální deska má čtyři DIMM sloty pro DDR4 a integrovanou 2,5GbE síť;
+- konkrétní model desky ani okamžik nákupu zatím nejsou vybrané.
 
-## Kdy má upgrade smysl
+Současný Ryzen 3 4300G provozované služby zvládá, takže není důvod kupovat nevhodný kompromis jen kvůli rychlosti. Zároveň už B550 a Ryzen 7 5700G nejsou pouhou průzkumnou variantou, ale schváleným cílovým směrem.
 
-Upgrade se zahájí až kvůli konkrétnímu a doloženému limitu, například:
+M4-ATX je samostatné zlepšení napájení současného serveru. Jeho objednání a následný test jsou vedené v [PVE-Ryzen.md](PVE-Ryzen.md), nikoliv jako podmínka výměny celé platformy.
 
-- nedostatečné kapacitě CPU, RAM, úložiště nebo sítě pro skutečně provozované služby;
-- chybějící možnosti rozšíření pro nový reálný workload;
-- zhoršující se spolehlivosti nebo obtížné opravitelnosti současného hardwaru;
-- ekonomicky výhodné obnově v okamžiku, kdy už současná platforma omezuje provoz.
+## Důvod této volby
 
-Samotná dostupnost zajímavé desky, procesoru nebo levného serveru není důvodem k migraci. Před výběrem nové platformy se nejdřív změří skutečný limit současného Ryzenu.
+- AM4 umožní dál využít stávající DDR4 a drží náklady i složitost nízko.
+- Ryzen 7 5700G nabízí výraznou rezervu proti současnému 4300G a současně integrovanou grafiku.
+- B550 je běžná, dobře dostupná a opravitelná platforma bez závislosti na speciálním serverovém hardwaru.
+- Čtyři DIMM sloty umožní rozšířit paměť bez okamžité výměny všech modulů.
+- Integrované 2,5GbE omezí potřebu zabírat další PCIe slot síťovou kartou.
 
-## Preferovaný charakter platformy
+## Požadavky na konkrétní nabídku
 
-Budoucí produkční server má být především praktický:
+Před nákupem se u konkrétní desky a sestavy ověří:
 
-- běžný, úsporný a snadno opravitelný hardware;
-- nízká spotřeba v klidu a rozumný výkon jednoho jádra;
-- standardní a dobře dostupné paměti;
-- dostatečná kapacita RAM a rozumná rezerva pro další VM nebo kontejnery;
-- možnost rozšířit úložiště, síť nebo doplnit akcelerátor bez výměny celé platformy;
-- preferovaná integrovaná síť alespoň 2,5 Gb/s, případně možnost snadného doplnění rychlejšího adaptéru;
-- bezproblémový provoz Proxmox VE, ZFS a stávajících produkčních služeb.
+1. podpora Ryzen 7 5700G včetně potřebné verze BIOSu;
+2. čtyři fyzické DIMM sloty a kompatibilita se stávající DDR4;
+3. model integrovaného 2,5GbE řadiče a jeho bezproblémová podpora v Proxmoxu;
+4. počet M.2, SATA a použitelných PCIe slotů po osazení;
+5. IOMMU a další vlastnosti potřebné pro současné VM;
+6. rozměry desky, chlazení, spotřeba a kompatibilita se skříní a napájením;
+7. stav, záruka a celková cena nabídky.
 
-Rozšiřitelnost, spotřeba a dostupnost náhradních dílů jsou důležitější než označení platformy jako serverové.
+Tento seznam je kontrolou při konkrétní nákupní příležitosti, nikoliv sadou trvale otevřených položek v centrálním `TODO.md`.
 
 ## Co není podmínkou
 
@@ -48,7 +50,7 @@ Nová platforma musí bezpečně zvládnout současné produkční role:
 
 - Nextcloud;
 - Windows VM s účetním systémem PREMIER;
-- monitorovací VM a související infrastrukturu;
+- VM510 s NPM a monitoringem;
 - další současné podpůrné služby Proxmoxu.
 
 Současně má ponechat rozumnou rezervu pro:
@@ -58,19 +60,10 @@ Současně má ponechat rozumnou rezervu pro:
 - menší lokální AI;
 - další službu, která přinese konkrétní užitek.
 
-Nejde o požadavek provozovat všechny tyto úlohy okamžitě. Jsou to pouze směry, které nemá budoucí platforma předem zablokovat.
+Nejde o požadavek provozovat všechny tyto úlohy okamžitě. Jsou to směry, které nemá cílová platforma předem zablokovat.
 
-## Historické a průzkumné varianty
+## Historické a opuštěné směry
 
-Dříve posuzované serverové platformy Supermicro a Xeon patřily ke starší koncepci PBS/DR uzlu v paneláku. Nejsou aktuálně vybraným nástupcem PVE Ryzen.
+Dříve posuzované platformy Supermicro a Xeon patřily převážně ke starší koncepci PBS/DR uzlu. Nejsou cílovým nástupcem PVE Ryzen.
 
-Stejně tak jednotlivé nabídky desek B550, B660, procesorů a použitých serverů představují pouze průzkum trhu. Dokud nebude doložený konkrétní limit a schválená sestava, nesmí být žádný z těchto kandidátů vedený jako rozhodnuté řešení.
-
-## Kontroly před budoucím výběrem
-
-1. Změřit běžné a špičkové využití CPU, RAM, disků a sítě na PVE Ryzen.
-2. Určit konkrétní workload, který změnu vyvolává.
-3. Ověřit potřebný počet disků, PCIe slotů, M.2 pozic a síťových portů.
-4. Stanovit potřebnou kapacitu RAM včetně rozumné rezervy.
-5. Ověřit kompatibilitu vybrané platformy s Proxmox VE, ZFS a plánovanými akcelerátory.
-6. Teprve potom porovnat konkrétní nové a použité sestavy podle ceny, spotřeby a opravitelnosti.
+Intel/B660, starší serverové sestavy a jednotlivé jiné bazarové nabídky zůstávají historií průzkumu trhu. Současný schválený směr je AM4, B550 a preferovaně Ryzen 7 5700G.
