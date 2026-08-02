@@ -349,9 +349,13 @@
 
 ### Služby a integrace
 
-- [ ] [Zapsat skutečné umístění a způsob provozu InfluxDB a Grafany.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L42)
-- [ ] [Ověřit jejich retenci, velikost databází a zálohování.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L43)
-- [ ] [Ověřit živý seznam doplňkových integrací a vyřadit již nepoužívané položky.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L44)
-- [ ] [Ověřit, zda je `IOTVL` stále samostatná aktivní síť a jaký používá rozsah.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L45)
-- [ ] [Po přechodu na RS485 porovnat stabilitu a možnosti řízení se současnou integrací.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L46)
-- [ ] [Zdokumentovat pouze entity skutečně důležité pro automatizace a diagnostiku.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L47)
+- [ ] [Ověřit živý seznam aktivních integrací, add-onů a jejich aktuální verze.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L71)
+- [ ] [Ověřit konfiguraci, retenci, velikost databází a zálohování InfluxDB.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L72)
+- [ ] [Ověřit hlavní Grafana dashboardy, zdroje dat a jejich obnovitelnost.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L73)
+- [ ] [Ověřit účel, klienty, autentizaci a zálohování MQTT brokeru bez uložení tajných údajů do dokumentace.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L74)
+- [ ] [Ověřit přesný stav entit a ovládání původní i větší bateriové sestavy.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L75)
+- [ ] [Ověřit, zda je `IOTVL` stále samostatná aktivní síť a jaký používá rozsah.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L76)
+- [ ] [Ověřit současný způsob lokálního a vzdáleného přístupu včetně Home Assistant Cloud.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L77)
+- [ ] [Zapojit dostupnost instance do společného monitoringu a schváleného notifikačního systému.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L78)
+- [ ] [Před případným zavedením RS485/Modbus připravit samostatný read-only test, přejímací kritéria a rollback.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L79)
+- [ ] [Zdokumentovat pouze entity skutečně důležité pro automatizace, řízení a diagnostiku.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L80)
