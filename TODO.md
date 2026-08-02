@@ -39,24 +39,21 @@
 
 ### Home Assistant – Honza
 
-- [ ] [Ověřit aktuální verzi Home Assistantu a seznam aktivních integrací.](Honza/Home-Assistant/README.md?plain=1#L24)
-- [ ] [Zjistit skutečný stav automatických záloh a jejich druhé kopie mimo HA Green.](Honza/Home-Assistant/README.md?plain=1#L25)
-- [ ] [Provést a zdokumentovat praktický test obnovy.](Honza/Home-Assistant/README.md?plain=1#L26)
-- [ ] [Doplnit přesnou inventuru zařízení až podle živého stavu.](Honza/Home-Assistant/README.md?plain=1#L27)
+- [ ] [Ověřit a doplnit aktuální verze Home Assistant Core, OS a Supervisor.](Honza/Home-Assistant/README.md?plain=1#L50)
 
 ### NSPanel a topení
 
-- [ ] [Ověřit počet, typ a umístění všech NSPanelů.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L19)
-- [ ] [Zjistit, které panely a konfigurace jsou skutečně nasazené.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L20)
-- [ ] [Ověřit fyzickou instalaci topných pohonů a způsob jejich ovládání.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L21)
-- [ ] [Teprve podle živého stavu navrhnout finální logiku topení a záložní ruční režim.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L22)
+- [ ] [Ověřit a dokončit konfiguraci každého ze tří běžných NSPanelů.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L50)
+- [ ] [Zmapovat místnosti na jednotlivé okruhy rozdělovače.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L51)
+- [ ] [Vybrat a ověřit zdroj pokojové teploty pro každou plánovanou zónu.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L52)
+- [ ] [Navrhnout pohony, akční členy, ruční režim a fail-safe před zahájením řízení topení.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L53)
 
 ### Zigbee a osvětlení
 
-- [ ] [Vypsat skutečný seznam Zigbee zařízení a jejich umístění.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L21)
-- [ ] [Ověřit aktuální Zigbee kanál a provozní nastavení koordinátoru bez ukládání síťového klíče.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L22)
-- [ ] [Ověřit, která relé a pohybová čidla jsou fyzicky instalovaná.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L23)
-- [ ] [Prakticky prověřit chování světel při výpadku Home Assistantu, Zigbee2MQTT nebo koordinátoru.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L24)
+- [ ] [Dokončit a prakticky otestovat automatizaci pohybového čidla a světel na chodbě.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L42)
+- [ ] [Ověřit fyzickou montáž, typ, umístění a funkci Sonoff relé.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L43)
+- [ ] [Doplnit přesnou inventuru významných Zigbee zařízení, jejich umístění a případné skupiny.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L44)
+- [ ] [Prakticky prověřit chování osvětlení při výpadku Home Assistantu, MQTT, Zigbee2MQTT a koordinátoru.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L45)
 
 ## Honza / Sit
 
