@@ -320,10 +320,14 @@
 
 ### Řízení energie
 
-- [ ] [Ověřit skutečné chování automatizace při hraničním SOC a při ztrátě dat.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L41)
-- [ ] [Doplnit koordinaci nového 215kWh systému až po ověření jeho rozhraní.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L42)
-- [ ] [Stanovit bezpečné výchozí režimy obou měničů.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L43)
-- [ ] [Přidat měřitelné vyhodnocení ekonomického přínosu jednotlivých strategií.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L44)
+- [ ] [Zdokumentovat přesný cenový vstup, současnou automatizaci a vazbu jejích entit na původní sestavu.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L73)
+- [ ] [Prakticky ověřit návrat do `Zero Export To CT`, hraniční SOC, chybějící cenová data, odmítnutý povel, ztrátu komunikace a restart Home Assistantu.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L74)
+- [ ] [Stanovit a otestovat bezpečný ruční režim, fail-safe stav a návrat do automatiky pro obě sestavy.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L75)
+- [ ] [Před koordinací obou baterií prokázat bezpečné vynucení společného exportního limitu 50 kW nezávisle na pomalé nadřazené optimalizaci.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L76)
+- [ ] [Po vyřešení problému dodavatelem read-only způsobem ověřit rozhraní, limity a skutečné chování větší sestavy.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L77)
+- [ ] [Navrhnout, otestovat a zdokumentovat ručně aktivovatelný režim Maximální záloha.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L78)
+- [ ] [Po uzavření výběrového řízení zapsat skutečný nákupní a výkupní produkt a teprve poté připravit spotové řízení.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L79)
+- [ ] [Zavést měsíční ekonomické vyhodnocení a ověřovat čistý přínos jednotlivých strategií.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L80)
 
 ## Vernirovice / Home-Assistant
 
