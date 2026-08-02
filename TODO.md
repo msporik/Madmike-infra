@@ -307,14 +307,6 @@
 
 ## Vernirovice / BESS-a-FVE
 
-### BESS a FVE – Vernířovice
-
-- [ ] [Ověřit přesný model, výkon a zapojení nového měniče.](Vernirovice/BESS-a-FVE/README.md?plain=1#L25)
-- [ ] [Ověřit výrobce, model a technické parametry baterie 215 kWh.](Vernirovice/BESS-a-FVE/README.md?plain=1#L26)
-- [ ] [Zapsat skutečnou topologii měření, měničů, baterií a hlavního předávacího místa.](Vernirovice/BESS-a-FVE/README.md?plain=1#L27)
-- [ ] [Ověřit, které limity jsou pevně nastavené v jednotlivých měničích a které mění Home Assistant.](Vernirovice/BESS-a-FVE/README.md?plain=1#L28)
-- [ ] [Doplnit bezpečný postup pro ruční provoz při výpadku Home Assistantu.](Vernirovice/BESS-a-FVE/README.md?plain=1#L29)
-
 ### Technologie FVE, BESS a tepelné infrastruktury
 
 - [ ] [Opsat typové štítky obou měničů a bateriových systémů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L78)
