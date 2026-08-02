@@ -76,12 +76,22 @@
 
 ## MadMike / Home-Assistant
 
+### FVE SolaX
+
+- [ ] [Dotáhnout energetické řízení do plně automatického režimu a zdokumentovat skutečně řízené prvky, podmínky, ruční režim, bezpečný stav a návrat do automatiky.](MadMike/Home-Assistant/FVE-SolaX.md?plain=1#L40)
+- [ ] [Realizovat malý pilot InfluxDB a Grafany pro domácí energetická data včetně stanovení retence a zálohování.](MadMike/Home-Assistant/FVE-SolaX.md?plain=1#L41)
+
 ### Home Assistant
 
-- [ ] [Ověřit, zda má CWWK X86-P6 procesor Intel N100 nebo N150, a odstranit rozpor ze zdrojů.](MadMike/Home-Assistant/README.md?plain=1#L132)
-- [ ] [Ověřit živý seznam aktivních integrací a vyřadit z evidence již nepoužívané položky.](MadMike/Home-Assistant/README.md?plain=1#L133)
-- [ ] [Ověřit současný stav plánovaného Hikvision kamerového upgradu.](MadMike/Home-Assistant/README.md?plain=1#L134)
-- [ ] [Ověřit přesný model, roli a stav nasazení samostatného zařízení SMLIGHT určeného pro Matter/Thread a plánovaný zámek Aqara.](MadMike/Home-Assistant/README.md?plain=1#L135)
+- [ ] [Ověřit živý seznam aktivních integrací a vyřadit z evidence již nepoužívané položky.](MadMike/Home-Assistant/README.md?plain=1#L83)
+- [ ] [Ověřit a zdokumentovat aktuálně používanou vzdálenou přístupovou cestu k domácímu Home Assistantu.](MadMike/Home-Assistant/README.md?plain=1#L84)
+- [ ] [Ověřit, zda Uptime Kuma hlídá dostupnost domácího Home Assistantu a zda upozornění směřují do schváleného notifikačního systému.](MadMike/Home-Assistant/README.md?plain=1#L85)
+- [ ] [S využitím plošiny vyměnit připravené 2 kamery za Hikvision, ověřit jejich záznam na Hikvision NVR a dokončit migraci kamerového systému na Hikvision.](MadMike/Home-Assistant/README.md?plain=1#L86)
+
+### Zigbee
+
+- [ ] [Zjistit přesný model druhého zařízení SMLIGHT/SLZB určeného pro Matter/Thread a ověřit jeho zamýšlenou roli a stav OTBR.](MadMike/Home-Assistant/Zigbee.md?plain=1#L25)
+- [ ] [Ověřit, zda je původní USB koordinátor skutečně použitelný jako nouzová záloha produkční Zigbee sítě.](MadMike/Home-Assistant/Zigbee.md?plain=1#L26)
 
 ## MadMike / Monitoring
 
