@@ -1,26 +1,31 @@
 # MikroTik a Wi-Fi
 
-## Ověřená infrastruktura
+## Současná topologie
 
-| Role | Zařízení | Stav / poznámka |
+`Internet → RB4011Honza → hAP ac3`
+
+Stav zařízení potvrzený uživatelem k 2026-08-02:
+
+| Zařízení | Role | Stav / poznámka |
 |---|---|---|
-| hlavní router a CAPsMAN | MikroTik RB4011 | aktivní; označení `RB4011Honza` |
-| AP patro | cAP ac | potvrzené nasazení |
-| AP přízemí | hAP ac3 | potvrzené nasazení |
+| MikroTik RB4011 | hlavní router a výchozí brána `192.168.10.1` | aktivní; označení `RB4011Honza` |
+| hAP ac3 | jediné Wi-Fi AP za RB4011 | aktivní; samostatná správa bez CAPsMANu |
+| cAP ac | dříve uváděné další AP | není součástí současné topologie |
+| L009UiGS-2HaxD-IN | dříve zvažované AP nebo switch | není nasazený; nenahrazuje RB4011 |
 
-MikroTik L009UiGS-2HaxD-IN byl dříve pouze zvažovaný jako AP nebo switch. Nemá nahrazovat RB4011 v roli hlavního routeru; jeho skutečné nasazení je potřeba ověřit.
-
-## Síťové vazby
+## Síť a správa
 
 - LAN: `192.168.10.0/24`;
 - router / výchozí brána: `192.168.10.1`;
-- site-to-site WireGuard zpřístupňuje domácí síť `192.168.89.0/24`;
-- centrální parametry tunelu jsou v [MadMike / Servery / WireGuard](../../MadMike/Servery/WireGuard.md);
-- monitoring MikroTiků je vedený v [MadMike / Monitoring / Mikr](../../MadMike/Monitoring/Mikr.md).
+- všechna zařízení jsou v jedné společné LAN;
+- nejsou aktivní VLAN, hostovská Wi-Fi ani samostatná IoT síť;
+- CAPsMAN se nepoužívá;
+- přesné fyzické porty, napájení a umístění obou aktivních zařízení zatím nejsou zdokumentované.
+
+Parametry propojení HOME ↔ Honza jsou vedené v [MadMike / Servery / WireGuard](../../MadMike/Servery/WireGuard.md). Monitoring MikroTiků je popsaný v [MadMike / Monitoring / Mikr Manager](../../MadMike/Monitoring/Mikr.md) a zálohování v [MadMike / Zálohy / MikroTiky](../../MadMike/Zalohy/MikroTik.md).
 
 ## Otevřené kontroly
 
-- [ ] Ověřit aktuální seznam AP a jejich role přímo v CAPsMAN.
-- [ ] Zjistit, zda je L009 skutečně nasazený.
-- [ ] Ověřit uplinky, napájení AP a aktuální Wi-Fi konfiguraci.
-- [ ] Ověřit automatické exporty konfigurace a praktickou obnovitelnost.
+- [ ] Živými read-only výpisy ověřit verzi RouterOS a provozní konfiguraci RB4011 a hAP ac3.
+- [ ] Doplnit přesné porty, napájení a fyzické umístění obou aktivních zařízení.
+- [ ] Porovnat RB4011 a hAP ac3 s Mikr Managerem a hardwarovou evidencí.
