@@ -4,18 +4,28 @@
 
 Lokální řídicí a integrační vrstva pro FVE, baterie, energetické automatizace a další technologie ve Vernířovicích. Preferovaný směr je spolehlivé místní řízení s omezenou závislostí na cloudu.
 
-## Aktuálně potvrzený stav
+## Poslední doložený provozní stav
 
-- Home Assistant stále běží na Raspberry Pi 5.
-- InfluxDB i Grafana jsou v provozu.
-- Home Assistant získává energetická data mimo jiné z Deye zařízení přes integraci Solarman.
+- Produkční Home Assistant běží na Raspberry Pi 5.
+- InfluxDB, Grafana a MQTT broker běží jako add-ony stejné instalace Home Assistant OS na Raspberry Pi 5.
+- Home Assistant získává data z Deye zařízení přes integraci Solarman. Žádná lokální RS485/Modbus komunikace dnes není funkční.
 - Automatizace vybíjení baterie během dvou nejdražších hodin funguje; její logika je popsána v [Řízení energie](../BESS-a-FVE/Rizeni-energie.md).
+- Home Assistant Cloud byl pro tuto instanci potvrzen 21. 7. 2026.
 
-## Plán
+## Schválený cílový stav
 
 - Přesunout Home Assistant z Raspberry Pi 5 na připravený Qotom N100.
-- Využívat lokální RS485/Modbus tam, kde poskytne spolehlivější a lépe kontrolovatelnou komunikaci než cloudové rozhraní.
-- Zachovat možnost bezpečného návratu na původní stav během migrace.
+- Na Qotomu provozovat Home Assistant OS přímo na hardware.
+- Zachovat Raspberry Pi 5 jako dočasnou návratovou variantu, dokud nebude migrace prakticky ověřená.
+- Lokální RS485/Modbus zavádět až jako samostatně připravenou a otestovanou změnu tam, kde bude spolehlivější a lépe kontrolovatelná než současný Solarman.
+
+## Hranice projektu
+
+- Technologie měničů, baterií, exportní limit, bezpečnostní limity a algoritmus řízení jsou autoritativně vedené v [BESS a FVE](../BESS-a-FVE/README.md).
+- Společná strategie záloh, retence, druhé kopie a restore testy jsou v [Zálohách Home Assistantu](../../MadMike/Zalohy/Home-Assistant.md).
+- Síťová topologie, DHCP, VLAN a adresní plán patří do [MadMike / Síť](../../MadMike/Sit/README.md).
+- Centrální dohled a notifikace patří do [MadMike / Monitoring](../../MadMike/Monitoring/README.md).
+- Účty, MFA a recovery patří do [MadMike / Přístupy](../../MadMike/Pristupy/README.md).
 
 ## Podrobnosti
 
@@ -26,7 +36,7 @@ Lokální řídicí a integrační vrstva pro FVE, baterie, energetické automat
 
 ## Otevřené úkoly
 
-- [ ] Ověřit současný způsob, umístění a retenci záloh této instance.
-- [ ] Připravit konkrétní migrační a návratový postup pro Qotom.
-- [ ] Ověřit, kde fyzicky běží InfluxDB a Grafana a jak jsou zálohovaná jejich data.
-- [ ] Po migraci ověřit všechny klíčové integrace, automatizace a historická data.
+- [ ] Ověřit současný backup, poslední úspěch a retenci této instance podle autoritativního projektu Zálohy.
+- [ ] Provést a zdokumentovat praktický restore této instance.
+- [ ] Připravit a provést migraci na Qotom podle schváleného migračního a návratového rámce.
+- [ ] Ověřit současný způsob lokálního a vzdáleného přístupu a navázat dostupnost instance na společný monitoring.
