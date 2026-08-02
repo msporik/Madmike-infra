@@ -67,13 +67,6 @@
 - [ ] [Ověřit uplinky, napájení AP a aktuální Wi-Fi konfiguraci.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L25)
 - [ ] [Ověřit automatické exporty konfigurace a praktickou obnovitelnost.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L26)
 
-### Síť – Honza
-
-- [ ] [Ověřit aktuální RouterOS, konfiguraci bridge a CAPsMAN.](Honza/Sit/README.md?plain=1#L19)
-- [ ] [Porovnat evidenci zařízení s živým Mikr Managerem.](Honza/Sit/README.md?plain=1#L20)
-- [ ] [Ověřit, zda byly z routeru úplně odstraněné zbytky starého IPsec.](Honza/Sit/README.md?plain=1#L21)
-- [ ] [Doplnit případné další subnety nebo VLAN až podle živé konfigurace.](Honza/Sit/README.md?plain=1#L22)
-
 ## MadMike / Home-Assistant
 
 ### FVE SolaX
