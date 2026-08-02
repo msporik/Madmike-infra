@@ -340,10 +340,10 @@
 
 ### Home Assistant – Vernířovice
 
-- [ ] [Ověřit současný způsob, umístění a retenci záloh této instance.](Vernirovice/Home-Assistant/README.md?plain=1#L29)
-- [ ] [Připravit konkrétní migrační a návratový postup pro Qotom.](Vernirovice/Home-Assistant/README.md?plain=1#L30)
-- [ ] [Ověřit, kde fyzicky běží InfluxDB a Grafana a jak jsou zálohovaná jejich data.](Vernirovice/Home-Assistant/README.md?plain=1#L31)
-- [ ] [Po migraci ověřit všechny klíčové integrace, automatizace a historická data.](Vernirovice/Home-Assistant/README.md?plain=1#L32)
+- [ ] [Ověřit současný backup, poslední úspěch a retenci této instance podle autoritativního projektu Zálohy.](Vernirovice/Home-Assistant/README.md?plain=1#L39)
+- [ ] [Provést a zdokumentovat praktický restore této instance.](Vernirovice/Home-Assistant/README.md?plain=1#L40)
+- [ ] [Připravit a provést migraci na Qotom podle schváleného migračního a návratového rámce.](Vernirovice/Home-Assistant/README.md?plain=1#L41)
+- [ ] [Ověřit současný způsob lokálního a vzdáleného přístupu a navázat dostupnost instance na společný monitoring.](Vernirovice/Home-Assistant/README.md?plain=1#L42)
 
 ### Služby a integrace
 
