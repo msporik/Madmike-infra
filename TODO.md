@@ -309,15 +309,14 @@
 
 ### Technologie FVE, BESS a tepelné infrastruktury
 
-- [ ] [Opsat typové štítky obou měničů a bateriových systémů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L78)
-- [ ] [Ověřit současný instalovaný výkon FVE panelů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L79)
-- [ ] [Získat jednopólové schéma nebo vytvořit ověřený provozní nákres.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L80)
-- [ ] [Ověřit místo a zdroj hlavního měření výkonu.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L81)
-- [ ] [Zapsat skutečnou topologii měřených větví, měřidel, měničů, baterií a hlavního předávacího místa.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L82)
-- [ ] [Ověřit aktuální stav akumulační nádoby, kotle Atmos, tepelného čerpadla Hitachi, topných tyčí a bojleru.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L83)
-- [ ] [Ověřit aktuální technické zapojení a řízení sauny, koupacího sudu a bazénu.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L84)
-- [ ] [Zapsat komunikační rozhraní a adresy zařízení bez hesel a klíčů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L85)
-- [ ] [Ověřit chování obou systémů a výkonových spotřebičů při ztrátě komunikace s Home Assistantem.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L86)
+- [ ] [S dodavatelem vyřešit komunikaci baterie–střídač větší sestavy a potvrdit skutečné nabíjení, vybíjení a bezpečný lokální režim.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L69)
+- [ ] [Opsat typové štítky obou měničů a bateriových systémů a uzavřít rozpory v modelech, výkonech a kapacitách.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L70)
+- [ ] [Ověřit současný instalovaný výkon FVE panelů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L71)
+- [ ] [Získat jednopólové schéma nebo vytvořit ověřený provozní nákres včetně jištění jednotlivých zařízení.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L72)
+- [ ] [Ověřit přesný model hlavního Shelly, znaménka měření, smartmetery obou měničů a jejich skutečnou vazbu na regulaci.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L73)
+- [ ] [Ověřit, kde a jak je při souběhu obou měničů vynucován společný exportní limit 50 kW.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L74)
+- [ ] [Ověřit současný stav, měření a fyzickou řiditelnost tepelné a wellness infrastruktury.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L75)
+- [ ] [Zapsat komunikační rozhraní a adresy zařízení bez hesel a klíčů a teprve poté připravit read-only RS485 pilot.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L76)
 
 ### Řízení energie
 
