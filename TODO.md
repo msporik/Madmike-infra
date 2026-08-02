@@ -333,10 +333,12 @@
 
 ### Hardware a migrace
 
-- [ ] [Zvolit konkrétní způsob instalace Home Assistantu na Qotom.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L28)
-- [ ] [Zjistit, zda všechny potřebné RS485 porty a převodníky jsou fyzicky připravené.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L29)
-- [ ] [Připravit kontrolní seznam migrace a návratu.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L30)
-- [ ] [Určit způsob zálohování Qotomu a obnovy na náhradní hardware.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L31)
+- [ ] [Ověřit verzi Home Assistant OS, Core a Supervisor na současném Raspberry Pi 5.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L82)
+- [ ] [Ověřit obsah zálohy a ochranu dat add-onů InfluxDB, Grafana a MQTT.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L83)
+- [ ] [Připravit Qotom s Home Assistant OS a ověřit jeho síťové a úložné parametry.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L84)
+- [ ] [Doplnit konkrétní předmigrační kontrolní seznam současných funkcí.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L85)
+- [ ] [Stanovit konkrétní časové a funkční kritérium pro rollback.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L86)
+- [ ] [Po úspěšné migraci provést a zdokumentovat přejímací test a praktický restore.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L87)
 
 ### Home Assistant – Vernířovice
 
