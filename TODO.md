@@ -62,10 +62,9 @@
 
 ### MikroTik a Wi-Fi
 
-- [ ] [Ověřit aktuální seznam AP a jejich role přímo v CAPsMAN.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L23)
-- [ ] [Zjistit, zda je L009 skutečně nasazený.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L24)
-- [ ] [Ověřit uplinky, napájení AP a aktuální Wi-Fi konfiguraci.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L25)
-- [ ] [Ověřit automatické exporty konfigurace a praktickou obnovitelnost.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L26)
+- [ ] [Živými read-only výpisy ověřit verzi RouterOS a provozní konfiguraci RB4011 a hAP ac3.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L29)
+- [ ] [Doplnit přesné porty, napájení a fyzické umístění obou aktivních zařízení.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L30)
+- [ ] [Porovnat RB4011 a hAP ac3 s Mikr Managerem a hardwarovou evidencí.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L31)
 
 ## MadMike / Home-Assistant
 
