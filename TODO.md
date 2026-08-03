@@ -47,20 +47,21 @@
 
 ### FVE SolaX
 
-- [ ] [Dotáhnout energetické řízení do plně automatického režimu a zdokumentovat skutečně řízené prvky, podmínky, ruční režim, bezpečný stav a návrat do automatiky.](MadMike/Home-Assistant/FVE-SolaX.md?plain=1#L40)
-- [ ] [Realizovat malý pilot InfluxDB a Grafany pro domácí energetická data včetně stanovení retence a zálohování.](MadMike/Home-Assistant/FVE-SolaX.md?plain=1#L41)
+- [ ] [Ověřit a zdokumentovat přesný název a komunikační cestu používané SolaX integrace a klíčové entity pro diagnostiku, Energy dashboard a automatizace.](MadMike/Home-Assistant/FVE-SolaX.md?plain=1#L105)
+- [ ] [Dotáhnout energetické řízení do plně automatického režimu a zdokumentovat skutečně řízené prvky, podmínky, ruční režim, bezpečný stav a návrat do automatiky.](MadMike/Home-Assistant/FVE-SolaX.md?plain=1#L106)
+- [ ] [Realizovat malý pilot InfluxDB a Grafany pro domácí energetická data včetně stanovení retence a zálohování.](MadMike/Home-Assistant/FVE-SolaX.md?plain=1#L107)
 
 ### Home Assistant
 
-- [ ] [Ověřit živý seznam aktivních integrací a vyřadit z evidence již nepoužívané položky.](MadMike/Home-Assistant/README.md?plain=1#L83)
-- [ ] [Ověřit a zdokumentovat aktuálně používanou vzdálenou přístupovou cestu k domácímu Home Assistantu.](MadMike/Home-Assistant/README.md?plain=1#L84)
-- [ ] [Ověřit, zda Uptime Kuma hlídá dostupnost domácího Home Assistantu a zda upozornění směřují do schváleného notifikačního systému.](MadMike/Home-Assistant/README.md?plain=1#L85)
-- [ ] [S využitím plošiny vyměnit připravené 2 kamery za Hikvision, ověřit jejich záznam na Hikvision NVR a dokončit migraci kamerového systému na Hikvision.](MadMike/Home-Assistant/README.md?plain=1#L86)
+- [ ] [Ověřit živý seznam aktivních integrací a vyřadit z evidence již nepoužívané položky.](MadMike/Home-Assistant/README.md?plain=1#L160)
+- [ ] [Ověřit a zdokumentovat aktuálně používanou vzdálenou přístupovou cestu k domácímu Home Assistantu.](MadMike/Home-Assistant/README.md?plain=1#L161)
+- [ ] [Ověřit, zda Uptime Kuma hlídá dostupnost domácího Home Assistantu a zda upozornění směřují do schváleného notifikačního systému.](MadMike/Home-Assistant/README.md?plain=1#L162)
+- [ ] [S využitím plošiny vyměnit připravené 2 kamery za Hikvision, ověřit jejich záznam na Hikvision NVR a dokončit migraci kamerového systému na Hikvision.](MadMike/Home-Assistant/README.md?plain=1#L163)
 
 ### Zigbee
 
-- [ ] [Zjistit přesný model druhého zařízení SMLIGHT/SLZB určeného pro Matter/Thread a ověřit jeho zamýšlenou roli a stav OTBR.](MadMike/Home-Assistant/Zigbee.md?plain=1#L25)
-- [ ] [Ověřit, zda je původní USB koordinátor skutečně použitelný jako nouzová záloha produkční Zigbee sítě.](MadMike/Home-Assistant/Zigbee.md?plain=1#L26)
+- [ ] [Zjistit přesný model druhého zařízení SMLIGHT/SLZB určeného pro Matter/Thread a ověřit jeho zamýšlenou roli a stav OTBR.](MadMike/Home-Assistant/Zigbee.md?plain=1#L91)
+- [ ] [Ověřit, zda je původní USB koordinátor skutečně použitelný jako nouzová záloha produkční Zigbee sítě.](MadMike/Home-Assistant/Zigbee.md?plain=1#L92)
 
 ## MadMike / Monitoring
 
