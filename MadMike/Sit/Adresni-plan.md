@@ -12,6 +12,15 @@ Cílový plán je pracovní architektonický rámec. Není migračním příkaze
 
 Provozní konfigurace WireGuard peerů, `allowed-address` a rout patří výhradně do [Servery / WireGuard](../Servery/WireGuard.md). Tento dokument vede jen adresní principy a používané nebo rezervované prefixy.
 
+## Autorita záznamu
+
+Za přidělený nebo aktivní se rozsah považuje pouze tehdy, když je:
+
+- ověřený v živé konfiguraci a zapsaný v tomto dokumentu; nebo
+- výslovně schválený jako rezervace a označený odpovídajícím stavem.
+
+Poznámka v chatu, starý export, záznam v Mikru ani samotná route nejsou bez ověření důkazem aktuálního účelu prefixu. Detailní lokální topologie zůstává v kapitole dané lokality; sem se přenáší potvrzený prefix, stav a jeho společný význam.
+
 ## Současné doložené rozsahy
 
 | Účel / lokalita | Rozsah | Stav |
@@ -135,6 +144,28 @@ Notebookový `10.89.1.0/24` i site-to-site `10.200.0.0/24` zůstávají do migra
 
 Cílem není odstranit každé možné riziko kolize, ale zvolit konzistentní a provozně zvládnutelný kompromis.
 
+## Přidělení nového rozsahu
+
+Nový prefix se nepřiděluje pouze podle volného čísla. Postup:
+
+1. určit lokalitu, vlastníka infrastruktury, správce a skutečný účel sítě;
+2. ověřit všechny současné LAN, VLAN, VPN, transitní, kontejnerové a routované prefixy, které se mohou setkat v jedné routingové doméně;
+3. zkontrolovat pracovní rezervace a blokované lokality;
+4. zvolit identifikátor lokality pouze v odpovídajícím bloku a skutečnou síť typicky jako `/24` uvnitř jejího `/16`;
+5. segment přidělit až po schválení společného slovníku, nebo jej do té doby označit jako pracovní návrh;
+6. určit gateway, DHCP rozsah, pevné adresy, potřebné routy a firewallovou roli bez automatického rozšíření důvěry na celý `/16`;
+7. zapsat rezervaci do tohoto dokumentu dříve, než vznikne další nezávislá konfigurace stejného prefixu;
+8. po nasazení provést přejímací test a změnit stav z plánovaného na aktivní pouze podle živého ověření.
+
+Minimální záznam prefixu obsahuje:
+
+- lokalitu a účel;
+- prefix a gateway, jsou-li aktivní;
+- stav `rezervovaný`, `plánovaný`, `aktivní`, `legacy` nebo `historický / neověřený`;
+- vazbu na lokální autoritativní dokument;
+- datum a způsob posledního ověření;
+- potřebné routingové a VPN souvislosti bez klíčů a tajných hodnot.
+
 ## Migrační zásady
 
 - Po schválení plánu už nemají vznikat nové náhodné rozsahy `192.168.x.0/24`.
@@ -142,6 +173,36 @@ Cílem není odstranit každé možné riziko kolize, ale zvolit konzistentní a
 - Existující funkční sítě se nepřečíslovávají pouze kvůli estetice.
 - Migrace proběhne při přirozené příležitosti, například při výměně routeru, zavedení segmentace, větší rekonstrukci nebo skutečné kolizi.
 - Před konkrétním nasazením se provede inventura všech současných LAN, VLAN, VPN, routovaných a transitních rozsahů.
+
+## Runbook migrace prefixu
+
+1. **Inventura:** vypsat routery, switche, VLAN, DHCP, DNS, statické adresy, firewall, NAT, routy, WireGuard, monitoring, proxy upstreamy a zařízení bez DHCP.
+2. **Závislosti:** určit služby a vzdálené lokality, které starý prefix používají; zvlášť ověřit serverové, zálohovací a správcovské cesty.
+3. **Návrh:** schválit nový prefix, gateway, DHCP rozsah, pevné adresy, přechodné routy a podmínky rollbacku. Návrh se stále neoznačuje jako aktivní stav.
+4. **Příprava:** ověřit zálohy konfigurací, místní přístup, servisní okno a nezávislou komunikační cestu.
+5. **Změna:** měnit po vrstvách; nezavádět současně další nesouvisející VLAN, firewallovou koncepci nebo upgrade RouterOS.
+6. **Navazující konfigurace:** upravit DHCP, DNS, statické klienty, routy, firewall, NAT, WireGuard, monitoring a aplikační upstreamy podle jejich autoritativních dokumentů.
+7. **Přejímka:** otestovat skutečné klienty a služby, nikoli pouze ping gateway.
+8. **Dohled:** ponechat starý rozsah nebo návratovou konfiguraci jen po dobu schváleného přechodu a sledovat logy, DHCP, monitoring a zálohy.
+9. **Dokončení:** staré routy a výjimky odstranit až po ověření, že je nic nepoužívá; GitHub aktualizovat na skutečný konečný stav.
+
+### Přejímací test
+
+Podle rozsahu migrace se ověří:
+
+- klient získá správnou adresu, gateway a DNS;
+- lokální komunikace odpovídá zamýšlené segmentaci;
+- internet, DNS a NTP fungují;
+- správa routeru, switchů, AP a serverů zůstala dostupná;
+- WireGuard funguje od handshake až po skutečnou službu v cílové LAN;
+- NPM, monitoring a zálohy používají správné adresy a routy;
+- statická zařízení, tiskárny, kamery, IoT a další klienti bez běžného DHCP byly ověřeny;
+- firewall nepovolil širší přístup jen kvůli novému rezervovanému `/16`;
+- nevznikl duplicitní DHCP server, gateway ani IP adresa.
+
+### Podmínky rollbacku
+
+Návrat se provede zejména při ztrátě správy, nefunkčním DHCP nebo DNS, nedostupnosti kritické služby, nejasné routingové smyčce či kolizi nebo při neověřitelné bezpečnostní segmentaci. Rollback vrací předem zaznamenaný funkční stav; není pokračováním pokusných změn.
 
 ## Co zatím není rozhodnuto
 
@@ -153,6 +214,18 @@ Cílem není odstranit každé možné riziko kolize, ale zvolit konzistentní a
 - identifikátory lokalit kromě pracovní volby HOME;
 - pořadí migrace stávajících lokalit;
 - případný budoucí doplněk IPv6 ULA.
+
+## Handover minimum
+
+Přebírající správce musí před přidělením nebo migrací umět rozlišit:
+
+- fyzickou lokalitu, funkční segment a VLAN ID;
+- rezervovaný `/16`, aktivní `/24` a prefix skutečně inzerovaný do VPN;
+- aktivní stav, pracovní návrh a historickou stopu;
+- lokální adresaci, VPN adresaci a kontejnerové nebo technologické prefixy;
+- autoritativní dokument adresace od provozní konfigurace WireGuardu a lokální topologie.
+
+Neznámý původ prefixu se řeší živou inventurou. Neobsazené číslo bez dokončené kontroly se nepovažuje za volné.
 
 ## Další postup
 
