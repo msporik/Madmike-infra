@@ -169,35 +169,38 @@
 
 ### Interní DNS, NPM a HTTPS
 
-- [ ] [Ověřit, že Cloudflare API token je uložený v Bitwardenu a případný nezašifrovaný TXT soubor byl odstraněn.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L118)
+- [ ] [Ověřit současnou verzi NPM, stav všech proxy hostů a datum poslední úspěšné obnovy wildcard certifikátu.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L212)
+- [ ] [Ověřit, že Cloudflare API token je uložený v Bitwardenu a případný nezašifrovaný TXT soubor byl odstraněn.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L213)
 
 ### PVE Dell
 
-- [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L110)
-- [ ] [Ověřit aktuální verzi a konfiguraci PVE Dell proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L111)
-- [ ] [Připravit a schválit bezpečný migrační plán z dnešních dvou mirrorů na jeden pool ze čtyř 8TB disků, včetně zálohy, obnovy a návratového postupu.](MadMike/Servery/PVE-Dell.md?plain=1#L112)
+- [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L218)
+- [ ] [Ověřit aktuální verzi a konfiguraci PVE Dell, VM200, storage a sítě proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L219)
+- [ ] [Připravit a schválit bezpečný migrační plán z dnešních dvou mirrorů na jeden pool ze čtyř 8TB disků, včetně cílové topologie, zálohy, obnovy a rollbacku.](MadMike/Servery/PVE-Dell.md?plain=1#L220)
 
 ### PVE Ryzen
 
-- [ ] [Ověřit aktuální PVE konfiguraci VM401 živými výpisy `pvesm` a `qm config 401`, včetně prostředků, disků a fyzického ZFS poolu za storage ID `tank-nas-zfs`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L100)
-- [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L101)
-- [ ] [Po návratu z dovolené objednat M4-ATX.](MadMike/Servery/PVE-Ryzen.md?plain=1#L102)
-- [ ] [Po instalaci M4-ATX zdokumentovat zapojení a prakticky otestovat výpadek i návrat napájení a automatický start serveru.](MadMike/Servery/PVE-Ryzen.md?plain=1#L103)
+- [ ] [Ověřit aktuální PVE konfiguraci VM401 živými výpisy `pvesm` a `qm config 401`, včetně prostředků, disků a fyzického ZFS poolu za storage ID `tank-nas-zfs`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L200)
+- [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L201)
+- [ ] [Ověřit přesný model základní desky A520, současný zdroj a zapojení napájení před instalací M4-ATX.](MadMike/Servery/PVE-Ryzen.md?plain=1#L202)
+- [ ] [Po návratu z dovolené objednat standardní Mini-Box M4-ATX 6–30 V / 250 W a potřebné kabely.](MadMike/Servery/PVE-Ryzen.md?plain=1#L203)
+- [ ] [Před instalací M4-ATX ověřit práh baterie DRS a připravit zapojení AC OK/AC FAIL → IGNITION → POWER SW.](MadMike/Servery/PVE-Ryzen.md?plain=1#L204)
+- [ ] [Po instalaci nastavit prodlevy a prakticky otestovat celý cyklus výpadek → korektní shutdown → bezpečný hard-off → návrat sítě → automatický start.](MadMike/Servery/PVE-Ryzen.md?plain=1#L205)
 
 ### VM510 – Docker infrastruktura
 
-- [ ] [Pořídit sanitizovanou živou inventuru VM510: kontejnery, image tagy, Compose projekty, restart policy, sítě, porty, volumes a hostitelské cesty bez tajných hodnot.](MadMike/Servery/VM510-Docker.md?plain=1#L73)
-- [ ] [Zdokumentovat současný způsob vytvoření, startu a obnovy Uptime Kumy včetně umístění jejích persistentních dat.](MadMike/Servery/VM510-Docker.md?plain=1#L74)
-- [ ] [Po ověření persistentních dat doplnit stručný pořadník obnovy NPM, Pulse, Mikru a Kumy.](MadMike/Servery/VM510-Docker.md?plain=1#L75)
+- [ ] [Pořídit úplnou sanitizovanou inventuru NPM, Pulse a Mikru: běžící image/verze, restart policy, sítě, porty, volumes, bind mounty a umístění `.env` bez jejich obsahu.](MadMike/Servery/VM510-Docker.md?plain=1#L178)
+- [ ] [Ověřit a zdokumentovat persistentní data NPM včetně databáze, proxy hostů, certifikátů a bezpečného způsobu obnovy Cloudflare DNS challenge.](MadMike/Servery/VM510-Docker.md?plain=1#L179)
+- [ ] [Ověřit, že Pulse stále používá `pulse_data` a Mikr `/opt/mikr/data` a `/opt/mikr/exports`.](MadMike/Servery/VM510-Docker.md?plain=1#L180)
 
 ### WireGuard
 
-- [ ] [Vypsat na RB5009 všechny aktivní WG peery, jejich WG adresy, `allowed-address` a routy.](MadMike/Servery/WireGuard.md?plain=1#L115)
-- [ ] [Ověřit, zda kromě čtyř známých propojení neexistuje další aktivní WireGuard tunel.](MadMike/Servery/WireGuard.md?plain=1#L116)
-- [ ] [Ověřit, zda historická WG adresa `10.200.0.10` stále patří aktivnímu peeru RD Švecovi.](MadMike/Servery/WireGuard.md?plain=1#L117)
-- [ ] [Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových.](MadMike/Servery/WireGuard.md?plain=1#L118)
-- [ ] [Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.](MadMike/Servery/WireGuard.md?plain=1#L119)
-
+- [ ] [Vypsat na RB5009 všechny aktivní WG peery, jejich WG adresy, `allowed-address` a routy.](MadMike/Servery/WireGuard.md?plain=1#L181)
+- [ ] [Ověřit, zda kromě čtyř známých propojení neexistuje další aktivní WireGuard tunel.](MadMike/Servery/WireGuard.md?plain=1#L182)
+- [ ] [Ověřit přesnou WG adresu klienta notebooku a peeru HOME ↔ Richard.](MadMike/Servery/WireGuard.md?plain=1#L183)
+- [ ] [Ověřit, zda historická WG adresa `10.200.0.10` stále patří aktivnímu peeru RD Švecovi.](MadMike/Servery/WireGuard.md?plain=1#L184)
+- [ ] [Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových až po potvrzení, že na nich nic nezávisí.](MadMike/Servery/WireGuard.md?plain=1#L185)
+- [ ] [Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.](MadMike/Servery/WireGuard.md?plain=1#L186)
 ## MadMike / Sit
 
 ### Adresní plán
