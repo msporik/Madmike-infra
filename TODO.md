@@ -19,29 +19,36 @@
 
 ### Home Assistant – Honza
 
-- [ ] [Ověřit a doplnit aktuální verze Home Assistant Core, OS a Supervisor.](Honza/Home-Assistant/README.md?plain=1#L50)
+- [ ] [Ověřit a doplnit aktuální verze Home Assistant Core, OS a Supervisor a datum poslední bezpečné aktualizace.](Honza/Home-Assistant/README.md?plain=1#L113)
+- [ ] [Ověřit fyzické umístění, napájení a možnost místního zásahu u HA Green.](Honza/Home-Assistant/README.md?plain=1#L114)
+- [ ] [Provést aplikační inventuru podle první provozní kontroly a zaznamenat pouze odchylky od doloženého stavu.](Honza/Home-Assistant/README.md?plain=1#L115)
 
 ### NSPanel a topení
 
-- [ ] [Ověřit a dokončit konfiguraci každého ze tří běžných NSPanelů.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L50)
-- [ ] [Zmapovat místnosti na jednotlivé okruhy rozdělovače.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L51)
-- [ ] [Vybrat a ověřit zdroj pokojové teploty pro každou plánovanou zónu.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L52)
-- [ ] [Navrhnout pohony, akční členy, ruční režim a fail-safe před zahájením řízení topení.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L53)
+- [ ] [Ověřit model, umístění, napájení, síťovou identitu a stav konfigurace každého ze tří běžných NSPanelů.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L102)
+- [ ] [Ověřit a zdokumentovat běžící verze ESPHome, Blackymas blueprintu a TFT a bezpečné umístění obnovovacích YAML.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L103)
+- [ ] [Dokončit a prakticky otestovat místní dashboard každého skutečně nasazeného panelu bez rozšiřování na centrální dashboard domu.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L104)
+- [ ] [Zmapovat místnosti na jednotlivé okruhy rozdělovače.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L105)
+- [ ] [Vybrat a ověřit zdroj pokojové teploty pro každou plánovanou zónu.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L106)
+- [ ] [Navrhnout pohony, akční členy, elektrické schéma, ruční režim a fail-safe před zahájením řízení topení.](Honza/Home-Assistant/NSPanel-a-topeni.md?plain=1#L107)
 
 ### Zigbee a osvětlení
 
-- [ ] [Dokončit a prakticky otestovat automatizaci pohybového čidla a světel na chodbě.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L42)
-- [ ] [Ověřit fyzickou montáž, typ, umístění a funkci Sonoff relé.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L43)
-- [ ] [Doplnit přesnou inventuru významných Zigbee zařízení, jejich umístění a případné skupiny.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L44)
-- [ ] [Prakticky prověřit chování osvětlení při výpadku Home Assistantu, MQTT, Zigbee2MQTT a koordinátoru.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L45)
+- [ ] [Dokončit a prakticky otestovat automatizaci pohybového čidla a světel na chodbě včetně ručního režimu a návratu do automatiky.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L101)
+- [ ] [Ověřit fyzickou montáž, přesný typ, elektrické zapojení, umístění a funkci Sonoff relé.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L102)
+- [ ] [Doplnit inventuru významných Zigbee zařízení, jejich modely, umístění, napájení a případné skupiny.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L103)
+- [ ] [Ověřit verzi Zigbee2MQTT, firmware a síťové umístění SLZB-06P10 a existenci použitelných obnovovacích podkladů.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L104)
+- [ ] [Prakticky prověřit chování osvětlení při výpadku Home Assistantu, MQTT, Zigbee2MQTT a koordinátoru.](Honza/Home-Assistant/Zigbee-a-osvetleni.md?plain=1#L105)
 
 ## Honza / Sit
 
 ### MikroTik a Wi-Fi
 
-- [ ] [Živými read-only výpisy ověřit verzi RouterOS a provozní konfiguraci RB4011 a hAP ac3.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L29)
-- [ ] [Doplnit přesné porty, napájení a fyzické umístění obou aktivních zařízení.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L30)
-- [ ] [Porovnat RB4011 a hAP ac3 s Mikr Managerem a hardwarovou evidencí.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L31)
+- [ ] [Živými read-only výpisy ověřit přesný model, RouterOS, firmware a provozní konfiguraci RB4011 a hAP ac3.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L120)
+- [ ] [Doplnit WAN, propojovací porty, napájení a fyzické umístění obou aktivních zařízení.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L121)
+- [ ] [Ověřit skutečnou roli RB4011 pro DHCP, DNS, NAT a firewall a skutečný Wi-Fi stack hAP ac3.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L122)
+- [ ] [Porovnat aktivní zařízení s Mikr Managerem a kusovou evidencí v Airtable; skladový stav sám neurčuje nasazení v lokalitě.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L123)
+- [ ] [Ověřit poslední použitelný `.backup` a `.rsc` obou zařízení a možnost místního zásahu.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L124)
 
 ## MadMike / Home-Assistant
 
@@ -298,46 +305,43 @@
 
 ### Technologie FVE, BESS a tepelné infrastruktury
 
-- [ ] [S dodavatelem vyřešit komunikaci baterie–střídač větší sestavy a potvrdit skutečné nabíjení, vybíjení a bezpečný lokální režim.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L69)
-- [ ] [Opsat typové štítky obou měničů a bateriových systémů a uzavřít rozpory v modelech, výkonech a kapacitách.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L70)
-- [ ] [Ověřit současný instalovaný výkon FVE panelů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L71)
-- [ ] [Získat jednopólové schéma nebo vytvořit ověřený provozní nákres včetně jištění jednotlivých zařízení.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L72)
-- [ ] [Ověřit přesný model hlavního Shelly, znaménka měření, smartmetery obou měničů a jejich skutečnou vazbu na regulaci.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L73)
-- [ ] [Ověřit, kde a jak je při souběhu obou měničů vynucován společný exportní limit 50 kW.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L74)
-- [ ] [Ověřit současný stav, měření a fyzickou řiditelnost tepelné a wellness infrastruktury.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L75)
-- [ ] [Zapsat komunikační rozhraní a adresy zařízení bez hesel a klíčů a teprve poté připravit read-only RS485 pilot.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L76)
+- [ ] [S dodavatelem vyřešit komunikaci baterie–střídač větší sestavy a doložit skutečné nabíjení, vybíjení, alarmy a bezpečný lokální režim.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L173)
+- [ ] [Opsat typové štítky obou měničů a bateriových systémů a uzavřít rozpory v modelech, výkonech a kapacitách.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L174)
+- [ ] [Ověřit současný instalovaný výkon FVE panelů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L175)
+- [ ] [Získat jednopólové schéma nebo vytvořit ověřený provozní nákres včetně jištění jednotlivých zařízení a zálohovaných okruhů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L176)
+- [ ] [Ověřit model, zapojení, znaménka a kalibraci hlavního Shelly a smartmeterů obou měničů.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L177)
+- [ ] [Ověřit, kde a jak je při souběhu obou měničů rychle vynucován společný exportní limit 50 kW.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L178)
+- [ ] [Ověřit současný stav, měření, ruční ovládání a fyzickou řiditelnost tepelné a wellness infrastruktury.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L179)
+- [ ] [Zapsat komunikační rozhraní a adresy zařízení bez tajných údajů a teprve poté připravit read-only RS485 pilot.](Vernirovice/BESS-a-FVE/Technologie.md?plain=1#L180)
 
 ### Řízení energie
 
-- [ ] [Zdokumentovat přesný cenový vstup, současnou automatizaci a vazbu jejích entit na původní sestavu.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L73)
-- [ ] [Prakticky ověřit návrat do `Zero Export To CT`, hraniční SOC, chybějící cenová data, odmítnutý povel, ztrátu komunikace a restart Home Assistantu.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L74)
-- [ ] [Stanovit a otestovat bezpečný ruční režim, fail-safe stav a návrat do automatiky pro obě sestavy.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L75)
-- [ ] [Před koordinací obou baterií prokázat bezpečné vynucení společného exportního limitu 50 kW nezávisle na pomalé nadřazené optimalizaci.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L76)
-- [ ] [Po vyřešení problému dodavatelem read-only způsobem ověřit rozhraní, limity a skutečné chování větší sestavy.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L77)
-- [ ] [Navrhnout, otestovat a zdokumentovat ručně aktivovatelný režim Maximální záloha.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L78)
-- [ ] [Po uzavření výběrového řízení zapsat skutečný nákupní a výkupní produkt a teprve poté připravit spotové řízení.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L79)
-- [ ] [Zavést měsíční ekonomické vyhodnocení a ověřovat čistý přínos jednotlivých strategií.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L80)
+- [ ] [Zdokumentovat přesný cenový vstup, současnou automatizaci, její blokaci, log rozhodnutí a potvrzení povelu.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L226)
+- [ ] [Prakticky ověřit návrat do `Zero Export To CT`, hraniční SOC, chyby vstupů, odmítnutý povel, ztrátu komunikace a restart Home Assistantu.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L227)
+- [ ] [Stanovit a otestovat bezpečný ruční režim, fail-safe stav a návrat do automatiky pro obě sestavy.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L228)
+- [ ] [Před koordinací obou baterií prokázat bezpečné vynucení společného exportního limitu 50 kW nezávisle na pomalé nadřazené optimalizaci.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L229)
+- [ ] [Po vyřešení problému dodavatelem read-only způsobem ověřit rozhraní, limity a skutečné chování větší sestavy.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L230)
+- [ ] [Ověřit backup/ostrovní zapojení a navrhnout, otestovat a zdokumentovat režim Maximální záloha.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L231)
+- [ ] [Po uzavření výběrového řízení zapsat skutečný nákupní a výkupní produkt a teprve poté připravit spotové řízení.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L232)
+- [ ] [Ověřit měření, ruční požadavky a komfortní podmínky tepelných a wellness zátěží.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L233)
+- [ ] [Zavést měsíční ekonomické vyhodnocení a ověřovat čistý přínos jednotlivých strategií.](Vernirovice/BESS-a-FVE/Rizeni-energie.md?plain=1#L234)
 
 ## Vernirovice / Home-Assistant
 
 ### Hardware a migrace
 
-- [ ] [Ověřit verzi Home Assistant OS, Core a Supervisor na současném Raspberry Pi 5.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L82)
-- [ ] [Ověřit obsah zálohy a ochranu dat add-onů InfluxDB, Grafana a MQTT.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L83)
-- [ ] [Připravit Qotom s Home Assistant OS a ověřit jeho síťové a úložné parametry.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L84)
-- [ ] [Doplnit konkrétní předmigrační kontrolní seznam současných funkcí.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L85)
-- [ ] [Stanovit konkrétní časové a funkční kritérium pro rollback.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L86)
-- [ ] [Po úspěšné migraci provést a zdokumentovat přejímací test podle tohoto dokumentu.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L87)
+- [ ] [Ověřit a doplnit verze Home Assistant OS, Core a Supervisoru a skutečné parametry produkčního Raspberry Pi 5.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L164)
+- [ ] [Ověřit obsah zálohy a ochranu dat add-onů InfluxDB, Grafana a MQTT.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L165)
+- [ ] [Ověřit Qotom, připravit na něm Home Assistant OS a zdokumentovat síťové, úložné a bootovací parametry.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L166)
+- [ ] [Doplnit konkrétní předmigrační kontrolní seznam současných funkcí, údržbovou dobu a funkční kritéria rollbacku.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L167)
+- [ ] [Po úspěšné migraci provést a zdokumentovat přejímací test podle tohoto dokumentu.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L168)
 
 ### Služby a integrace
 
-- [ ] [Ověřit živý seznam aktivních integrací, add-onů a jejich aktuální verze.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L71)
-- [ ] [Ověřit konfiguraci, retenci, velikost databází a zálohování InfluxDB.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L72)
-- [ ] [Ověřit hlavní Grafana dashboardy, zdroje dat a jejich obnovitelnost.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L73)
-- [ ] [Ověřit účel, klienty, autentizaci a zálohování MQTT brokeru bez uložení tajných údajů do dokumentace.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L74)
-- [ ] [Ověřit přesný stav entit a ovládání původní i větší bateriové sestavy.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L75)
-- [ ] [Ověřit, zda je `IOTVL` stále samostatná aktivní síť a jaký používá rozsah.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L76)
-- [ ] [Ověřit současný způsob lokálního a vzdáleného přístupu včetně Home Assistant Cloud.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L77)
-- [ ] [Zapojit dostupnost instance do společného monitoringu a schváleného notifikačního systému.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L78)
-- [ ] [Před případným zavedením RS485/Modbus připravit samostatný read-only test, přejímací kritéria a rollback.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L79)
-- [ ] [Zdokumentovat pouze entity skutečně důležité pro automatizace, řízení a diagnostiku.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L80)
+- [ ] [Ověřit živý seznam aktivních integrací, add-onů, jejich verze a provozní vlastníky.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L199)
+- [ ] [Ověřit konfiguraci, retenci, velikost databází, hlavní Grafana dashboardy a obnovitelnost dat InfluxDB/Grafany.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L200)
+- [ ] [Ověřit účel, klienty, autentizaci a zálohování MQTT brokeru bez uložení tajných údajů do dokumentace.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L201)
+- [ ] [Ověřit přesný stav klíčových entit a ovládání původní i větší bateriové sestavy.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L202)
+- [ ] [Ověřit `IOTVL`, současný lokální a vzdálený přístup a zapojení instance do společného monitoringu.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L203)
+- [ ] [Před zavedením RS485/Modbus připravit samostatný read-only test, přejímací kritéria a rollback.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L204)
+- [ ] [Zapsat pouze stabilní entity skutečně důležité pro automatizace, řízení a diagnostiku.](Vernirovice/Home-Assistant/Sluzby-a-integrace.md?plain=1#L205)
