@@ -138,15 +138,17 @@
 
 ### Přístup a provoz
 
-- [ ] [Zjistit zařízení a místa přístupu účetní a její požadavky na tisk, schránku a přenos souborů.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L95)
-- [ ] [Porovnat živý stav a konfiguraci VM501 s dokumentací a případné změny zapsat do autoritativního dokumentu PVE Ryzen.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L96)
-- [ ] [Ověřit verzi a edici Windows, aktivaci, stav aktualizací a podpory.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L97)
-- [ ] [Ověřit verzi PREMIERu, licenční stav bez klíče, obecné umístění dat a bezpečné umístění instalačních médií.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L98)
-- [ ] [Po ověření pracovního prostředí účetní nasadit a prakticky otestovat schválené krátkodobé omezení RDP na české IP rozsahy.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L99)
-- [ ] [Navrhnout a zavést podporovanou aplikační zálohu PREMIERu mimo VM501 včetně retence a testu obnovy jedné účetní jednotky.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L100)
-- [ ] [Stanovit pravidelný aktualizační postup a termín pro Windows a PREMIER.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L101)
-- [ ] [Po výběru cílového přístupového řešení v projektu Přístupy ověřit s účetní celý běžný pracovní postup.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L102)
-- [ ] [Prakticky ověřit stručný DR postup se zajištěním, že nikdy neběží dvě produkční kopie VM501.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L103)
+- [ ] [Zjistit zařízení a místa přístupu účetní a její požadavky na tisk, schránku a přenos souborů.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L149)
+- [ ] [Po ověření pracovního prostředí účetní nasadit a prakticky otestovat schválené krátkodobé omezení RDP na české IP rozsahy.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L150)
+- [ ] [Po výběru cílového přístupového řešení v projektu Přístupy ověřit s účetní celý běžný pracovní postup a teprve poté odstranit původní veřejné RDP.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L151)
+- [ ] [Ověřit verzi a edici Windows, aktivaci, stav aktualizací a podpory.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L155)
+- [ ] [Ověřit verzi PREMIERu, licenční stav bez klíče, obecné umístění dat a bezpečné umístění instalačních a licenčních podkladů.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L156)
+- [ ] [Stanovit pravidelný aktualizační postup a termín pro Windows a PREMIER včetně návratové cesty a přejímky.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L157)
+- [ ] [Ustálit jedno vstupní místo a stavy nezpracované, připravené, zadané a chybějící pro jednoduchý tok faktur před případnou automatizací importu.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L158)
+- [ ] [Porovnat živý stav a konfiguraci VM501 s dokumentací a případné změny zapsat do autoritativního dokumentu PVE Ryzen.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L162)
+- [ ] [Navrhnout a zavést podporovanou aplikační zálohu PREMIERu mimo VM501 včetně retence, offsite ochrany a testu obnovy jedné účetní jednotky.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L163)
+- [ ] [Stanovit požadované RPO, RTO a přijatelnou dobu odstávky PREMIERu.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L164)
+- [ ] [Prakticky ověřit aplikační DR postup včetně dočasného přístupu účetní a zajištění, že nikdy neběží dvě produkční kopie VM501.](MadMike/Premier/Pristup-a-provoz.md?plain=1#L165)
 
 ## MadMike / Pristupy
 
