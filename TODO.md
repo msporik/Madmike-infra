@@ -154,15 +154,16 @@
 
 ### Bitwarden
 
-- [ ] [Nainstalovat Bitwarden na telefon a ověřit přihlášení, synchronizaci, odemykání a automatické vyplňování.](MadMike/Pristupy/Bitwarden.md?plain=1#L72)
-- [ ] [Zapnout MFA a připravit nezávislý recovery podklad mimo telefon, počítač a samotný trezor.](MadMike/Pristupy/Bitwarden.md?plain=1#L73)
-- [ ] [Přenést vybrané důležité účty a zkontrolovat jejich přesná URI a porovnávání podle hostitele; zejména GitHub, Microsoft, Home Assistant, RouterOS/WebFig a iDRAC.](MadMike/Pristupy/Bitwarden.md?plain=1#L74)
-- [ ] [Po splnění podmínek pilotu rozhodnout o vypnutí starého ukládání hesel v Chromu.](MadMike/Pristupy/Bitwarden.md?plain=1#L75)
+- [ ] [Nainstalovat Bitwarden na telefon a ověřit přihlášení, synchronizaci, odemykání a automatické vyplňování.](MadMike/Pristupy/Bitwarden.md?plain=1#L157)
+- [ ] [Zapnout MFA a připravit nezávislý recovery podklad mimo telefon, počítač a samotný trezor; poté prakticky ověřit recovery postup.](MadMike/Pristupy/Bitwarden.md?plain=1#L158)
+- [ ] [Přenést vybrané důležité účty a zkontrolovat jejich přesná URI a porovnávání podle hostitele; zejména GitHub, Microsoft, Home Assistant, RouterOS/WebFig a iDRAC.](MadMike/Pristupy/Bitwarden.md?plain=1#L159)
+- [ ] [Po splnění podmínek pilotu rozhodnout o vypnutí starého ukládání hesel v Chromu.](MadMike/Pristupy/Bitwarden.md?plain=1#L160)
 
 ### Přístupy
 
-- [ ] [Vybrat jednoduchou cílovou náhradu přímého veřejného RDP k PREMIERu podle skutečného způsobu práce účetní.](MadMike/Pristupy/README.md?plain=1#L44)
-- [ ] [Definovat a prakticky ověřit minimální nouzový postup pro obnovu administrátorského přístupu po současné ztrátě notebooku a telefonu.](MadMike/Pristupy/README.md?plain=1#L45)
+- [ ] [Vybrat jednoduchou cílovou náhradu přímého veřejného RDP k PREMIERu podle skutečného způsobu práce účetní.](MadMike/Pristupy/README.md?plain=1#L131)
+- [ ] [Definovat a prakticky ověřit minimální nouzový postup pro obnovu administrátorského přístupu po současné ztrátě notebooku a telefonu.](MadMike/Pristupy/README.md?plain=1#L132)
+- [ ] [Vytvořit bezpečný přehled kritických identit po kategoriích, který bez uživatelských jmen a tajných hodnot eviduje odpovědnost, stav MFA, stav recovery a datum posledního ověření.](MadMike/Pristupy/README.md?plain=1#L133)
 
 ## MadMike / Servery
 
