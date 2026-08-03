@@ -7,13 +7,13 @@
 
 ### GoodWe a energetika
 
-- [ ] [Zjistit přesný model GoodWe střídače, jeho lokální IP adresu, dostupný způsob komunikace a skutečné zdroje výroby, spotřeby, odběru a přetoku.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L32)
-- [ ] [Zprovoznit nejprve čtecí integraci GoodWe, ověřit význam, jednotky a znaménka skutečných entit a vytvořit základní produkční FVE dashboard s přiměřenou historií.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L33)
-- [ ] [Zmapovat typ, výkon, HDO, stykač, termostat a současné ruční ovládání bojleru; teprve potom navrhnout bezpečné automatické řízení.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L34)
+- [ ] [Zjistit přesný model GoodWe střídače, jeho lokální IP adresu, dostupný způsob komunikace a skutečné zdroje výroby, spotřeby, odběru a přetoku.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L101)
+- [ ] [Zprovoznit nejprve čtecí integraci GoodWe, ověřit význam, jednotky a znaménka skutečných entit a vytvořit základní produkční FVE dashboard s přiměřenou historií.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L102)
+- [ ] [Zmapovat typ, výkon, HDO, stykač, termostat a současné ruční ovládání bojleru; teprve potom navrhnout bezpečné automatické řízení.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L103)
 
 ### Nasazení a vzdálený přístup
 
-- [ ] [Před fyzickým nasazením a při převzetí dokončit přejímací kontrolu HA ValTom.](HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md?plain=1#L38)
+- [ ] [Před fyzickým nasazením a při převzetí dokončit přejímací kontrolu HA ValTom.](HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md?plain=1#L117)
 
 ## Honza / Home-Assistant
 
