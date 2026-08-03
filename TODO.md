@@ -266,11 +266,11 @@
 
 ### Hardware
 
-- [ ] [Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.](Rybniky-Amerika/Hardware.md?plain=1#L41)
-- [ ] [V Airtable určit a rezervovat konkrétní hEX S (2025) a vhodná AP až podle inventury.](Rybniky-Amerika/Hardware.md?plain=1#L42)
-- [ ] [Ověřit přesné modely a stav skladových AP uvažovaných pro nasazení.](Rybniky-Amerika/Hardware.md?plain=1#L43)
-- [ ] [Ověřit dostupné SFP moduly, typ optiky, PoE zdroje, přepěťové ochrany a uzemnění.](Rybniky-Amerika/Hardware.md?plain=1#L44)
-- [ ] [Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.](Rybniky-Amerika/Hardware.md?plain=1#L45)
+- [ ] [Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.](Rybniky-Amerika/Hardware.md?plain=1#L143)
+- [ ] [V Airtable určit a rezervovat konkrétní hEX S (2025) a vhodná AP až podle inventury.](Rybniky-Amerika/Hardware.md?plain=1#L144)
+- [ ] [Ověřit přesné modely, stav a kompatibilitu skladových AP uvažovaných pro nasazení.](Rybniky-Amerika/Hardware.md?plain=1#L145)
+- [ ] [Ověřit dostupné switche, SFP moduly, typ optiky, PoE zdroje, přepěťové ochrany a uzemnění.](Rybniky-Amerika/Hardware.md?plain=1#L146)
+- [ ] [Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.](Rybniky-Amerika/Hardware.md?plain=1#L147)
 
 ### Plán rekonstrukce
 
