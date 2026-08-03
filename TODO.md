@@ -201,23 +201,24 @@
 - [ ] [Ověřit, zda historická WG adresa `10.200.0.10` stále patří aktivnímu peeru RD Švecovi.](MadMike/Servery/WireGuard.md?plain=1#L184)
 - [ ] [Ověřit a případně odstranit zbytky starého IPsec na HOME, u Honzy a u RD Švecových až po potvrzení, že na nich nic nezávisí.](MadMike/Servery/WireGuard.md?plain=1#L185)
 - [ ] [Při kontrole starého IPsec určit původ rozsahu `192.168.30.0/24`.](MadMike/Servery/WireGuard.md?plain=1#L186)
+
 ## MadMike / Sit
 
 ### Adresní plán
 
-- [ ] [Vypsat současné LAN, VLAN, routované a transitní rozsahy všech spravovaných lokalit; provozní WG inventuru převzít z dokumentu WireGuard.](MadMike/Sit/Adresni-plan.md?plain=1#L159)
-- [ ] [Jednoznačně přiřadit číselný identifikátor každé lokalitě s respektováním blokací `0`, `8` a `89`.](MadMike/Sit/Adresni-plan.md?plain=1#L160)
-- [ ] [Navrhnout jednotný slovník funkčních segmentů; číslo segmentu automaticky neztotožňovat s VLAN ID.](MadMike/Sit/Adresni-plan.md?plain=1#L161)
-- [ ] [Navrhnout vnitřní členění `10.255.0.0/16` pro VPN, transit a virtuální adresy.](MadMike/Sit/Adresni-plan.md?plain=1#L162)
-- [ ] [Provést kontrolu kolizí s používanými VPN, kontejnery a běžnými vzdálenými sítěmi.](MadMike/Sit/Adresni-plan.md?plain=1#L163)
-- [ ] [Zařadit dnešní `10.89.1.0/24` a `10.200.0.0/24` do budoucího migračního plánu VPN vrstvy.](MadMike/Sit/Adresni-plan.md?plain=1#L164)
-- [ ] [Teprve potom připravit migrační pořadí; žádnou fungující lokalitu nepřečíslovávat jen kvůli estetice.](MadMike/Sit/Adresni-plan.md?plain=1#L165)
+- [ ] [Vypsat současné LAN, VLAN, routované a transitní rozsahy všech spravovaných lokalit; provozní WG inventuru převzít z dokumentu WireGuard.](MadMike/Sit/Adresni-plan.md?plain=1#L232)
+- [ ] [Jednoznačně přiřadit číselný identifikátor každé lokalitě s respektováním blokací `0`, `8` a `89`.](MadMike/Sit/Adresni-plan.md?plain=1#L233)
+- [ ] [Navrhnout jednotný slovník funkčních segmentů; číslo segmentu automaticky neztotožňovat s VLAN ID.](MadMike/Sit/Adresni-plan.md?plain=1#L234)
+- [ ] [Navrhnout vnitřní členění `10.255.0.0/16` pro VPN, transit a virtuální adresy.](MadMike/Sit/Adresni-plan.md?plain=1#L235)
+- [ ] [Provést kontrolu kolizí s používanými VPN, kontejnery a běžnými vzdálenými sítěmi.](MadMike/Sit/Adresni-plan.md?plain=1#L236)
+- [ ] [Zařadit dnešní `10.89.1.0/24` a `10.200.0.0/24` do budoucího migračního plánu VPN vrstvy.](MadMike/Sit/Adresni-plan.md?plain=1#L237)
+- [ ] [Teprve potom připravit migrační pořadí; žádnou fungující lokalitu nepřečíslovávat jen kvůli estetice.](MadMike/Sit/Adresni-plan.md?plain=1#L238)
 
 ### MikroTik
 
-- [ ] [Ověřit aktivní uplinky a portovou mapu RB5009, CRS326 a CRS112 proti živé konfiguraci.](MadMike/Sit/MikroTik.md?plain=1#L45)
-- [ ] [Ověřit aktuální seznam domácích AP a jejich role přímo v CAPsMAN.](MadMike/Sit/MikroTik.md?plain=1#L46)
-- [ ] [Doplnit VLAN a další domácí síťové role pouze tehdy, pokud jsou skutečně nasazené.](MadMike/Sit/MikroTik.md?plain=1#L47)
+- [ ] [Ověřit aktivní uplinky a portovou mapu RB5009, CRS326 a CRS112 proti živé konfiguraci.](MadMike/Sit/MikroTik.md?plain=1#L213)
+- [ ] [Ověřit aktuální seznam domácích AP a jejich role přímo v CAPsMAN.](MadMike/Sit/MikroTik.md?plain=1#L214)
+- [ ] [Doplnit VLAN a další domácí síťové role pouze tehdy, pokud jsou skutečně nasazené.](MadMike/Sit/MikroTik.md?plain=1#L215)
 
 ## MadMike / Zalohy
 
