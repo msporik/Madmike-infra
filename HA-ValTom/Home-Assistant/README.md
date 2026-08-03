@@ -4,33 +4,40 @@
 
 Instance je připravovaná pro Tomáše Valentu. Prvním praktickým cílem je zobrazit výrobu a provoz GoodWe FVE v jednoduchém dashboardu. Později může Home Assistant řídit bojler podle energetické situace.
 
-## Ověřený stav k 2026-07-28
+## Poslední doložený stav k 2026-08-03
 
-- hardware: Home Assistant Green;
-- systém: Home Assistant OS;
-- proběhla čistá instalace a vznikl připravený základní obraz / záloha;
-- HA Green zatím není nainstalovaný u Tomáše a není propojený s jeho zařízeními;
-- zařízení je u správce a čeká na nasazení;
-- v připravené instalaci byly potvrzené HACS, Advanced SSH & Web Terminal, Matter, Matter Server, Google Cast, Thread, Radio Browser, Google Translate TTS a Cloudflared;
-- vzdálený přístup byl zprovozněný přes Cloudflare Tunnel na `https://valtom.mikehub.cz`;
-- integrace GoodWe, skutečné FVE entity, produkční dashboard a řízení bojleru nejsou dosud ověřené jako dokončené.
+- Cílovým hardwarem zůstává Home Assistant Green s Home Assistant OS.
+- HA Green je vypnutý a uložený u správce v šuplíku. U Tomáše dosud nebyl nainstalovaný ani propojený s místními zařízeními.
+- Raspberry Pi 5 byl pouze zvažovanou alternativou. Náhrada se má řešit až tehdy, pokud se při kontrolovaném testu zopakuje problém se startem a diagnostika potvrdí potřebu jiného hardwaru.
+- Aktuální verze Home Assistant Core, OS a Supervisor nejsou na vypnutém zařízení ověřené.
+- Integrace GoodWe, produkční FVE dashboard ani řízení bojleru se neposunuly a nejsou realizované.
 
-## Témata projektu
+### Příprava, image a zálohy
 
-- [Nasazení a vzdálený přístup](Nasazeni-a-pristup.md)
-- [GoodWe a energetika](GoodWe-a-energie.md)
+- V květnu 2026 proběhla čistá instalace Home Assistant OS.
+- Z přípravy existuje jeden tehdejší master image / full backup čistého základu. Novější image nevznikl.
+- Tento přípravný podklad není pravidelným produkčním zálohováním.
+- Praktický restore této instance není doložený.
+- Po aktualizaci a před fyzickým přesunem musí vzniknout nový aktuální full backup. Pravidelné produkční zálohování a restore test se mají nastavit až v návaznosti na skutečné nasazení.
 
-## Bezprostřední další kroky
+### Historická inventura připravené instalace
 
-- [ ] Ověřit spolehlivý start HA Green a aktuálnost připravené instalace.
-- [ ] Nainstalovat HA Green u Tomáše a připojit ho do místní sítě.
-- [ ] Po přesunu ověřit lokální i vzdálený přístup.
-- [ ] Zjistit přesný model a způsob komunikace GoodWe střídače.
-- [ ] Připojit GoodWe, potvrdit skutečné entity a vytvořit základní FVE dashboard.
-- [ ] Teprve potom navrhnout řízení bojleru podle konkrétního hardwaru a požadované logiky.
-- [ ] Nastavit pravidelné zálohy a prakticky ověřit obnovu.
+V květnu 2026 byly v připravené instalaci potvrzené HACS, Advanced SSH & Web Terminal, Matter, Matter Server, Google Cast, Thread, Radio Browser, Google Translate TTS a Cloudflared. Protože je zařízení vypnuté, nejde o živě ověřený seznam současných aktivních komponent.
+
+Cloudflare Tunnel na `https://valtom.mikehub.cz` před vypnutím Green fungoval spolehlivě. Dne 2026-08-03 vracel veřejný endpoint chybu Cloudflare `1033`, což je při vypnutém zařízení očekávaný stav, nikoli doložená závada tunelu.
+
+## Autoritativní další kroky
+
+| Oblast | Autoritativní dokument |
+|---|---|
+| Kontrolovaný test Green, fyzické nasazení a ověření přístupu | [Nasazení a vzdálený přístup](Nasazeni-a-pristup.md) |
+| GoodWe, energetická data, dashboard a budoucí bojler | [GoodWe a energetika](GoodWe-a-energie.md) |
+| Pravidelné produkční zálohy a praktický restore | [Společná strategie záloh Home Assistantu](../../MadMike/Zalohy/Home-Assistant.md) |
+
+Úkoly se udržují pouze v uvedených autoritativních dokumentech a zde se neduplikují.
 
 ## Související dokumentace
 
-- [Společná strategie záloh Home Assistantu](../../MadMike/Zalohy/Home-Assistant.md)
 - [Centrální DNS, NPM a HTTPS](../../MadMike/Servery/DNS-NPM-HTTPS.md)
+- [Společný monitoring](../../MadMike/Monitoring/README.md)
+- [Společné zásady přístupů](../../MadMike/Pristupy/README.md)
