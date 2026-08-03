@@ -1,42 +1,151 @@
 # Uptime Kuma
 
-## Role
+> Poslední doložený provozní stav: **2026-07-28**. Nejde o potvrzení současného živého stavu.
 
-Uptime Kuma hlídá dostupnost služeb a oznamuje jejich následný návrat do provozu. Nemá suplovat detailní stav Proxmoxu, PBS nebo MikroTiků.
+## Účel a role
 
-## Poslední doložený stav k 2026-07-28
+Uptime Kuma hlídá dostupnost důležitých služeb a oznamuje jejich následný návrat do provozu.
 
-- Služba běžela na monitorovací VM510.
-- Webové rozhraní bylo dostupné na `https://kuma.mikehub.cz`.
-- HTTPS přístup vedl přes Nginx Proxy Manager.
-- Přesná verze a živý seznam monitorů nebyly při konsolidaci ověřeny.
-- Konečný seznam monitorů nebyl uzavřený.
+Nemá suplovat:
 
-DNS, Nginx Proxy Manager, HTTPS a WireGuard jsou popsány v projektu [Servery](../Servery/DNS-NPM-HTTPS.md).
+- detailní stav PVE a PBS;
+- ZFS, SMART a zálohovací úlohy;
+- metriky a správu MikroTiků;
+- aplikační diagnostiku cílových služeb.
 
-## Schválené chování
+Docker nasazení, port, kontejner a persistentní data jsou autoritativně vedené v [VM510 – Docker infrastruktura](../Servery/VM510-Docker.md). HTTPS směrování je v [Interní DNS, NPM a HTTPS](../Servery/DNS-NPM-HTTPS.md).
 
-- Kuma hlídá dostupnost klíčových služeb, nikoliv každý technický detail.
-- Výchozí zpoždění alarmu má být přibližně 5 minut, aby krátký výpadek nevytvářel zbytečný hluk.
-- Podle významu a běžného chování konkrétní služby lze zpoždění nastavit individuálně.
-- Po trvající nedostupnosti se odešle stav `DOWN`.
-- Po obnovení stejné služby se odešle odpovídající `UP` / recovery zpráva.
-- Historický seznam monitorů se nepovažuje za současný stav, dokud nebude porovnán s živou konfigurací.
+Běžný přístup: `https://kuma.mikehub.cz`
 
-## Zamýšlené pokrytí
+Nouzový přímý test z interní sítě: `http://192.168.89.35:3001`
 
-- klíčová webová rozhraní a služby publikované přes Nginx Proxy Manager;
-- důležité služby dosažitelné přes WireGuard;
-- delší nedostupnost služby;
-- následné obnovení služby.
+## Poslední doložený stav
 
-Konkrétní monitory a jejich časové podmínky se zapíší až po praktickém nastavení a ověření.
+K 2026-07-28:
 
-## Navazující práce
+- Uptime Kuma běžela na VM510;
+- používala samostatný Docker kontejner, nikoliv Compose projekt;
+- kontejner se jmenoval `uptime-kuma`;
+- aplikační data byla uložená v Docker volume `uptime-kuma`;
+- přístup přes interní HTTPS fungoval;
+- přesná verze a živý seznam monitorů nebyly ověřeny;
+- Telegram notifikace ještě nebyly realizovány.
 
-- [ ] Aktualizovat Uptime Kuma na aktuální stabilní verzi.
-- [ ] Projít existující monitory proti živé konfiguraci.
-- [ ] Stanovit seznam kritických a doplňkových služeb.
-- [ ] Nastavit přibližně pětiminutové výchozí zpoždění a individuální výjimky.
+## Schválené chování monitorů
 
-Připojení vybraných alarmů a návratů do normálu je vedené v [Telegram notifikacích](Telegram.md).
+- Sledují se klíčové služby, nikoliv každý technický port.
+- Krátké zakolísání se může uložit do historie, ale nemá okamžitě vytvářet alarm.
+- Výchozí zpoždění alarmu má být přibližně pět minut.
+- Podle významu a běžného chování služby lze zpoždění upravit individuálně.
+- Po trvající nedostupnosti se odešle `DOWN`.
+- Po obnovení stejné služby se odešle odpovídající `UP` nebo recovery zpráva.
+- U jednotlivých MikroTiků a lokalit se bezdůvodně neduplikuje Mikr Manager.
+
+Schválený minimální rozsah zahrnuje:
+
+- PVE Ryzen;
+- VM510;
+- Pulse;
+- PBS;
+- Nextcloud.
+
+Doplňkově lze sledovat Mikr Manager, Nginx Proxy Manager a další interně publikované služby, pokud monitor přinese jasnou provozní hodnotu.
+
+## Historický výchozí seznam
+
+Při původním nasazení byly doloženy tyto monitory:
+
+| Původní monitor | Adresa |
+|---|---|
+| PVE Ryzen | `192.168.89.32` |
+| Nextcloud VM401 | `192.168.89.33` |
+| Windows VM501 | `192.168.89.34` |
+| PBS DR | `192.168.100.12` |
+
+Tento seznam je historický výchozí bod, nikoliv tvrzení o současné konfiguraci.
+
+U Windows VM501 bylo doporučeno použít TCP kontrolu portu `3389` místo ICMP, protože Windows Firewall neodpovídal na ping.
+
+## Provozní kontrola
+
+Na VM510:
+
+```bash
+sudo docker ps --filter name=uptime-kuma
+sudo docker logs --tail=100 uptime-kuma
+```
+
+Při potřebě podrobnější kontroly:
+
+```bash
+sudo docker inspect uptime-kuma
+```
+
+Výstup `docker inspect` může obsahovat neveřejnou konfiguraci a nekopíruje se neupravený do GitHubu ani chatu.
+
+Interpretace:
+
+- pokud funguje přímý port, ale ne `https://kuma.mikehub.cz`, pokračovat podle dokumentu [DNS, NPM a HTTPS](../Servery/DNS-NPM-HTTPS.md);
+- pokud nefunguje ani port `3001`, zkontrolovat kontejner, Docker a VM510;
+- pokud Kuma funguje, ale jeden monitor hlásí `DOWN`, ověřit cílovou službu z pohledu VM510;
+- pokud je nedostupná celá vzdálená lokalita, ověřit nejdříve WAN, WireGuard, napájení a hlavní router.
+
+## Restart služby
+
+```bash
+sudo docker restart uptime-kuma
+sudo docker ps --filter name=uptime-kuma
+sudo docker logs --tail=100 uptime-kuma
+```
+
+Po restartu ověřit:
+
+1. přihlášení do webového rozhraní;
+2. načtení monitorů;
+3. zachování jejich historie;
+4. stav vybraných dostupných služeb;
+5. funkci notifikačních cílů, pokud jsou nastavené.
+
+## Ochrana dat a aktualizace
+
+Před změnou image, odstraněním kontejneru nebo případnou migrací na Compose se ověří:
+
+- použitelná záloha VM510;
+- skutečné připojení persistentního volume;
+- současný image a startovací parametry;
+- návratový postup.
+
+Nepoužívají se příkazy:
+
+```text
+docker rm -v
+docker volume rm uptime-kuma
+```
+
+Hromadné čištění nepoužívaných volumes se neprovádí bez předchozí identifikace jejich obsahu.
+
+Před odstraněním starého kontejneru musí být potvrzeno, že nový kontejner používá stejné persistentní úložiště. Uptime Kuma se nemigruje na Compose pouze kvůli sjednocení vzhledu nasazení.
+
+## Obnova služby
+
+Pokud Kuma nefunguje, dostupnost infrastruktury se dočasně ověřuje přímo v jednotlivých systémech. Její výpadek nemění stav sledovaných služeb.
+
+Obnova kontejneru a celé VM510 se řídí:
+
+- [VM510 – Docker infrastruktura](../Servery/VM510-Docker.md);
+- [PBS a disaster recovery](../Zalohy/PBS-DR.md).
+
+Po obnově se kontroluje nejen start webu, ale také monitory, historie, notifikační cíle a praktický test `DOWN` i recovery.
+
+## Otevřené úkoly
+
+> Následující body vyžadují ověření v živém systému.
+
+- [ ] Ověřit současnou verzi, image a přesné startovací parametry kontejneru.
+- [ ] Porovnat živý seznam monitorů s historickým a schváleným rozsahem.
+- [ ] Ověřit typy kontrol, intervaly, retries, timeouty a skutečná zpoždění alarmů.
+- [ ] Ověřit současné notifikační cíle.
+- [ ] Prakticky otestovat jeden alarm `DOWN` a následnou recovery zprávu.
+- [ ] Zdokumentovat samostatnou zálohu a obnovu konfigurace Kumy, pokud existuje.
+
+Směrování vybraných alarmů a recovery zpráv patří do [Telegram notifikací](Telegram.md).

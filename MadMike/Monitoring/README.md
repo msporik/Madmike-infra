@@ -1,60 +1,103 @@
 # Monitoring
 
+> Poslední doložený provozní stav: **2026-07-28**. Nejde o potvrzení současného živého stavu.
+
 ## Účel
 
-Jednotný a přiměřeně jednoduchý dohled nad infrastrukturou MadMike. Cílem není sledovat každý technický detail, ale včas poznat skutečný problém a mít dost informací k rozhodnutí.
+Projekt zajišťuje jednoduchý a spolehlivý dohled nad infrastrukturou MadMike. Cílem není shromažďovat každý technický údaj, ale včas rozpoznat problém, určit jeho zdroj a mít dost informací pro bezpečný zásah.
+
+Každou oblast přednostně sleduje nástroj, který jí přirozeně rozumí. Jeden problém má mít jedno hlavní místo detekce.
 
 ## Rozdělení odpovědností
 
-| Zdroj | Hlavní odpovědnost | Detail |
-|---|---|---|
-| Pulse | Přehled Proxmox VE a Proxmox Backup Serveru, kapacit, disků, ZFS a záloh | [Pulse.md](Pulse.md) |
-| Nativní notifikace PVE/PBS | Autoritativní hlášení selhání Backup, Verify, Prune a Garbage Collection; podle možností také problémů ZFS scrubů | [hranice Pulse](Pulse.md#hranice-pulse) |
-| Mikr Manager | Stav a historie MikroTik zařízení a lokalit | [Mikr.md](Mikr.md) |
-| Uptime Kuma | Dostupnost služeb a následné obnovení | [Uptime-Kuma.md](Uptime-Kuma.md) |
-| Telegram | Jedna společná schránka problémů vyžadujících pozornost | [Telegram.md](Telegram.md) |
+| Zdroj | Autoritativní odpovědnost |
+|---|---|
+| [Pulse](Pulse.md) | Přehled Proxmox VE, PBS, VM/LXC, kapacit, ZFS, fyzických disků a záloh |
+| Nativní notifikace PVE/PBS | Selhání Backup, Verify, Prune a Garbage Collection; podle ověřených možností také problémy ZFS scrubů |
+| [Mikr Manager](Mikr.md) | Stav, historie a významné alarmy MikroTik zařízení a lokalit |
+| [Uptime Kuma](Uptime-Kuma.md) | Dostupnost služeb a následný návrat do provozu |
+| [Telegram](Telegram.md) | Společné doručení problémů vyžadujících pozornost |
 
-Jeden problém má mít jedno hlavní místo detekce. Překryvy se řeší tak, aby do Telegramu nepřicházely duplicitní zprávy.
+Překryvy se omezují tak, aby stejný problém nebyl oznamován několika nástroji.
 
-## Poslední doložený stav k 2026-07-28
+## Provozní umístění
 
-- Na monitorovací VM510 běžely Pulse, Mikr Manager a Uptime Kuma; Nginx Proxy Manager zajišťoval HTTPS přístup.
-- Webová rozhraní:
-  - Pulse: `https://pulse.mikehub.cz`
-  - Mikr Manager: `https://mikr.mikehub.cz`
-  - Uptime Kuma: `https://kuma.mikehub.cz`
-- Přístupy jsou určené pro interní síť nebo VPN.
-- Checkmk, Zabbix, Beszel a CoreBit byly odstraněny a nejsou součástí provozního monitorovacího stacku.
-- InfluxDB, Grafana, Telegraf a Prometheus nejsou součástí tohoto schváleného řešení monitoringu.
-- Telegram notifikace ještě nebyly realizovány.
-- Nativní notifikace PVE/PBS nebyly prakticky otestovány.
+Monitorovací aplikace běží na infrastrukturní Docker VM510 na domácím PVE Ryzen.
 
-Přesná současná konfigurace VM510 nebyla při konsolidaci ověřena proti živému systému. Dokumentace serveru je v [PVE Ryzen](../Servery/PVE-Ryzen.md).
+| Služba | Běžný webový vstup |
+|---|---|
+| Pulse | `https://pulse.mikehub.cz` |
+| Mikr Manager | `https://mikr.mikehub.cz` |
+| Uptime Kuma | `https://kuma.mikehub.cz` |
 
-## Schválená koncepce
+Služby jsou určené pro přístup z domácí sítě nebo přes WireGuard. Nejsou veřejně publikované.
 
-- Provozní stack tvoří Pulse, Mikr Manager a Uptime Kuma.
-- Selhání nativních úloh PVE/PBS mají primárně hlásit samotné Proxmox VE a PBS.
-- Telegram bude soukromá skupina `MadMike – infrastruktura`.
-- Pro všechny zdroje notifikací se použije jeden společný bot.
-- Uptime Kuma má používat přibližně pětiminutové výchozí zpoždění; podle významu služby se může upravit individuálně.
-- Oznamují se skutečné problémy a následné návraty do normálu, nikoliv každý úspěšný běh nebo běžný technický log.
-- Pulse se do Telegramu zapojí jen pro upozornění, která nejsou spolehlivěji pokryta jiným zdrojem.
+Parametry VM510, Compose projekty, kontejnery, porty, Docker sítě a persistentní data jsou autoritativně vedené v [VM510 – Docker infrastruktura](../Servery/VM510-Docker.md). DNS, certifikát a proxy hosty jsou v [Interní DNS, NPM a HTTPS](../Servery/DNS-NPM-HTTPS.md).
 
-Zabbix byl odmítnut kvůli složitosti a nadbytečnému množství dat. Beszel a CoreBit neměly v cílovém rozdělení dostatečně jedinečnou roli. Odstraněné nástroje zůstávají pouze historií rozhodování, ne otevřenými kandidáty k nasazení.
+## Poslední doložený stav
+
+K 2026-07-28:
+
+- běžely Pulse, Mikr Manager, Uptime Kuma a Nginx Proxy Manager;
+- Pulse server a všechny tři agenty byly ve verzi `6.1.2`;
+- Mikr evidoval 22 zařízení a licenci pro 50 zařízení;
+- Uptime Kuma byla dostupná, ale její verze a živý seznam monitorů nebyly ověřeny;
+- Telegram notifikace ještě nebyly realizovány;
+- nativní notifikace PVE/PBS nebyly prakticky otestovány;
+- Checkmk, Zabbix, Beszel a CoreBit byly odstraněny;
+- InfluxDB, Grafana, Telegraf a samostatný Prometheus nejsou součástí schváleného monitorovacího stacku.
+
+Odstraněné nástroje nejsou otevřenými kandidáty k opětovnému nasazení.
+
+## První provozní kontrola
+
+Přihlášení na VM510:
+
+```bash
+ssh madmike@192.168.89.35
+```
+
+Základní kontrola hostu:
+
+```bash
+uptime
+df -h
+free -h
+systemctl is-active docker
+sudo docker ps
+sudo docker ps -a
+sudo docker stats --no-stream
+```
+
+Pořadí diagnostiky:
+
+1. Pokud není dostupná VM510, ověřit PVE Ryzen a stav VM510.
+2. Pokud VM510 běží, ale Docker ne, řešit službu Docker.
+3. Pokud Docker běží, zkontrolovat konkrétní aplikaci a její logy.
+4. Pokud funguje přímý port, ale ne HTTPS hostname, pokračovat podle [DNS, NPM a HTTPS](../Servery/DNS-NPM-HTTPS.md).
+5. Po zásahu ověřit hlavní funkci Pulse, Mikru i Kumy, nikoliv jen otevření jejich webu.
+
+## Provozní zásady
+
+- Při problému jedné aplikace se bezdůvodně nerestartuje celá VM510 ani všechny kontejnery.
+- Před aktualizací nebo zásahem do persistentních dat se ověří použitelná záloha VM510.
+- Nepoužívají se neověřené hromadné příkazy odstraňující kontejnery, volumes nebo aplikační data.
+- Hesla, API tokeny, Telegram bot token, recovery údaje ani neupravený výstup `docker compose config` se neukládají do GitHubu.
+- Alarm je podnět k ověření v autoritativním systému, nikoliv oprávnění k automatické změně infrastruktury.
+- Po zásahu se ověří příčina a výsledek. Případná změna se zapíše do dokumentu, který je pro danou oblast autoritativní.
 
 ## Hranice projektu
 
-- DNS, Nginx Proxy Manager, HTTPS a WireGuard patří do projektu [Servery](../Servery/DNS-NPM-HTTPS.md).
-- Adresní plán, topologie a inventura MikroTiků patří do projektu [Síť](../Sit/MikroTik.md).
-- Rozvrhy, retence, restore a disaster recovery patří do projektu [Zálohy](../Zalohy/PBS-DR.md).
-- V Monitoringu jsou zachyceny jen vazby potřebné k pochopení detekce a směrování problémů.
+- Docker infrastruktura a obnova VM510: [VM510 – Docker infrastruktura](../Servery/VM510-Docker.md)
+- DNS, HTTPS, NPM a vzdálený přístup: [Interní DNS, NPM a HTTPS](../Servery/DNS-NPM-HTTPS.md)
+- Proxmox hosté a virtuální stroje: [Servery](../Servery/README.md)
+- Backup joby, retence a testy obnovy: [PBS a disaster recovery](../Zalohy/PBS-DR.md)
+- Síťová topologie a inventura MikroTiků: [MikroTik](../Sit/MikroTik.md)
+- Obnovitelnost konfigurací MikroTiků: [Zálohy MikroTiků](../Zalohy/MikroTik.md)
 
-## Navazující práce
+## Otevřené úkoly
 
-Otevřené kroky jsou vedené jen v příslušných autoritativních dokumentech:
+> Následující body vyžadují ověření v živém systému.
 
-- aktualizace a konečný seznam monitorů v [Uptime Kuma](Uptime-Kuma.md);
-- testy nativních notifikací Proxmox VE a PBS v [Pulse](Pulse.md);
-- výběr významných alarmů v [Mikr Manageru](Mikr.md);
-- společné směrování notifikací v [Telegramu](Telegram.md).
+- [ ] Ověřit současný stav VM510, Dockeru a všech provozovaných kontejnerů.
+- [ ] Ověřit, že je VM510 stále zahrnuta v automatickém PBS backup jobu.
