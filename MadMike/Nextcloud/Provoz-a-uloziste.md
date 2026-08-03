@@ -47,10 +47,10 @@ Autoritativní dokumentace záloh, retence a obnov je v [PBS a disaster recovery
 
 ## Otevřené kontroly
 
-- [ ] Ověřit aktuální PVE konfiguraci VM401 proti živému stavu.
+Kontrola celé PVE konfigurace VM401 včetně fyzického mapování storage ID `tank-nas-zfs` je vedená v [PVE Ryzen](../Servery/PVE-Ryzen.md).
+
 - [ ] Ověřit živé verze operačního systému, Nextcloudu, PHP, Apache a MariaDB.
 - [ ] Ověřit obsazení a volnou kapacitu systémového i datového disku.
-- [ ] Ověřit fyzický pool za storage ID `tank-nas-zfs` a zapsat jej do dokumentace PVE Ryzen.
 - [ ] Ověřit nastavení background jobs a cronu; chybějící doporučený způsob následně doplnit.
 - [ ] Připravit, bezpečně otestovat a zapsat aktualizační postup včetně kontrol před aktualizací a po ní.
 - [ ] Ověřit, zda Uptime Kuma hlídá webový endpoint a základní aplikační stav Nextcloudu.

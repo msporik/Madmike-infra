@@ -5,7 +5,7 @@ Samostatná kapitola dokumentace lokality Honza. Zachycuje místní Home Assista
 ## Projekty
 
 - [Home Assistant](Home-Assistant/README.md) – HA Green, Zigbee, osvětlení, panely a budoucí řízení topení.
-- [Síť](Sit/README.md) – místní LAN, MikroTik, CAPsMAN a Wi-Fi.
+- [Síť](Sit/README.md) – místní LAN, MikroTik a Wi-Fi.
 
 ## Hranice kapitoly
 

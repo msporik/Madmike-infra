@@ -176,8 +176,9 @@ Pro reálnou kapacitu záloh je autoritativní PBS datastore `backup`, nikoli pr
 - [ ] Ověřit SMART a teploty čtyř SAS disků a systémového SSD proti živému stavu.
 - [ ] Ověřit persistentní Docker data a mounty VM510 a provést testovací restore.
 - [ ] Prakticky ověřit start PVE Dell, VM200 a datastore po úplném výpadku napájení.
-- [ ] Otestovat nativní notifikace neúspěšného Backup, Verify, Prune a Garbage Collection jobu.
 - [ ] Stanovit rozumnou četnost opakovaných testů obnovy.
-- [ ] Určit původ nejasných/orphaned backup groups a účel Dell / VM400.
+- [ ] Určit původ nejasných/orphaned backup groups a samostatně ověřit účel Dell / VM400 jako odlišného objektu.
 - [ ] Zdokumentovat bezpečné umístění recovery materiálů hostitelů bez zveřejnění tajných údajů.
 - [ ] Rozhodnout o klientském šifrování PBS a při jeho použití bezpečně uložit recovery klíč.
+
+Testy nativních notifikací Backup, Verify, Prune a Garbage Collection jsou vedené v [Monitoring / Pulse](../Monitoring/Pulse.md).

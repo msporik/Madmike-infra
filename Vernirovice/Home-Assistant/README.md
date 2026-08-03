@@ -34,9 +34,10 @@ Lokální řídicí a integrační vrstva pro FVE, baterie, energetické automat
 - [BESS a FVE](../BESS-a-FVE/README.md)
 - [Společná strategie záloh Home Assistantu](../../MadMike/Zalohy/Home-Assistant.md)
 
-## Otevřené úkoly
+## Navazující práce
 
-- [ ] Ověřit současný backup, poslední úspěch a retenci této instance podle autoritativního projektu Zálohy.
-- [ ] Provést a zdokumentovat praktický restore této instance.
-- [ ] Připravit a provést migraci na Qotom podle schváleného migračního a návratového rámce.
-- [ ] Ověřit současný způsob lokálního a vzdáleného přístupu a navázat dostupnost instance na společný monitoring.
+Otevřené kroky jsou vedené jen v příslušných autoritativních dokumentech:
+
+- backup, retence a praktický restore v [Zálohách Home Assistantu](../../MadMike/Zalohy/Home-Assistant.md);
+- příprava, provedení a přejímka migrace v [Hardware a migrace](Hardware-a-migrace.md);
+- lokální a vzdálený přístup, integrace a společný monitoring ve [Službách a integracích](Sluzby-a-integrace.md).

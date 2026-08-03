@@ -69,15 +69,6 @@
 - [ ] [Vybrat kritická zařízení a lokality.](MadMike/Monitoring/Mikr.md?plain=1#L31)
 - [ ] [Určit významné alarmy a jejich rozumné zpoždění.](MadMike/Monitoring/Mikr.md?plain=1#L32)
 - [ ] [Prověřit, které události už lépe pokrývá Uptime Kuma.](MadMike/Monitoring/Mikr.md?plain=1#L33)
-- [ ] [Připojit pouze neduplicitní alarmy do Telegramu.](MadMike/Monitoring/Mikr.md?plain=1#L34)
-- [ ] [Prakticky ověřit ukládání a obnovitelnost exportů konfigurací v projektu Zálohy.](MadMike/Monitoring/Mikr.md?plain=1#L35)
-
-### Monitoring
-
-- [ ] [Aktualizovat Uptime Kuma a poté určit konečný seznam monitorů.](MadMike/Monitoring/README.md?plain=1#L55)
-- [ ] [Otestovat a nastavit nativní notifikace Proxmox VE a PBS pro události, které Pulse nepokrývá.](MadMike/Monitoring/README.md?plain=1#L56)
-- [ ] [Vybrat jen významné alarmy z Mikr Manageru.](MadMike/Monitoring/README.md?plain=1#L57)
-- [ ] [Zprovoznit společné Telegram notifikace podle schválených zásad.](MadMike/Monitoring/README.md?plain=1#L58)
 
 ### Pulse
 
@@ -86,14 +77,13 @@
 - [ ] [Bez narušení produkčních záloh ověřit hlášení neúspěšného Backup, Verify, Prune a Garbage Collection jobu.](MadMike/Monitoring/Pulse.md?plain=1#L108)
 - [ ] [Ověřit plánování ZFS scrubů na `tank-pbs`, `tank-nas`, `tank-ssd` a `tank-hdd` a způsob hlášení chyby nebo příliš starého běhu.](MadMike/Monitoring/Pulse.md?plain=1#L109)
 - [ ] [Rozdělit události mezi Pulse a nativní notifikace bez duplicit a úspěšné běhy neposílat jako šum.](MadMike/Monitoring/Pulse.md?plain=1#L110)
-- [ ] [Vybrané problémy a následné obnovení směrovat do Telegramu.](MadMike/Monitoring/Pulse.md?plain=1#L111)
 
 ### Telegram notifikace
 
 - [ ] [Vytvořit soukromou skupinu `MadMike – infrastruktura`.](MadMike/Monitoring/Telegram.md?plain=1#L45)
 - [ ] [Vytvořit jednoho společného bota a bezpečně uložit jeho token mimo repozitář.](MadMike/Monitoring/Telegram.md?plain=1#L46)
 - [ ] [Připojit jako první Uptime Kuma a otestovat alarm i návrat do normálu.](MadMike/Monitoring/Telegram.md?plain=1#L47)
-- [ ] [Otestovat nativní notifikace PVE a PBS.](MadMike/Monitoring/Telegram.md?plain=1#L48)
+- [ ] [Po dokončení testů vedených v Pulse připojit již otestované nativní notifikace PVE a PBS.](MadMike/Monitoring/Telegram.md?plain=1#L48)
 - [ ] [Postupně připojit Mikr Manager a případně Pulse.](MadMike/Monitoring/Telegram.md?plain=1#L49)
 - [ ] [Po pilotním provozu upravit obsah zpráv a potlačit duplicity.](MadMike/Monitoring/Telegram.md?plain=1#L50)
 
@@ -103,16 +93,13 @@
 - [ ] [Projít existující monitory proti živé konfiguraci.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L38)
 - [ ] [Stanovit seznam kritických a doplňkových služeb.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L39)
 - [ ] [Nastavit přibližně pětiminutové výchozí zpoždění a individuální výjimky.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L40)
-- [ ] [Připojit vybrané alarmy a návraty do normálu do Telegramu.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L41)
 
 ## MadMike / Nextcloud
 
 ### Provoz a úložiště
 
-- [ ] [Ověřit aktuální PVE konfiguraci VM401 proti živému stavu.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L50)
-- [ ] [Ověřit živé verze operačního systému, Nextcloudu, PHP, Apache a MariaDB.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L51)
-- [ ] [Ověřit obsazení a volnou kapacitu systémového i datového disku.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L52)
-- [ ] [Ověřit fyzický pool za storage ID `tank-nas-zfs` a zapsat jej do dokumentace PVE Ryzen.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L53)
+- [ ] [Ověřit živé verze operačního systému, Nextcloudu, PHP, Apache a MariaDB.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L52)
+- [ ] [Ověřit obsazení a volnou kapacitu systémového i datového disku.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L53)
 - [ ] [Ověřit nastavení background jobs a cronu; chybějící doporučený způsob následně doplnit.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L54)
 - [ ] [Připravit, bezpečně otestovat a zapsat aktualizační postup včetně kontrol před aktualizací a po ní.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L55)
 - [ ] [Ověřit, zda Uptime Kuma hlídá webový endpoint a základní aplikační stav Nextcloudu.](MadMike/Nextcloud/Provoz-a-uloziste.md?plain=1#L56)
@@ -169,7 +156,7 @@
 
 ### PVE Ryzen
 
-- [ ] [Ověřit živými výpisy `pvesm` a `qm config 401`, na jaký fyzický ZFS pool odkazuje storage ID `tank-nas-zfs`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L100)
+- [ ] [Ověřit aktuální PVE konfiguraci VM401 živými výpisy `pvesm` a `qm config 401`, včetně prostředků, disků a fyzického ZFS poolu za storage ID `tank-nas-zfs`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L100)
 - [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L101)
 - [ ] [Po návratu z dovolené objednat M4-ATX.](MadMike/Servery/PVE-Ryzen.md?plain=1#L102)
 - [ ] [Po instalaci M4-ATX zdokumentovat zapojení a prakticky otestovat výpadek i návrat napájení a automatický start serveru.](MadMike/Servery/PVE-Ryzen.md?plain=1#L103)
@@ -178,8 +165,7 @@
 
 - [ ] [Pořídit sanitizovanou živou inventuru VM510: kontejnery, image tagy, Compose projekty, restart policy, sítě, porty, volumes a hostitelské cesty bez tajných hodnot.](MadMike/Servery/VM510-Docker.md?plain=1#L73)
 - [ ] [Zdokumentovat současný způsob vytvoření, startu a obnovy Uptime Kumy včetně umístění jejích persistentních dat.](MadMike/Servery/VM510-Docker.md?plain=1#L74)
-- [ ] [Ověřit v projektu Zálohy, zda je VM510 zahrnutá do PBS backup jobu, a doplnit ověřený postup obnovy celé VM.](MadMike/Servery/VM510-Docker.md?plain=1#L75)
-- [ ] [Po ověření persistentních dat doplnit stručný pořadník obnovy NPM, Pulse, Mikru a Kumy.](MadMike/Servery/VM510-Docker.md?plain=1#L76)
+- [ ] [Po ověření persistentních dat doplnit stručný pořadník obnovy NPM, Pulse, Mikru a Kumy.](MadMike/Servery/VM510-Docker.md?plain=1#L75)
 
 ### WireGuard
 
@@ -218,11 +204,10 @@
 - [ ] [Ověřit SMART a teploty čtyř SAS disků a systémového SSD proti živému stavu.](MadMike/Zalohy/PBS-DR.md?plain=1#L176)
 - [ ] [Ověřit persistentní Docker data a mounty VM510 a provést testovací restore.](MadMike/Zalohy/PBS-DR.md?plain=1#L177)
 - [ ] [Prakticky ověřit start PVE Dell, VM200 a datastore po úplném výpadku napájení.](MadMike/Zalohy/PBS-DR.md?plain=1#L178)
-- [ ] [Otestovat nativní notifikace neúspěšného Backup, Verify, Prune a Garbage Collection jobu.](MadMike/Zalohy/PBS-DR.md?plain=1#L179)
-- [ ] [Stanovit rozumnou četnost opakovaných testů obnovy.](MadMike/Zalohy/PBS-DR.md?plain=1#L180)
-- [ ] [Určit původ nejasných/orphaned backup groups a účel Dell / VM400.](MadMike/Zalohy/PBS-DR.md?plain=1#L181)
-- [ ] [Zdokumentovat bezpečné umístění recovery materiálů hostitelů bez zveřejnění tajných údajů.](MadMike/Zalohy/PBS-DR.md?plain=1#L182)
-- [ ] [Rozhodnout o klientském šifrování PBS a při jeho použití bezpečně uložit recovery klíč.](MadMike/Zalohy/PBS-DR.md?plain=1#L183)
+- [ ] [Stanovit rozumnou četnost opakovaných testů obnovy.](MadMike/Zalohy/PBS-DR.md?plain=1#L179)
+- [ ] [Určit původ nejasných/orphaned backup groups a samostatně ověřit účel Dell / VM400 jako odlišného objektu.](MadMike/Zalohy/PBS-DR.md?plain=1#L180)
+- [ ] [Zdokumentovat bezpečné umístění recovery materiálů hostitelů bez zveřejnění tajných údajů.](MadMike/Zalohy/PBS-DR.md?plain=1#L181)
+- [ ] [Rozhodnout o klientském šifrování PBS a při jeho použití bezpečně uložit recovery klíč.](MadMike/Zalohy/PBS-DR.md?plain=1#L182)
 
 ### Zálohy Home Assistantu
 
@@ -248,11 +233,11 @@
 
 ### Hardware
 
-- [ ] [Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.](Rybniky-Amerika/Hardware.md?plain=1#L53)
-- [ ] [V Airtable určit a rezervovat konkrétní hEX S (2025) a vhodná AP až podle inventury.](Rybniky-Amerika/Hardware.md?plain=1#L54)
-- [ ] [Ověřit přesné modely a stav skladových AP uvažovaných pro nasazení.](Rybniky-Amerika/Hardware.md?plain=1#L55)
-- [ ] [Ověřit dostupné SFP moduly, typ optiky, PoE zdroje, přepěťové ochrany a uzemnění.](Rybniky-Amerika/Hardware.md?plain=1#L56)
-- [ ] [Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.](Rybniky-Amerika/Hardware.md?plain=1#L57)
+- [ ] [Udělat úplný seznam aktivních routerů, switchů, AP a jejich napájení.](Rybniky-Amerika/Hardware.md?plain=1#L41)
+- [ ] [V Airtable určit a rezervovat konkrétní hEX S (2025) a vhodná AP až podle inventury.](Rybniky-Amerika/Hardware.md?plain=1#L42)
+- [ ] [Ověřit přesné modely a stav skladových AP uvažovaných pro nasazení.](Rybniky-Amerika/Hardware.md?plain=1#L43)
+- [ ] [Ověřit dostupné SFP moduly, typ optiky, PoE zdroje, přepěťové ochrany a uzemnění.](Rybniky-Amerika/Hardware.md?plain=1#L44)
+- [ ] [Před návrhem sloupu ověřit přesné schopnosti konkrétního mANTBoxu nebo jiného rádia.](Rybniky-Amerika/Hardware.md?plain=1#L45)
 
 ### Plán rekonstrukce
 
@@ -307,14 +292,7 @@
 - [ ] [Připravit Qotom s Home Assistant OS a ověřit jeho síťové a úložné parametry.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L84)
 - [ ] [Doplnit konkrétní předmigrační kontrolní seznam současných funkcí.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L85)
 - [ ] [Stanovit konkrétní časové a funkční kritérium pro rollback.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L86)
-- [ ] [Po úspěšné migraci provést a zdokumentovat přejímací test a praktický restore.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L87)
-
-### Home Assistant – Vernířovice
-
-- [ ] [Ověřit současný backup, poslední úspěch a retenci této instance podle autoritativního projektu Zálohy.](Vernirovice/Home-Assistant/README.md?plain=1#L39)
-- [ ] [Provést a zdokumentovat praktický restore této instance.](Vernirovice/Home-Assistant/README.md?plain=1#L40)
-- [ ] [Připravit a provést migraci na Qotom podle schváleného migračního a návratového rámce.](Vernirovice/Home-Assistant/README.md?plain=1#L41)
-- [ ] [Ověřit současný způsob lokálního a vzdáleného přístupu a navázat dostupnost instance na společný monitoring.](Vernirovice/Home-Assistant/README.md?plain=1#L42)
+- [ ] [Po úspěšné migraci provést a zdokumentovat přejímací test podle tohoto dokumentu.](Vernirovice/Home-Assistant/Hardware-a-migrace.md?plain=1#L87)
 
 ### Služby a integrace
 

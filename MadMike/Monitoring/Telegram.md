@@ -45,6 +45,6 @@ Recovery zpráva má jednoznačně navazovat na původní problém a potvrdit n�
 - [ ] Vytvořit soukromou skupinu `MadMike – infrastruktura`.
 - [ ] Vytvořit jednoho společného bota a bezpečně uložit jeho token mimo repozitář.
 - [ ] Připojit jako první Uptime Kuma a otestovat alarm i návrat do normálu.
-- [ ] Otestovat nativní notifikace PVE a PBS.
+- [ ] Po dokončení testů vedených v [Pulse](Pulse.md) připojit již otestované nativní notifikace PVE a PBS.
 - [ ] Postupně připojit Mikr Manager a případně Pulse.
 - [ ] Po pilotním provozu upravit obsah zpráv a potlačit duplicity.

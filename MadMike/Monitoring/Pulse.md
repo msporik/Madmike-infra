@@ -108,4 +108,5 @@ Notifikace Pulse ani nativní notifikace PVE/PBS nebyly při poslední dokumento
 - [ ] Bez narušení produkčních záloh ověřit hlášení neúspěšného Backup, Verify, Prune a Garbage Collection jobu.
 - [ ] Ověřit plánování ZFS scrubů na `tank-pbs`, `tank-nas`, `tank-ssd` a `tank-hdd` a způsob hlášení chyby nebo příliš starého běhu.
 - [ ] Rozdělit události mezi Pulse a nativní notifikace bez duplicit a úspěšné běhy neposílat jako šum.
-- [ ] Vybrané problémy a následné obnovení směrovat do Telegramu.
+
+Směrování vybraných problémů a následných obnovení je vedené v [Telegram notifikacích](Telegram.md).

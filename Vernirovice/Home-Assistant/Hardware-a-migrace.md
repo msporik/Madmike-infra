@@ -84,4 +84,6 @@ Raspberry Pi 5 se nesmí smazat ani použít k jinému účelu, dokud nebude mig
 - [ ] Připravit Qotom s Home Assistant OS a ověřit jeho síťové a úložné parametry.
 - [ ] Doplnit konkrétní předmigrační kontrolní seznam současných funkcí.
 - [ ] Stanovit konkrétní časové a funkční kritérium pro rollback.
-- [ ] Po úspěšné migraci provést a zdokumentovat přejímací test a praktický restore.
+- [ ] Po úspěšné migraci provést a zdokumentovat přejímací test podle tohoto dokumentu.
+
+Samostatný praktický restore test instance je vedený v [Zálohách Home Assistantu](../../MadMike/Zalohy/Home-Assistant.md).

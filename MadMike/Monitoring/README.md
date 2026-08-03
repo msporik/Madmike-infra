@@ -50,9 +50,11 @@ Zabbix byl odmítnut kvůli složitosti a nadbytečnému množství dat. Beszel 
 - Rozvrhy, retence, restore a disaster recovery patří do projektu [Zálohy](../Zalohy/PBS-DR.md).
 - V Monitoringu jsou zachyceny jen vazby potřebné k pochopení detekce a směrování problémů.
 
-## Otevřené kroky
+## Navazující práce
 
-- [ ] Aktualizovat Uptime Kuma a poté určit konečný seznam monitorů.
-- [ ] Otestovat a nastavit nativní notifikace Proxmox VE a PBS pro události, které Pulse nepokrývá.
-- [ ] Vybrat jen významné alarmy z Mikr Manageru.
-- [ ] Zprovoznit společné Telegram notifikace podle schválených zásad.
+Otevřené kroky jsou vedené jen v příslušných autoritativních dokumentech:
+
+- aktualizace a konečný seznam monitorů v [Uptime Kuma](Uptime-Kuma.md);
+- testy nativních notifikací Proxmox VE a PBS v [Pulse](Pulse.md);
+- výběr významných alarmů v [Mikr Manageru](Mikr.md);
+- společné směrování notifikací v [Telegramu](Telegram.md).

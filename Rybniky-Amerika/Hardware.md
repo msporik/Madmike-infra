@@ -23,21 +23,9 @@
 
 RB5009 ani CRS326 nejsou podmínkou cílového návrhu. Použijí se jen tehdy, pokud se později objeví konkrétní potřeba, která odůvodní změnu schválené jednoduché architektury.
 
-## Skladoví kandidáti
+## Výběr konkrétních kusů
 
-Audit kusové evidence v Airtable k 2026-07-29 doložil následující možné kandidáty:
-
-| Typ | Evidovaný počet | Význam pro Rybníky |
-|---|---:|---|
-| hEX S | 3 ks | žádný kus zatím není v dokumentaci jednoznačně přiřazený jako cílový kus z roku 2025 |
-| cAP ax | 4 ks | možný kandidát AP; nasazení až podle pokrytí a napájení |
-| cAP ac | 2 ks | možný kandidát AP |
-| cAP Lite | 4 ks | možný kandidát AP pro méně náročné místo |
-| wAP | 6 ks | možný venkovní kandidát; přesný model a stav kusů ověřit |
-| CRS326 | 1 ks | dostupná rezerva, nikoli požadavek návrhu |
-| RB5009 | 2 ks | dostupné kusy, nikoli požadavek návrhu |
-
-Počty nejsou rezervací pro Rybníky ani potvrzením technické vhodnosti konkrétního kusu. Výběr a rezervace zůstávají v Airtable; tento dokument eviduje jen vazbu na cílové role.
+Aktuální dostupnost, stav a rezervace konkrétních zařízení se vždy ověřují v Airtable, které je jedinou autoritou proměnlivé kusové evidence. Tento dokument eviduje pouze schválené cílové role a podmínky výběru.
 
 ## Požadavky před výběrem kusů
 

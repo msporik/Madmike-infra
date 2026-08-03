@@ -72,5 +72,6 @@ Jde o opakovaný provozní postup, proto není vedený jako sada checkboxů v ce
 
 - [ ] Pořídit sanitizovanou živou inventuru VM510: kontejnery, image tagy, Compose projekty, restart policy, sítě, porty, volumes a hostitelské cesty bez tajných hodnot.
 - [ ] Zdokumentovat současný způsob vytvoření, startu a obnovy Uptime Kumy včetně umístění jejích persistentních dat.
-- [ ] Ověřit v projektu Zálohy, zda je VM510 zahrnutá do PBS backup jobu, a doplnit ověřený postup obnovy celé VM.
 - [ ] Po ověření persistentních dat doplnit stručný pořadník obnovy NPM, Pulse, Mikru a Kumy.
+
+Zahrnutí VM510 do PBS backup jobu a test obnovy celé VM jsou vedené v [PBS a disaster recovery](../Zalohy/PBS-DR.md).

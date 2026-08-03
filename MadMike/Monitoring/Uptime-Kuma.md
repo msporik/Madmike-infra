@@ -38,4 +38,5 @@ Konkrétní monitory a jejich časové podmínky se zapíší až po praktickém
 - [ ] Projít existující monitory proti živé konfiguraci.
 - [ ] Stanovit seznam kritických a doplňkových služeb.
 - [ ] Nastavit přibližně pětiminutové výchozí zpoždění a individuální výjimky.
-- [ ] Připojit vybrané alarmy a návraty do normálu do Telegramu.
+
+Připojení vybraných alarmů a návratů do normálu je vedené v [Telegram notifikacích](Telegram.md).

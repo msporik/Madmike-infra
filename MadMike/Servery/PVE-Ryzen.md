@@ -97,7 +97,7 @@ Autoritativní konfigurace jobů, údržby a testů obnovy je v [PBS a disaster 
 
 ## Otevřené kroky
 
-- [ ] Ověřit živými výpisy `pvesm` a `qm config 401`, na jaký fyzický ZFS pool odkazuje storage ID `tank-nas-zfs`.
+- [ ] Ověřit aktuální PVE konfiguraci VM401 živými výpisy `pvesm` a `qm config 401`, včetně prostředků, disků a fyzického ZFS poolu za storage ID `tank-nas-zfs`.
 - [ ] Ověřit současné rozdělení a obsazení systémového NVMe.
 - [ ] Po návratu z dovolené objednat M4-ATX.
 - [ ] Po instalaci M4-ATX zdokumentovat zapojení a prakticky otestovat výpadek i návrat napájení a automatický start serveru.

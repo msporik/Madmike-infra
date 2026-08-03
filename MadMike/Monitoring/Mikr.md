@@ -31,5 +31,5 @@ Výběr kritických zařízení, lokalit a konkrétních alarmů zatím není uz
 - [ ] Vybrat kritická zařízení a lokality.
 - [ ] Určit významné alarmy a jejich rozumné zpoždění.
 - [ ] Prověřit, které události už lépe pokrývá Uptime Kuma.
-- [ ] Připojit pouze neduplicitní alarmy do Telegramu.
-- [ ] Prakticky ověřit ukládání a obnovitelnost exportů konfigurací v projektu Zálohy.
+
+Připojení neduplicitních alarmů je vedené v [Telegram notifikacích](Telegram.md). Praktické ověření ukládání a obnovitelnosti exportů konfigurací zůstává v [Zálohách MikroTiků](../Zalohy/MikroTik.md).
