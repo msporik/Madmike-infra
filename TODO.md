@@ -283,14 +283,15 @@
 
 ### Topologie
 
-- [ ] [Ověřit přesný model, RouterOS a konfiguraci sektoru `AP HOME`.](Rybniky-Amerika/Topologie.md?plain=1#L68)
-- [ ] [Ověřit přesný model, RouterOS a režim přijímací jednotky.](Rybniky-Amerika/Topologie.md?plain=1#L69)
-- [ ] [Změřit aktuální rádiové parametry, stabilitu a reálnou propustnost přívodu.](Rybniky-Amerika/Topologie.md?plain=1#L70)
-- [ ] [Určit zařízení, které dnes routuje a poskytuje DHCP, NAT a firewall.](Rybniky-Amerika/Topologie.md?plain=1#L71)
-- [ ] [Zmapovat všechny další DHCP servery, NATy, aktivní rozsahy, statické IP a port-forwardy.](Rybniky-Amerika/Topologie.md?plain=1#L72)
-- [ ] [Zmapovat zařízení, porty a kabely v Obýváku, Včelíně, Hospodě a Dílně.](Rybniky-Amerika/Topologie.md?plain=1#L73)
-- [ ] [Ověřit stav, typ a zakončení optiky ke sloupu.](Rybniky-Amerika/Topologie.md?plain=1#L74)
-- [ ] [Ověřit NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace.](Rybniky-Amerika/Topologie.md?plain=1#L75)
+- [ ] [Ověřit přesný model, RouterOS, konfiguraci a ostatní klienty sektoru `AP HOME`.](Rybniky-Amerika/Topologie.md?plain=1#L155)
+- [ ] [Ověřit přesný model, RouterOS a režim přijímací jednotky.](Rybniky-Amerika/Topologie.md?plain=1#L156)
+- [ ] [Změřit aktuální rádiové parametry, stabilitu a reálnou propustnost přívodu.](Rybniky-Amerika/Topologie.md?plain=1#L157)
+- [ ] [Určit zařízení, které dnes routuje a poskytuje DHCP, NAT a firewall.](Rybniky-Amerika/Topologie.md?plain=1#L158)
+- [ ] [Zmapovat všechny další DHCP servery, NATy, aktivní rozsahy, statické IP a port-forwardy.](Rybniky-Amerika/Topologie.md?plain=1#L159)
+- [ ] [Zmapovat zařízení, porty a kabely v Obýváku, Včelíně, Hospodě a Dílně.](Rybniky-Amerika/Topologie.md?plain=1#L160)
+- [ ] [Ověřit stav, typ a zakončení optiky ke sloupu.](Rybniky-Amerika/Topologie.md?plain=1#L161)
+- [ ] [Ověřit NVR, zařízení „Stavba“ a další klienty citlivé na změnu adresace.](Rybniky-Amerika/Topologie.md?plain=1#L162)
+- [ ] [Ověřit současnou management cestu, možnost místního zásahu a skutečné zařazení lokality v Mikru.](Rybniky-Amerika/Topologie.md?plain=1#L163)
 
 ## Vernirovice / BESS-a-FVE
 
