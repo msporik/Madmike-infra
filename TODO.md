@@ -274,12 +274,13 @@
 
 ### Plán rekonstrukce
 
-- [ ] [Přidělit cílový LAN prefix Rybníků v rámci společného adresního plánu.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L127)
-- [ ] [Po inventuře sepsat jednotlivé nutné výjimky z privátní sítě Rybníků do HOME; bez doložené potřeby zůstane výchozí `deny`.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L128)
-- [ ] [Podle inventury doplnit konkrétní testovací checklist, časový limit a kabelový postup rollbacku pro etapu 2.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L129)
-- [ ] [Vybrat pilotní větev pro odstranění prvního NAT ostrova.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L130)
-- [ ] [V dokumentu Mikr navrhnout závislosti a souhrnný alarm lokality.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L131)
-- [ ] [V dokumentaci záloh MikroTiků doplnit a prakticky ověřit obnovu konfigurace Rybníků.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L132)
+- [ ] [Přidělit cílový LAN prefix Rybníků v rámci společného adresního plánu.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L210)
+- [ ] [Po inventuře sepsat jednotlivé nutné výjimky z privátní sítě Rybníků do HOME; bez doložené potřeby zůstane výchozí `deny`.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L211)
+- [ ] [Podle inventury doplnit konkrétní testovací checklist, časový limit a kabelový postup rollbacku pro etapu 2.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L212)
+- [ ] [Vybrat pilotní větev pro odstranění prvního NAT ostrova.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L213)
+- [ ] [Vybrat způsob centrální správy AP a ověřit kompatibilitu konkrétních modelů.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L214)
+- [ ] [V dokumentu Mikr navrhnout závislosti a souhrnný alarm lokality.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L215)
+- [ ] [V dokumentaci záloh MikroTiků doplnit a prakticky ověřit obnovu konfigurace Rybníků.](Rybniky-Amerika/Plan-rekonstrukce.md?plain=1#L216)
 
 ### Topologie
 
