@@ -66,33 +66,48 @@
 
 ### Mikr Manager
 
-- [ ] [Vybrat kritická zařízení a lokality.](MadMike/Monitoring/Mikr.md?plain=1#L31)
-- [ ] [Určit významné alarmy a jejich rozumné zpoždění.](MadMike/Monitoring/Mikr.md?plain=1#L32)
-- [ ] [Prověřit, které události už lépe pokrývá Uptime Kuma.](MadMike/Monitoring/Mikr.md?plain=1#L33)
+- [ ] [Ověřit současnou verzi, image, počet zařízení, licenci, interval grafů a retenci.](MadMike/Monitoring/Mikr.md?plain=1#L133)
+- [ ] [Určit kritická zařízení a lokality.](MadMike/Monitoring/Mikr.md?plain=1#L134)
+- [ ] [Ověřit současné alarmy, jejich prahy, zpoždění a recovery chování.](MadMike/Monitoring/Mikr.md?plain=1#L135)
+- [ ] [Ověřit, že RSC exporty pravidelně vznikají a kde jsou persistentně uložené.](MadMike/Monitoring/Mikr.md?plain=1#L136)
+- [ ] [Ověřit, které události už spolehlivěji pokrývá Uptime Kuma.](MadMike/Monitoring/Mikr.md?plain=1#L137)
+
+### Monitoring
+
+- [ ] [Ověřit současný stav VM510, Dockeru a všech provozovaných kontejnerů.](MadMike/Monitoring/README.md?plain=1#L102)
+- [ ] [Ověřit, že je VM510 stále zahrnuta v automatickém PBS backup jobu.](MadMike/Monitoring/README.md?plain=1#L103)
 
 ### Pulse
 
-- [ ] [Zjistit současnou konfiguraci nativních notifikačních cílů a pravidel zvlášť na PVE Ryzen, PVE Dell a PBS.](MadMike/Monitoring/Pulse.md?plain=1#L106)
-- [ ] [Poslat vestavěnou testovací notifikaci ze všech tří systémů.](MadMike/Monitoring/Pulse.md?plain=1#L107)
-- [ ] [Bez narušení produkčních záloh ověřit hlášení neúspěšného Backup, Verify, Prune a Garbage Collection jobu.](MadMike/Monitoring/Pulse.md?plain=1#L108)
-- [ ] [Ověřit plánování ZFS scrubů na `tank-pbs`, `tank-nas`, `tank-ssd` a `tank-hdd` a způsob hlášení chyby nebo příliš starého běhu.](MadMike/Monitoring/Pulse.md?plain=1#L109)
-- [ ] [Rozdělit události mezi Pulse a nativní notifikace bez duplicit a úspěšné běhy neposílat jako šum.](MadMike/Monitoring/Pulse.md?plain=1#L110)
+- [ ] [Zdokumentovat přesný postup aktualizace Pulse agentů na PVE Ryzen, PVE Dell a PBS.](MadMike/Monitoring/Pulse.md?plain=1#L226)
+- [ ] [Ověřit současnou verzi Pulse serveru a všech tří agentů.](MadMike/Monitoring/Pulse.md?plain=1#L227)
+- [ ] [Zjistit současnou konfiguraci notifikačních cílů a pravidel na PVE Ryzen, PVE Dell a PBS.](MadMike/Monitoring/Pulse.md?plain=1#L228)
+- [ ] [Poslat vestavěnou testovací notifikaci ze všech tří systémů.](MadMike/Monitoring/Pulse.md?plain=1#L229)
+- [ ] [Bez narušení produkčních záloh ověřit hlášení neúspěšného Backup jobu.](MadMike/Monitoring/Pulse.md?plain=1#L230)
+- [ ] [Ověřit hlášení neúspěšného Verify, Prune a Garbage Collection jobu.](MadMike/Monitoring/Pulse.md?plain=1#L231)
+- [ ] [Ověřit plánování ZFS scrubů a způsob hlášení chyby nebo příliš starého posledního běhu.](MadMike/Monitoring/Pulse.md?plain=1#L232)
+- [ ] [Ověřit, že běžné úspěšné úlohy nevytvářejí notifikační šum.](MadMike/Monitoring/Pulse.md?plain=1#L233)
 
 ### Telegram notifikace
 
-- [ ] [Vytvořit soukromou skupinu `MadMike – infrastruktura`.](MadMike/Monitoring/Telegram.md?plain=1#L45)
-- [ ] [Vytvořit jednoho společného bota a bezpečně uložit jeho token mimo repozitář.](MadMike/Monitoring/Telegram.md?plain=1#L46)
-- [ ] [Připojit jako první Uptime Kuma a otestovat alarm i návrat do normálu.](MadMike/Monitoring/Telegram.md?plain=1#L47)
-- [ ] [Po dokončení testů vedených v Pulse připojit již otestované nativní notifikace PVE a PBS.](MadMike/Monitoring/Telegram.md?plain=1#L48)
-- [ ] [Postupně připojit Mikr Manager a případně Pulse.](MadMike/Monitoring/Telegram.md?plain=1#L49)
-- [ ] [Po pilotním provozu upravit obsah zpráv a potlačit duplicity.](MadMike/Monitoring/Telegram.md?plain=1#L50)
+- [ ] [Ověřit, zda již existuje soukromá skupina `MadMike – infrastruktura`; pokud ne, vytvořit ji.](MadMike/Monitoring/Telegram.md?plain=1#L99)
+- [ ] [Ověřit existenci a vlastníka společného bota; pokud neexistuje, vytvořit ho.](MadMike/Monitoring/Telegram.md?plain=1#L100)
+- [ ] [Ověřit administrátory skupiny, bezpečné umístění tokenu a systémy, které ho používají.](MadMike/Monitoring/Telegram.md?plain=1#L101)
+- [ ] [Odeslat testovací zprávu.](MadMike/Monitoring/Telegram.md?plain=1#L102)
+- [ ] [Připojit Uptime Kumu a prakticky otestovat skutečný `DOWN` i odpovídající recovery.](MadMike/Monitoring/Telegram.md?plain=1#L103)
+- [ ] [Připojit otestované nativní notifikace PVE/PBS.](MadMike/Monitoring/Telegram.md?plain=1#L104)
+- [ ] [Připojit vybrané alarmy Mikr Manageru.](MadMike/Monitoring/Telegram.md?plain=1#L105)
+- [ ] [Pulse připojit pouze pro události nepokryté jiným zdrojem.](MadMike/Monitoring/Telegram.md?plain=1#L106)
+- [ ] [Po pilotním provozu ověřit potlačení duplicit a opakovaných zpráv a upravit četnost.](MadMike/Monitoring/Telegram.md?plain=1#L107)
 
 ### Uptime Kuma
 
-- [ ] [Aktualizovat Uptime Kuma na aktuální stabilní verzi.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L37)
-- [ ] [Projít existující monitory proti živé konfiguraci.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L38)
-- [ ] [Stanovit seznam kritických a doplňkových služeb.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L39)
-- [ ] [Nastavit přibližně pětiminutové výchozí zpoždění a individuální výjimky.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L40)
+- [ ] [Ověřit současnou verzi, image a přesné startovací parametry kontejneru.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L144)
+- [ ] [Porovnat živý seznam monitorů s historickým a schváleným rozsahem.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L145)
+- [ ] [Ověřit typy kontrol, intervaly, retries, timeouty a skutečná zpoždění alarmů.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L146)
+- [ ] [Ověřit současné notifikační cíle.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L147)
+- [ ] [Prakticky otestovat jeden alarm `DOWN` a následnou recovery zprávu.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L148)
+- [ ] [Zdokumentovat samostatnou zálohu a obnovu konfigurace Kumy, pokud existuje.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L149)
 
 ## MadMike / Nextcloud
 
