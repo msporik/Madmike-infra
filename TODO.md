@@ -7,33 +7,13 @@
 
 ### GoodWe a energetika
 
-- [ ] [Ověřit přesný model GoodWe střídače;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L21)
-- [ ] [jeho lokální IP adresa a dostupný způsob komunikace;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L22)
-- [ ] [seznam a význam dostupných entit;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L23)
-- [ ] [způsob měření spotřeby a přetoků;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L24)
-- [ ] [požadovaný rozsah a délka uchování historie;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L25)
-- [ ] [typ, výkon a současné ovládání bojleru;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L26)
-- [ ] [vhodný spínací nebo regulační prvek;](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L27)
-- [ ] [bezpečné podmínky a priority automatického řízení.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L28)
-
-### Home Assistant – HA ValTom
-
-- [ ] [Ověřit spolehlivý start HA Green a aktuálnost připravené instalace.](HA-ValTom/Home-Assistant/README.md?plain=1#L25)
-- [ ] [Nainstalovat HA Green u Tomáše a připojit ho do místní sítě.](HA-ValTom/Home-Assistant/README.md?plain=1#L26)
-- [ ] [Po přesunu ověřit lokální i vzdálený přístup.](HA-ValTom/Home-Assistant/README.md?plain=1#L27)
-- [ ] [Zjistit přesný model a způsob komunikace GoodWe střídače.](HA-ValTom/Home-Assistant/README.md?plain=1#L28)
-- [ ] [Připojit GoodWe, potvrdit skutečné entity a vytvořit základní FVE dashboard.](HA-ValTom/Home-Assistant/README.md?plain=1#L29)
-- [ ] [Teprve potom navrhnout řízení bojleru podle konkrétního hardwaru a požadované logiky.](HA-ValTom/Home-Assistant/README.md?plain=1#L30)
-- [ ] [Nastavit pravidelné zálohy a prakticky ověřit obnovu.](HA-ValTom/Home-Assistant/README.md?plain=1#L31)
+- [ ] [Zjistit přesný model GoodWe střídače, jeho lokální IP adresu, dostupný způsob komunikace a skutečné zdroje výroby, spotřeby, odběru a přetoku.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L32)
+- [ ] [Zprovoznit nejprve čtecí integraci GoodWe, ověřit význam, jednotky a znaménka skutečných entit a vytvořit základní produkční FVE dashboard s přiměřenou historií.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L33)
+- [ ] [Zmapovat typ, výkon, HDO, stykač, termostat a současné ruční ovládání bojleru; teprve potom navrhnout bezpečné automatické řízení.](HA-ValTom/Home-Assistant/GoodWe-a-energie.md?plain=1#L34)
 
 ### Nasazení a vzdálený přístup
 
-- [ ] [lokální IP adresu HA Green a její rezervaci;](HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md?plain=1#L20)
-- [ ] [přístup k místním zařízením a GoodWe střídači;](HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md?plain=1#L21)
-- [ ] [funkčnost Cloudflare Tunnelu z nové sítě;](HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md?plain=1#L22)
-- [ ] [správné nastavení interní a externí URL;](HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md?plain=1#L23)
-- [ ] [spolehlivý start po výpadku napájení;](HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md?plain=1#L24)
-- [ ] [aktuálnost a obnovitelnost připravené zálohy.](HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md?plain=1#L25)
+- [ ] [Před fyzickým nasazením a při převzetí dokončit přejímací kontrolu HA ValTom.](HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md?plain=1#L38)
 
 ## Honza / Home-Assistant
 
