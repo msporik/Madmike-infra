@@ -95,12 +95,56 @@ Autoritativní dokumentace zálohování, údržby datastore, SMART, scrubů a t
 | VM | Poslední doložený stav | Ověřená role |
 |---|---|---|
 | Dell / VM200 | běží | Proxmox Backup Server |
-| Dell / VM400 | vypnutá | účel neznámý; nutno ověřit |
+| Dell / VM400 | vypnutá | testovací Debian VM vytvořená vlastním skriptem `create-vm.sh`; současný další účel a obsah vyžadují ověření |
 | Dell / VM401 | vypnutá | migrační test při přesunu Nextcloudu z bare metal instalace na PVE Ryzen |
 | Dell / VM402 | vypnutá | úspěšná testovací obnova produkčního Nextcloudu z PBS |
 | Dell / VM501 | vypnutá | funkční import Windows/PREMIER; nešlo o PBS restore |
 
 VM400, VM401, VM402 a VM501 jsou ponechané, dokud nebude jejich další osud jednotlivě rozhodnutý. Před odstraněním kterékoliv z nich je nutné ověřit obsah, původ, backup groups a potřebnost.
+
+## Vytvoření Debian VM pomocí vlastního skriptu
+
+Při práci na PVE Dell byl úspěšně použit vlastní skript označovaný jako `create-vm.sh v1`, určený k opakovatelnému vytvoření základní virtuální mašiny v Proxmox VE.
+
+Skript měl automatizovat zejména:
+
+- vytvoření VM;
+- nastavení počtu vCPU a operační paměti;
+- vytvoření systémového disku;
+- použití řadiče VirtIO SCSI;
+- vytvoření VirtIO síťového rozhraní;
+- připojení instalačního ISO;
+- nastavení pořadí bootování.
+
+Doloženým výsledkem byla Dell / VM400 s názvem `VM-nxtcld` a konfigurací:
+
+| Parametr | Doložená hodnota |
+|---|---|
+| VMID | `400` |
+| Název | `VM-nxtcld` |
+| CPU | 4 vCPU |
+| RAM | 8192 MB |
+| Systémový disk | 64 GB |
+| Storage | `local-lvm` |
+| Řadič disku | VirtIO SCSI |
+| Síť | VirtIO |
+| Instalační médium | Debian 13.5 netinst ISO |
+| Boot při instalaci | z připojeného ISO na `ide2` |
+
+Po vytvoření VM proběhla instalace Debianu. Následně bylo ověřeno úspěšné spuštění systému, funkční síťové připojení a přístup přes SSH.
+
+Tento záznam dokládá funkční princip a jeden praktický výsledek. Neobsahuje však dost informací pro nové použití skriptu bez dalšího ověření.
+
+**Vyžaduje ověření v živém systému.**
+
+- [ ] Najít skutečný soubor `create-vm.sh`, pravděpodobně na PVE Dell nebo v umístění, ze kterého byl při vytvoření VM400 spuštěn.
+- [ ] Ověřit přesný obsah a verzi skriptu.
+- [ ] Zdokumentovat jeho cestu, vlastníka a oprávnění.
+- [ ] Zdokumentovat způsob spuštění a všechny vstupní parametry.
+- [ ] Ověřit, které hodnoty jsou pevně zadané a které se předávají jako argumenty nebo interaktivní vstup.
+- [ ] Ověřit, zda je skript bezpečně použitelný také na PVE Ryzen.
+- [ ] Po nalezení uložit ověřený skript nebo jeho autoritativní kopii na vhodné místo a doplnit reprodukovatelný postup vytvoření nové Debian VM.
+- [ ] Ověřit současný obsah a další potřebnost VM400 před jakýmkoliv odstraněním nebo novým použitím VMID `400`.
 
 ## Ověřené DR výsledky
 
