@@ -181,9 +181,17 @@
 
 ### PVE Dell
 
-- [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L218)
-- [ ] [Ověřit aktuální verzi a konfiguraci PVE Dell, VM200, storage a sítě proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L219)
-- [ ] [Připravit a schválit bezpečný migrační plán z dnešních dvou mirrorů na jeden pool ze čtyř 8TB disků, včetně cílové topologie, zálohy, obnovy a rollbacku.](MadMike/Servery/PVE-Dell.md?plain=1#L220)
+- [ ] [Najít skutečný soubor `create-vm.sh`, pravděpodobně na PVE Dell nebo v umístění, ze kterého byl při vytvoření VM400 spuštěn.](MadMike/Servery/PVE-Dell.md?plain=1#L140)
+- [ ] [Ověřit přesný obsah a verzi skriptu.](MadMike/Servery/PVE-Dell.md?plain=1#L141)
+- [ ] [Zdokumentovat jeho cestu, vlastníka a oprávnění.](MadMike/Servery/PVE-Dell.md?plain=1#L142)
+- [ ] [Zdokumentovat způsob spuštění a všechny vstupní parametry.](MadMike/Servery/PVE-Dell.md?plain=1#L143)
+- [ ] [Ověřit, které hodnoty jsou pevně zadané a které se předávají jako argumenty nebo interaktivní vstup.](MadMike/Servery/PVE-Dell.md?plain=1#L144)
+- [ ] [Ověřit, zda je skript bezpečně použitelný také na PVE Ryzen.](MadMike/Servery/PVE-Dell.md?plain=1#L145)
+- [ ] [Po nalezení uložit ověřený skript nebo jeho autoritativní kopii na vhodné místo a doplnit reprodukovatelný postup vytvoření nové Debian VM.](MadMike/Servery/PVE-Dell.md?plain=1#L146)
+- [ ] [Ověřit současný obsah a další potřebnost VM400 před jakýmkoliv odstraněním nebo novým použitím VMID `400`.](MadMike/Servery/PVE-Dell.md?plain=1#L147)
+- [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L262)
+- [ ] [Ověřit aktuální verzi a konfiguraci PVE Dell, VM200, storage a sítě proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L263)
+- [ ] [Připravit a schválit bezpečný migrační plán z dnešních dvou mirrorů na jeden pool ze čtyř 8TB disků, včetně cílové topologie, zálohy, obnovy a rollbacku.](MadMike/Servery/PVE-Dell.md?plain=1#L264)
 
 ### PVE Ryzen
 
