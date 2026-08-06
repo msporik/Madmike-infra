@@ -37,7 +37,20 @@ Home Assistant běží jako samostatné zařízení v domácí síti spravované
 
 Současná lokální IP adresa nebo lokální URL domácího Home Assistantu není v dostupných autoritativních zdrojích uvedená. **Vyžaduje ověření v živém systému.**
 
-Aktuálně používaná vzdálená přístupová cesta není zdokumentovaná. **Vyžaduje ověření v živém systému.** Přístupové účty, MFA, recovery a uložení přihlašovacích údajů patří do projektu [Přístupy](../Pristupy/README.md); tajné hodnoty se do GitHubu nezapisují.
+Vzdálený přístup k domácímu Home Assistantu je publikovaný jako `domov.mikehub.cz` přes Cloudflare Tunnel `homeassistant-domov`. Samostatná veřejná cesta `mcp.mikehub.cz` zpřístupňuje AI pouze Home Assistant MCP Server; obě cesty vedou přes Cloudflare Tunnel a ne přes domácí Nginx Proxy Manager.
+
+V Home Assistantu je pro reverzní proxy důvěryhodný rozsah `172.30.33.0/24` a je zapnuté zpracování `X-Forwarded-For`. Interní wildcard `*.mikehub.cz` na RB5009 veřejné názvy v domácí LAN přebíjí, proto stejná veřejná URL doma aktuálně nefunguje. Jde o známé chování současného DNS návrhu, ne samo o sobě o poruchu Home Assistantu, tunelu nebo MCP.
+
+Přístupové účty, MFA, recovery a uložení přihlašovacích údajů patří do projektu [Přístupy](../Pristupy/README.md); tajné hodnoty se do GitHubu nezapisují.
+
+### Přístup AI přes MCP
+
+- Home Assistant MCP Server z projektu `homeassistant-ai/ha-mcp` běží jako aplikace v Home Assistantu.
+- Serverově vynucený **Read Only Mode** brání změnám i tehdy, kdyby je AI požadovala. Rozsah přístupu lze dále omezovat výběrem povolených nástrojů v konfiguračním rozhraní MCP serveru.
+- Přístup byl prakticky ověřen **2026-08-06** z Claude.ai i ChatGPT Work. AI může číst entity, zařízení, integrace a konfigurace automatizací; zdrojem pravdy zůstává živý Home Assistant.
+- V Claude.ai se používá uložený vlastní konektor `Home Assistant MCP`.
+- V novém chatu ChatGPT se přepne do režimu **Work**, napíše se `@` a vybere se `Home Assistant MCP`.
+- Konektor používá tajnou cestu v URL místo dalšího uživatelského jména, hesla nebo tokenu. Úplná URL se nevkládá do GitHubu ani chatu a zachází se s ní jako s heslem podle projektu [Přístupy](../Pristupy/README.md).
 
 ## Hlavní integrační vrstvy
 
@@ -75,6 +88,14 @@ Při hlášeném problému postupovat od nejmenšího rozsahu:
 4. Určit, zda je problém v Home Assistant Core, konkrétním add-onu, síti, MQTT, koordinátoru nebo cílovém zařízení.
 5. Restartovat pouze dotčenou vrstvu. Celý host nebo rack se nerestartuje jako první diagnostický krok.
 6. Po zásahu ověřit skutečnou funkci dotčené oblasti, ne pouze otevření webového rozhraní.
+
+### Porucha vzdáleného přístupu nebo MCP
+
+1. Pokud zvenku nefunguje Home Assistant ani MCP, zkontrolovat stav a log aplikace Cloudflared a tunelu `homeassistant-domov`.
+2. Pokud vzdálený Home Assistant funguje, ale AI nevidí data, zkontrolovat stav a log aplikace Home Assistant MCP Server a případně restartovat pouze tuto aplikaci.
+3. Při chybě `400 Bad Request` zkontrolovat důvěryhodnou reverzní proxy `172.30.33.0/24` a zpracování `X-Forwarded-For`.
+4. Po změně povolených MCP nástrojů obnovit metadata konektoru v příslušném AI klientu a provést pouze čtecí test.
+5. Pokud veřejná URL nefunguje jen z domácí LAN, nejprve zohlednit interní wildcard DNS; tento stav je v současné architektuře očekávaný.
 
 ### Minimální přejímka po zásahu
 
@@ -158,6 +179,5 @@ Detailní správa NVR, retence záznamu a úplný kamerový kusovník jsou mimo 
 ## Otevřené úkoly
 
 - [ ] Ověřit živý seznam aktivních integrací a vyřadit z evidence již nepoužívané položky.
-- [ ] Ověřit a zdokumentovat aktuálně používanou vzdálenou přístupovou cestu k domácímu Home Assistantu.
 - [ ] Ověřit, zda Uptime Kuma hlídá dostupnost domácího Home Assistantu a zda upozornění směřují do schváleného notifikačního systému.
 - [ ] S využitím plošiny vyměnit připravené 2 kamery za Hikvision, ověřit jejich záznam na Hikvision NVR a dokončit migraci kamerového systému na Hikvision.
