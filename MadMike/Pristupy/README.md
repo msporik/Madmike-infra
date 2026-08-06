@@ -56,8 +56,18 @@ Přístup k administrační službě se skládá z několika nezávislých vrste
 | Nextcloud | veřejné HTTPS přímo na VM401 přes Apache | Přístup funguje. Úplná publikační cesta, stav účtů, MFA a recovery vyžadují ověření v živém systému. | [Nextcloud – přístup a uživatelé](../Nextcloud/Pristup-a-uzivatele.md) |
 | PREMIER / VM501 | přímé veřejné RDP přes MikroTik | Přístup účetní funguje, ale jde o zděděné riziko. Přesné živé NAT/firewall pravidlo nebylo ověřené a cílová náhrada není vybraná. | [PREMIER – přístup a provoz](../Premier/Pristup-a-provoz.md) |
 | HA ValTom | Cloudflare Tunnel na připraveném HA Green | Tunel dříve fungoval. HA Green je nyní vypnutý a ještě není produkčně nasazený; po fyzickém nasazení se musí cesta znovu ověřit. | [HA ValTom – nasazení a přístup](../../HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md) |
+| Domácí Home Assistant | `domov.mikehub.cz` přes Cloudflare Tunnel `homeassistant-domov` | Vzdálená cesta byla prakticky ověřená 2026-08-06. Účty, MFA a recovery Home Assistantu se tím nepovažují za souhrnně ověřené. | [Domácí Home Assistant](../Home-Assistant/README.md) |
+| Home Assistant MCP | `mcp.mikehub.cz` přes stejný Cloudflare Tunnel | Tajná část URL nahrazuje samostatné přihlášení k MCP. Server má vynucený read-only režim a omezení povolených nástrojů; přístup byl prakticky ověřený z Claude.ai i ChatGPT Work 2026-08-06. | [Domácí Home Assistant](../Home-Assistant/README.md) |
 
 Veřejná dostupnost neznamená veřejnou administraci bez autentizace. Konkrétní účty, role, MFA, recovery, NAT, firewall a publikační konfigurace zůstávají v autoritativním projektu služby nebo sítě.
+
+### Tajná URL Home Assistant MCP
+
+- Home Assistant MCP nepoužívá další uživatelské jméno, heslo ani token; autentizačním údajem je tajná část URL.
+- Úplná MCP URL se nesmí zapisovat do GitHubu, chatu, screenshotu ani běžných poznámek. Má být uložená v Bitwardenu a zachází se s ní jako s heslem.
+- Dopad případného zneužití omezuje serverově vynucený **Read Only Mode** a výběr povolených nástrojů. Tato omezení nenahrazují ochranu tajné URL.
+- Při podezření na únik změnit tajnou cestu na MCP serveru, zneplatnit původní URL a aktualizovat uložené konektory v Claude.ai a ChatGPT Work.
+- Po změně provést pouze čtecí test a ověřit, že stará URL již nefunguje.
 
 ## Odpovědnosti
 
