@@ -6,7 +6,7 @@
 
 Jednotný interní přístup k administračním a monitorovacím službám přes zapamatovatelné názvy a důvěryhodné HTTPS. Klient nepoužívá přímo IP adresu a port služby.
 
-Tyto služby nejsou veřejně publikované. Z domácí LAN jsou dostupné přímo, zvenku po připojení přes WireGuard. Přímá interní IP a port zůstávají nouzovou cestou pro diagnostiku.
+Níže uvedené administrační a monitorovací služby obsluhované NPM nejsou veřejně publikované. Z domácí LAN jsou dostupné přímo, zvenku po připojení přes WireGuard. Přímá interní IP a port zůstávají nouzovou cestou pro diagnostiku. Vědomé veřejné výjimky přes Cloudflare nebo jinou publikační cestu jsou uvedené samostatně.
 
 ## Výsledná architektura
 
@@ -42,6 +42,8 @@ klient
 - DNS služba má pro interní klienty zapnuté `allow-remote-requests`.
 - Statický wildcard `*.mikehub.cz` směřuje na NPM `192.168.89.35`.
 - `valtom.mikehub.cz` je veřejná výjimka mimo interní NPM. Podrobnosti jsou v [HA ValTom / Nasazení a přístup](../../HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md).
+- `domov.mikehub.cz` a `mcp.mikehub.cz` jsou veřejné výjimky vedené přes Cloudflare Tunnel `homeassistant-domov`, nikoli přes NPM. Podrobnosti jsou v [domácím Home Assistantu](../Home-Assistant/README.md).
+- Interní wildcard `*.mikehub.cz → 192.168.89.35` tyto dva veřejné názvy v domácí LAN přebíjí. Nefunkčnost stejné veřejné URL doma je proto v současném návrhu očekávaná.
 - AdGuard není autoritativním místem interních překladů; slouží odděleně k filtrování reklam.
 
 Notebookový WireGuard profil používá:
@@ -99,7 +101,14 @@ Compose cesty, kontejnery, porty a trvalé deklarace sítí jsou v [VM510-Docker
 
 Wildcard pokrývá jednopatrové názvy typu `pveryzen.mikehub.cz`, nikoliv víceúrovňové jméno typu `pve.home.mikehub.cz`. Proto se používají ploché názvy.
 
-Cloudflare slouží pro DNS challenge a veřejnou výjimku `valtom.mikehub.cz`; interní služby přes něj nejsou publikované.
+Cloudflare slouží pro DNS challenge, veřejnou výjimku `valtom.mikehub.cz` a tunel `homeassistant-domov`. Přes tento tunel jsou publikované pouze:
+
+| Veřejný název | Účel | Cesta |
+|---|---|---|
+| `domov.mikehub.cz` | vzdálený přístup k domácímu Home Assistantu | Cloudflare Tunnel přímo k Home Assistantu |
+| `mcp.mikehub.cz` | read-only MCP přístup pro AI klienty | Cloudflare Tunnel k aplikaci Home Assistant MCP Server |
+
+Tyto dvě cesty nevedou přes domácí NPM. Konfigurace Home Assistantu důvěřuje reverzní proxy v rozsahu `172.30.33.0/24` a zpracovává `X-Forwarded-For`. Tajná část MCP URL je přihlašovací údaj a patří do Bitwardenu, ne do tohoto dokumentu.
 
 ## Běžná kontrola
 
