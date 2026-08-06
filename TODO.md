@@ -60,10 +60,9 @@
 
 ### Home Assistant
 
-- [ ] [Ověřit živý seznam aktivních integrací a vyřadit z evidence již nepoužívané položky.](MadMike/Home-Assistant/README.md?plain=1#L160)
-- [ ] [Ověřit a zdokumentovat aktuálně používanou vzdálenou přístupovou cestu k domácímu Home Assistantu.](MadMike/Home-Assistant/README.md?plain=1#L161)
-- [ ] [Ověřit, zda Uptime Kuma hlídá dostupnost domácího Home Assistantu a zda upozornění směřují do schváleného notifikačního systému.](MadMike/Home-Assistant/README.md?plain=1#L162)
-- [ ] [S využitím plošiny vyměnit připravené 2 kamery za Hikvision, ověřit jejich záznam na Hikvision NVR a dokončit migraci kamerového systému na Hikvision.](MadMike/Home-Assistant/README.md?plain=1#L163)
+- [ ] [Ověřit živý seznam aktivních integrací a vyřadit z evidence již nepoužívané položky.](MadMike/Home-Assistant/README.md?plain=1#L181)
+- [ ] [Ověřit, zda Uptime Kuma hlídá dostupnost domácího Home Assistantu a zda upozornění směřují do schváleného notifikačního systému.](MadMike/Home-Assistant/README.md?plain=1#L182)
+- [ ] [S využitím plošiny vyměnit připravené 2 kamery za Hikvision, ověřit jejich záznam na Hikvision NVR a dokončit migraci kamerového systému na Hikvision.](MadMike/Home-Assistant/README.md?plain=1#L183)
 
 ### Zigbee
 
