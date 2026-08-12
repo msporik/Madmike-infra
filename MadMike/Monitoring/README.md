@@ -1,6 +1,6 @@
 # Monitoring
 
-> Poslední doložený provozní stav: **2026-07-28**. Nejde o potvrzení současného živého stavu.
+> Poslední doložený provozní stav: **2026-07-28**. Dílčí živé ověření backup coverage VM510 proběhlo **2026-08-12**.
 
 ## Účel
 
@@ -46,6 +46,8 @@ K 2026-07-28:
 - nativní notifikace PVE/PBS nebyly prakticky otestovány;
 - Checkmk, Zabbix, Beszel a CoreBit byly odstraněny;
 - InfluxDB, Grafana, Telegraf a samostatný Prometheus nejsou součástí schváleného monitorovacího stacku.
+
+Dílčí kontrola 2026-08-12 potvrdila, že VM510 je stále zahrnuta v automatickém PBS backup jobu na PVE Ryzen. Aktuální snapshot VM510 fyzicky existuje na PBS datastore a kontrolovaný backup i následný Verify skončily `OK`. Tato kontrola neověřovala stav Dockeru ani jednotlivých kontejnerů uvnitř VM510.
 
 Odstraněné nástroje nejsou otevřenými kandidáty k opětovnému nasazení.
 
@@ -100,4 +102,4 @@ Pořadí diagnostiky:
 > Následující body vyžadují ověření v živém systému.
 
 - [ ] Ověřit současný stav VM510, Dockeru a všech provozovaných kontejnerů.
-- [ ] Ověřit, že je VM510 stále zahrnuta v automatickém PBS backup jobu.
+- [x] Ověřit, že je VM510 stále zahrnuta v automatickém PBS backup jobu. — 2026-08-12 ověřeno; VM510 je součástí jobu a aktuální backup i Verify skončily `OK`.
