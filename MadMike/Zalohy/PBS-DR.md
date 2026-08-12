@@ -1,6 +1,6 @@
 # PBS a disaster recovery
 
-> Poslední doložený provozní stav: **2026-07-28**.  
+> Poslední doložený provozní stav: **2026-08-12**.  
 > Rozsah DR a sporné body byly potvrzeny **2026-07-29**. Údaje bez novější živé kontroly nejsou vydávány za aktuální stav.
 
 ## Účel a hranice
@@ -48,15 +48,16 @@ Síťové propojení a adresy jsou v [WireGuardu](../Servery/WireGuard.md). Tajn
 
 ## Poslední doložená konfigurace zálohování
 
-Stav níže byl naposledy doložen 2026-07-28:
+Stav byl živě read-only ověřen 2026-08-12:
 
 ```text
 Cíl: pbs-backup
 Režim: Snapshot
-Komprese: ZSTD
 Čas: denně 02:00
-Objekty: CT100, VM401, VM501, VM510
+Objekty: VM401, VM501, VM510
 ```
+
+CT100 byl dříve součástí backup jobu, ale po odstranění kontejneru již v živé konfiguraci jobu není. Na PVE Ryzen při kontrole existovaly právě VM401, VM501 a VM510, takže žádná aktuální VM nebyla z jobu vynechána.
 
 Retence:
 
@@ -74,9 +75,17 @@ Keep Monthly: 12
 - Prune: denně;
 - Garbage Collection: denně.
 
-Starší checkpoint z 2026-07-13 uváděl Verify pouze v neděli ve 04:00. Novější kontrola z 2026-07-28 potvrzuje denní rozvrh a je pro tento zápis rozhodující.
+Starší checkpoint z 2026-07-13 uváděl Verify pouze v neděli ve 04:00. Novější kontrola z 2026-07-28 a živé ověření 2026-08-12 potvrzují denní rozvrh.
 
-Poslední kontrolované backupy i Garbage Collection skončily `OK`. CT100 byl následně při úklidu monitoringu odstraněn, takže současný výběr objektů v jobu je potřeba živě zkontrolovat a případnou neexistující položku odstranit.
+Živá read-only kontrola 2026-08-12 potvrdila:
+
+- jeden aktivní backup job na PVE Ryzen pro VM401, VM501 a VM510;
+- automatické backup tasky ve sledovaném výpisu od 2026-07-29 do 2026-08-12 skončily všechny `OK`;
+- fyzickou existenci aktuálních snapshotů VM401, VM501 a VM510 na datastore;
+- poslední kontrolované Verify běhy 2026-08-09 až 2026-08-12 skončily `OK`;
+- poslední kontrolované Prune a Garbage Collection skončily `OK`;
+- datastore `backup` je skutečně připojený jako `/dev/sdb`, ext4, na `/mnt/datastore`;
+- kapacitu datastore přibližně 6,8 TB, využito přibližně 287 GB, volno přibližně 6,2 TB, tedy asi 5 % obsazení.
 
 ZFS scrub má zůstat přibližně měsíční. Jeho skutečné plánování, poslední výsledek a notifikace: **Vyžaduje ověření v živém systému.**
 
@@ -84,10 +93,10 @@ ZFS scrub má zůstat přibližně měsíční. Jeho skutečné plánování, po
 
 | Systém | Poslední doložená ochrana | Praktická obnova | Poznámka |
 |---|---|---|---|
-| VM401 Nextcloud | PBS job 2026-07-28 `OK` | Ano | Testovací restore na Dell jako VM402 a pozdější produkční restore na nově instalovaný PVE Ryzen |
-| VM501 Windows/PREMIER | PBS job 2026-07-28 `OK` | Ano | Restore z PBS zpět na Ryzen ověřen; Dell VM501 vznikla importem, nikoli PBS restore |
-| VM510 Monitoring | PBS job 2026-07-28 `OK` | Ne | Před restore testem je nutné ověřit všechna persistentní data a mounty |
-| CT100 Zabbix | Historický PBS backup 2026-07-28 | Ne | Zdrojový CT byl následně odstraněn; staré backup groups se nemažou bez ověření původu |
+| VM401 Nextcloud | PBS job 2026-08-12 `OK` | Ano | Testovací restore na Dell jako VM402 a pozdější produkční restore na nově instalovaný PVE Ryzen |
+| VM501 Windows/PREMIER | PBS job 2026-08-12 `OK` | Ano | Restore z PBS zpět na Ryzen ověřen; Dell VM501 vznikla importem, nikoli PBS restore |
+| VM510 Monitoring | PBS job 2026-08-12 `OK` | Ne | Před restore testem je nutné ověřit všechna persistentní data a mounty |
+| CT100 Zabbix | Historický PBS backup | Ne | Zdrojový CT byl odstraněn a již není v aktuálním backup jobu; staré backup groups se nemažou bez ověření původu |
 | Home Assistant | Není přímým objektem tohoto PBS jobu | Viz [Home Assistant](Home-Assistant.md) | Schválený řetězec vede přes Nextcloud a jeho PBS zálohu |
 | MikroTik konfigurace | Není přímým objektem tohoto PBS jobu | Ne | Stav exportů a cílový řetězec jsou v [MikroTik](MikroTik.md) |
 
@@ -134,6 +143,10 @@ Dell / VM401 je starší migrační test Nextcloudu, nikoli PBS DR obnova. Podro
 - po návratu proběhl další úspěšný inkrementální PBS backup.
 
 Podrobný provozní přehled je v projektu [PREMIER](../Premier/README.md).
+
+### VM510 Monitoring
+
+Praktický restore VM510 zatím nebyl proveden. Při kontrole 2026-08-12 byl pouze ověřen aktuální backup job, fyzická existence snapshotů a úspěšné Verify. Praktický restore zůstává samostatným budoucím DR úkolem.
 
 ### Offsite provoz
 
@@ -185,113 +198,13 @@ Testovací restore se nejdřív spouští bez produkčního síťového připoje
 2. Po obnově zkontrolovat filesystém, síť, čas, Docker a adresáře `/opt/npm`, `/opt/pulse` a `/opt/mikr`.
 3. Postupovat podle [VM510 / Pořadí obnovy](../Servery/VM510-Docker.md#pořadí-obnovy-vm510): NPM jako první, potom Pulse a Mikr, následně Uptime Kuma.
 4. Ověřit proxy hosty a certifikáty, zdroje Pulse, zařízení Mikru, monitory Kumy a historická data.
-5. Pokud chybí persistence, zastavit další inicializaci a vybrat jiný snapshot nebo řízenou aplikační obnovu.
+5. Pokud chybí persistence, zastavit další inicializaci a vybrat jiný snapshot nebo řízený postup.
 
-## Dokončení a záznam obnovy
+## Otevřené úkoly
 
-Obnova je dokončená až po aplikační přejímce:
-
-1. zaznamenat zdrojový snapshot, cílový host, storage, VMID, začátek a konec;
-2. uvést, zda šlo o test, produkční restore nebo DR provoz;
-3. zapsat ověřené funkce, ruční kroky, problémy a výsledek;
-4. potvrdit, která kopie je nyní autoritativní a že druhá nemůže nechtěně naběhnout;
-5. po stabilizaci vytvořit nový backup a ověřit jeho výsledek;
-6. aktualizovat tento dokument a aplikační projekt bez tajných hodnot.
-
-## Stručný DR runbook pro ztrátu PVE Ryzen
-
-1. Potvrdit rozsah incidentu a pokud možno zachovat původní disky beze změny.
-2. Ověřit dostupnost PVE Dell, VM200, datastore `backup`, posledních použitelných snapshotů a WireGuard spojení.
-3. Zvolit cíl obnovy:
-   - preferovaně opravený nebo náhradní PVE Ryzen;
-   - dočasně PVE Dell, pokud má dostatek prostředků a jsou předem vyřešeny kolize VMID, storage a sítí.
-4. Obnovit systémy podle provozní priority. VM401 poskytuje Nextcloud a budoucí HA backupy, VM501 účetní prostředí a VM510 infrastrukturu a monitoring.
-5. U každé VM provést příslušný runbook a aplikační přejímku.
-6. Teprve po přejímce přesměrovat produkční provoz a zabránit souběžnému spuštění staré i obnovené kopie.
-7. Po stabilizaci spustit nový backup, zkontrolovat jeho výsledek a zaznamenat průběh obnovy.
-
-Požadované pořadí služeb, RPO a RTO nejsou jako společné rozhodnutí doložené: **Vyžaduje ověření v živém systému.**
-
-## Výpadek zálohovací cesty bez výpadku produkce
-
-Pokud produkční VM běží, ale `pbs-backup`, PVE Dell nebo PBS nejsou dostupné:
-
-1. označit VM401, VM501 a VM510 jako dočasně bez potvrzené offsite ochrany;
-2. omezit zbytné rizikové změny a aktualizace, dokud se ochrana neobnoví;
-3. oddělit problém WireGuardu, PVE Dell, VM200, mountu `/mnt/datastore`, PBS služby a autentizace;
-4. zachovat chybové logy a tajné údaje nerekonfigurovat naslepo;
-5. nevytvářet nový prázdný datastore se stejným názvem a neformátovat neověřené zařízení;
-6. po opravě ověřit datovou cestu a spustit řízený backup pouze tehdy, když nebude kolidovat s jinou úlohou;
-7. potvrdit vznik nového použitelného snapshotu a následný Verify.
-
-## Backup groups, VMID a nejasné objekty
-
-Poslední doložený stav používá kořenový PBS namespace. Stejná VMID použitá na Ryzenu a Dellu mohou spolu s historickými importy a migracemi vytvářet nejasné nebo orphaned backup groups.
-
-Před smazáním jakékoli skupiny se musí určit:
-
-1. zdrojový host a původ objektu;
-2. zda šlo o backup, restore, import nebo migraci;
-3. datum a použitelnost posledního snapshotu;
-4. zda skupina ještě plní DR nebo historickou roli.
-
-Dell / VM400 má zatím neověřený účel a nesmí být bez dalšího důkazu označena jako nepotřebná.
-
-## Recovery materiály hostitelů
-
-Obnova VM z PBS neřeší sama o sobě obnovu PVE nebo PBS hostitele. Mimo selhaný Ryzen musí být bezpečně dostupné alespoň:
-
-- údaje potřebné pro přístup k Dell/PBS a WireGuard propojení;
-- identifikace PBS datastore, fingerprintu a používaného účtu nebo tokenu;
-- popis storage layoutu a síťových závislostí;
-- instalační postup PVE a informace potřebné k opětovnému připojení PBS;
-- případný klientský recovery klíč, pokud bude klientské šifrování zapnuto.
-
-Do GitHubu se zapisuje pouze bezpečné umístění těchto materiálů, nikdy jejich tajný obsah.
-
-Klientské šifrování PBS je k 2026-07-29 **nerozhodnuté**. Dokumentace proto netvrdí, že je zapnuté ani že je definitivně vypnuté.
-
-## Interpretace kapacity
-
-PVE storage `tank-pbs` může kvůli thick `refreservation` virtuálního disku VM200 vypadat téměř plné. Při poslední kontrole PVE ukazovalo přibližně 97 %, zatímco skutečný PBS datastore byl využitý zhruba ze 3 %.
-
-Pro reálnou kapacitu záloh je autoritativní PBS datastore `backup`, nikoli procento PVE storage. Neobvyklý rozdíl se nejdřív vysvětlí datovou cestou a rezervací; není důvodem k okamžitému mazání záloh.
-
-## Diagnostika
-
-| Projev | První kontrola | Bezpečný další krok |
-|---|---|---|
-| Backup z Ryzenu selhal | task log, `pbs-backup`, WireGuard, kapacita a dostupnost datastore | zachovat log; neodstraňovat staré snapshoty, dokud není potvrzen nový použitelný backup |
-| PBS GUI funguje, datastore chybí | `/mnt/datastore`, zařízení, filesystem a VM200 | nespouštět údržbu a nevytvářet prázdný datastore; pokračovat v PVE Dell runbooku |
-| Datastore je téměř plný | skutečné PBS využití, růst a retence | odlišit PBS kapacitu od PVE `refreservation`; mazání nespouštět jako první krok |
-| Verify hlásí chybu | dotčený snapshot/chunk, task log, ZFS a SMART | zachovat data i logy; neprovádět Prune/GC před určením rozsahu a obnovitelnosti |
-| Prune nebo GC selhaly | task log, kapacita, mount a současně běžící úlohy | neopakovat úlohu naslepo; nejdřív odstranit příčinu a ověřit datastore |
-| Pulse hlásí orphaned backup | VMID, zdrojový host, import/migrace/restore | nic nemazat; určit původ skupiny podle tohoto dokumentu |
-| Restore skončil `OK`, aplikace nefunguje | storage mapování, síť, mounty a aplikační logy | pokračovat v autoritativním aplikačním runbooku; restore úlohu nepovažovat za dokončenou obnovu |
-| Dell není dostupný z HOME | WireGuard, internet lokality a iDRAC | oddělit síťový problém od výpadku hostitele; viz PVE Dell a WireGuard |
-
-## Handover a odpovědnosti
-
-- Rozhodnutí o spuštění produkčního DR, výběru snapshotu a přepnutí autoritativní kopie musí provést správce infrastruktury.
-- Místní zásah v offsite lokalitě se koordinuje s osobou, která má fyzický přístup k Dellu; konkrétní jméno a dostupnost: **Vyžaduje ověření v živém systému.**
-- Aplikační přejímku provádí osoba, která zná běžnou funkci systému; u PREMIERu musí být ověřen i pracovní přístup účetní.
-- O každé produkční obnově se zapisuje výsledek do tohoto dokumentu a do autoritativního projektu aplikace.
-- Tajné přístupy a recovery materiály se spravují podle projektu [Přístupy](../Pristupy/README.md), nikoli v tomto souboru.
-
-## Otevřené kontroly
-
-- [ ] Ověřit živý výběr objektů backup jobu a odstranit případnou neexistující položku CT100.
-- [ ] Ověřit poslední úspěšné běhy Backup, Verify, Prune a Garbage Collection.
-- [ ] Ověřit aktuální obsazení datastore `backup`.
-- [ ] Ověřit plánování a poslední běh scrubů na `tank-pbs` a `tank-nas`.
-- [ ] Ověřit SMART a teploty čtyř SAS disků a systémového SSD proti živému stavu.
-- [ ] Ověřit persistentní Docker data a mounty VM510 a provést testovací restore.
-- [ ] Prakticky ověřit start PVE Dell, VM200 a datastore po úplném výpadku napájení.
-- [ ] Stanovit rozumnou četnost opakovaných testů obnovy.
-- [ ] Stanovit společné RPO, RTO, pořadí obnovy a hranici stáří záloh vyžadující zásah.
-- [ ] Určit původ nejasných/orphaned backup groups a samostatně ověřit účel Dell / VM400 jako odlišného objektu.
-- [ ] Zdokumentovat bezpečné umístění recovery materiálů hostitelů bez zveřejnění tajných údajů.
-- [ ] Rozhodnout o klientském šifrování PBS a při jeho použití bezpečně uložit recovery klíč.
-- [ ] Určit odpovědnost a dostupnost místního zásahu u Richarda.
-
-Testy nativních notifikací Backup, Verify, Prune a Garbage Collection jsou vedené v [Monitoring / Pulse](../Monitoring/Pulse.md).
+- [x] Ověřit živý výběr objektů backup jobu a odstranit případnou neexistující položku CT100. — 2026-08-12 ověřeno; CT100 již v jobu není, job obsahuje VM401, VM501 a VM510.
+- [x] Ověřit poslední úspěšné běhy Backup, Verify, Prune a Garbage Collection. — 2026-08-12 ověřeno, poslední kontrolované běhy `OK`.
+- [ ] Ověřit plánování ZFS scrubů, poslední výsledek a způsob notifikace.
+- [ ] Stanovit požadovanou maximální stáří posledního použitelného backupu a minimální bezpečnou rezervu datastore.
+- [ ] Prakticky otestovat restore VM510 Monitoring v izolovaném prostředí.
+- [ ] Prakticky otestovat plný power-loss / cold-start scénář PVE Dell + VM200 + datastore.
