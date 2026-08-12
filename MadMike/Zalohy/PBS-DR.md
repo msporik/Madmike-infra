@@ -198,13 +198,116 @@ Testovací restore se nejdřív spouští bez produkčního síťového připoje
 2. Po obnově zkontrolovat filesystém, síť, čas, Docker a adresáře `/opt/npm`, `/opt/pulse` a `/opt/mikr`.
 3. Postupovat podle [VM510 / Pořadí obnovy](../Servery/VM510-Docker.md#pořadí-obnovy-vm510): NPM jako první, potom Pulse a Mikr, následně Uptime Kuma.
 4. Ověřit proxy hosty a certifikáty, zdroje Pulse, zařízení Mikru, monitory Kumy a historická data.
-5. Pokud chybí persistence, zastavit další inicializaci a vybrat jiný snapshot nebo řízený postup.
+5. Pokud chybí persistence, zastavit další inicializaci a vybrat jiný snapshot nebo řízenou aplikační obnovu.
 
-## Otevřené úkoly
+## Dokončení a záznam obnovy
+
+Obnova je dokončená až po aplikační přejímce:
+
+1. zaznamenat zdrojový snapshot, cílový host, storage, VMID, začátek a konec;
+2. uvést, zda šlo o test, produkční restore nebo DR provoz;
+3. zapsat ověřené funkce, ruční kroky, problémy a výsledek;
+4. potvrdit, která kopie je nyní autoritativní a že druhá nemůže nechtěně naběhnout;
+5. po stabilizaci vytvořit nový backup a ověřit jeho výsledek;
+6. aktualizovat tento dokument a aplikační projekt bez tajných hodnot.
+
+## Stručný DR runbook pro ztrátu PVE Ryzen
+
+1. Potvrdit rozsah incidentu a pokud možno zachovat původní disky beze změny.
+2. Ověřit dostupnost PVE Dell, VM200, datastore `backup`, posledních použitelných snapshotů a WireGuard spojení.
+3. Zvolit cíl obnovy:
+   - preferovaně opravený nebo náhradní PVE Ryzen;
+   - dočasně PVE Dell, pokud má dostatek prostředků a jsou předem vyřešeny kolize VMID, storage a sítí.
+4. Obnovit systémy podle provozní priority. VM401 poskytuje Nextcloud a budoucí HA backupy, VM501 účetní prostředí a VM510 infrastrukturu a monitoring.
+5. U každé VM provést příslušný runbook a aplikační přejímku.
+6. Teprve po přejímce přesměrovat produkční provoz a zabránit souběžnému spuštění staré i obnovené kopie.
+7. Po stabilizaci spustit nový backup, zkontrolovat jeho výsledek a zaznamenat průběh obnovy.
+
+Požadované pořadí služeb, RPO a RTO nejsou jako společné rozhodnutí doložené: **Vyžaduje ověření v živém systému.**
+
+## Výpadek zálohovací cesty bez výpadku produkce
+
+Pokud produkční VM běží, ale `pbs-backup`, PVE Dell nebo PBS nejsou dostupné:
+
+1. označit VM401, VM501 a VM510 jako dočasně bez potvrzené offsite ochrany;
+2. omezit zbytné rizikové změny a aktualizace, dokud se ochrana neobnoví;
+3. oddělit problém WireGuardu, PVE Dell, VM200, mountu `/mnt/datastore`, PBS služby a autentizace;
+4. zachovat chybové logy a tajné údaje nerekonfigurovat naslepo;
+5. nevytvářet nový prázdný datastore se stejným názvem a neformátovat neověřené zařízení;
+6. po opravě ověřit datovou cestu a spustit řízený backup pouze tehdy, když nebude kolidovat s jinou úlohou;
+7. potvrdit vznik nového použitelného snapshotu a následný Verify.
+
+## Backup groups, VMID a nejasné objekty
+
+Poslední doložený stav používá kořenový PBS namespace. Stejná VMID použitá na Ryzenu a Dellu mohou spolu s historickými importy a migracemi vytvářet nejasné nebo orphaned backup groups.
+
+Před smazáním jakékoli skupiny se musí určit:
+
+1. zdrojový host a původ objektu;
+2. zda šlo o backup, restore, import nebo migraci;
+3. datum a použitelnost posledního snapshotu;
+4. zda skupina ještě plní DR nebo historickou roli.
+
+Dell / VM400 má zatím neověřený účel a nesmí být bez dalšího důkazu označena jako nepotřebná.
+
+## Recovery materiály hostitelů
+
+Obnova VM z PBS neřeší sama o sobě obnovu PVE nebo PBS hostitele. Mimo selhaný Ryzen musí být bezpečně dostupné alespoň:
+
+- údaje potřebné pro přístup k Dell/PBS a WireGuard propojení;
+- identifikace PBS datastore, fingerprintu a používaného účtu nebo tokenu;
+- popis storage layoutu a síťových závislostí;
+- instalační postup PVE a informace potřebné k opětovnému připojení PBS;
+- případný klientský recovery klíč, pokud bude klientské šifrování zapnuto.
+
+Do GitHubu se zapisuje pouze bezpečné umístění těchto materiálů, nikdy jejich tajný obsah.
+
+Klientské šifrování PBS je k 2026-07-29 **nerozhodnuté**. Dokumentace proto netvrdí, že je zapnuté ani že je definitivně vypnuté.
+
+## Interpretace kapacity
+
+PVE storage `tank-pbs` může kvůli thick `refreservation` virtuálního disku VM200 vypadat téměř plné. Při poslední kontrole PVE ukazovalo přibližně 97 %, zatímco skutečný PBS datastore byl využitý zhruba ze 3 %.
+
+Pro reálnou kapacitu záloh je autoritativní PBS datastore `backup`, nikoli procento PVE storage. Neobvyklý rozdíl se nejdřív vysvětlí datovou cestou a rezervací; není důvodem k okamžitému mazání záloh.
+
+Živá kontrola 2026-08-12 ukázala na datastore `backup` přibližně 287 GB využito z 6,8 TB a přibližně 6,2 TB volného prostoru. Tato hodnota je datovaný provozní údaj, nikoli stanovená hranice kapacitního alarmu.
+
+## Diagnostika
+
+| Projev | První kontrola | Bezpečný další krok |
+|---|---|---|
+| Backup z Ryzenu selhal | task log, `pbs-backup`, WireGuard, kapacita a dostupnost datastore | zachovat log; neodstraňovat staré snapshoty, dokud není potvrzen nový použitelný backup |
+| PBS GUI funguje, datastore chybí | `/mnt/datastore`, zařízení, filesystem a VM200 | nespouštět údržbu a nevytvářet prázdný datastore; pokračovat v PVE Dell runbooku |
+| Datastore je téměř plný | skutečné PBS využití, růst a retence | odlišit PBS kapacitu od PVE `refreservation`; mazání nespouštět jako první krok |
+| Verify hlásí chybu | dotčený snapshot/chunk, task log, ZFS a SMART | zachovat data i logy; neprovádět Prune/GC před určením rozsahu a obnovitelnosti |
+| Prune nebo GC selhaly | task log, kapacita, mount a současně běžící úlohy | neopakovat úlohu naslepo; nejdřív odstranit příčinu a ověřit datastore |
+| Pulse hlásí orphaned backup | VMID, zdrojový host, import/migrace/restore | nic nemazat; určit původ skupiny podle tohoto dokumentu |
+| Restore skončil `OK`, aplikace nefunguje | storage mapování, síť, mounty a aplikační logy | pokračovat v autoritativním aplikačním runbooku; restore úlohu nepovažovat za dokončenou obnovu |
+| Dell není dostupný z HOME | WireGuard, internet lokality a iDRAC | oddělit síťový problém od výpadku hostitele; viz PVE Dell a WireGuard |
+
+## Handover a odpovědnosti
+
+- Rozhodnutí o spuštění produkčního DR, výběru snapshotu a přepnutí autoritativní kopie musí provést správce infrastruktury.
+- Místní zásah v offsite lokalitě se koordinuje s osobou, která má fyzický přístup k Dellu; konkrétní jméno a dostupnost: **Vyžaduje ověření v živém systému.**
+- Aplikační přejímku provádí osoba, která zná běžnou funkci systému; u PREMIERu musí být ověřen i pracovní přístup účetní.
+- O každé produkční obnově se zapisuje výsledek do tohoto dokumentu a do autoritativního projektu aplikace.
+- Tajné přístupy a recovery materiály se spravují podle projektu [Přístupy](../Pristupy/README.md), nikoli v tomto souboru.
+
+## Otevřené kontroly
 
 - [x] Ověřit živý výběr objektů backup jobu a odstranit případnou neexistující položku CT100. — 2026-08-12 ověřeno; CT100 již v jobu není, job obsahuje VM401, VM501 a VM510.
-- [x] Ověřit poslední úspěšné běhy Backup, Verify, Prune a Garbage Collection. — 2026-08-12 ověřeno, poslední kontrolované běhy `OK`.
-- [ ] Ověřit plánování ZFS scrubů, poslední výsledek a způsob notifikace.
-- [ ] Stanovit požadovanou maximální stáří posledního použitelného backupu a minimální bezpečnou rezervu datastore.
-- [ ] Prakticky otestovat restore VM510 Monitoring v izolovaném prostředí.
-- [ ] Prakticky otestovat plný power-loss / cold-start scénář PVE Dell + VM200 + datastore.
+- [x] Ověřit poslední úspěšné běhy Backup, Verify, Prune a Garbage Collection. — 2026-08-12 ověřeno, kontrolované běhy skončily `OK`.
+- [x] Ověřit aktuální obsazení datastore `backup`. — 2026-08-12 ověřeno; přibližně 287 GB využito, 6,2 TB volno, asi 5 % obsazení.
+- [ ] Ověřit plánování a poslední běh scrubů na `tank-pbs` a `tank-nas`.
+- [ ] Ověřit SMART a teploty čtyř SAS disků a systémového SSD proti živému stavu.
+- [ ] Ověřit persistentní Docker data a mounty VM510 a provést testovací restore.
+- [ ] Prakticky ověřit start PVE Dell, VM200 a datastore po úplném výpadku napájení.
+- [ ] Stanovit rozumnou četnost opakovaných testů obnovy.
+- [ ] Stanovit společné RPO, RTO, pořadí obnovy a maximální přijatelné stáří backupu.
+- [ ] Stanovit minimální bezpečnou rezervu datastore a hranici kapacitního alarmu.
+- [ ] Určit původ nejasných/orphaned backup groups a samostatně ověřit účel Dell / VM400 jako odlišného objektu.
+- [ ] Zdokumentovat bezpečné umístění recovery materiálů hostitelů bez zveřejnění tajných údajů.
+- [ ] Rozhodnout o klientském šifrování PBS a při jeho použití bezpečně uložit recovery klíč.
+- [ ] Určit odpovědnost a dostupnost místního zásahu u Richarda.
+
+Testy nativních notifikací Backup, Verify, Prune a Garbage Collection jsou vedené v [Monitoring / Pulse](../Monitoring/Pulse.md).
