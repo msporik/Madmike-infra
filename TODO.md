@@ -167,16 +167,16 @@
 
 ### Přístupy
 
-- [ ] [Vybrat jednoduchou cílovou náhradu přímého veřejného RDP k PREMIERu podle skutečného způsobu práce účetní.](MadMike/Pristupy/README.md?plain=1#L131)
-- [ ] [Definovat a prakticky ověřit minimální nouzový postup pro obnovu administrátorského přístupu po současné ztrátě notebooku a telefonu.](MadMike/Pristupy/README.md?plain=1#L132)
-- [ ] [Vytvořit bezpečný přehled kritických identit po kategoriích, který bez uživatelských jmen a tajných hodnot eviduje odpovědnost, stav MFA, stav recovery a datum posledního ověření.](MadMike/Pristupy/README.md?plain=1#L133)
+- [ ] [Vybrat jednoduchou cílovou náhradu přímého veřejného RDP k PREMIERu podle skutečného způsobu práce účetní.](MadMike/Pristupy/README.md?plain=1#L141)
+- [ ] [Definovat a prakticky ověřit minimální nouzový postup pro obnovu administrátorského přístupu po současné ztrátě notebooku a telefonu.](MadMike/Pristupy/README.md?plain=1#L142)
+- [ ] [Vytvořit bezpečný přehled kritických identit po kategoriích, který bez uživatelských jmen a tajných hodnot eviduje odpovědnost, stav MFA, stav recovery a datum posledního ověření.](MadMike/Pristupy/README.md?plain=1#L143)
 
 ## MadMike / Servery
 
 ### Interní DNS, NPM a HTTPS
 
-- [ ] [Ověřit současnou verzi NPM, stav všech proxy hostů a datum poslední úspěšné obnovy wildcard certifikátu.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L212)
-- [ ] [Ověřit, že Cloudflare API token je uložený v Bitwardenu a případný nezašifrovaný TXT soubor byl odstraněn.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L213)
+- [ ] [Ověřit současnou verzi NPM, stav všech proxy hostů a datum poslední úspěšné obnovy wildcard certifikátu.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L221)
+- [ ] [Ověřit, že Cloudflare API token je uložený v Bitwardenu a případný nezašifrovaný TXT soubor byl odstraněn.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L222)
 
 ### PVE Dell
 
@@ -238,19 +238,10 @@
 
 ### PBS a disaster recovery
 
-- [ ] [Ověřit živý výběr objektů backup jobu a odstranit případnou neexistující položku CT100.](MadMike/Zalohy/PBS-DR.md?plain=1#L283)
-- [ ] [Ověřit poslední úspěšné běhy Backup, Verify, Prune a Garbage Collection.](MadMike/Zalohy/PBS-DR.md?plain=1#L284)
-- [ ] [Ověřit aktuální obsazení datastore `backup`.](MadMike/Zalohy/PBS-DR.md?plain=1#L285)
-- [ ] [Ověřit plánování a poslední běh scrubů na `tank-pbs` a `tank-nas`.](MadMike/Zalohy/PBS-DR.md?plain=1#L286)
-- [ ] [Ověřit SMART a teploty čtyř SAS disků a systémového SSD proti živému stavu.](MadMike/Zalohy/PBS-DR.md?plain=1#L287)
-- [ ] [Ověřit persistentní Docker data a mounty VM510 a provést testovací restore.](MadMike/Zalohy/PBS-DR.md?plain=1#L288)
-- [ ] [Prakticky ověřit start PVE Dell, VM200 a datastore po úplném výpadku napájení.](MadMike/Zalohy/PBS-DR.md?plain=1#L289)
-- [ ] [Stanovit rozumnou četnost opakovaných testů obnovy.](MadMike/Zalohy/PBS-DR.md?plain=1#L290)
-- [ ] [Stanovit společné RPO, RTO, pořadí obnovy a hranici stáří záloh vyžadující zásah.](MadMike/Zalohy/PBS-DR.md?plain=1#L291)
-- [ ] [Určit původ nejasných/orphaned backup groups a samostatně ověřit účel Dell / VM400 jako odlišného objektu.](MadMike/Zalohy/PBS-DR.md?plain=1#L292)
-- [ ] [Zdokumentovat bezpečné umístění recovery materiálů hostitelů bez zveřejnění tajných údajů.](MadMike/Zalohy/PBS-DR.md?plain=1#L293)
-- [ ] [Rozhodnout o klientském šifrování PBS a při jeho použití bezpečně uložit recovery klíč.](MadMike/Zalohy/PBS-DR.md?plain=1#L294)
-- [ ] [Určit odpovědnost a dostupnost místního zásahu u Richarda.](MadMike/Zalohy/PBS-DR.md?plain=1#L295)
+- [ ] [Ověřit plánování ZFS scrubů, poslední výsledek a způsob notifikace.](MadMike/Zalohy/PBS-DR.md?plain=1#L207)
+- [ ] [Stanovit požadovanou maximální stáří posledního použitelného backupu a minimální bezpečnou rezervu datastore.](MadMike/Zalohy/PBS-DR.md?plain=1#L208)
+- [ ] [Prakticky otestovat restore VM510 Monitoring v izolovaném prostředí.](MadMike/Zalohy/PBS-DR.md?plain=1#L209)
+- [ ] [Prakticky otestovat plný power-loss / cold-start scénář PVE Dell + VM200 + datastore.](MadMike/Zalohy/PBS-DR.md?plain=1#L210)
 
 ### Zálohy Home Assistantu
 
