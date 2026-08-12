@@ -237,10 +237,17 @@
 
 ### PBS a disaster recovery
 
-- [ ] [Ověřit plánování ZFS scrubů, poslední výsledek a způsob notifikace.](MadMike/Zalohy/PBS-DR.md?plain=1#L207)
-- [ ] [Stanovit požadovanou maximální stáří posledního použitelného backupu a minimální bezpečnou rezervu datastore.](MadMike/Zalohy/PBS-DR.md?plain=1#L208)
-- [ ] [Prakticky otestovat restore VM510 Monitoring v izolovaném prostředí.](MadMike/Zalohy/PBS-DR.md?plain=1#L209)
-- [ ] [Prakticky otestovat plný power-loss / cold-start scénář PVE Dell + VM200 + datastore.](MadMike/Zalohy/PBS-DR.md?plain=1#L210)
+- [ ] [Ověřit plánování a poslední běh scrubů na `tank-pbs` a `tank-nas`.](MadMike/Zalohy/PBS-DR.md?plain=1#L301)
+- [ ] [Ověřit SMART a teploty čtyř SAS disků a systémového SSD proti živému stavu.](MadMike/Zalohy/PBS-DR.md?plain=1#L302)
+- [ ] [Ověřit persistentní Docker data a mounty VM510 a provést testovací restore.](MadMike/Zalohy/PBS-DR.md?plain=1#L303)
+- [ ] [Prakticky ověřit start PVE Dell, VM200 a datastore po úplném výpadku napájení.](MadMike/Zalohy/PBS-DR.md?plain=1#L304)
+- [ ] [Stanovit rozumnou četnost opakovaných testů obnovy.](MadMike/Zalohy/PBS-DR.md?plain=1#L305)
+- [ ] [Stanovit společné RPO, RTO, pořadí obnovy a maximální přijatelné stáří backupu.](MadMike/Zalohy/PBS-DR.md?plain=1#L306)
+- [ ] [Stanovit minimální bezpečnou rezervu datastore a hranici kapacitního alarmu.](MadMike/Zalohy/PBS-DR.md?plain=1#L307)
+- [ ] [Určit původ nejasných/orphaned backup groups a samostatně ověřit účel Dell / VM400 jako odlišného objektu.](MadMike/Zalohy/PBS-DR.md?plain=1#L308)
+- [ ] [Zdokumentovat bezpečné umístění recovery materiálů hostitelů bez zveřejnění tajných údajů.](MadMike/Zalohy/PBS-DR.md?plain=1#L309)
+- [ ] [Rozhodnout o klientském šifrování PBS a při jeho použití bezpečně uložit recovery klíč.](MadMike/Zalohy/PBS-DR.md?plain=1#L310)
+- [ ] [Určit odpovědnost a dostupnost místního zásahu u Richarda.](MadMike/Zalohy/PBS-DR.md?plain=1#L311)
 
 ### Zálohy Home Assistantu
 
