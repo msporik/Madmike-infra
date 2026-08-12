@@ -81,7 +81,7 @@
 
 ### Monitoring
 
-- [ ] [Ověřit současný stav VM510, Dockeru a všech provozovaných kontejnerů.](MadMike/Monitoring/README.md?plain=1#L104)
+- [ ] [Ověřit současný stav VM510, Dockeru a všech provozovaných kontejnerů.](MadMike/Monitoring/README.md?plain=1#L106)
 
 ### Pulse
 
@@ -94,26 +94,21 @@
 - [ ] [Ověřit plánování ZFS scrubů a způsob hlášení chyby nebo příliš starého posledního běhu.](MadMike/Monitoring/Pulse.md?plain=1#L232)
 - [ ] [Ověřit, že běžné úspěšné úlohy nevytvářejí notifikační šum.](MadMike/Monitoring/Pulse.md?plain=1#L233)
 
-### Telegram notifikace
+### Pushover notifikace
 
-- [ ] [Ověřit, zda již existuje soukromá skupina `MadMike – infrastruktura`; pokud ne, vytvořit ji.](MadMike/Monitoring/Telegram.md?plain=1#L99)
-- [ ] [Ověřit existenci a vlastníka společného bota; pokud neexistuje, vytvořit ho.](MadMike/Monitoring/Telegram.md?plain=1#L100)
-- [ ] [Ověřit administrátory skupiny, bezpečné umístění tokenu a systémy, které ho používají.](MadMike/Monitoring/Telegram.md?plain=1#L101)
-- [ ] [Odeslat testovací zprávu.](MadMike/Monitoring/Telegram.md?plain=1#L102)
-- [ ] [Připojit Uptime Kumu a prakticky otestovat skutečný `DOWN` i odpovídající recovery.](MadMike/Monitoring/Telegram.md?plain=1#L103)
-- [ ] [Připojit otestované nativní notifikace PVE/PBS.](MadMike/Monitoring/Telegram.md?plain=1#L104)
-- [ ] [Připojit vybrané alarmy Mikr Manageru.](MadMike/Monitoring/Telegram.md?plain=1#L105)
-- [ ] [Pulse připojit pouze pro události nepokryté jiným zdrojem.](MadMike/Monitoring/Telegram.md?plain=1#L106)
-- [ ] [Po pilotním provozu ověřit potlačení duplicit a opakovaných zpráv a upravit četnost.](MadMike/Monitoring/Telegram.md?plain=1#L107)
+- [ ] [Vybrat produkční monitory Uptime Kumy, jednotlivě jim přiřadit `Pushover – Kuma` a ověřit, že nevznikají duplicitní zprávy.](MadMike/Monitoring/Pushover.md?plain=1#L108)
+- [ ] [Připojit a samostatně otestovat nativní notifikace PVE/PBS.](MadMike/Monitoring/Pushover.md?plain=1#L109)
+- [ ] [Připojit a samostatně otestovat vybrané alarmy Mikr Manageru.](MadMike/Monitoring/Pushover.md?plain=1#L110)
+- [ ] [Pulse připojit pouze pro události nepokryté jiným zdrojem a samostatně otestovat alarm i recovery.](MadMike/Monitoring/Pushover.md?plain=1#L111)
+- [ ] [Po pilotním provozu vyhodnotit četnost, priority, formát zpráv a potlačení duplicit.](MadMike/Monitoring/Pushover.md?plain=1#L112)
 
 ### Uptime Kuma
 
-- [ ] [Ověřit současnou verzi, image a přesné startovací parametry kontejneru.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L144)
-- [ ] [Porovnat živý seznam monitorů s historickým a schváleným rozsahem.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L145)
-- [ ] [Ověřit typy kontrol, intervaly, retries, timeouty a skutečná zpoždění alarmů.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L146)
-- [ ] [Ověřit současné notifikační cíle.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L147)
-- [ ] [Prakticky otestovat jeden alarm `DOWN` a následnou recovery zprávu.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L148)
-- [ ] [Zdokumentovat samostatnou zálohu a obnovu konfigurace Kumy, pokud existuje.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L149)
+- [ ] [Ověřit současnou verzi, image a přesné startovací parametry kontejneru.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L160)
+- [ ] [Porovnat živý seznam monitorů s historickým a schváleným rozsahem.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L161)
+- [ ] [Ověřit typy kontrol, intervaly, retries, timeouty a skutečná zpoždění alarmů.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L162)
+- [ ] [Vybrat produkční monitory, které mají používat `Pushover – Kuma`, přiřadit cíl jednotlivě a ověřit, že nevznikají duplicity.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L163)
+- [ ] [Zdokumentovat samostatnou zálohu a obnovu konfigurace Kumy, pokud existuje.](MadMike/Monitoring/Uptime-Kuma.md?plain=1#L164)
 
 ## MadMike / Nextcloud
 
