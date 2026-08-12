@@ -81,8 +81,7 @@
 
 ### Monitoring
 
-- [ ] [Ověřit současný stav VM510, Dockeru a všech provozovaných kontejnerů.](MadMike/Monitoring/README.md?plain=1#L102)
-- [ ] [Ověřit, že je VM510 stále zahrnuta v automatickém PBS backup jobu.](MadMike/Monitoring/README.md?plain=1#L103)
+- [ ] [Ověřit současný stav VM510, Dockeru a všech provozovaných kontejnerů.](MadMike/Monitoring/README.md?plain=1#L104)
 
 ### Pulse
 
