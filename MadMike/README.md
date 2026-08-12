@@ -4,7 +4,7 @@ Kapitola dokumentace provozované infrastruktury MadMike.
 
 ## Projekty
 
-- [Monitoring](Monitoring/README.md) – dohled nad Proxmoxem, PBS, MikroTiky a dostupností služeb; návrh společných Telegram notifikací.
+- [Monitoring](Monitoring/README.md) – dohled nad Proxmoxem, PBS, MikroTiky a dostupností služeb; společné doručování vybraných upozornění přes Pushover.
 - [Servery](Servery/README.md) – produkční a DR Proxmox servery, důležité virtuální stroje a infrastruktura přístupu k serverovým službám.
 - [Nextcloud](Nextcloud/README.md) – produkční soukromý cloud, provoz, úložiště, přístup a uživatelé.
 - [PREMIER](Premier/README.md) – produkční účetní systém ve Windows VM501, vzdálený přístup a provozní kontroly.

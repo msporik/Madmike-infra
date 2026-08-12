@@ -15,7 +15,7 @@ Cílem je bez preventivního procházení několika systémů včas zjistit stav
 - DNS, HTTPS, certifikát a směrování přes Nginx Proxy Manager jsou v [Interní DNS, NPM a HTTPS](../Servery/DNS-NPM-HTTPS.md).
 - Backup joby, retence, údržba PBS a testy obnovy jsou v [PBS a disaster recovery](../Zalohy/PBS-DR.md).
 - Dostupnost Pulse jako služby sleduje [Uptime Kuma](Uptime-Kuma.md).
-- Směrování vybraných alarmů a recovery zpráv patří do [Telegram notifikací](Telegram.md).
+- Směrování vybraných alarmů a recovery zpráv patří do [Pushover notifikací](Pushover.md).
 
 Běžný přístup: `https://pulse.mikehub.cz`
 
@@ -232,4 +232,4 @@ Notifikace Pulse ani nativní notifikace PVE/PBS nebyly při poslední dokumento
 - [ ] Ověřit plánování ZFS scrubů a způsob hlášení chyby nebo příliš starého posledního běhu.
 - [ ] Ověřit, že běžné úspěšné úlohy nevytvářejí notifikační šum.
 
-Směrování výsledných alarmů a recovery zpráv je vedené v [Telegram notifikacích](Telegram.md).
+Směrování výsledných alarmů a recovery zpráv je vedené v [Pushover notifikacích](Pushover.md).

@@ -1,6 +1,6 @@
 # Uptime Kuma
 
-> Poslední doložený provozní stav: **2026-07-28**. Nejde o potvrzení současného živého stavu.
+> Poslední souhrnný provozní stav: **2026-07-28**. Notifikační cesta Uptime Kuma → Pushover byla dílčím živým testem ověřena **2026-08-12**.
 
 ## Účel a role
 
@@ -29,7 +29,23 @@ K 2026-07-28:
 - aplikační data byla uložená v Docker volume `uptime-kuma`;
 - přístup přes interní HTTPS fungoval;
 - přesná verze a živý seznam monitorů nebyly ověřeny;
-- Telegram notifikace ještě nebyly realizovány.
+- původně navržené Telegram notifikace nebyly realizovány a tento návrh byl následně opuštěn.
+
+## Ověřená notifikační cesta
+
+Dne 2026-08-12 byla prakticky ověřena cesta `Uptime Kuma → Pushover → Samsung S22`:
+
+- v Kumě vznikl notifikační cíl `Pushover – Kuma`;
+- vestavěné tlačítko **Test** úspěšně doručilo zprávu do telefonu;
+- dočasný Push monitor bezpečně vyvolal skutečný stav `DOWN` a následný `UP` bez zastavení produkční služby;
+- dorazila právě jedna notifikace `DOWN` a jedna odpovídající notifikace `UP`;
+- dočasný monitor byl po testu odstraněn;
+- notifikační cíl není nastavený jako výchozí pro všechny existující monitory;
+- zatím není přiřazený žádnému produkčnímu monitoru.
+
+User Key a Application Token jsou uložené v Bitwardenu a jejich hodnoty se nezapisují do GitHubu ani chatu. Původní Application Token zachycený při nastavování na screenshotu byl resetován; platný token zůstává pouze v Bitwardenu.
+
+Tento test potvrzuje funkci doručovací cesty, nikoliv současný živý seznam produkčních monitorů ani jejich provozní parametry.
 
 ## Schválené chování monitorů
 
@@ -144,8 +160,7 @@ Po obnově se kontroluje nejen start webu, ale také monitory, historie, notifik
 - [ ] Ověřit současnou verzi, image a přesné startovací parametry kontejneru.
 - [ ] Porovnat živý seznam monitorů s historickým a schváleným rozsahem.
 - [ ] Ověřit typy kontrol, intervaly, retries, timeouty a skutečná zpoždění alarmů.
-- [ ] Ověřit současné notifikační cíle.
-- [ ] Prakticky otestovat jeden alarm `DOWN` a následnou recovery zprávu.
+- [ ] Vybrat produkční monitory, které mají používat `Pushover – Kuma`, přiřadit cíl jednotlivě a ověřit, že nevznikají duplicity.
 - [ ] Zdokumentovat samostatnou zálohu a obnovu konfigurace Kumy, pokud existuje.
 
-Směrování vybraných alarmů a recovery zpráv patří do [Telegram notifikací](Telegram.md).
+Směrování vybraných alarmů a recovery zpráv patří do [Pushover notifikací](Pushover.md).

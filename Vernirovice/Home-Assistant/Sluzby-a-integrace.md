@@ -192,7 +192,7 @@ Minimálně má být sledováno:
 - závažné alarmy měniče nebo baterie, pokud jsou spolehlivě dostupné;
 - automatizace ponechaná v neočekávaném režimu.
 
-Konkrétní monitory a notifikační cesty nebyly živě ověřeny. **Vyžaduje ověření v živém systému.** Společný model je v [MadMike / Monitoring](../../MadMike/Monitoring/README.md) a [Telegramu](../../MadMike/Monitoring/Telegram.md).
+Konkrétní monitory a notifikační cesty nebyly živě ověřeny. **Vyžaduje ověření v živém systému.** Společný model je v [MadMike / Monitoring](../../MadMike/Monitoring/README.md) a [Pushoveru](../../MadMike/Monitoring/Pushover.md).
 
 ## Otevřené úkoly
 

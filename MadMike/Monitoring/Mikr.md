@@ -136,4 +136,4 @@ Po obnově provést [provozní kontrolu](#provozní-kontrola) a navíc ověřit:
 - [ ] Ověřit, že RSC exporty pravidelně vznikají a kde jsou persistentně uložené.
 - [ ] Ověřit, které události už spolehlivěji pokrývá Uptime Kuma.
 
-Praktická obnova konfigurace na náhradním MikroTiku je vedena výhradně v [zálohách MikroTiků](../Zalohy/MikroTik.md). Připojení neduplicitních alarmů patří do [Telegram notifikací](Telegram.md).
+Praktická obnova konfigurace na náhradním MikroTiku je vedena výhradně v [zálohách MikroTiků](../Zalohy/MikroTik.md). Připojení neduplicitních alarmů patří do [Pushover notifikací](Pushover.md).

@@ -12,6 +12,6 @@ Samostatná kapitola dokumentace lokality Vernířovice. Hlavním tématem je m�
 - Tato kapitola popisuje systémy a automatizace specifické pro Vernířovice.
 - Obecná evidence MikroTik zařízení zůstává v [MadMike / Síť / MikroTik](../MadMike/Sit/MikroTik.md).
 - Společná strategie záloh Home Assistantu zůstává v [MadMike / Zálohy / Home Assistant](../MadMike/Zalohy/Home-Assistant.md).
-- Centrální monitoring a Telegram notifikace zůstávají v [MadMike / Monitoring](../MadMike/Monitoring/README.md).
+- Centrální monitoring a Pushover notifikace zůstávají v [MadMike / Monitoring](../MadMike/Monitoring/README.md).
 
 Nový projekt se přidá až tehdy, když pro něj vznikne skutečný a samostatně udržovaný obsah.

@@ -1,6 +1,6 @@
 # Monitoring
 
-> Poslední doložený provozní stav: **2026-07-28**. Dílčí živé ověření backup coverage VM510 proběhlo **2026-08-12**.
+> Poslední doložený provozní stav monitorovacího stacku: **2026-07-28**. Dílčí živá ověření backup coverage VM510 a notifikační cesty Uptime Kuma → Pushover proběhla **2026-08-12**.
 
 ## Účel
 
@@ -16,7 +16,7 @@ Každou oblast přednostně sleduje nástroj, který jí přirozeně rozumí. Je
 | Nativní notifikace PVE/PBS | Selhání Backup, Verify, Prune a Garbage Collection; podle ověřených možností také problémy ZFS scrubů |
 | [Mikr Manager](Mikr.md) | Stav, historie a významné alarmy MikroTik zařízení a lokalit |
 | [Uptime Kuma](Uptime-Kuma.md) | Dostupnost služeb a následný návrat do provozu |
-| [Telegram](Telegram.md) | Společné doručení problémů vyžadujících pozornost |
+| [Pushover](Pushover.md) | Společné doručení vybraných problémů a recovery zpráv na Samsung S22 |
 
 Překryvy se omezují tak, aby stejný problém nebyl oznamován několika nástroji.
 
@@ -42,12 +42,14 @@ K 2026-07-28:
 - Pulse server a všechny tři agenty byly ve verzi `6.1.2`;
 - Mikr evidoval 22 zařízení a licenci pro 50 zařízení;
 - Uptime Kuma byla dostupná, ale její verze a živý seznam monitorů nebyly ověřeny;
-- Telegram notifikace ještě nebyly realizovány;
+- původně navržený Telegram byl opuštěn před produkčním nasazením;
 - nativní notifikace PVE/PBS nebyly prakticky otestovány;
 - Checkmk, Zabbix, Beszel a CoreBit byly odstraněny;
 - InfluxDB, Grafana, Telegraf a samostatný Prometheus nejsou součástí schváleného monitorovacího stacku.
 
 Dílčí kontrola 2026-08-12 potvrdila, že VM510 je stále zahrnuta v automatickém PBS backup jobu na PVE Ryzen. Aktuální snapshot VM510 fyzicky existuje na PBS datastore a kontrolovaný backup i následný Verify skončily `OK`. Tato kontrola neověřovala stav Dockeru ani jednotlivých kontejnerů uvnitř VM510.
+
+Téhož dne byla prakticky ověřena cesta `Uptime Kuma → Pushover → Samsung S22`: prošla vestavěná testovací zpráva a bezpečný test skutečného přechodu `DOWN` i následného `UP`. Dočasný Push monitor byl po testu odstraněn. Notifikační cíl `Pushover – Kuma` není nastavený jako výchozí pro všechny monitory a zatím nebyl přiřazen žádnému produkčnímu monitoru.
 
 Odstraněné nástroje nejsou otevřenými kandidáty k opětovnému nasazení.
 
@@ -84,7 +86,7 @@ Pořadí diagnostiky:
 - Při problému jedné aplikace se bezdůvodně nerestartuje celá VM510 ani všechny kontejnery.
 - Před aktualizací nebo zásahem do persistentních dat se ověří použitelná záloha VM510.
 - Nepoužívají se neověřené hromadné příkazy odstraňující kontejnery, volumes nebo aplikační data.
-- Hesla, API tokeny, Telegram bot token, recovery údaje ani neupravený výstup `docker compose config` se neukládají do GitHubu.
+- Hesla, Pushover User Key, Application Token, další API tokeny, recovery údaje ani neupravený výstup `docker compose config` se neukládají do GitHubu.
 - Alarm je podnět k ověření v autoritativním systému, nikoliv oprávnění k automatické změně infrastruktury.
 - Po zásahu se ověří příčina a výsledek. Případná změna se zapíše do dokumentu, který je pro danou oblast autoritativní.
 

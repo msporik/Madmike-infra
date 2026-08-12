@@ -41,7 +41,7 @@ Ruční `docker network connect` je vhodný jen pro diagnostiku. Trvalé vazby P
 
 - Tento soubor je zdrojem pravdy pro roli VM510, způsob nasazení kontejnerů, Compose cesty, Docker sítě, persistence a pořadí infrastrukturní obnovy.
 - [DNS-NPM-HTTPS.md](DNS-NPM-HTTPS.md) vlastní hostname, certifikáty a proxy upstreamy.
-- Projekt [Monitoring](../Monitoring/README.md) vlastní nastavení aplikací, monitory, alarmy a Telegram.
+- Projekt [Monitoring](../Monitoring/README.md) vlastní nastavení aplikací, monitory, alarmy a Pushover.
 - Projekt [Zálohy](../Zalohy/README.md) vlastní PBS joby, retenci a testy obnovy celé VM.
 
 ## Bezpečná inventura
