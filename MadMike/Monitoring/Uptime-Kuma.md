@@ -1,6 +1,6 @@
 # Uptime Kuma
 
-> Poslední souhrnný provozní stav: **2026-07-28**. Notifikační cesta Uptime Kuma → Pushover byla dílčím živým testem ověřena **2026-08-12**.
+> Poslední souhrnný provozní stav: **2026-07-28**. Notifikační cesta Uptime Kuma → Pushover byla dílčím živým testem ověřena **2026-08-14**.
 
 ## Účel a role
 
@@ -33,7 +33,7 @@ K 2026-07-28:
 
 ## Ověřená notifikační cesta
 
-Dne 2026-08-12 byla prakticky ověřena cesta `Uptime Kuma → Pushover → Samsung S22`:
+Dne 2026-08-14 byla prakticky ověřena cesta `Uptime Kuma → Pushover → Samsung S22`:
 
 - v Kumě vznikl notifikační cíl `Pushover – Kuma`;
 - vestavěné tlačítko **Test** úspěšně doručilo zprávu do telefonu;
@@ -43,7 +43,7 @@ Dne 2026-08-12 byla prakticky ověřena cesta `Uptime Kuma → Pushover → Sams
 - notifikační cíl není nastavený jako výchozí pro všechny existující monitory;
 - zatím není přiřazený žádnému produkčnímu monitoru.
 
-User Key a Application Token jsou uložené v Bitwardenu a jejich hodnoty se nezapisují do GitHubu ani chatu. Původní Application Token zachycený při nastavování na screenshotu byl resetován; platný token zůstává pouze v Bitwardenu.
+User Key a Application Token jsou uložené v Bitwardenu a jejich hodnoty se nezapisují do GitHubu ani chatu. Při testování se na screenshotu objevil pouze token dočasného Push monitoru v Uptime Kumě; tento token byl okamžitě resetován a zveřejněná Push URL tím byla zneplatněna. Pushover User Key ani Application Token zveřejněny nebyly.
 
 Tento test potvrzuje funkci doručovací cesty, nikoliv současný živý seznam produkčních monitorů ani jejich provozní parametry.
 
