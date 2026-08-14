@@ -66,7 +66,7 @@
 
 ### Zigbee
 
-- [ ] [Zjistit přesný model druhého zařízení SMLIGHT/SLZB určeného pro Matter/Thread a ověřit jeho zamýšlenou roli a stav OTBR.](MadMike/Home-Assistant/Zigbee.md?plain=1#L91)
+- [ ] [Ověřit plánované nasazení SLZB-06M pro Thread/Matter a zvolit způsob OTBR: OTBR v Home Assistantu, nebo OTBR přímo na SLZB-06M.](MadMike/Home-Assistant/Zigbee.md?plain=1#L91)
 - [ ] [Ověřit, zda je původní USB koordinátor skutečně použitelný jako nouzová záloha produkční Zigbee sítě.](MadMike/Home-Assistant/Zigbee.md?plain=1#L92)
 
 ## MadMike / Monitoring
