@@ -1,6 +1,6 @@
 # Pushover notifikace
 
-> **Stav: FUNKČNÍ PILOT.** Doručovací cesta z Uptime Kumy byla prakticky ověřena 2026-08-12. Produkční monitory ani další zdroje zatím nejsou připojené.
+> **Stav: FUNKČNÍ PILOT.** Doručovací cesta z Uptime Kumy byla prakticky ověřena 2026-08-14. Produkční monitory ani další zdroje zatím nejsou připojené.
 
 ## Účel a role
 
@@ -18,7 +18,7 @@ Pushover byl zvolen jako jednodušší cílový kanál bez skupiny, bota a Teleg
 
 ## Ověřený stav
 
-Dne 2026-08-12 bylo ověřeno:
+Dne 2026-08-14 bylo ověřeno:
 
 - aplikace Pushover na Samsungu S22 přijímá zprávy;
 - v Uptime Kumě existuje notifikační cíl `Pushover – Kuma`;
@@ -40,7 +40,7 @@ Uptime Kuma → Pushover → Samsung S22
 
 Pushover User Key a Application Token jsou uložené v Bitwardenu. Jejich hodnoty se nezapisují do GitHubu, chatu, screenshotů ani provozních poznámek.
 
-Původní Application Token zachycený při nastavování na screenshotu byl resetován. Platný token zůstává pouze v Bitwardenu.
+Při testování se na screenshotu objevil token dočasného Push monitoru v Uptime Kumě. Tento token byl okamžitě resetován a zveřejněná Push URL tím byla zneplatněna. Pushover User Key ani Application Token na screenshotu zveřejněny nebyly.
 
 Dokumentovat lze:
 
