@@ -33,7 +33,7 @@ Produkční Zigbee proto závisí na napájení a síti koordinátoru, Zigbee2MQ
 
 Matter/Thread je samostatná infrastruktura a nesmí se zaměňovat s produkčním Zigbee koordinátorem SLZB-06P10.
 
-- Samostatné zařízení SMLIGHT/SLZB určené pro Matter/Thread je pořízené, ale jeho přesný model a stav nasazení OTBR nejsou potvrzené.
+- Druhé zařízení SMLIGHT určené pro Thread je identifikováno jako **SLZB-06M**. Model podporuje Thread, Matter-over-Thread a OTBR. Konkrétní kus je evidován ve skladu HW. Jeho plánovaná role v infrastruktuře a skutečný stav konfigurace/OTBR před nasazením zatím nejsou ověřené.
 - Aqara Smart Lock je koupený, ale není nainstalovaný.
 
 Tyto prvky nejsou součástí produkční Zigbee cesty a jejich stav nesmí být používán při diagnostice současného Zigbee.
@@ -88,5 +88,5 @@ Původní USB koordinátor se nepovažuje za připravenou zálohu, dokud neprojd
 
 ## Otevřené úkoly
 
-- [ ] Zjistit přesný model druhého zařízení SMLIGHT/SLZB určeného pro Matter/Thread a ověřit jeho zamýšlenou roli a stav OTBR.
+- [ ] Ověřit plánované nasazení SLZB-06M pro Thread/Matter a zvolit způsob OTBR: OTBR v Home Assistantu, nebo OTBR přímo na SLZB-06M.
 - [ ] Ověřit, zda je původní USB koordinátor skutečně použitelný jako nouzová záloha produkční Zigbee sítě.
