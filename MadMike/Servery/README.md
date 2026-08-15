@@ -1,7 +1,7 @@
 # Servery
 
-> Poslední doložený stav fyzických hostů a VM: **2026-07-28**.  
-> Nasazení Uptime Kumy bylo znovu ověřeno **2026-08-03**. Údaje bez novější živé kontroly nejsou vydávány za aktuální měření.
+> Poslední doložená změna VM infrastruktury: **2026-08-15** (přenos Debian šablony na Ryzen a vytvoření VM511).  
+> Ostatní stav fyzických hostů a VM vychází z kontroly **2026-07-28**; nasazení Uptime Kumy bylo znovu ověřeno **2026-08-03**. Údaje bez novější živé kontroly nejsou vydávány za aktuální měření.
 
 ## Účel
 
@@ -22,6 +22,8 @@ Dokumentace má správci umožnit:
 | PVE Ryzen | HOME | Hlavní produkční virtualizace | [PVE-Ryzen.md](PVE-Ryzen.md) |
 | PVE Dell | u Richarda | Offsite DR host a provoz PBS ve VM200 | [PVE-Dell.md](PVE-Dell.md) |
 | Ryzen / VM510 | PVE Ryzen | Docker host pro NPM a monitoring | [VM510-Docker.md](VM510-Docker.md) |
+| Ryzen / VM9000 | PVE Ryzen | Opakovaně použitelná Debian 13 šablona | [PVE-Ryzen.md](PVE-Ryzen.md#ryzen--vm9000--debian13-template) |
+| Ryzen / VM511 | PVE Ryzen | Samostatná VM pro MikroTik MCP; instalace služby probíhá | [PVE-Ryzen.md](PVE-Ryzen.md#ryzen--vm511--mikrotik-mcp) |
 
 Základní princip je:
 
@@ -30,7 +32,7 @@ PVE Ryzen = běžná produkce
 PVE Dell   = offsite PBS, test obnovy a dočasná DR kapacita
 ```
 
-Dell není druhý trvale aktivní produkční host. Produkční VM401 a VM501 mají běžet na Ryzenu; kopie na Dellu jsou vypnuté testovací, migrační nebo DR objekty.
+Dell není druhý trvale aktivní produkční host. Produkční VM401 a VM501 mají běžet na Ryzenu; kopie na Dellu jsou vypnuté testovací, migrační nebo DR objekty. Pro běžné nové experimentální VM je na Ryzenu připravena šablona VM9000; původní VM400 na Dellu a její chráněný PBS backup tvoří doložený zdroj této šablony.
 
 ## Související serverová infrastruktura
 
