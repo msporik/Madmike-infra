@@ -174,26 +174,25 @@
 
 ### PVE Dell
 
-- [ ] [Najít skutečný soubor `create-vm.sh`, pravděpodobně na PVE Dell nebo v umístění, ze kterého byl při vytvoření VM400 spuštěn.](MadMike/Servery/PVE-Dell.md?plain=1#L140)
-- [ ] [Ověřit přesný obsah a verzi skriptu.](MadMike/Servery/PVE-Dell.md?plain=1#L141)
-- [ ] [Zdokumentovat jeho cestu, vlastníka a oprávnění.](MadMike/Servery/PVE-Dell.md?plain=1#L142)
-- [ ] [Zdokumentovat způsob spuštění a všechny vstupní parametry.](MadMike/Servery/PVE-Dell.md?plain=1#L143)
-- [ ] [Ověřit, které hodnoty jsou pevně zadané a které se předávají jako argumenty nebo interaktivní vstup.](MadMike/Servery/PVE-Dell.md?plain=1#L144)
-- [ ] [Ověřit, zda je skript bezpečně použitelný také na PVE Ryzen.](MadMike/Servery/PVE-Dell.md?plain=1#L145)
-- [ ] [Po nalezení uložit ověřený skript nebo jeho autoritativní kopii na vhodné místo a doplnit reprodukovatelný postup vytvoření nové Debian VM.](MadMike/Servery/PVE-Dell.md?plain=1#L146)
-- [ ] [Ověřit současný obsah a další potřebnost VM400 před jakýmkoliv odstraněním nebo novým použitím VMID `400`.](MadMike/Servery/PVE-Dell.md?plain=1#L147)
-- [ ] [Zjistit původ a účel Dell / VM400.](MadMike/Servery/PVE-Dell.md?plain=1#L262)
-- [ ] [Ověřit aktuální verzi a konfiguraci PVE Dell, VM200, storage a sítě proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L263)
-- [ ] [Připravit a schválit bezpečný migrační plán z dnešních dvou mirrorů na jeden pool ze čtyř 8TB disků, včetně cílové topologie, zálohy, obnovy a rollbacku.](MadMike/Servery/PVE-Dell.md?plain=1#L264)
+- [ ] [Najít skutečný soubor `create-vm.sh`, pravděpodobně na PVE Dell nebo v umístění, ze kterého byl při vytvoření VM400 spuštěn.](MadMike/Servery/PVE-Dell.md?plain=1#L150)
+- [ ] [Ověřit přesný obsah a verzi skriptu.](MadMike/Servery/PVE-Dell.md?plain=1#L151)
+- [ ] [Zdokumentovat jeho cestu, vlastníka a oprávnění.](MadMike/Servery/PVE-Dell.md?plain=1#L152)
+- [ ] [Zdokumentovat způsob spuštění a všechny vstupní parametry.](MadMike/Servery/PVE-Dell.md?plain=1#L153)
+- [ ] [Ověřit, které hodnoty jsou pevně zadané a které se předávají jako argumenty nebo interaktivní vstup.](MadMike/Servery/PVE-Dell.md?plain=1#L154)
+- [ ] [Ověřit, zda je skript bezpečně použitelný také na PVE Ryzen.](MadMike/Servery/PVE-Dell.md?plain=1#L155)
+- [ ] [Po nalezení uložit ověřený skript nebo jeho autoritativní kopii na vhodné místo a doplnit reprodukovatelný postup vytvoření nové Debian VM.](MadMike/Servery/PVE-Dell.md?plain=1#L156)
+- [ ] [Po ověření dlouhodobé použitelnosti VM9000 na Ryzenu rozhodnout, zda se má původní VM400 na Dellu dále zachovat; chráněný PBS backup se bez samostatného rozhodnutí nemaže.](MadMike/Servery/PVE-Dell.md?plain=1#L157)
+- [ ] [Ověřit aktuální verzi a konfiguraci PVE Dell, VM200, storage a sítě proti živému systému.](MadMike/Servery/PVE-Dell.md?plain=1#L272)
+- [ ] [Připravit a schválit bezpečný migrační plán z dnešních dvou mirrorů na jeden pool ze čtyř 8TB disků, včetně cílové topologie, zálohy, obnovy a rollbacku.](MadMike/Servery/PVE-Dell.md?plain=1#L273)
 
 ### PVE Ryzen
 
-- [ ] [Ověřit aktuální PVE konfiguraci VM401 živými výpisy `pvesm` a `qm config 401`, včetně prostředků, disků a fyzického ZFS poolu za storage ID `tank-nas-zfs`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L200)
-- [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L201)
-- [ ] [Ověřit přesný model základní desky A520, současný zdroj a zapojení napájení před instalací M4-ATX.](MadMike/Servery/PVE-Ryzen.md?plain=1#L202)
-- [ ] [Po návratu z dovolené objednat standardní Mini-Box M4-ATX 6–30 V / 250 W a potřebné kabely.](MadMike/Servery/PVE-Ryzen.md?plain=1#L203)
-- [ ] [Před instalací M4-ATX ověřit práh baterie DRS a připravit zapojení AC OK/AC FAIL → IGNITION → POWER SW.](MadMike/Servery/PVE-Ryzen.md?plain=1#L204)
-- [ ] [Po instalaci nastavit prodlevy a prakticky otestovat celý cyklus výpadek → korektní shutdown → bezpečný hard-off → návrat sítě → automatický start.](MadMike/Servery/PVE-Ryzen.md?plain=1#L205)
+- [ ] [Ověřit aktuální PVE konfiguraci VM401 živými výpisy `pvesm` a `qm config 401`, včetně prostředků, disků a fyzického ZFS poolu za storage ID `tank-nas-zfs`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L257)
+- [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L258)
+- [ ] [Ověřit přesný model základní desky A520, současný zdroj a zapojení napájení před instalací M4-ATX.](MadMike/Servery/PVE-Ryzen.md?plain=1#L259)
+- [ ] [Po návratu z dovolené objednat standardní Mini-Box M4-ATX 6–30 V / 250 W a potřebné kabely.](MadMike/Servery/PVE-Ryzen.md?plain=1#L260)
+- [ ] [Před instalací M4-ATX ověřit práh baterie DRS a připravit zapojení AC OK/AC FAIL → IGNITION → POWER SW.](MadMike/Servery/PVE-Ryzen.md?plain=1#L261)
+- [ ] [Po instalaci nastavit prodlevy a prakticky otestovat celý cyklus výpadek → korektní shutdown → bezpečný hard-off → návrat sítě → automatický start.](MadMike/Servery/PVE-Ryzen.md?plain=1#L262)
 
 ### VM510 – Docker infrastruktura
 
