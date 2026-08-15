@@ -1,6 +1,6 @@
 # PVE Ryzen
 
-> Poslední doložený technický stav: **2026-07-28**. Při tomto zpracování nebyl host znovu porovnán s živým systémem.
+> Poslední doložená změna VM infrastruktury: **2026-08-15** (šablona VM9000 a klon VM511). Ostatní technický stav hostitele vychází z kontroly **2026-07-28**, pokud u konkrétního údaje není uvedeno jinak.
 
 ## Role
 
@@ -73,6 +73,8 @@ Původní WD RAID byl před zrušením sestaven pouze pro čtení, zkontrolován
 | Ryzen / VM401 | produkční Nextcloud | 2 vCPU, 4 GB RAM, 64GB systémový disk, 1TB datový disk, IP `192.168.89.33` |
 | Ryzen / VM501 | produkční Windows a PREMIER | 4 vCPU, 8 GB RAM, `q35`, 60GB disk na `tank-ssd`, IP `192.168.89.34` |
 | Ryzen / VM510 | NPM a monitoring | Debian 13.5, 2 vCPU, 4 GB RAM, 20GB disk, IP `192.168.89.35` |
+| Ryzen / VM9000 | opakovaně použitelná Debian šablona | Debian 13, 2 vCPU, 2 GB RAM, 64GB disk na `tank-ssd`; Proxmox template |
+| Ryzen / VM511 | samostatný host pro MikroTik MCP | Debian 13.6, 2 vCPU, 2 GB RAM, 64GB disk na `tank-ssd`; instalace MCP dosud nedokončena |
 
 ### Ryzen / VM401 – produkční Nextcloud
 
@@ -97,6 +99,59 @@ VM501 byla úspěšně obnovena z PBS zpět na Ryzen a po obnově proběhl dalš
 ### Ryzen / VM510 – Docker infrastruktura
 
 VM provozuje Nginx Proxy Manager, Pulse, Mikr Manager a Uptime Kuma. Nasazení, persistence, sítě, provoz a pořadí obnovy jsou v [VM510-Docker.md](VM510-Docker.md). Nastavení monitorovacích aplikací patří do projektu [Monitoring](../Monitoring/README.md).
+
+### Ryzen / VM9000 – `debian13-template`
+
+VM9000 vznikla 2026-08-15 obnovením chráněného backupu Dell / VM400 z `pbs-backup` na storage `tank-ssd`. Při obnově bylo použito nové VMID, název `debian13-template` a volba `Unique`. Po obnově byla VM ponechána vypnutá a převedena na Proxmox template.
+
+Výchozí konfigurace šablony:
+
+| Parametr | Hodnota |
+|---|---|
+| VMID | `9000` |
+| CPU | 1 socket, 2 cores, typ `host` |
+| RAM | 2 GB, ballooning vypnutý |
+| Systémový disk | 64 GB na `tank-ssd`, discard zapnutý |
+| Řadič | VirtIO SCSI single |
+| Síť | VirtIO na `vmbr0` |
+| OS type | Linux, moderní kernel |
+| QEMU Guest Agent | zapnutý v konfiguraci VM |
+
+Šablona je prakticky použitelná, ale není cloud-init ani plně generalizovaný image. Pochází z původní VM `vm-nxtcld`, takže každý klon musí dostat vlastní hostname, záznam v `/etc/hosts`, machine-id, síťovou identitu a aktualizace.
+
+### Ryzen / VM511 – `mikrotik-mcp`
+
+VM511 byla vytvořena jako `Full Clone` VM9000 na `tank-ssd`; linked clone nebyl použit. Proxmox vytvořil samostatný disk, novou MAC adresu a nové SMBIOS UUID. VM získala z DHCP adresu `192.168.89.36`; jde o aktuální lease, nikoliv doloženou trvalou rezervaci.
+
+Po prvním startu byly provedeny tyto kroky:
+
+1. hostname změněn z `vm-nxtcld` na `mikrotik-mcp`;
+2. stejný název doplněn na řádek `127.0.1.1` v `/etc/hosts`;
+3. odstraněny obě zděděné kopie machine-id a vytvořeno nové ID z unikátního SMBIOS/DMI UUID;
+4. `/var/lib/dbus/machine-id` vytvořen jako odkaz na `/etc/machine-id`;
+5. ověřena aktivní služba `qemu-guest-agent`;
+6. Debian aktualizován z 13.5 na 13.6 pomocí `apt update` a `apt full-upgrade`;
+7. VM po aktualizaci úspěšně restartována.
+
+Použitý příkaz pro správnou obnovu machine-id:
+
+```bash
+sudo rm -f /etc/machine-id /var/lib/dbus/machine-id
+sudo systemd-machine-id-setup
+sudo ln -s /etc/machine-id /var/lib/dbus/machine-id
+```
+
+Odstranění pouze `/etc/machine-id` nestačí: `systemd-machine-id-setup` by mohlo znovu použít zděděné D-Bus ID. Výstup `Initializing machine ID from SMBIOS/DMI UUID` je u tohoto klonu očekávaný.
+
+Pro další klony z VM9000 platí tento minimální přejímací postup:
+
+1. použít `Full Clone`, nové VMID, jednoznačný název a cílové storage;
+2. před prvním produkčním použitím ověřit novou MAC adresu a vyloučit IP kolizi;
+3. změnit hostname a `/etc/hosts`; krátké varování `sudo: unable to resolve host` při dočasném nesouladu těchto dvou hodnot není síťová ani DNS porucha;
+4. regenerovat obě machine-id podle výše uvedeného postupu;
+5. ověřit `qemu-guest-agent`, síť a správný čas;
+6. provést úplnou aktualizaci Debianu a restart;
+7. teprve potom instalovat cílovou službu a nastavit start VM při bootu.
 
 ## Připojení PBS
 
@@ -128,6 +183,8 @@ Konfigurace důležitých VM:
 qm config 401
 qm config 501
 qm config 510
+qm config 511
+qm config 9000
 ```
 
 Očekávaný zdravý stav:
@@ -135,7 +192,7 @@ Očekávaný zdravý stav:
 - `tank-ssd` a `tank-hdd` jsou `ONLINE` bez nových read/write/checksum chyb;
 - všechny očekávané storage jsou dostupné;
 - běží pouze zamýšlené produkční VM;
-- Guest Agent odpovídá u VM401, VM501 a VM510;
+- Guest Agent odpovídá u VM401, VM501, VM510 a po spuštění také u VM511;
 - nejsou zaplněné systémové filesystémy ani storage;
 - PVE je dostupný přes interní IP i `pveryzen.mikehub.cz`.
 
