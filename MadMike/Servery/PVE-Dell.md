@@ -1,6 +1,6 @@
 # PVE Dell
 
-> Poslední doložený technický stav: **2026-07-28**. Při tomto zpracování nebyl host znovu porovnán s živým systémem.
+> Poslední doložená změna: **2026-08-15** (ověření VM400 a její chráněný backup). Ostatní technický stav hostitele vychází z kontroly **2026-07-28**, pokud u konkrétního údaje není uvedeno jinak.
 
 ## Role
 
@@ -95,12 +95,12 @@ Autoritativní dokumentace zálohování, údržby datastore, SMART, scrubů a t
 | VM | Poslední doložený stav | Ověřená role |
 |---|---|---|
 | Dell / VM200 | běží | Proxmox Backup Server |
-| Dell / VM400 | vypnutá | testovací Debian VM vytvořená vlastním skriptem `create-vm.sh`; současný další účel a obsah vyžadují ověření |
+| Dell / VM400 | vypnutá šablona | základní Debian 13 šablona `VM-nxtcld`; zdroj chráněného PBS backupu pro vytvoření nové šablony na Ryzenu |
 | Dell / VM401 | vypnutá | migrační test při přesunu Nextcloudu z bare metal instalace na PVE Ryzen |
 | Dell / VM402 | vypnutá | úspěšná testovací obnova produkčního Nextcloudu z PBS |
 | Dell / VM501 | vypnutá | funkční import Windows/PREMIER; nešlo o PBS restore |
 
-VM400, VM401, VM402 a VM501 jsou ponechané, dokud nebude jejich další osud jednotlivě rozhodnutý. Před odstraněním kterékoliv z nich je nutné ověřit obsah, původ, backup groups a potřebnost.
+VM400, VM401, VM402 a VM501 jsou ponechané, dokud nebude jejich další osud jednotlivě rozhodnutý. VM400 byla 2026-08-15 ověřena jako základní Debian 13 šablona a její použitelný stav byl zachován chráněným backupem na PBS. Před odstraněním kterékoliv VM nebo příslušné backup group je nutné ověřit obsah, původ a potřebnost.
 
 ## Vytvoření Debian VM pomocí vlastního skriptu
 
@@ -135,6 +135,16 @@ Po vytvoření VM proběhla instalace Debianu. Následně bylo ověřeno úspě�
 
 Tento záznam dokládá funkční princip a jeden praktický výsledek. Neobsahuje však dost informací pro nové použití skriptu bez dalšího ověření.
 
+### Přenos šablony na PVE Ryzen – 2026-08-15
+
+VM400 byla v živém systému ověřena jako vypnutá Proxmox šablona se systémovým diskem 64 GB. Na storage `pbs-backup` byl ručně vytvořen chráněný backup:
+
+```text
+vm/400/2026-08-15T19:01:34Z
+```
+
+Backup skončil stavem `TASK OK`. Šablona byla zastavená, disk byl z větší části sparse a PBS znovu použilo již uložené bloky. Tento backup byl následně z PVE Ryzen obnoven jako VM9000 `debian13-template`; další podrobnosti jsou v [PVE-Ryzen.md](PVE-Ryzen.md).
+
 **Vyžaduje ověření v živém systému.**
 
 - [ ] Najít skutečný soubor `create-vm.sh`, pravděpodobně na PVE Dell nebo v umístění, ze kterého byl při vytvoření VM400 spuštěn.
@@ -144,7 +154,7 @@ Tento záznam dokládá funkční princip a jeden praktický výsledek. Neobsahu
 - [ ] Ověřit, které hodnoty jsou pevně zadané a které se předávají jako argumenty nebo interaktivní vstup.
 - [ ] Ověřit, zda je skript bezpečně použitelný také na PVE Ryzen.
 - [ ] Po nalezení uložit ověřený skript nebo jeho autoritativní kopii na vhodné místo a doplnit reprodukovatelný postup vytvoření nové Debian VM.
-- [ ] Ověřit současný obsah a další potřebnost VM400 před jakýmkoliv odstraněním nebo novým použitím VMID `400`.
+- [ ] Po ověření dlouhodobé použitelnosti VM9000 na Ryzenu rozhodnout, zda se má původní VM400 na Dellu dále zachovat; chráněný PBS backup se bez samostatného rozhodnutí nemaže.
 
 ## Ověřené DR výsledky
 
@@ -259,7 +269,6 @@ Oficiální provozní reference: [Proxmox VE – Host System Administration](htt
 
 **Vyžaduje ověření v živém systému.**
 
-- [ ] Zjistit původ a účel Dell / VM400.
 - [ ] Ověřit aktuální verzi a konfiguraci PVE Dell, VM200, storage a sítě proti živému systému.
 - [ ] Připravit a schválit bezpečný migrační plán z dnešních dvou mirrorů na jeden pool ze čtyř 8TB disků, včetně cílové topologie, zálohy, obnovy a rollbacku.
 
