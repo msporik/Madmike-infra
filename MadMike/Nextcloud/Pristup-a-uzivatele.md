@@ -64,14 +64,38 @@ Nejdříve se ověří živá konfigurace Apache, Nextcloudu a skutečná cesta 
 
 | Uživatel | Provozní stav |
 |---|---|
-| `madmike` | jediný současný uživatel; ukládání a synchronizace vlastních souborů fungují |
-| `katka` | účet a data jsou historicky doložené, nyní má problém s přihlášením |
+| `madmike` | ukládání a synchronizace vlastních souborů fungují |
+| `katka` | účet, webové přihlášení, data a desktopová synchronizace ověřeny 31. 8. 2026 |
 | `djlobo` | vyřazen ze současného používání; technická existence a stav účtu nejsou živě ověřené |
 | dvě děti | účty jsou plán, nikoli současný stav |
 
-Tento přehled popisuje používání potvrzené správcem. Neprokazuje aktuální technickou existenci všech účtů ani jejich oprávnění. Administrátorská role zatím není živě ověřená.
+Tento přehled popisuje používání potvrzené správcem. Neprokazuje aktuální technickou existenci všech účtů ani jejich oprávnění.
 
 Účetní Nextcloud nepoužívá a služba není součástí předávání dat pro PREMIER.
+
+## Katka – dokončení desktopového přístupu 31. 8. 2026
+
+Ověřeno na produkční VM401:
+
+- účet `katka` existuje a její obnovená data jsou dostupná;
+- administrátorsky bylo nastaveno nové heslo; původní heslo nebylo zjišťováno ani ukládáno;
+- po několika neúspěšných pokusech se aktivovala standardní brute-force ochrana Nextcloudu; blokace byla po identifikaci zdrojové IP bezpečně resetována pomocí `occ`;
+- webové přihlášení uživatele `katka` s novým heslem bylo následně úspěšně ověřeno;
+- na Katčině notebooku zůstala původní instalace Nextcloud Desktop klienta i původní synchronizační složka; notebook nebyl přeinstalován;
+- klient požadoval pouze nové heslo, účet ani synchronizační vztah nebyly odpojovány ani vytvářeny znovu;
+- po zadání nového hesla klient navázal na `cloud.madmike.cz` a provedl synchronizaci přibližně 9,5 GB / 2688 souborů;
+- synchronizace skončila stavem **„Vše synchronizováno!“** bez zjištěného hromadného mazání nebo konfliktů;
+- následná kontrola potvrdila funkční data a přístup.
+
+Stav:
+
+```text
+Katka / webový přístup       OK
+Katka / desktopový klient    OK
+Katka / synchronizace dat    OK
+```
+
+Důležité provozní poučení: Nextcloud Desktop používá obousměrnou synchronizaci. Při budoucí reinstalaci notebooku nebo novém párování klienta se nesmí bez kontroly připojit prázdná či jinak změněná lokální složka k produkčnímu účtu. Před takovým zásahem se ověří stav serverových dat a existující záloha.
 
 ## Správa účtů
 
@@ -87,21 +111,6 @@ Před změnou účtu se ověří:
 - dopad změny na synchronizovaná zařízení.
 
 Účet se nemaže jen proto, že se aktuálně nepoužívá. Nejprve se rozhodne o jeho datech, sdíleních a případném předání vlastnictví.
-
-## Oprava přístupu Katky
-
-Bezpečný postup:
-
-1. potvrdit s Katkou přesný identifikátor účtu; neposílat ani nevyžadovat heslo v chatu;
-2. ověřit, zda účet existuje, není zakázaný a nemá zjevný problém s kvótou nebo skupinou;
-3. zkontrolovat relevantní události v Nextcloudu a webovém serveru bez kopírování citlivých dat;
-4. určit, zda selhává webové přihlášení, MFA, konkrétní klient nebo staré aplikační heslo;
-5. pokud je nutný reset, použít standardní obnovu hesla nebo řízený administrátorský reset a předat dočasný údaj bezpečným kanálem;
-6. zneplatnit jen ty relace či aplikační hesla, která je nutné nahradit;
-7. ověřit webové přihlášení, přístup k existujícím datům a synchronizaci klienta;
-8. výsledek zapsat bez hesel, tokenů a osobního obsahu.
-
-Pokud jsou data viditelná, ale účet k nim nemá očekávaný přístup, nic se nepřesouvá ani nemaže, dokud není ověřené vlastnictví a sdílení.
 
 ## Ověření účtu `djlobo`
 
@@ -129,7 +138,7 @@ Recovery kódy, TOTP seed ani bezpečnostní klíče se do repozitáře, chatu a
 
 ## Aplikační hesla a klienti
 
-**Vyžaduje ověření v živém systému.** Neexistuje inventura desktopových a mobilních klientů, jejich poslední aktivity ani aplikačních hesel.
+**Vyžaduje ověření v živém systému.** Neexistuje kompletní inventura desktopových a mobilních klientů, jejich poslední aktivity ani aplikačních hesel.
 
 Při kontrole se eviduje pouze:
 
@@ -140,6 +149,16 @@ Při kontrole se eviduje pouze:
 - zda bylo staré aplikační heslo zneplatněno.
 
 Samotná tajná hodnota se nezapisuje. Při ztrátě zařízení se zneplatní příslušná relace nebo aplikační heslo, nikoli bezdůvodně všechny ostatní přístupy.
+
+### Otevřené téma – mobilní Nextcloud v rodině
+
+Desktopový přístup Katky je od 31. 8. 2026 ověřený. Samostatně zůstává otevřené dokončení mobilních klientů:
+
+- [ ] Katka – ověřit / zprovoznit Nextcloud aplikaci v mobilu;
+- [ ] dítě 1 – rozhodnout o účtu a následně nastavit mobilní Nextcloud;
+- [ ] dítě 2 – rozhodnout o účtu a následně nastavit mobilní Nextcloud.
+
+Před nasazením u dětí nejprve rozhodnout, zda budou mít vlastní Nextcloud účty, jaká data mají mít dostupná a zda se má používat automatické nahrávání fotografií. Hesla ani aplikační tokeny se do dokumentace neukládají.
 
 ## Sdílení a veřejné odkazy
 
@@ -166,11 +185,12 @@ Do dokumentace se nevkládají samotné veřejné odkazy, hesla ani názvy citli
 
 > Následující body **vyžadují ověření v živém systému**.
 
-- [ ] Opravit přihlášení Katky a ověřit následnou synchronizaci.
+- [x] Opravit přihlášení Katky a ověřit následnou desktopovou synchronizaci (31. 8. 2026).
+- [ ] Dokončit mobilní Nextcloud pro Katku.
+- [ ] Rozhodnout a následně zprovoznit Nextcloud účty / mobilní klienty pro dvě děti.
 - [ ] Ověřit aktivní účty, administrátorskou roli a skutečný stav účtu `djlobo`.
 - [ ] Ověřit stav MFA a bezpečný recovery postup.
 - [ ] Ověřit používaná aplikační hesla a připojené klienty bez zápisu jejich tajných hodnot.
 - [ ] Ověřit současné veřejné odkazy a pravidla externího sdílení.
 - [ ] Popsat a ověřit úplnou publikační cestu `cloud.madmike.cz`, včetně DNS, NAT/firewallu a Apache VirtualHostu.
 - [ ] Ověřit platnost certifikátu Let's Encrypt, automatickou obnovu přes Certbot a prakticky provést bezpečný dry-run.
-- [ ] Později založit účty pro dvě děti podle schváleného rozšíření služby.
