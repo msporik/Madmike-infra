@@ -125,14 +125,17 @@
 
 ### Přístup a uživatelé
 
-- [ ] [Opravit přihlášení Katky a ověřit následnou synchronizaci.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L169)
-- [ ] [Ověřit aktivní účty, administrátorskou roli a skutečný stav účtu `djlobo`.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L170)
-- [ ] [Ověřit stav MFA a bezpečný recovery postup.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L171)
-- [ ] [Ověřit používaná aplikační hesla a připojené klienty bez zápisu jejich tajných hodnot.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L172)
-- [ ] [Ověřit současné veřejné odkazy a pravidla externího sdílení.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L173)
-- [ ] [Popsat a ověřit úplnou publikační cestu `cloud.madmike.cz`, včetně DNS, NAT/firewallu a Apache VirtualHostu.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L174)
-- [ ] [Ověřit platnost certifikátu Let's Encrypt, automatickou obnovu přes Certbot a prakticky provést bezpečný dry-run.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L175)
-- [ ] [Později založit účty pro dvě děti podle schváleného rozšíření služby.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L176)
+- [ ] [Katka – ověřit / zprovoznit Nextcloud aplikaci v mobilu;](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L157)
+- [ ] [dítě 1 – rozhodnout o účtu a následně nastavit mobilní Nextcloud;](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L158)
+- [ ] [dítě 2 – rozhodnout o účtu a následně nastavit mobilní Nextcloud.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L159)
+- [ ] [Dokončit mobilní Nextcloud pro Katku.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L189)
+- [ ] [Rozhodnout a následně zprovoznit Nextcloud účty / mobilní klienty pro dvě děti.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L190)
+- [ ] [Ověřit aktivní účty, administrátorskou roli a skutečný stav účtu `djlobo`.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L191)
+- [ ] [Ověřit stav MFA a bezpečný recovery postup.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L192)
+- [ ] [Ověřit používaná aplikační hesla a připojené klienty bez zápisu jejich tajných hodnot.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L193)
+- [ ] [Ověřit současné veřejné odkazy a pravidla externího sdílení.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L194)
+- [ ] [Popsat a ověřit úplnou publikační cestu `cloud.madmike.cz`, včetně DNS, NAT/firewallu a Apache VirtualHostu.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L195)
+- [ ] [Ověřit platnost certifikátu Let's Encrypt, automatickou obnovu přes Certbot a prakticky provést bezpečný dry-run.](MadMike/Nextcloud/Pristup-a-uzivatele.md?plain=1#L196)
 
 ## MadMike / Premier
 
