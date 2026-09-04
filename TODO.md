@@ -175,6 +175,11 @@
 - [ ] [Ověřit současnou verzi NPM, stav všech proxy hostů a datum poslední úspěšné obnovy wildcard certifikátu.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L221)
 - [ ] [Ověřit, že Cloudflare API token je uložený v Bitwardenu a případný nezašifrovaný TXT soubor byl odstraněn.](MadMike/Servery/DNS-NPM-HTTPS.md?plain=1#L222)
 
+### MikroTik MCP
+
+- [ ] [Posoudit a doplnit vhodnou autentizační vrstvu veřejného MCP endpointu, která bude kompatibilní s používanými MCP klienty. Read-only na MCP i RouterOS snižuje dopad, ale veřejný endpoint bez aplikační autentizace není cílový dlouhodobý bezpečnostní stav.](MadMike/Servery/MikroTik-MCP.md?plain=1#L168)
+- [ ] [Navrhnout a prakticky ověřit jednotný multi-device config pro další MikroTik routery bez oslabení read-only ochrany.](MadMike/Servery/MikroTik-MCP.md?plain=1#L176)
+
 ### PVE Dell
 
 - [ ] [Najít skutečný soubor `create-vm.sh`, pravděpodobně na PVE Dell nebo v umístění, ze kterého byl při vytvoření VM400 spuštěn.](MadMike/Servery/PVE-Dell.md?plain=1#L150)
