@@ -1,6 +1,6 @@
 # PVE Ryzen
 
-> Poslední doložená změna VM infrastruktury: **2026-08-15** (šablona VM9000 a klon VM511). Ostatní technický stav hostitele vychází z kontroly **2026-07-28**, pokud u konkrétního údaje není uvedeno jinak.
+> Poslední doložená změna VM infrastruktury: **2026-09-04** (dokončení produkční služby MikroTik MCP na VM511). Ostatní technický stav hostitele vychází z kontroly **2026-07-28**, pokud u konkrétního údaje není uvedeno jinak.
 
 ## Role
 
@@ -74,7 +74,7 @@ Původní WD RAID byl před zrušením sestaven pouze pro čtení, zkontrolován
 | Ryzen / VM501 | produkční Windows a PREMIER | 4 vCPU, 8 GB RAM, `q35`, 60GB disk na `tank-ssd`, IP `192.168.89.34` |
 | Ryzen / VM510 | NPM a monitoring | Debian 13.5, 2 vCPU, 4 GB RAM, 20GB disk, IP `192.168.89.35` |
 | Ryzen / VM9000 | opakovaně použitelná Debian šablona | Debian 13, 2 vCPU, 2 GB RAM, 64GB disk na `tank-ssd`; Proxmox template |
-| Ryzen / VM511 | samostatný host pro MikroTik MCP | Debian 13.6, 2 vCPU, 2 GB RAM, 64GB disk na `tank-ssd`; instalace MCP dosud nedokončena |
+| Ryzen / VM511 | produkční read-only MikroTik MCP | Debian 13.6, 2 vCPU, 2 GB RAM, 64GB disk na `tank-ssd`, IP `192.168.89.36`; detail v [MikroTik-MCP.md](MikroTik-MCP.md) |
 
 ### Ryzen / VM401 – produkční Nextcloud
 
@@ -132,6 +132,8 @@ Po prvním startu byly provedeny tyto kroky:
 5. ověřena aktivní služba `qemu-guest-agent`;
 6. Debian aktualizován z 13.5 na 13.6 pomocí `apt update` a `apt full-upgrade`;
 7. VM po aktualizaci úspěšně restartována.
+
+Dne 2026-09-04 bylo dokončeno produkční nasazení `@usex/mikrotik-mcp` 5.5.0: trvalá systemd služba, dvouvrstvý read-only režim, `streamable-http` endpoint a samostatný Cloudflare Tunnel pro vzdálené MCP klienty. End-to-end čtení z hlavního RB5009 přes ChatGPT bylo prakticky ověřeno. Autoritativní provozní detail je v [MikroTik-MCP.md](MikroTik-MCP.md).
 
 Použitý příkaz pro správnou obnovu machine-id:
 
