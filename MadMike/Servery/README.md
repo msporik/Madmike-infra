@@ -1,6 +1,6 @@
 # Servery
 
-> Poslední doložená změna VM infrastruktury: **2026-08-15** (přenos Debian šablony na Ryzen a vytvoření VM511).  
+> Poslední doložená změna VM infrastruktury: **2026-09-04** (dokončení produkčního nasazení MikroTik MCP na VM511).  
 > Ostatní stav fyzických hostů a VM vychází z kontroly **2026-07-28**; nasazení Uptime Kumy bylo znovu ověřeno **2026-08-03**. Údaje bez novější živé kontroly nejsou vydávány za aktuální měření.
 
 ## Účel
@@ -23,7 +23,7 @@ Dokumentace má správci umožnit:
 | PVE Dell | u Richarda | Offsite DR host a provoz PBS ve VM200 | [PVE-Dell.md](PVE-Dell.md) |
 | Ryzen / VM510 | PVE Ryzen | Docker host pro NPM a monitoring | [VM510-Docker.md](VM510-Docker.md) |
 | Ryzen / VM9000 | PVE Ryzen | Opakovaně použitelná Debian 13 šablona | [PVE-Ryzen.md](PVE-Ryzen.md#ryzen--vm9000--debian13-template) |
-| Ryzen / VM511 | PVE Ryzen | Samostatná VM pro MikroTik MCP; instalace služby probíhá | [PVE-Ryzen.md](PVE-Ryzen.md#ryzen--vm511--mikrotik-mcp) |
+| Ryzen / VM511 | PVE Ryzen | Produkční read-only MikroTik MCP pro AI klienty | [MikroTik-MCP.md](MikroTik-MCP.md) |
 
 Základní princip je:
 
@@ -36,7 +36,8 @@ Dell není druhý trvale aktivní produkční host. Produkční VM401 a VM501 ma
 
 ## Související serverová infrastruktura
 
-- [Interní DNS, NPM a HTTPS](DNS-NPM-HTTPS.md) – interní názvy, wildcard DNS, Nginx Proxy Manager, upstreamy a certifikát.
+- [Interní DNS, NPM a HTTPS](DNS-NPM-HTTPS.md) – interní názvy, wildcard DNS, Nginx Proxy Manager, upstreamy, certifikát a vědomé veřejné výjimky.
+- [MikroTik MCP](MikroTik-MCP.md) – VM511, read-only ochrana, systemd služba, Cloudflare Tunnel a napojení AI klientů.
 - [WireGuard](WireGuard.md) – tunely, serverové trasy a přístup do offsite sítě.
 - [Budoucí produkční serverová platforma](Budouci-platforma.md) – schválený nenásilný upgrade PVE Ryzen v rámci AM4.
 
@@ -52,6 +53,7 @@ Dell není druhý trvale aktivní produkční host. Produkční VM401 a VM501 ma
 
 - Hardware hostů, jejich storage, napájení, umístění a konfigurace VM patří do projektu **Servery**.
 - Docker, Compose soubory, sítě a obnovitelnost služeb na VM510 patří do [VM510-Docker.md](VM510-Docker.md).
+- Provoz MikroTik MCP na VM511 a jeho veřejný read-only endpoint patří do [MikroTik-MCP.md](MikroTik-MCP.md); spravovaná MikroTik zařízení patří do projektu [Síť](../Sit/README.md).
 - Chování monitorovacích aplikací, monitory a alarmy patří do projektu [Monitoring](../Monitoring/README.md).
 - Backup joby, retence, Verify, Prune, Garbage Collection, restore testy a DR patří do projektu [Zálohy](../Zalohy/README.md).
 - Provoz Nextcloudu patří do projektu [Nextcloud](../Nextcloud/README.md).
@@ -67,7 +69,8 @@ Po úplném výpadku se infrastruktura kontroluje v tomto pořadí:
 3. ZFS pooly a dostupnost storage;
 4. produkční VM401 Nextcloud a VM501 Windows/PREMIER podle aktuální provozní potřeby;
 5. VM510, NPM a monitorovací služby;
-6. offsite PBS a poslední použitelné zálohy.
+6. VM511 MikroTik MCP podle potřeby správy;
+7. offsite PBS a poslední použitelné zálohy.
 
 Pořadí není automatický příkaz ke spuštění všech VM. Před startem obnovené nebo DR kopie se vždy vyloučí, že stejná produkční VM už neběží jinde.
 
