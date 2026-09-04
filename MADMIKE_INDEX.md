@@ -20,7 +20,7 @@ Pravidla zápisu a bezpečnosti jsou v [`AGENTS.md`](AGENTS.md).
 | Téma / dotaz | Začni zde | Detail podle potřeby |
 |---|---|---|
 | Celkový přehled MadMike | [`MadMike/README.md`](MadMike/README.md) | příslušná oblast níže |
-| Servery, PVE, VM, Docker, platforma | [`MadMike/Servery/README.md`](MadMike/Servery/README.md) | `PVE-Ryzen.md`, `PVE-Dell.md`, `VM510-Docker.md`, `Budouci-platforma.md` |
+| Servery, PVE, VM, Docker, platforma | [`MadMike/Servery/README.md`](MadMike/Servery/README.md) | `PVE-Ryzen.md`, `PVE-Dell.md`, `VM510-Docker.md`, `MikroTik-MCP.md`, `Budouci-platforma.md` |
 | WireGuard, DNS, HTTPS, NPM | [`MadMike/Servery/README.md`](MadMike/Servery/README.md) | `WireGuard.md`, `DNS-NPM-HTTPS.md` |
 | Zálohy a disaster recovery | [`MadMike/Zalohy/README.md`](MadMike/Zalohy/README.md) | `PBS-DR.md`, `Home-Assistant.md`, `MikroTik.md` |
 | Nextcloud | [`MadMike/Nextcloud/README.md`](MadMike/Nextcloud/README.md) | `Provoz-a-uloziste.md`, `Pristup-a-uzivatele.md` |
@@ -52,7 +52,7 @@ Použij pro MikroTik infrastrukturu, topologii, adresní plán a síťové změn
 Použij pro domácí HA instanci a její integrace. Zálohovací strategie HA je samostatně v `MadMike/Zalohy/Home-Assistant.md`. Ostatní lokality mají vlastní kapitoly repozitáře a nemají se automaticky míchat s MadMike.
 
 ### PREMIER
-Použij pro provoz Windows/PREMIER a uživatelský přístup k této službě. Obecná VM infrastruktura patří do `Servery`.
+Použij pro provoz Windows/PREMIER a uživatelský přístup k této službě. Obecná VM infrastruktura patří do `Servery`; backup/restore VM501 v `Zalohy`.
 
 ### Přístupy
 Použij pro společná pravidla účtů, oprávnění a správu tajných údajů. Tajné hodnoty se do GitHubu neukládají.
