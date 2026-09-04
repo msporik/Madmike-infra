@@ -195,12 +195,12 @@
 
 ### PVE Ryzen
 
-- [ ] [Ověřit aktuální PVE konfiguraci VM401 živými výpisy `pvesm` a `qm config 401`, včetně prostředků, disků a fyzického ZFS poolu za storage ID `tank-nas-zfs`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L257)
-- [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L258)
-- [ ] [Ověřit přesný model základní desky A520, současný zdroj a zapojení napájení před instalací M4-ATX.](MadMike/Servery/PVE-Ryzen.md?plain=1#L259)
-- [ ] [Po návratu z dovolené objednat standardní Mini-Box M4-ATX 6–30 V / 250 W a potřebné kabely.](MadMike/Servery/PVE-Ryzen.md?plain=1#L260)
-- [ ] [Před instalací M4-ATX ověřit práh baterie DRS a připravit zapojení AC OK/AC FAIL → IGNITION → POWER SW.](MadMike/Servery/PVE-Ryzen.md?plain=1#L261)
-- [ ] [Po instalaci nastavit prodlevy a prakticky otestovat celý cyklus výpadek → korektní shutdown → bezpečný hard-off → návrat sítě → automatický start.](MadMike/Servery/PVE-Ryzen.md?plain=1#L262)
+- [ ] [Ověřit aktuální PVE konfiguraci VM401 živými výpisy `pvesm` a `qm config 401`, včetně prostředků, disků a fyzického ZFS poolu za storage ID `tank-nas-zfs`.](MadMike/Servery/PVE-Ryzen.md?plain=1#L259)
+- [ ] [Ověřit současné rozdělení a obsazení systémového NVMe.](MadMike/Servery/PVE-Ryzen.md?plain=1#L260)
+- [ ] [Ověřit přesný model základní desky A520, současný zdroj a zapojení napájení před instalací M4-ATX.](MadMike/Servery/PVE-Ryzen.md?plain=1#L261)
+- [ ] [Po návratu z dovolené objednat standardní Mini-Box M4-ATX 6–30 V / 250 W a potřebné kabely.](MadMike/Servery/PVE-Ryzen.md?plain=1#L262)
+- [ ] [Před instalací M4-ATX ověřit práh baterie DRS a připravit zapojení AC OK/AC FAIL → IGNITION → POWER SW.](MadMike/Servery/PVE-Ryzen.md?plain=1#L263)
+- [ ] [Po instalaci nastavit prodlevy a prakticky otestovat celý cyklus výpadek → korektní shutdown → bezpečný hard-off → návrat sítě → automatický start.](MadMike/Servery/PVE-Ryzen.md?plain=1#L264)
 
 ### VM510 – Docker infrastruktura
 
