@@ -1,6 +1,6 @@
 # Interní DNS, NPM a HTTPS
 
-> Architektura byla prakticky ověřena z LAN i přes WireGuard **2026-07-28**. Konfigurace NPM a certifikátu nebyla při tomto zpracování znovu porovnána s živým systémem.
+> Architektura byla prakticky ověřena z LAN i přes WireGuard **2026-07-28**. Veřejná výjimka MikroTik MCP byla doplněna a prakticky ověřena **2026-09-04**.
 
 ## Účel
 
@@ -33,6 +33,7 @@ klient
 | WireGuard do offsite sítě | [WireGuard.md](WireGuard.md) |
 | Docker nasazení NPM a persistence | [VM510-Docker.md](VM510-Docker.md) |
 | Proxy hosty a wildcard certifikát | tento dokument |
+| Veřejný MikroTik MCP endpoint | [MikroTik-MCP.md](MikroTik-MCP.md) |
 | Chování cílové aplikace | projekt dané aplikace |
 | Tajné údaje Cloudflare a přístupy | projekt [Přístupy](../Pristupy/README.md) a bezpečné úložiště mimo GitHub |
 
@@ -43,7 +44,8 @@ klient
 - Statický wildcard `*.mikehub.cz` směřuje na NPM `192.168.89.35`.
 - `valtom.mikehub.cz` je veřejná výjimka mimo interní NPM. Podrobnosti jsou v [HA ValTom / Nasazení a přístup](../../HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md).
 - `domov.mikehub.cz` a `mcp.mikehub.cz` jsou veřejné výjimky vedené přes Cloudflare Tunnel `homeassistant-domov`, nikoli přes NPM. Podrobnosti jsou v [domácím Home Assistantu](../Home-Assistant/README.md).
-- Interní wildcard `*.mikehub.cz → 192.168.89.35` tyto dva veřejné názvy v domácí LAN přebíjí. Nefunkčnost stejné veřejné URL doma je proto v současném návrhu očekávaná.
+- `mikrotik-mcp.mikehub.cz` je veřejná výjimka vedená přes samostatný Cloudflare Tunnel `mikrotik-mcp` s konektorem přímo na VM511. Veřejná cesta nevede přes NPM. Podrobnosti jsou v [MikroTik-MCP.md](MikroTik-MCP.md).
+- Interní wildcard `*.mikehub.cz → 192.168.89.35` veřejné názvy v domácí LAN přebíjí, pokud pro ně není vytvořená explicitní interní výjimka. Lokální test stejného hostname proto nemusí testovat veřejný Cloudflare Tunnel.
 - AdGuard není autoritativním místem interních překladů; slouží odděleně k filtrování reklam.
 
 Notebookový WireGuard profil používá:
@@ -67,6 +69,7 @@ NPM běží na [Ryzen / VM510](VM510-Docker.md), IP `192.168.89.35`.
 | `pulse.mikehub.cz` | `http://pulse:7655` | Pulse |
 | `pvedell.mikehub.cz` | `https://192.168.100.11:8006` | PVE Dell přes WireGuard |
 | `pbs.mikehub.cz` | `https://192.168.100.12:8007` | PBS ve VM200 přes WireGuard |
+| `mikrotik-mcp.mikehub.cz` | `http://192.168.89.36:8000` | Interní HTTPS cesta k MikroTik MCP; veřejný AI provoz jde mimo NPM přes Cloudflare Tunnel |
 
 Na proxy hostech se používá:
 
@@ -101,14 +104,16 @@ Compose cesty, kontejnery, porty a trvalé deklarace sítí jsou v [VM510-Docker
 
 Wildcard pokrývá jednopatrové názvy typu `pveryzen.mikehub.cz`, nikoliv víceúrovňové jméno typu `pve.home.mikehub.cz`. Proto se používají ploché názvy.
 
-Cloudflare slouží pro DNS challenge, veřejnou výjimku `valtom.mikehub.cz` a tunel `homeassistant-domov`. Přes tento tunel jsou publikované pouze:
+Cloudflare slouží pro DNS challenge a pro vědomé veřejné výjimky. Aktuálně jsou doložené tyto cesty:
 
 | Veřejný název | Účel | Cesta |
 |---|---|---|
+| `valtom.mikehub.cz` | vzdálený přístup k HA ValTom | Cloudflare Tunnel přímo k Home Assistantu ValTom |
 | `domov.mikehub.cz` | vzdálený přístup k domácímu Home Assistantu | Cloudflare Tunnel přímo k Home Assistantu |
-| `mcp.mikehub.cz` | read-only MCP přístup pro AI klienty | Cloudflare Tunnel k aplikaci Home Assistant MCP Server |
+| `mcp.mikehub.cz` | read-only Home Assistant MCP přístup pro AI klienty | Cloudflare Tunnel k aplikaci Home Assistant MCP Server |
+| `mikrotik-mcp.mikehub.cz` | read-only MikroTik MCP přístup pro AI klienty | samostatný Cloudflare Tunnel `mikrotik-mcp` → `cloudflared` na VM511 → `http://localhost:8000` |
 
-Tyto dvě cesty nevedou přes domácí NPM. Konfigurace Home Assistantu důvěřuje reverzní proxy v rozsahu `172.30.33.0/24` a zpracovává `X-Forwarded-For`. Tajná část MCP URL je přihlašovací údaj a patří do Bitwardenu, ne do tohoto dokumentu.
+Tyto veřejné cesty nevedou přes domácí NPM. U MikroTik MCP je interní NPM proxy host pouze paralelní interní HTTPS cesta; veřejný ChatGPT/Claude provoz jej nepoužívá.
 
 ## Běžná kontrola
 
@@ -123,11 +128,13 @@ Kontroluje se:
 
 - použitý DNS server je `192.168.89.1` nebo zamýšlená interní cesta;
 - interní jméno se překládá na `192.168.89.35`;
-- `valtom.mikehub.cz` se nepřekládá na interní NPM;
+- veřejná výjimka se z externího DNS nepřekládá na interní NPM;
 - HTTPS certifikát odpovídá jménu a není expirovaný;
 - funguje přihlášení a hlavní funkce, u PVE také konzole/Shell přes WebSocket.
 
 Příkaz s explicitním DNS serverem ověří odpověď RB5009, ale neprokáže, že klient tento server skutečně používá. Rozhodující je i test bez explicitně uvedeného serveru.
+
+U veřejných výjimek je nutné rozlišit interní a externí test. Pokud interní wildcard přebíjí veřejný hostname, lokální `curl` může skončit na NPM a neověřuje Cloudflare Tunnel.
 
 ### Na VM510
 
@@ -143,7 +150,7 @@ Neupravený `docker compose config` se nesdílí, protože může obsahovat tajn
 
 ## Diagnostické větvení
 
-Při poruše se testují vrstvy v tomto pořadí:
+Při poruše interních NPM služeb se testují vrstvy v tomto pořadí:
 
 1. DNS překlad jména;
 2. dostupnost NPM na `192.168.89.35`;
@@ -162,6 +169,7 @@ Při poruše se testují vrstvy v tomto pořadí:
 | Přihlášení PVE končí `401: No ticket` | nesprávné HTTP/HTTPS | používat HTTPS na klientské straně i správné HTTPS schéma upstreamu |
 | Certifikát je nedůvěryhodný nebo expirovaný | NPM/Let's Encrypt/Cloudflare | přiřazený certifikát, poslední obnova a DNS challenge |
 | PVE stránka funguje, konzole ne | WebSocket | WebSocket Support a aplikační log NPM |
+| Veřejný MCP funguje lokálně přes stejný hostname, ale ne z AI klienta | split DNS / veřejný tunnel | ověřit Cloudflare Tunnel a testovat z externí cesty, ne přes interní wildcard |
 
 ## Restart a obnova NPM
 
@@ -191,10 +199,12 @@ Po obnově VM510 nebo NPM se ověří:
 2. Zaznamenat běžící image/verzi, proxy hosty a platnost certifikátu bez exportu tajných hodnot.
 3. Měnit jednu vrstvu: DNS, NPM, certifikát nebo upstream; nespojovat je bez důvodu do jednoho zásahu.
 4. Připravit návratovou cestu a zachovat přímé IP/port přístupy.
-5. Po změně projít běžnou kontrolu všech sedmi názvů.
+5. Po změně projít běžnou kontrolu všech interních názvů a relevantních veřejných výjimek.
 6. Obnovu certifikátu netestovat mazáním fungujícího certifikátu. Použít podporovanou funkci NPM a ověřit výsledek v logu a prohlížeči.
 
 ## Přidání další služby
+
+Pro běžnou interní službu:
 
 1. Zvolit plochý název `sluzba.mikehub.cz`.
 2. Ověřit skutečnou interní adresu, port a schéma HTTP/HTTPS.
@@ -206,6 +216,8 @@ Po obnově VM510 nebo NPM se ověří:
 
 Díky internímu wildcard DNS se standardně nic dalšího nepřidává na RB5009, v Cloudflare ani u WEDOS.
 
+Pokud služba musí být dostupná z internetu bez WireGuardu, nejde o běžný NPM případ. Musí být výslovně navržena jako veřejná výjimka a zdokumentována v autoritativním dokumentu dané služby.
+
 ## Důležitá poučení
 
 - Proxmox přes obyčejné HTTP po přihlášení končil chybou `401: No ticket`; plnohodnotný přístup vyžaduje HTTPS.
@@ -213,6 +225,8 @@ Díky internímu wildcard DNS se standardně nic dalšího nepřidává na RB500
 - `docker compose config` může načíst `.env` a vypsat skutečné tajné hodnoty.
 - `ENCRYPTION_KEY` Mikru se nesmí měnit naslepo; může být nutný pro čtení uložených přístupových údajů.
 - Jedna fungující odpověď portu nepotvrzuje přihlášení, WebSocket ani aplikační funkci.
+- Interní NPM endpoint a veřejný Cloudflare Tunnel jsou dvě různé cesty. Úspěšný test přes interní wildcard neprokazuje veřejnou dostupnost.
+- Před návrhem nové publikační cesty je nutné nejprve dohledat stávající architekturu v tomto dokumentu; nevytvářet paralelní ingress jen podle momentálního dojmu.
 
 ## Otevřené kontroly
 
