@@ -50,6 +50,17 @@
 - [ ] [Porovnat aktivní zařízení s Mikr Managerem a kusovou evidencí v Airtable; skladový stav sám neurčuje nasazení v lokalitě.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L123)
 - [ ] [Ověřit poslední použitelný `.backup` a `.rsc` obou zařízení a možnost místního zásahu.](Honza/Sit/MikroTik-a-WiFi.md?plain=1#L124)
 
+## MadMike / AI
+
+### eM Client MCP – napojení e-mailu do ChatGPT
+
+- [ ] [Upravit zadání briefingu tak, aby explicitně procházelo zvolené složky.](MadMike/AI/eM-Client-MCP.md?plain=1#L209)
+- [ ] [Porovnat dobu běhu v režimech Chat a Work.](MadMike/AI/eM-Client-MCP.md?plain=1#L210)
+- [ ] [Ověřit práci s přílohami na vybraném testovacím e-mailu.](MadMike/AI/eM-Client-MCP.md?plain=1#L211)
+- [ ] [Ověřit, proč nejsou přes MCP viditelné ostatní účty.](MadMike/AI/eM-Client-MCP.md?plain=1#L212)
+- [ ] [Vyzkoušet projektový inbox v Gmailu pro projekt BESS GuZu.](MadMike/AI/eM-Client-MCP.md?plain=1#L213)
+- [ ] [Teprve podle přínosu rozhodnout o trvalé službě nebo malé VM.](MadMike/AI/eM-Client-MCP.md?plain=1#L214)
+
 ## MadMike / Home-Assistant
 
 ### FVE SolaX
