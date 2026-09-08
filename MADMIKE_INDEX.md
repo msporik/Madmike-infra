@@ -20,6 +20,7 @@ Pravidla zápisu a bezpečnosti jsou v [`AGENTS.md`](AGENTS.md).
 | Téma / dotaz | Začni zde | Detail podle potřeby |
 |---|---|---|
 | Celkový přehled MadMike | [`MadMike/README.md`](MadMike/README.md) | příslušná oblast níže |
+| AI workspace, MCP, ChatGPT, integrace | [`MadMike/AI/README.md`](MadMike/AI/README.md) | `eM-Client-MCP.md`, odkazy na další integrační dokumentaci |
 | Servery, PVE, VM, Docker, platforma | [`MadMike/Servery/README.md`](MadMike/Servery/README.md) | `PVE-Ryzen.md`, `PVE-Dell.md`, `VM510-Docker.md`, `MikroTik-MCP.md`, `Budouci-platforma.md` |
 | WireGuard, DNS, HTTPS, NPM | [`MadMike/Servery/README.md`](MadMike/Servery/README.md) | `WireGuard.md`, `DNS-NPM-HTTPS.md` |
 | Zálohy a disaster recovery | [`MadMike/Zalohy/README.md`](MadMike/Zalohy/README.md) | `PBS-DR.md`, `Home-Assistant.md`, `MikroTik.md` |
@@ -32,6 +33,9 @@ Pravidla zápisu a bezpečnosti jsou v [`AGENTS.md`](AGENTS.md).
 | Co je ještě otevřené | [`TODO.md`](TODO.md) | následovat odkaz na autoritativní dokument položky |
 
 ## Hranice oblastí
+
+### AI workspace
+Použij pro integrace AI s provozními systémy, společné zásady MCP a praktické AI piloty. Provozní podrobnosti konkrétní VM nebo síťové služby zůstávají v `MadMike/Servery`; AI dokumentace na ně pouze odkazuje.
 
 ### Servery
 Použij pro fyzické a virtualizační hosty, VM/CT, storage hostitele, Docker VM, budoucí serverovou platformu a serverovou část WireGuard/DNS/HTTPS. Síťovou topologii a MikroTik zařízení řeš primárně v `MadMike/Sit`.
