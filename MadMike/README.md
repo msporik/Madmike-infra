@@ -4,6 +4,7 @@ Kapitola dokumentace provozované infrastruktury MadMike.
 
 ## Projekty
 
+- [AI workspace](AI/README.md) – propojení AI s e-mailem, sítí a dalšími provozními systémy; piloty MCP a společné bezpečnostní zásady.
 - [Monitoring](Monitoring/README.md) – dohled nad Proxmoxem, PBS, MikroTiky a dostupností služeb; společné doručování vybraných upozornění přes Pushover.
 - [Servery](Servery/README.md) – produkční a DR Proxmox servery, důležité virtuální stroje a infrastruktura přístupu k serverovým službám.
 - [Nextcloud](Nextcloud/README.md) – produkční soukromý cloud, provoz, úložiště, přístup a uživatelé.
