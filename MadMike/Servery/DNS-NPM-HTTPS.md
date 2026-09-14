@@ -1,6 +1,6 @@
 # Interní DNS, NPM a HTTPS
 
-> Architektura byla prakticky ověřena z LAN i přes WireGuard **2026-07-28**. Veřejná výjimka MikroTik MCP byla doplněna a prakticky ověřena **2026-09-04**.
+> Architektura byla prakticky ověřena z LAN i přes WireGuard **2026-07-28**. Veřejná výjimka MikroTik MCP byla doplněna a prakticky ověřena **2026-09-04**. Veřejný OpenProject + MCP a související split-DNS/NPM cesta byly ověřené **2026-09-14**.
 
 ## Účel
 
@@ -34,6 +34,7 @@ klient
 | Docker nasazení NPM a persistence | [VM510-Docker.md](VM510-Docker.md) |
 | Proxy hosty a wildcard certifikát | tento dokument |
 | Veřejný MikroTik MCP endpoint | [MikroTik-MCP.md](MikroTik-MCP.md) |
+| OpenProject GUI, MCP a jeho veřejná/internal cesta | [OpenProject.md](OpenProject.md) |
 | Chování cílové aplikace | projekt dané aplikace |
 | Tajné údaje Cloudflare a přístupy | projekt [Přístupy](../Pristupy/README.md) a bezpečné úložiště mimo GitHub |
 
@@ -45,6 +46,8 @@ klient
 - `valtom.mikehub.cz` je veřejná výjimka mimo interní NPM. Podrobnosti jsou v [HA ValTom / Nasazení a přístup](../../HA-ValTom/Home-Assistant/Nasazeni-a-pristup.md).
 - `domov.mikehub.cz` a `mcp.mikehub.cz` jsou veřejné výjimky vedené přes Cloudflare Tunnel `homeassistant-domov`, nikoli přes NPM. Podrobnosti jsou v [domácím Home Assistantu](../Home-Assistant/README.md).
 - `mikrotik-mcp.mikehub.cz` je veřejná výjimka vedená přes samostatný Cloudflare Tunnel `mikrotik-mcp` s konektorem přímo na VM511. Veřejná cesta nevede přes NPM. Podrobnosti jsou v [MikroTik-MCP.md](MikroTik-MCP.md).
+- `openproject.mikehub.cz` je veřejně publikovaný přes Cloudflare Tunnel `openproject-mcp`, ale v domácí LAN ho wildcard překládá na NPM. Proto existuje NPM Proxy Host `openproject.mikehub.cz → 192.168.89.37:8080`; tato interní cesta je současně nutná pro MCP, který používá canonical URL OpenProjectu. Podrobnosti jsou v [OpenProject.md](OpenProject.md).
+- `openproject-mcp.mikehub.cz` je veřejný MCP endpoint přes stejný Cloudflare Tunnel `openproject-mcp`; veřejná cesta jde přímo na `cloudflared` ve VM612 a dále na `localhost:8090`.
 - Interní wildcard `*.mikehub.cz → 192.168.89.35` veřejné názvy v domácí LAN přebíjí, pokud pro ně není vytvořená explicitní interní výjimka. Lokální test stejného hostname proto nemusí testovat veřejný Cloudflare Tunnel.
 - AdGuard není autoritativním místem interních překladů; slouží odděleně k filtrování reklam.
 
@@ -70,6 +73,7 @@ NPM běží na [Ryzen / VM510](VM510-Docker.md), IP `192.168.89.35`.
 | `pvedell.mikehub.cz` | `https://192.168.100.11:8006` | PVE Dell přes WireGuard |
 | `pbs.mikehub.cz` | `https://192.168.100.12:8007` | PBS ve VM200 přes WireGuard |
 | `mikrotik-mcp.mikehub.cz` | `http://192.168.89.36:8000` | Interní HTTPS cesta k MikroTik MCP; veřejný AI provoz jde mimo NPM přes Cloudflare Tunnel |
+| `openproject.mikehub.cz` | `http://192.168.89.37:8080` | Interní canonical HTTPS cesta k OpenProject GUI/API; veřejný provoz jde přes Cloudflare Tunnel |
 
 Na proxy hostech se používá:
 
@@ -112,8 +116,10 @@ Cloudflare slouží pro DNS challenge a pro vědomé veřejné výjimky. Aktuál
 | `domov.mikehub.cz` | vzdálený přístup k domácímu Home Assistantu | Cloudflare Tunnel přímo k Home Assistantu |
 | `mcp.mikehub.cz` | read-only Home Assistant MCP přístup pro AI klienty | Cloudflare Tunnel k aplikaci Home Assistant MCP Server |
 | `mikrotik-mcp.mikehub.cz` | read-only MikroTik MCP přístup pro AI klienty | samostatný Cloudflare Tunnel `mikrotik-mcp` → `cloudflared` na VM511 → `http://localhost:8000` |
+| `openproject.mikehub.cz` | veřejný přístup k OpenProject GUI/API | Cloudflare Tunnel `openproject-mcp` → `cloudflared` na VM612 → `http://localhost:8080` |
+| `openproject-mcp.mikehub.cz` | OpenProject MCP pro ChatGPT a další MCP klienty | Cloudflare Tunnel `openproject-mcp` → `cloudflared` na VM612 → `http://localhost:8090` |
 
-Tyto veřejné cesty nevedou přes domácí NPM. U MikroTik MCP je interní NPM proxy host pouze paralelní interní HTTPS cesta; veřejný ChatGPT/Claude provoz jej nepoužívá.
+Veřejné Cloudflare cesty nevedou přes domácí NPM. Výjimkou v pohledu zevnitř LAN je `openproject.mikehub.cz`: stejný canonical hostname je kvůli split DNS interně obsloužený NPM, zatímco z internetu jde přes Cloudflare Tunnel. To je záměrné a potřebuje to i OpenProject MCP, který volá API přes canonical HTTPS hostname.
 
 ## Běžná kontrola
 
@@ -170,6 +176,8 @@ Při poruše interních NPM služeb se testují vrstvy v tomto pořadí:
 | Certifikát je nedůvěryhodný nebo expirovaný | NPM/Let's Encrypt/Cloudflare | přiřazený certifikát, poslední obnova a DNS challenge |
 | PVE stránka funguje, konzole ne | WebSocket | WebSocket Support a aplikační log NPM |
 | Veřejný MCP funguje lokálně přes stejný hostname, ale ne z AI klienta | split DNS / veřejný tunnel | ověřit Cloudflare Tunnel a testovat z externí cesty, ne přes interní wildcard |
+| OpenProject přes IP vrací `Invalid host_name configuration` | canonical hostname aplikace | používat `https://openproject.mikehub.cz` a ověřit NPM/Cloudflare cestu podle původu klienta |
+| OpenProject canonical hostname z LAN končí TLS/SNI chybou | chybějící nebo chybný NPM proxy host | ověřit `openproject.mikehub.cz → 192.168.89.37:8080` a wildcard certifikát |
 
 ## Restart a obnova NPM
 
@@ -226,6 +234,8 @@ Pokud služba musí být dostupná z internetu bez WireGuardu, nejde o běžný 
 - `ENCRYPTION_KEY` Mikru se nesmí měnit naslepo; může být nutný pro čtení uložených přístupových údajů.
 - Jedna fungující odpověď portu nepotvrzuje přihlášení, WebSocket ani aplikační funkci.
 - Interní NPM endpoint a veřejný Cloudflare Tunnel jsou dvě různé cesty. Úspěšný test přes interní wildcard neprokazuje veřejnou dostupnost.
+- U aplikace s canonical hostname, jako OpenProject, musí stejný veřejný hostname fungovat i z interní sítě, pokud ho používá interní služba. V MadMike to znamená split DNS → NPM → OpenProject.
+- `HTTP 401` z chráněného API bez tokenu může být správný síťový test: potvrzuje dosažitelnost endpointu a odděluje autentizační problém od DNS/TLS/routingu.
 - Před návrhem nové publikační cesty je nutné nejprve dohledat stávající architekturu v tomto dokumentu; nevytvářet paralelní ingress jen podle momentálního dojmu.
 
 ## Otevřené kontroly
