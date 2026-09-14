@@ -21,7 +21,8 @@ Pravidla zápisu a bezpečnosti jsou v [`AGENTS.md`](AGENTS.md).
 |---|---|---|
 | Celkový přehled MadMike | [`MadMike/README.md`](MadMike/README.md) | příslušná oblast níže |
 | AI workspace, MCP, ChatGPT, integrace | [`MadMike/AI/README.md`](MadMike/AI/README.md) | `eM-Client-MCP.md`, odkazy na další integrační dokumentaci |
-| Servery, PVE, VM, Docker, platforma | [`MadMike/Servery/README.md`](MadMike/Servery/README.md) | `PVE-Ryzen.md`, `PVE-Dell.md`, `VM510-Docker.md`, `MikroTik-MCP.md`, `Budouci-platforma.md` |
+| Servery, PVE, VM, Docker, platforma | [`MadMike/Servery/README.md`](MadMike/Servery/README.md) | `PVE-Ryzen.md`, `PVE-Dell.md`, `VM510-Docker.md`, `MikroTik-MCP.md`, `OpenProject.md`, `Budouci-platforma.md` |
+| OpenProject, projektové řízení a MCP | [`MadMike/Servery/OpenProject.md`](MadMike/Servery/OpenProject.md) | veřejný GUI přístup, Cloudflare Tunnel, split DNS/NPM, ChatGPT MCP |
 | WireGuard, DNS, HTTPS, NPM | [`MadMike/Servery/README.md`](MadMike/Servery/README.md) | `WireGuard.md`, `DNS-NPM-HTTPS.md` |
 | Zálohy a disaster recovery | [`MadMike/Zalohy/README.md`](MadMike/Zalohy/README.md) | `PBS-DR.md`, `Home-Assistant.md`, `MikroTik.md` |
 | Nextcloud | [`MadMike/Nextcloud/README.md`](MadMike/Nextcloud/README.md) | `Provoz-a-uloziste.md`, `Pristup-a-uzivatele.md` |
