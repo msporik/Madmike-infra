@@ -191,6 +191,10 @@
 - [ ] [Posoudit a doplnit vhodnou autentizační vrstvu veřejného MCP endpointu, která bude kompatibilní s používanými MCP klienty. Read-only na MCP i RouterOS snižuje dopad, ale veřejný endpoint bez aplikační autentizace není cílový dlouhodobý bezpečnostní stav.](MadMike/Servery/MikroTik-MCP.md?plain=1#L168)
 - [ ] [Navrhnout a prakticky ověřit jednotný multi-device config pro další MikroTik routery bez oslabení read-only ochrany.](MadMike/Servery/MikroTik-MCP.md?plain=1#L176)
 
+### OpenProject
+
+- [ ] [Doplnit vhodnou restart policy pro `openproject-mcp`, pokud se pilot změní na trvalou službu.](MadMike/Servery/OpenProject.md?plain=1#L230)
+
 ### PVE Dell
 
 - [ ] [Najít skutečný soubor `create-vm.sh`, pravděpodobně na PVE Dell nebo v umístění, ze kterého byl při vytvoření VM400 spuštěn.](MadMike/Servery/PVE-Dell.md?plain=1#L150)
