@@ -33,9 +33,20 @@ Toto rozdělení a jeho současné obsazení vyžadují živé ověření.
 
 ## Napájení
 
-Domácí rack používá DC systém Mean Well DRS-240-12 s baterií. Současný typ napájení Ryzenu a úplný výpadkový cyklus nebyly při konsolidaci živě ověřené.
+Domácí rack používá DC systém Mean Well DRS-240-12 s 12V / 18Ah baterií.
 
-Schválený cílový zdroj je Mini-Box M4-ATX 6–30 V / 250 W, standardní varianta, nikoliv M4-ATX-HV. Má:
+### DRS / DC napájení – stav 2026-09-19
+
+Dne 2026-09-19 byla rozšířena a opravena integrace DRS v Home Assistantu:
+
+- všech 10 používaných DRS entit má `unique_id` a po restartu jsou vedené v Entity Registry;
+- `Battery Current` byl opraven z interpretace `uint16` na `int16`;
+- hodnota `BAT_UVP_SET` byla změněna z `10.50 V` na `11.20 V`;
+- změna `BAT_UVP_SET` byla ověřena jako persistentní i po restartu Home Assistantu.
+
+Hodnota `11.20 V` je hlavní nízkonapěťový ochranný limit baterie DRS. Není zamýšlena jako běžný spouštěč shutdownu serveru ani jako náhrada signálu AC FAIL.
+
+Schválený cílový zdroj pro Ryzen je Mini-Box M4-ATX 6–30 V / 250 W, standardní varianta, nikoliv M4-ATX-HV. Má:
 
 - nahradit současné napájení serveru;
 - přijímat signál AC OK/AC FAIL z DRS přes vstup IGNITION;
@@ -43,9 +54,31 @@ Schválený cílový zdroj je Mini-Box M4-ATX 6–30 V / 250 W, standardní vari
 - po další bezpečnostní prodlevě případně provést hard-off;
 - po návratu sítě umožnit automatický start serveru.
 
+Cílová logika výpadku je:
+
+```text
+výpadek 230 V AC
+↓
+DRS přejde na baterii
+↓
+AC FAIL z DRS
+↓
+M4-ATX IGNITION
+↓
+nastavená prodleva
+↓
+POWER SW / ACPI shutdown Ryzenu
+↓
+bezpečnostní prodleva
+↓
+případný hard-off
+```
+
+Baterie tedy poskytuje časovou rezervu pro korektní vypnutí; `BAT_UVP_SET = 11.20 V` zůstává ochrannou spodní mezí. Po návratu 230 V musí DRS obnovit normální DC napájení a server musí být schopen automaticky nastartovat.
+
 Kritická vypínací cesta nemá záviset na Home Assistantu, síti ani běžící VM. USB M4-ATX má sloužit pro konfiguraci prodlev a napěťových mezí, případně monitoring, nikoliv jako jediná vypínací logika.
 
-Do instalace a praktického testu jde o plán, nikoliv současný stav.
+Do instalace M4-ATX a praktického testu celého cyklu jde stále o plán; ověřeným stavem je pouze výše popsaná konfigurace DRS a Home Assistantu.
 
 ## Storage
 
@@ -260,5 +293,6 @@ Autoritativní DR pořadník je v [PBS a disaster recovery](../Zalohy/PBS-DR.md)
 - [ ] Ověřit současné rozdělení a obsazení systémového NVMe.
 - [ ] Ověřit přesný model základní desky A520, současný zdroj a zapojení napájení před instalací M4-ATX.
 - [ ] Po návratu z dovolené objednat standardní Mini-Box M4-ATX 6–30 V / 250 W a potřebné kabely.
-- [ ] Před instalací M4-ATX ověřit práh baterie DRS a připravit zapojení AC OK/AC FAIL → IGNITION → POWER SW.
-- [ ] Po instalaci nastavit prodlevy a prakticky otestovat celý cyklus výpadek → korektní shutdown → bezpečný hard-off → návrat sítě → automatický start.
+- [x] Nastavit a ověřit `BAT_UVP_SET` DRS na `11.20 V`; změna byla 2026-09-19 ověřena jako persistentní i po restartu Home Assistantu.
+- [ ] Ověřit fyzické AC OK/AC FAIL rozhraní DRS a připravit zapojení AC OK/AC FAIL → IGNITION → POWER SW.
+- [ ] Po instalaci M4-ATX nastavit prodlevy a prakticky otestovat celý cyklus výpadek → korektní shutdown → bezpečný hard-off → návrat sítě → automatický start.
